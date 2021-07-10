@@ -40,6 +40,9 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    # Third part app
+    'bootstrap_italia_template',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
