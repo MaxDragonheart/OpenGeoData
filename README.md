@@ -1,6 +1,7 @@
 # UfficioUrbanistica
 Sito web dell'Ufficio Urbanistica del Comune di Parete
 
+Sviluppato usando [Bootstrap Italia template for Django](https://github.com/italia/design-django-theme)
 
 ## Utilità
 ### Gestione requirements

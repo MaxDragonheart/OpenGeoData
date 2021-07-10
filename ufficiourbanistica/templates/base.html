@@ -1,0 +1,61 @@
+{% load static %}
+<html lang="it" dir="ltr">
+    <head>
+<!-- BEGIN EXTRA CODE AREA -->
+    {#% include 'commons/google_analytics.html' %#}
+<!-- END EXTRA CODE AREA -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block page_title %}Ufficio Urbanistica | Comune di Parete{% endblock %}</title>
+    <link rel="icon" href=" https://urbanisticaparete.it{% static 'images/logo.png' %}" type="image/gif">
+    <meta name="description"
+          content="{% block page_meta_description %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
+<!-- BEGIN TAG OpenGraph AREA -->
+    <!-- TAG OpenGraph Facebook -->
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title"
+          content="{% block opengraph_title_facebook %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
+    <meta property="og:image"
+          content="{% block opengraph_image_facebook %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
+    <meta property="og:description"
+          content="{% block opengraph_description_facebook %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
+    <meta property="og:url"
+          content="{% block opengraph_url_facebook %} https://urbanisticaparete.it{% endblock %}" />
+    <meta property="og:site_name"
+          content="Massimiliano Moraca" />
+    <!-- TAG Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title"
+          content="{% block opengraph_title_twitter %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
+    <meta name="twitter:image"
+          content="{% block opengraph_image_twitter %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
+    <meta name="twitter:description"
+          content="{% block opengraph_description_twitter %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
+    <!-- TAG OpenGraph LinkedIn -->
+    <meta property='og:title'
+          content="{% block opengraph_title_linkedin %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
+    <meta property='og:image'
+          content="{% block opengraph_image_linkedin %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
+    <meta property='og:description'
+          content="{% block opengraph_description_linkedin %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
+    <meta property='og:url'
+          content="{% block opengraph_url_linkedin %} https://urbanisticaparete.it{% endblock %}" />
+<!-- END TAG OpenGraph AREA -->
+    <link rel="stylesheet"
+          href="{% static 'css/commons.css' %}">
+    {#% include 'commons/libraries.html' %#}
+    {% block custom_style %}{% endblock %}
+
+    </head>
+    <body>
+
+      {#% include 'commons/admin_bar.html' %#}
+
+      {% block content %}{% endblock %}
+
+      <footer>
+        {#% include 'commons/footer.html' %#}
+      </footer>
+
+    </body>
+</html>
