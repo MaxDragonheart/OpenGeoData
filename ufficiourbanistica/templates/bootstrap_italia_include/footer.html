@@ -1,0 +1,186 @@
+{% load static %}
+
+{% block footer %}
+<footer class="it-footer">
+    <div class="it-footer-main">
+        <div class="container">
+            {% block footer_top_section %}
+            <section>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="it-brand-wrapper">
+                            <a href="{% block footer_logo_url %}#{% endblock footer_logo_url %}">
+                                {% block footer_logo %}
+                                <img class="icon" src="{% static 'images/logo.png' %}" />
+                                {% endblock footer_logo %}
+                                {% block footer_org_text %}
+                                <div class="it-brand-text">
+                                    <h2 class="no_toc">
+                                        {% block footer_org_name %}
+                                        Ufficio Urbanistica | Comune di Parete
+                                        {% endblock footer_org_name %}
+                                    </h2>
+                                    <h3 class="no_toc d-none d-md-block">
+                                        {% block footer_org_subname %}
+                                        Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE)
+                                        {% endblock footer_org_subname %}
+                                    </h3>
+                                </div>
+                                {% endblock footer_org_text %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endblock footer_top_section %}
+
+            <!-- Footer middle section with menu blocks -->
+            {% block footer_menu_section %}
+            <section>
+                <div class="row">
+
+                    {% block first_column %}
+                    <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+                        <h4>
+                            <a href="#" title="Vai alla pagina: Amministrazione">Amministrazione</a>
+                        </h4>
+                        <div class="link-list-wrapper">
+                            <ul class="footer-list link-list clearfix">
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Giunta e consiglio">Giunta e consiglio</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Aree di competenza">Aree di competenza</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Dipendenti">Dipendenti</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Luoghi">Luoghi</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Associazioni e società partecipate">Associazioni e società partecipate</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endblock first_column %}
+
+                    {% block second_column %}
+                    <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+                        <h4>
+                            <a href="#" title="Vai alla pagina: Servizi">Servizi</a>
+                        </h4>
+                        <div class="link-list-wrapper">
+                            <ul class="footer-list link-list clearfix">
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Pagamenti">Pagamenti</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Sostegno">Sostegno</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Domande e iscrizioni">Domande e iscrizioni</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Segnalazioni">Segnalazioni</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Autorizzazioni e concessioni">Autorizzazioni e concessioni</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Certificati e dichiarazioni">Certificati e dichiarazioni</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endblock second_column %}
+
+                    {% block third_column %}
+                    <div class="col-lg-3 col-md-3 col-sm-6 pb-2">
+                        <h4>
+                            <a href="#" title="Vai alla pagina: Novità">Novità</a>
+                        </h4>
+                        <div class="link-list-wrapper">
+                            <ul class="footer-list link-list clearfix">
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Notizie">Notizie</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Eventi">Eventi</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Comunicati stampa">Comunicati stampa</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endblock third_column %}
+
+                    {% block fourth_column %}
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <h4>
+                            <a href="#" title="Vai alla pagina: Documenti">Documenti</a>
+                        </h4>
+                        <div class="link-list-wrapper">
+                            <ul class="footer-list link-list clearfix">
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Progetti e attività">Progetti e attività</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Delibere, determine e ordinanze">Delibere, determine e ordinanze</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Bandi">Bandi</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Concorsi">Concorsi</a></li>
+                                <li><a class="list-item" href="#" title="Vai alla pagina: Albo pretorio">Albo pretorio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    {% endblock fourth_column %}
+
+                </div>
+            </section>
+            {% endblock footer_menu_section %}
+
+            <!-- Footer bottom section with contacts -->
+            {% block footer_contacts_section %}
+            <section class="py-4 border-white border-top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 pb-2">
+                        <h4><a href="#" title="Vai alla pagina: Contatti">Contatti</a></h4>
+                        <p>
+                            <strong>Comune di Parete</strong><br> Via Amendola - Parete (CE) - 81030 <br>Codice fiscale / P. IVA: 81001710615 <br>IBAN: IT53 Q010 1075 2101 0000 0002 006
+                        </p>
+                        <div class="link-list-wrapper">
+                            <ul class="footer-list link-list clearfix">
+                                <li><a class="list-item" href="mailto:comune.parete@asmepec.it" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a></li>
+                                <li><a class="list-item" href="mailto:comune.parete@libero.it" title="Vai alla pagina: URP - Ufficio Relazioni con il Pubblico">URP - Ufficio Relazioni con il Pubblico</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 pb-2">
+                        <!-- <h4><a href="#" title="Vai alla pagina: Lorem Ipsum">Lorem Ipsum</a></h4> -->
+                        <img src="https://www.comune.parete.ce.it/c044047/images/iconefooter/logo-lg.png" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 pb-2">
+                        <div class="pb-2">
+                            <h4><a href="#" title="Vai alla pagina: Seguici su">Seguici su</a></h4>
+                            <ul class="list-inline text-left social">
+                                <li class="list-inline-item">
+                                    <a class="p-2 text-white" href="https://www.facebook.com/comunediparete/" target="_blank">
+                                        <svg class="icon icon-sm icon-white align-top">
+                                            <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook"></use>
+                                        </svg><span class="sr-only">Facebook</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <div class="pb-2">
+                            <h4><a href="#" title="Vai alla pagina: Newsletter">Newsletter</a></h4>
+                            <p>Form Newsletter</p>
+                              <form action="#" method="post">
+                                <label for="input-newsletter" class="active">Iscriviti per riceverla</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">@</div>
+                                  </div>
+                                  <input type="text" class="form-control" id="input-newsletter" name="input-newsletter" placeholder="Scrivi il tuo indirizzo email" >
+                                  <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                                  </div>
+                                </div>
+                                <button class="btn btn-default pull-right" type="submit">Iscriviti</button>
+                              </form>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+            {% endblock footer_contacts_section %}
+        </div>
+    </div>
+
+    {% block footer_bottom %}
+    <div class="it-footer-small-prints clearfix">
+        <div class="container">
+            {% block footer_bottom_content %}
+            <h3 class="sr-only">Sezione Link Utili</h3>
+            <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+                <!-- <li class="list-inline-item"><a href="#" title="Note Legali">Media policy</a></li> -->
+                <li class="list-inline-item"><a href="https://www.comune.parete.ce.it/c061054/zf/index.php/privacy/index/note-legali" title="Note Legali">Note legali</a></li>
+                <li class="list-inline-item"><a href="https://www.comune.parete.ce.it/c061054/zf/index.php/privacy/index/privacy" title="Privacy-Cookies">Privacy policy</a></li>
+                <li class="list-inline-item"><a href="#" title="Mappa del sito">Mappa del sito</a> </li>
+            </ul>
+            {% endblock footer_bottom_content %}
+        </div>
+    </div>
+    {% endblock footer_bottom %}
+</footer>
+{% endblock footer %}

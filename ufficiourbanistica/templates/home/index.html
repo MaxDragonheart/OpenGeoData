@@ -1,63 +1,9 @@
-{% extends 'bootstrap-italia-base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
-<!-- Page Title -->
-{% block page_title %}
-Ufficio Urbanistica | Comune di Parete
-{% endblock page_title %}
+{% block centered_container %}
 
-<!-- URL link top left -->
-{% block header_slim_org_url %}
- https://urbanisticaparete.it
-{% endblock header_slim_org_url %}
+HOME
 
-<!-- Name top left -->
-{% block header_slim_org_name %}
-Ufficio Urbanistica | Comune di Parete
-{% endblock header_slim_org_name %}
-
-<!-- Mobile slim_org_name -->
-{% block header_slim_mobile_org_name %}
-Ufficio Urbanistica | Comune di Parete
-{% endblock header_slim_mobile_org_name %}
-
-<!-- Make empty areas -->
-{% block header_mobile_arrow %}{% endblock header_mobile_arrow %}
-{% block header_mobile_slim_menu %}{% endblock header_mobile_slim_menu %}
-
-<!-- Logo in Header -->
-{% block header_center_logo %}
-<img class="icon" src="{% static 'images/logo.png' %}" />
-{% endblock header_center_logo %}
-
-<!-- Organization name in Header -->
-{% block header_center_org_name %}
-Ufficio Urbanistica | Comune di Parete
-{% endblock header_center_org_name %}
-
-<!-- Organization description in Header -->
-{% block header_center_org_subname %}
-Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE)
-{% endblock header_center_org_subname %}
-
-<!-- Logo in Footer -->
-{% block footer_logo %}
-<img class="icon" src="{% static 'images/logo.png' %}" />
-{% endblock footer_logo %}
-
-<!-- Organization name in Footer -->
-{% block footer_org_name %}
-Ufficio Urbanistica | Comune di Parete
-{% endblock footer_org_name %}
-
-<!-- Organization name in Footer -->
-{% block footer_org_subname %}
-Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE)
-{% endblock footer_org_subname %}
-
-
-{% block footer_contacts_section %}
-TEST
-{% include '../commons/footer.html' %}
-{% endblock footer_contacts_section %}
+{% endblock %}

@@ -53,11 +53,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    # 'django.contrib.gis',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     'abstracts',
     'protezione_civile',
     'shared_protocols',
     'urbanistica',
+    'usermanager',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +73,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'ufficiourbanistica.urls'
@@ -157,6 +165,9 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Sites settinges
 SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

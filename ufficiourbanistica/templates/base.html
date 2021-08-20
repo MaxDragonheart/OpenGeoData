@@ -1,61 +1,66 @@
+{% load django_bootstrap_italia_tags %}
+{% load i18n %}
 {% load static %}
-<html lang="it" dir="ltr">
-    <head>
-<!-- BEGIN EXTRA CODE AREA -->
-    {#% include 'commons/google_analytics.html' %#}
-<!-- END EXTRA CODE AREA -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block page_title %}Ufficio Urbanistica | Comune di Parete{% endblock %}</title>
-    <link rel="icon" href=" https://urbanisticaparete.it{% static 'images/logo.png' %}" type="image/gif">
-    <meta name="description"
-          content="{% block page_meta_description %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
-<!-- BEGIN TAG OpenGraph AREA -->
-    <!-- TAG OpenGraph Facebook -->
-    <meta property="og:locale" content="it_IT" />
-    <meta property="og:title"
-          content="{% block opengraph_title_facebook %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
-    <meta property="og:image"
-          content="{% block opengraph_image_facebook %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
-    <meta property="og:description"
-          content="{% block opengraph_description_facebook %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
-    <meta property="og:url"
-          content="{% block opengraph_url_facebook %} https://urbanisticaparete.it{% endblock %}" />
-    <meta property="og:site_name"
-          content="Massimiliano Moraca" />
-    <!-- TAG Twitter card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title"
-          content="{% block opengraph_title_twitter %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
-    <meta name="twitter:image"
-          content="{% block opengraph_image_twitter %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
-    <meta name="twitter:description"
-          content="{% block opengraph_description_twitter %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
-    <!-- TAG OpenGraph LinkedIn -->
-    <meta property='og:title'
-          content="{% block opengraph_title_linkedin %}Ufficio Urbanistica | Comune di Parete{% endblock %}" />
-    <meta property='og:image'
-          content="{% block opengraph_image_linkedin %} https://urbanisticaparete.it{% static 'images/header_default.png' %}{% endblock %}" />
-    <meta property='og:description'
-          content="{% block opengraph_description_linkedin %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock %}" />
-    <meta property='og:url'
-          content="{% block opengraph_url_linkedin %} https://urbanisticaparete.it{% endblock %}" />
-<!-- END TAG OpenGraph AREA -->
-    <link rel="stylesheet"
-          href="{% static 'css/commons.css' %}">
-    {#% include 'commons/libraries.html' %#}
-    {% block custom_style %}{% endblock %}
 
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Page details -->
+        <title>
+            {% block page_title %}Ufficio Urbanistica | Comune di Parete{% endblock page_title %}
+        </title>
+        <meta name="description" content="{% block page_meta_description %}Sito web ufficiale dell'Ufficio Urbanistica del Comune di Parete (CE){% endblock page_meta_description %}">
+        <meta name="keywords" content="{% block page_meta_keywords %}{% endblock page_meta_keywords %}">
+        <meta name="robots" content="{% block page_meta_robots %}all{% endblock page_meta_robots %}" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap-italia.min.css' %}">
+        <!-- Fonts -->
+        <script>window.__PUBLIC_PATH__ = "{% static 'fonts' %}"</script>
+        <!-- Javascript -->
+        <script src="{% static 'js/bootstrap-italia.bundle.min.js' %}"></script>
+        <!-- Extra CSS/Javascript -->
+        {% block extra_head %}
+          <link rel="icon" href="{% static 'images/logo.png' %}">
+          {#% include 'commons/google_analytics.html' %#}
+          {% include 'commons/libraries.html' %}
+        {% endblock extra_head %}
     </head>
     <body>
+      <!-- Container - Header of page-->
+      {% include 'bootstrap_italia_include/header_wrapper.html' %}
 
-      {#% include 'commons/admin_bar.html' %#}
+      <!-- Container - System's messages-->
+      {% include 'bootstrap_italia_include/messages.html' %}
 
-      {% block content %}{% endblock %}
+        <!-- Container - Body of page-->
+        <div class="main-body">
+            {% block container %}
+            <div class="container">
+                <div class="col-12 py-md-5 bd-content">
+                    {% block centered_container %}{% endblock %}
+                </div>
+            </div>
+            {% endblock container %}
+        </div>
 
-      <footer>
-        {#% include 'commons/footer.html' %#}
-      </footer>
+        <!-- Footer -->
+        {% include 'bootstrap_italia_include/footer.html' %}
 
+        {% block bottom_scripts %}
+        <script>
+        <!-- Placed here to take customizable settings value -->
+        {% default_js_date_value as default_js_date_value %}
+        $(document).ready(function() {
+            $('.it-date-datepicker').datepicker({
+                inputFormat: ["{{ default_js_date_value }}"],
+                outputFormat: "{{ default_js_date_value }}",
+            });
+        });
+        </script>
+        {% endblock bottom_scripts %}
+        {% block extra_scripts %}{% endblock extra_scripts %}
     </body>
 </html>
