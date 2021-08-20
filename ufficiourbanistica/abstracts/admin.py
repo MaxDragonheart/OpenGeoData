@@ -28,7 +28,7 @@ class ModelPostBaseAdmin(admin.ModelAdmin):
     con questa classe definisco come viene gestito Blog
     nell'admin panel
     """
-    list_display = ["title", "time_of_reading", "publishing_date", "updating_date", "highlighted", "draft", "is_future"]
+    list_display = ["title", "time_of_reading", "publishing_date", "updating_date", "highlighted", "draft", "is_future", "category"]
     list_filter = ["publishing_date", "updating_date", "category"]
     search_fields = ["title", "description", "contents"]
     prepopulated_fields = {"slug_post": ("title",)}

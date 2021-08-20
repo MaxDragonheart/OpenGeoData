@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from django.conf import settings
 
 from pathlib import Path
 import environ
@@ -40,7 +41,10 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
-    # Third part app
+    'grappelli',
+    'filebrowser',
+    'tinymce',
+    'corsheaders',
     'bootstrap_italia_template',
 
     'django.contrib.admin',
@@ -49,6 +53,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'abstracts',
+    'protezione_civile',
+    'shared_protocols',
+    'urbanistica',
 ]
 
 MIDDLEWARE = [
@@ -93,15 +102,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 
-    # 'default': {
-    #     'ENGINE': env('DB_ENGINE'),
-    #     'NAME': env('DB_NAME'),
-    #     'USER': env('DB_USER'),
-    #     'PASSWORD': env('DB_PASSWORD'),
-    #     'HOST': env('DB_HOST'),
-    #     'PORT': env('DB_PORT'),
-    # }
-
 }
 
 
@@ -133,16 +133,16 @@ TIME_ZONE = 'Europe/Rome'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static-folder'
+STATIC_ROOT = BASE_DIR / '../static-folder'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / '../media-folder'
@@ -151,6 +151,10 @@ STATICFILES_DIRS = [
         BASE_DIR / 'static',
     ]
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 102400000
+FILE_UPLOAD_PERMISSIONS = 0o755
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 # Sites settinges
 SITE_ID = 1
 
@@ -158,3 +162,54 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# corsheaders settings
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ['*']
+
+# Django FileBrowser
+EXTENSIONS = getattr(settings, "FILEBROWSER_EXTENSIONS", {
+    'Image': ['.jpg', '.jpeg', '.gif', '.png', '.webp'],
+    'Document': ['.pdf', '.doc', '.rtf', '.txt', '.xls', '.csv', '.zip', '.gpkg'],
+    'Video': ['.mov', '.wmv', '.mpeg', '.mpg', '.avi', '.rm'],
+    'Audio': ['.mp3', '.mp4', '.wav', '.aiff', '.midi', '.m4p']
+})
+SELECT_FORMATS = getattr(settings, "FILEBROWSER_SELECT_FORMATS", {
+    'file': ['Image', 'Document', 'Video', 'Audio'],
+    'image': ['Image'],
+    'document': ['Document'],
+    'media': ['Video', 'Audio'],
+})
+VERSIONS = getattr(settings, "FILEBROWSER_VERSIONS", {
+    'admin_thumbnail': {'verbose_name': 'Admin Thumbnail', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'thumbnail': {'verbose_name': 'Thumbnail (1 col)', 'width': 60, 'height': 60, 'opts': 'crop'},
+    'small': {'verbose_name': 'Small (2 col)', 'width': 140, 'height': '', 'opts': ''},
+    'medium': {'verbose_name': 'Medium (4col )', 'width': 300, 'height': '', 'opts': ''},
+    'big': {'verbose_name': 'Big (6 col)', 'width': 460, 'height': '', 'opts': ''},
+    'large': {'verbose_name': 'Large (8 col)', 'width': 680, 'height': '', 'opts': ''},
+})
+VERSION_QUALITY = getattr(settings, 'FILEBROWSER_VERSION_QUALITY', 100)
+ADMIN_VERSIONS = getattr(settings, 'FILEBROWSER_ADMIN_VERSIONS', ['thumbnail', 'small', 'medium', 'big', 'large'])
+ADMIN_THUMBNAIL = getattr(settings, 'FILEBROWSER_ADMIN_THUMBNAIL', 'admin_thumbnail')
+MAX_UPLOAD_SIZE = getattr(settings, "FILEBROWSER_MAX_UPLOAD_SIZE", 10485760)
+LIST_PER_PAGE = getattr(settings, "FILEBROWSER_LIST_PER_PAGE", 50)
+DEFAULT_SORTING_BY = getattr(settings, "FILEBROWSER_DEFAULT_SORTING_BY", "date")
+DEFAULT_PERMISSIONS = getattr(settings, "FILEBROWSER_DEFAULT_PERMISSIONS", 0o755)
+
+# Django Tinymce
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "800",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+                "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+                "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+                "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+                "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+                "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+}
+TINYMCE_SPELLCHECKER = False
+TINYMCE_FILEBROWSER = True

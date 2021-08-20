@@ -3,10 +3,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from filebrowser.sites import site
 
 urlpatterns = [
-    path('urbanistica-adminpanel/', include([
+    path('site-adminpanel/', include([
+        path('filebrowser/', site.urls),
+        path('grappelli/', include('grappelli.urls')),
         path('', admin.site.urls),
+        path('tinymce/', include('tinymce.urls')),
     ])),
     path('', include('kernel.urls')),
 ]

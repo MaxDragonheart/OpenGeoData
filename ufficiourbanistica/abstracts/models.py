@@ -131,6 +131,7 @@ class CategoryBase(TimeManager):
     """
     category_name = models.CharField(max_length=50, unique=True)
     slug_category = models.SlugField(unique=True)
+    description = tinymce_models.HTMLField(blank=True, null=True)
 
     def __str__(self):
         return self.category_name
@@ -178,6 +179,7 @@ class ModelPost(BaseModelPost):
     draft = models.BooleanField(default=False)
     highlighted = models.BooleanField(default=False)
 
+    @property
     def time_of_reading(self):
         """
         Funzione che definisce il tempo di lettura.
