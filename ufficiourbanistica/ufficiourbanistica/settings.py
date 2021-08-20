@@ -166,7 +166,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Sites settinges
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/site-adminpanel/"
 LOGOUT_REDIRECT_URL = "/"
 
 # Default primary key field type

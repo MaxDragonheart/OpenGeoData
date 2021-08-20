@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="it-header-slim-wrapper-content">
                     {% block header_slim_top_left %}
-                    <a class="d-none d-lg-block navbar-brand" href="{% block header_slim_org_url %}#{% endblock header_slim_org_url %}">
+                    <a class="d-none d-lg-block navbar-brand" href="{% block header_slim_org_url %}/{% endblock header_slim_org_url %}">
                         {% block header_slim_org_name %}
                         Ufficio Urbanistica | Comune di Parete
                         {% endblock header_slim_org_name %}
@@ -31,8 +31,8 @@
                             {% block header_mobile_slim_menu %}
                             <div class="link-list-wrapper collapse" id="menu-principale">
                                 <ul class="link-list">
-                                    <li><a href="https://www.comune.parete.ce.it/" target="_blank">Comune di Parete</a></li>
-                                    <!-- <li><a href="#">Link 2 Active</a></li> -->
+                                    <li><a href="/struttura-ufficio/" target="_blank">Struttura Ufficio</a></li>
+                                    <li><a href="https://www.comune.parete.ce.it/" target="_blank">Sito Web Comune di Parete</a></li>
                                 </ul>
                             </div>
                             {% endblock header_mobile_slim_menu %}

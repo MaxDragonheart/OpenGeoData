@@ -10,8 +10,7 @@
 
   <div class="div-centered-horizontally">
 
-    <h1>Login</h1>
-    <hr>
+    <h1>Accedi all'area riservata</h1>
 
     <div class="form-group">
       {% if form.errors %}
@@ -32,14 +31,14 @@
 
       <form class="" action="{% url 'login' %}"  method="POST">
         {% csrf_token %}
-        <table>
+        <table class="table">
           <tr>
-              <td>{{ form.username.label_tag }}</td>
-              <td>{{ form.username }}</td>
+            <th scope="col">{{ form.username.label_tag }}</th>
+            <th scope="col">{{ form.password.label_tag }}</th>
           </tr>
           <tr>
-              <td>{{ form.password.label_tag }}</td>
-              <td>{{ form.password }}</td>
+            <td>{{ form.username }}</td>
+            <td>{{ form.password }}</td>
           </tr>
         </table>
 
