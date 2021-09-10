@@ -19,4 +19,4 @@ rcssmin==1.0.6
 rjsmin==1.1.0
 six==1.16.0
 soupsieve==2.2.1
-sqlparse==0.4.1
+sqlparse==0.4.2
