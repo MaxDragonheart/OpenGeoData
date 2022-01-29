@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SharedProtocolsConfig(AppConfig):
+class CityPlanningConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'shared_protocols'
+    name = 'city_planning'

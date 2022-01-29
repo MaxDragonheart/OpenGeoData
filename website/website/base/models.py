@@ -4,7 +4,7 @@ from django.urls import reverse
 from abstracts.models import TagBase
 
 
-class SharedTag(TagBase):
+class SharedTags(TagBase):
     """
     Questa classe definisce le caratteristiche di
     un tag condiviso.

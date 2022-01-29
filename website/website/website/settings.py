@@ -58,7 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
 
     'base',
-    'usermanager'
+    'usermanager',
+    'gis',
+    'city_planning',
 
 ]
 

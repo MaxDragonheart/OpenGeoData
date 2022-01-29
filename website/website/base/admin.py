@@ -1,13 +1,13 @@
 from django.contrib import admin
 
 from abstracts.admin import TagBaseAdmin
-from .models import SharedTag
+from .models import SharedTags
 
 
-class SharedTagAdmin(TagBaseAdmin):
+class SharedTagsAdmin(TagBaseAdmin):
 
     class Meta:
-        model = SharedTag
+        model = SharedTags
 
 
-admin.site.register(SharedTag, SharedTagAdmin)
+admin.site.register(SharedTags, SharedTagsAdmin)
