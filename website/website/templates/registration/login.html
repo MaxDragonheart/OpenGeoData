@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_title %}Accedi | Ufficio Urbanistica | Comune di Parete{% endblock page_title %}
+
+{% block centered_container %}
+
+<div class="container my-4">
+
+  <div class="div-centered-horizontally">
+
+    <h1>Accedi all'area riservata</h1>
+
+    <div class="form-group">
+      {% if form.errors %}
+      <div class="alert alert-danger pb-0" role="alert">
+        <p class="py-0">Your username and password didn't match. Please try again.</p>
+        <!-- <p class="py-0"><a href="mailto:joe@example.com?subject=Lost password">Lost username and password?</a></p> -->
+      </div>
+      {% endif %}
+
+      {% if next %}
+          {% if user.is_authenticated %}
+          <p>Your account doesn't have access to this page. To proceed,
+          please login with an account that has access.</p>
+          {% else %}
+          <p>Please login to see this page.</p>
+          {% endif %}
+      {% endif %}
+
+      <form class="" action="{% url 'login' %}"  method="POST">
+        {% csrf_token %}
+        <table class="table">
+          <tr>
+            <th scope="col">{{ form.username.label_tag }}</th>
+            <th scope="col">{{ form.password.label_tag }}</th>
+          </tr>
+          <tr>
+            <td>{{ form.username }}</td>
+            <td>{{ form.password }}</td>
+          </tr>
+        </table>
+
+        <input type="submit" class="btn btn-success" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+      </form>
+
+      {# Assumes you setup the password_reset view in your URLconf #}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

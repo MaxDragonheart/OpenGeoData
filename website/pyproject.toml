@@ -14,6 +14,7 @@ django-environ = "^0.8.1"
 django-filebrowser = "^4.0.1"
 django-grappelli = "^3.0.2"
 django-tinymce = "^3.4.0"
+beautifulsoup4 = "^4.10.0"
 
 [tool.poetry.dev-dependencies]
 

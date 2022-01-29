@@ -1,0 +1,41 @@
+{% load static %}
+
+<!-- Social and Search -->
+{% block header_center_right_zone %}
+<div class="it-right-zone">
+    {% block header_center_social %}
+    <div class="it-socials d-none d-md-flex">
+        <span>Seguici su</span>
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/comunediparete/" aria-label="Facebook" target="_blank">
+                    <svg class="icon">
+                        <use xlink:href="{% static 'svg/sprite.svg' %}#it-facebook"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endblock header_center_social %}
+
+    {% block header_center_search %}
+    <div class="it-search-wrapper">
+        {% block header_center_search_text %}
+        <span class="d-none d-md-block">
+            {% block header_center_search_word %}
+            Cerca
+            {% endblock header_center_search_word %}
+        </span>
+        {% endblock header_center_search_text %}
+
+        <a class="search-link rounded-icon" href="{% block header_center_search_url %}#{% endblock header_center_search_url %}" aria-label="">
+            {% block header_center_search_icon %}
+            <svg class="icon">
+                <use xlink:href="{% static 'svg/sprite.svg' %}#it-search"></use>
+            </svg>
+            {% endblock header_center_search_icon %}
+        </a>
+    </div>
+    {% endblock header_center_search %}
+</div>
+{% endblock header_center_right_zone %}
