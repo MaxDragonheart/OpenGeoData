@@ -1,20 +1,19 @@
 [tool.poetry]
-name = "website"
-version = "0.1.0"
-description = ""
+name = "TechnicalOffice"
+version = "0.0.1"
+description = "SIT - Sistema Informativo Territoriale"
 authors = ["Massimiliano Moraca"]
 license = "Closed"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "3.2.6"
-design-django-theme = "^1.4.8"
-django-cors-headers = "^3.11.0"
+Django = "^4.0.2"
 django-environ = "^0.8.1"
-django-filebrowser = "^4.0.1"
-django-grappelli = "^3.0.2"
-django-tinymce = "^3.4.0"
+psycopg2-binary = "^2.9.3"
+django-cors-headers = "^3.11.0"
 beautifulsoup4 = "^4.10.0"
+Pillow = "^9.0.1"
+lxml = "^4.7.1"
 
 [tool.poetry.dev-dependencies]
 

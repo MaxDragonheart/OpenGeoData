@@ -1,10 +1,39 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
-import os
 from bs4 import BeautifulSoup
-from tinymce import models as tinymce_models
-from filebrowser.fields import FileBrowseField
+
+
+def size(field):
+    """Funzione che umanizza le dimensioni di un file caricato
+
+    :param field: Field name
+    :return: f"{value} {unit}"
+    """
+    x = field.size
+    y = 512000
+    if x < y:
+        value = round(x / 1000, 2)
+        unit = ' kb'
+    elif x < y * 1000:
+        value = round(x / 1000000, 2)
+        unit = ' Mb'
+    else:
+        value = round(x / 1000000000, 2)
+        unit = ' Gb'
+    return f"{value} {unit}"
+
+
+def extension(field):
+    """Funzione che estrae l'estensione di un file caricato
+
+    :param field:
+    :return:
+    """
+    # TODO sviluppare la funzione
+    extension = ""
+    return extension
 
 
 class TimeManager(models.Model):
@@ -52,74 +81,6 @@ class FileUploadBase(TimeManager):
         self.file.delete()
         super().delete(*args, **kwargs)
 
-    @property
-    def size(self):
-        """
-        Funzione che umanizza le dimensioni di un file caricato
-        """
-        x = self.file.size
-        y = 512000
-        if x < y:
-            value = round(x/1000, 2)
-            ext = ' kb'
-        elif x < y*1000:
-            value = round(x/1000000, 2)
-            ext = ' Mb'
-        else:
-            value = round(x/1000000000, 2)
-            ext = ' Gb'
-        return str(value)+ext
-
-    @property
-    def extension(self):
-        """
-        Funzione che estrae l'estensione di un file caricato
-        """
-        name, extension = os.path.splitext(self.file.name)
-        return extension
-
-    class Meta:
-        ordering = ['-publishing_date']
-        abstract = True
-
-
-class FileBrowserFileUploadBase(TimeManager):
-    """
-    Modello generico
-    """
-    name = models.CharField(max_length=70)
-    description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-    @property
-    def size(self):
-        """
-        Funzione che umanizza le dimensioni di un file caricato
-        ref: https://django-filebrowser.readthedocs.io/en/latest/fileobject.html
-        """
-        x = self.file.filesize
-        y = 512000
-        if x < y:
-            value = round(x/1000, 2)
-            ext = ' kb'
-        elif x < y*1000:
-            value = round(x/1000000, 2)
-            ext = ' Mb'
-        else:
-            value = round(x/1000000000, 2)
-            ext = ' Gb'
-        return str(value)+ext
-
-    @property
-    def extension(self):
-        """
-        Funzione che estrae l'estensione di un file caricato
-        ref: https://django-filebrowser.readthedocs.io/en/latest/fileobject.html
-        """
-        return self.file.extension
-
     class Meta:
         ordering = ['-publishing_date']
         abstract = True
@@ -131,7 +92,7 @@ class CategoryBase(TimeManager):
     """
     category_name = models.CharField(max_length=50, unique=True)
     slug_category = models.SlugField(unique=True)
-    description = tinymce_models.HTMLField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.category_name
@@ -160,7 +121,7 @@ class BaseModelPost(TimeManager):
     """
     title = models.CharField(max_length=70, unique=True)
     slug_post = models.SlugField(max_length=70, unique=True)
-    header_image = FileBrowseField(max_length=200, directory="images/", blank=True, null=True)
+    header_image = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     description = models.TextField(max_length=200, blank=True, null=True)
 
     def __str__(self):
@@ -175,7 +136,7 @@ class ModelPost(BaseModelPost):
     Con questa classe definisco le caratteristiche
     comuni dei post
     """
-    contents = tinymce_models.HTMLField(blank=True, null=True)
+    contents = models.TextField(blank=True, null=True)
     draft = models.BooleanField(default=False)
     highlighted = models.BooleanField(default=False)
 

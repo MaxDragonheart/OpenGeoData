@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+
 class CategoryBaseAdmin(admin.ModelAdmin):
     """
     con questa classe definisco come viene gestito Category

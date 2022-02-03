@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class GisConfig(AppConfig):
+class GismanagerConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'gis'
+    name = 'gismanager'

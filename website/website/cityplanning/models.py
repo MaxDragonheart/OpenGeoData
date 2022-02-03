@@ -2,8 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 from abstracts.models import CategoryBase, ModelPost
-
-from base.models import SharedTags
+from base.models import SharedTags, FileUpload
 
 
 class CityPlanningCategory(CategoryBase):
@@ -27,7 +26,10 @@ class CityPlannningPost(ModelPost):
     un contenuto
     """
     category = models.ForeignKey(CityPlanningCategory, on_delete=models.PROTECT, related_name="related_cityplanning_category")
-    cityplanning_sharedtags = models.ManyToManyField(SharedTags, related_name="related_cityplanning_sharedtags")
+    tags = models.ManyToManyField(SharedTags, related_name="related_cityplanning_sharedtags")
+    attachment = models.ForeignKey(FileUpload, on_delete=models.PROTECT, related_name="related_attachment",
+                                    null=True, blank=True,
+                                   )
 
     def get_absolute_url(self):
         return reverse("single_contenuto", kwargs={
