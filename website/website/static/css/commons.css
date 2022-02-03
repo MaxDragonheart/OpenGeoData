@@ -32,3 +32,11 @@ article>p>img {
   margin-right: auto;
   border-radius: 5px;
 }
+.alert {
+  background-color: red;
+  color: black;
+  padding: 5px;
+}
+.container-full-center {
+  
+}

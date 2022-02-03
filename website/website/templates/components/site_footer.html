@@ -23,9 +23,9 @@
         <li><p><a class="link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></p></li>
         {% endfor %}
         {% if request.user.is_authenticated %}
-        <li><p><a class="link" href="{% url 'logout' %}" target="_blank">Esci</a></p></li>
+        <li><p><a class="link" href="{% url 'logout' %}">Esci</a></p></li>
         {% else %}
-        <li><p><a class="link" href="{% url 'login' %}" target="_blank">Accedi</a></p></li>
+        <li><p><a class="link" href="{% url 'login' %}">Accedi</a></p></li>
         {% endif %}
       </ul>
     </article>
