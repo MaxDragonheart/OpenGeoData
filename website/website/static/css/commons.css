@@ -1,6 +1,6 @@
 /* SCSS RGB */
 /*
-$prussian-blue: rgba(1, 42, 74, 1);
+$prussian-blue: rgba(1, 42, 74, 1); Usato per i link al passaggio del mouse
 $indigo-dye: rgba(1, 58, 99, 1);
 $indigo-dye-2: rgba(1, 73, 124, 1); Usato per la nav bar
 $usafa-blue: rgba(1, 79, 134, 1);
@@ -15,8 +15,20 @@ $light-blue: rgba(169, 214, 229, 1); Usato per lo sfondo
 html, body {
   height: 100vh;
   background-color: rgba(169, 214, 229, 1) !important;
+  margin: 0px;
 }
-
-body {
-
+article {
+  padding: 5px;
+  width: 100% !important;
+}
+article>p>img {
+  max-width: 100% !important;
+  height: auto !important;
+  padding: 5px;
+  box-shadow: 2px 2px 5px grey;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
 }

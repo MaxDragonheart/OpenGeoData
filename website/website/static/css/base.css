@@ -1,7 +1,15 @@
-.site-nav {
+header, footer {
   background-color: rgba(1, 73, 124, 1);
-  height: 20vh;
+  /* height: 20vh; */
+}
+section{
+  /* height: 60vh; */
+  min-height: 60vh;
+  background-color: rgba(255, 255, 255, 1);
+}
+.site-nav, .site-footer {
   display: flex;
+  color: rgba(255, 255, 255, 1);
 }
 .site-logo, .site-title, .site-menu {
   padding-top: 5vh;
@@ -15,10 +23,32 @@
   padding-left: 2.5vh;
   padding-right: 2.5vh;
 }
+.site-title>h3, .site-title>p {
+  margin: 0;
+}
 .site-menu {
   padding-left: 2.5vh;
   padding-right: 5vh;
 }
 .site-menu>ul>li {
   display: inline-block;
+  margin: 0;
+}
+.site-menu>ul>li {
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+}
+.site-main, .site-footer {
+  padding: 10px;
+}
+.address, .contact, .useful-link {
+  margin-right: 20px;
+}
+.link {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+}
+.link:hover {
+  color: rgba(1, 42, 74, 1);
+  text-decoration: none;
 }
