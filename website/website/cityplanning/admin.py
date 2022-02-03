@@ -17,8 +17,8 @@ class CityPlannningPostAdmin(ModelPostBaseAdmin):
     fieldsets = [
         (None, {"fields": ["title", "slug_post", "header_image"]}),
         ("Contenuti", {"fields": ["description", "contents"]}),
-        ("Riferimenti", {"fields": ["publishing_date", "category", "cityplanning_sharedtags"]}),
-        ("Opzioni", {"fields": ["highlighted", "draft"]}),
+        ("Riferimenti", {"fields": ["publishing_date", "category", "tags"]}),
+        ("Opzioni", {"fields": ["attachment", "highlighted", "draft"]}),
     ]
 
     class Meta:
