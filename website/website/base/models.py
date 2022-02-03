@@ -39,9 +39,14 @@ class SharedTags(TagBase):
         verbose_name_plural = "Tag Condivisi"
 
 
-class SiteCustomization(Site, TimeManager):
+class SiteCustomization(TimeManager):
+    site = models.ForeignKey(Site, on_delete=models.PROTECT, related_name="related_sitecustomization")
     site_title = models.CharField(max_length=250, blank=True, null=True, default="Gestione del Territorio")
-    logo = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
+    site_logo = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
+    site_description = models.CharField(max_length=100, blank=True, null=True, default="Ufficio Tecnico Comunale e SIT.")
+
+    def __str__(self):
+        return self.site.name
 
     class Meta:
         verbose_name = "Dettagli del sito"
