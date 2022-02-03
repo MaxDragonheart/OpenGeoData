@@ -7,7 +7,7 @@ license = "Closed"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "3.2.6"
+Django = "3.2.11"
 design-django-theme = "^1.4.8"
 django-cors-headers = "^3.11.0"
 django-environ = "^0.8.1"
