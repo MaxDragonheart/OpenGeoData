@@ -12,7 +12,7 @@ urlpatterns = [
         path('', admin.site.urls),
         path('tinymce/', include('tinymce.urls')),
     ])),
-    path('', include('kernel.urls')),
+    path('', include('base.urls')),
 ]
 
 if settings.DEBUG:

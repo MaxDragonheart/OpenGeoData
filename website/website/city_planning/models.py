@@ -3,10 +3,10 @@ from django.urls import reverse
 
 from abstracts.models import CategoryBase, ModelPost
 
-from shared_protocols.models import SharedTag
+from base.models import SharedTags
 
 
-class UrbanisticaCategorie(CategoryBase):
+class CityPlanningCategory(CategoryBase):
     """
     Questa classe definisce le caratteristiche di
     una categoria
@@ -21,13 +21,13 @@ class UrbanisticaCategorie(CategoryBase):
         verbose_name_plural = "Categorie"
 
 
-class UrbanisticaContenuti(ModelPost):
+class CityPlannningPost(ModelPost):
     """
     Questa classe definisce le caratteristiche di
     un contenuto
     """
-    category = models.ForeignKey(UrbanisticaCategorie, on_delete=models.PROTECT, related_name="related_urbanisticacategoria")
-    urbanistica_sharedtags = models.ManyToManyField(SharedTag, related_name="related_urbanistica_sharedtag")
+    category = models.ForeignKey(CityPlanningCategory, on_delete=models.PROTECT, related_name="related_cityplanning_category")
+    cityplanning_sharedtags = models.ManyToManyField(SharedTags, related_name="related_cityplanning_sharedtags")
 
     def get_absolute_url(self):
         return reverse("single_contenuto", kwargs={

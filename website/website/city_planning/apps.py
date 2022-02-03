@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class UrbanisticaConfig(AppConfig):
+class CityPlanningConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'urbanistica'
+    name = 'city_planning'
