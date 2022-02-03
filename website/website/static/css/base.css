@@ -14,6 +14,8 @@ section{
 .site-logo, .site-title, .site-menu {
   padding-top: 5vh;
   padding-bottom: 5vh;
+  display: flex;
+  align-items: center
 }
 .site-logo-img {
   max-height: 10vh;
@@ -29,6 +31,7 @@ section{
 .site-menu {
   padding-left: 2.5vh;
   padding-right: 5vh;
+  align-items: flex-end;
 }
 .site-menu>ul>li {
   display: inline-block;
@@ -37,6 +40,9 @@ section{
 .site-menu>ul>li {
   padding-left: 0.5vh;
   padding-right: 0.5vh;
+}
+.site-main {
+  
 }
 .site-main, .site-footer {
   padding: 10px;

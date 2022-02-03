@@ -38,5 +38,27 @@ article>p>img {
   padding: 5px;
 }
 .container-full-center {
-  
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10%;
+}
+.content-center {
+  display: flex;
+  justify-content: center;
+}
+.content-center>h1, .content-center>p, {
+  /* text-align: center; */
+}
+.text-center {
+  text-align: center;
+}
+.text-deep-margin {
+  margin: 25px;
+}
+.button {
+  margin: 15px;
+}
+#id_password, #id_username {
+  margin: 15px;
 }
