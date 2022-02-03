@@ -15,12 +15,20 @@
     <nav class="site-nav">
       {% for item in data %}
       <div class="site-logo">
-        <img src="{{ item.logo.url }}" alt="logo">
+        <img class="site-logo-img" src="{{ item.site_logo.url }}" alt="logo">
       </div>
-      <div class="">
-
+      <div class="site-title">
+        <h3>{{ item.site_title|upper }}</h3>
+        <p>{{ item.site_description }}</p>
       </div>
       {% endfor %}
+      <div class="site-menu">
+        <ul>
+          <li>Home</li>
+          <li>Page1</li>
+          <li>Page2</li>
+        </ul>
+      </div>
     </nav>
   </header>
 {% block page %}{% endblock page %}

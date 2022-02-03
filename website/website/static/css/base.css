@@ -1,0 +1,24 @@
+.site-nav {
+  background-color: rgba(1, 73, 124, 1);
+  height: 20vh;
+  display: flex;
+}
+.site-logo, .site-title, .site-menu {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+.site-logo-img {
+  max-height: 10vh;
+  padding-left: 5vh;
+}
+.site-title {
+  padding-left: 2.5vh;
+  padding-right: 2.5vh;
+}
+.site-menu {
+  padding-left: 2.5vh;
+  padding-right: 5vh;
+}
+.site-menu>ul>li {
+  display: inline-block;
+}
