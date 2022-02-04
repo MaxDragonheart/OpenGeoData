@@ -38,3 +38,4 @@ class ModelPostBaseAdmin(admin.ModelAdmin):
 class UploadBaseAdmin(admin.ModelAdmin):
     list_filter = ["publishing_date"]
     search_fields = ["name", "description"]
+

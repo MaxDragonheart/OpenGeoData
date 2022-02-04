@@ -1,13 +1,27 @@
 {% load i18n %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+  {% include './commons/google_analytics.html' %}
+  {% include './components/site_head.html' %}
+  <link rel="stylesheet"
+        href="{% static 'css/commons.css' %}">
+  <link rel="stylesheet"
+        href="{% static 'css/base.css' %}">
+  {% block component-style %}{% endblock component-style %}
 </head>
 <body>
-{% block page %}{% endblock page %}
+  <header>
+    {% include './components/site_navbar.html' %}
+  </header>
+  <section>
+    <div class="site-main">
+      {% block page %}{% endblock page %}
+    </div>
+  </section>
+  <footer>
+    {% include './components/site_footer.html' %}
+  </footer>
 </body>
 </html>

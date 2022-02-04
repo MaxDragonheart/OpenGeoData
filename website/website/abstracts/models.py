@@ -154,3 +154,14 @@ class ModelPost(BaseModelPost):
 
     class Meta:
         abstract = True
+
+
+class UrlsModel(TimeManager):
+    name = models.CharField(max_length=70)
+    url = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        abstract = True

@@ -1,21 +1,20 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% load static %}
 
-{% block head_title %}Log out | {{ block.super }}{% endblock %}
-{% block custom_style %}
+{% block component-style %}
   <link rel="stylesheet"
-        href="{% static 'css/index.css' %}">
-{% endblock %}
+        href="{% static 'css/login.css' %}">
+{% endblock component-style %}
 
-{% block content %}
+{% block page %}
 
-<div class="container my-4">
+<div class="login-area">
 
   <h1>Now you are logged-out!</h1>
 
-  <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+  <a class="" href="{% url 'login' %}">Login</a>
 
 </div>
 
-{% endblock %}
+{% endblock page %}

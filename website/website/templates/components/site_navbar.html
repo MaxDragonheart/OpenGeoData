@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="">
+
+  <div class="search-bar">
+    <div class="search-container">
+      <form action="">
+        <input type="text" placeholder="Cerca.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="nav-bar">
+    {% for item in data %}
+    <div class="nav-bar-container site-logo">
+      <img class="site-logo-img" src="{{ item.site_logo.url }}" alt="logo">
+    </div>
+    <div class="nav-bar-container">
+      <div class="site-title">
+        <h1>{{ item.site_title|upper }}</h1>
+        <p>{{ item.site_description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="nav-bar-container">
+      <div class="site-menu">
+        <a class="link" href="/">Home</a>
+        <a class="link" href="/">Organigramma</a>
+        <a class="link" href="/">Aree tematiche</a>
+        <a class="link" href="/">SIT</a>
+      </div>
+    </div>
+  </div>
+
+</nav>

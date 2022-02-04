@@ -1,0 +1,46 @@
+/* SCSS RGB */
+/*
+$prussian-blue: rgba(1, 42, 74, 1); Usato per i link al passaggio del mouse
+$indigo-dye: rgba(1, 58, 99, 1);
+$indigo-dye-2: rgba(1, 73, 124, 1); Usato per la nav bar
+$usafa-blue: rgba(1, 79, 134, 1);
+$sapphire-blue: rgba(42, 111, 151, 1);
+$celadon-blue: rgba(44, 125, 160, 1);
+$blue-green: rgba(70, 143, 175, 1);
+$maximum-blue: rgba(97, 165, 194, 1);
+$dark-sky-blue: rgba(137, 194, 217, 1);
+$light-blue: rgba(169, 214, 229, 1);
+*/
+
+html, body {
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 1) !important;
+  margin: 0px;
+  /* overflow: hidden; */
+}
+article {
+  padding: 5px;
+  width: 100% !important;
+}
+article>p>img {
+  max-width: 100% !important;
+  height: auto !important;
+  padding: 5px;
+  box-shadow: 2px 2px 5px grey;
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+}
+.alert {
+  background-color: red;
+  color: black;
+  padding: 5px;
+}
+.button {
+  margin: 15px;
+}
+#id_password, #id_username {
+  margin: 15px;
+}

@@ -1,0 +1,37 @@
+{% load static %}
+<div class="footer">
+  {% for item in data %}
+  <div class="footer-conteiner">
+    <article class="">
+      <h3><i class="fas fa-university"></i> Sede</h3>
+      <hr>
+      <p>{{ item.address }}</p>
+    </article>
+  </div>
+  <div class="footer-conteiner">
+    <article class="">
+      <h3><i class="fas fa-address-book"></i> Contatti</h3>
+      <hr>
+      <p><i class="fas fa-phone-volume"></i> {{ item.contact_phone }}</p>
+      <p><i class="fas fa-mail-bulk"></i> {{ item.contact_email }}</p>
+      <p><i class="fas fa-envelope-open-text"></i> {{ item.contact_official_email }}</p>
+    </article>
+  </div>
+  <div class="footer-conteiner">
+    <article class="">
+      <h3><i class="fas fa-link"></i> Link utili</h3>
+      <hr>
+      <ul>
+        {% for link in item.urls.all %}
+        <li><p><a class="link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></p></li>
+        {% endfor %}
+        {% if request.user.is_authenticated %}
+        <li><p><a class="link" href="{% url 'logout' %}">Esci</a></p></li>
+        {% else %}
+        <li><p><a class="link" href="{% url 'login' %}">Accedi</a></p></li>
+        {% endif %}
+      </ul>
+    </article>
+  </div>
+  {% endfor %}
+</div>

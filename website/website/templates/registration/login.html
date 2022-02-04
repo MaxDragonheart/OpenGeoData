@@ -2,20 +2,26 @@
 
 {% load static %}
 
-{% block page_title %}Accedi | Ufficio Urbanistica | Comune di Parete{% endblock page_title %}
+{% block component-style %}
+  <link rel="stylesheet"
+        href="{% static 'css/login.css' %}">
+{% endblock component-style %}
 
-{% block centered_container %}
+{% block page %}
+<div class="login-container">
+  <div class="login-area">
+    <div class="">
+      <h1 class="">Accedi all'area riservata</h1>
+    </div>
 
-<div class="container my-4">
+    <hr>
 
-  <div class="div-centered-horizontally">
+    <div class="">
+      <p class="">Solo il personale autorizzato può accedere, ogni violazione verrà perseguita secondo i termini di legge.</p>
 
-    <h1>Accedi all'area riservata</h1>
-
-    <div class="form-group">
       {% if form.errors %}
-      <div class="alert alert-danger pb-0" role="alert">
-        <p class="py-0">Your username and password didn't match. Please try again.</p>
+      <div class="alert" role="alert">
+        <p class="text-center">Your username and password didn't match. Please try again.</p>
         <!-- <p class="py-0"><a href="mailto:joe@example.com?subject=Lost password">Lost username and password?</a></p> -->
       </div>
       {% endif %}
@@ -28,10 +34,12 @@
           <p>Please login to see this page.</p>
           {% endif %}
       {% endif %}
+    </div>
 
+    <div class="">
       <form class="" action="{% url 'login' %}"  method="POST">
         {% csrf_token %}
-        <table class="table">
+        <table class="">
           <tr>
             <th scope="col">{{ form.username.label_tag }}</th>
             <th scope="col">{{ form.password.label_tag }}</th>
@@ -41,17 +49,15 @@
             <td>{{ form.password }}</td>
           </tr>
         </table>
-
-        <input type="submit" class="btn btn-success" value="Login">
-        <input type="hidden" name="next" value="{{ next }}">
+        <div class="">
+          <input type="submit" class="button" value="Login">
+          <input type="hidden" name="next" value="{{ next }}">
+        </div>
       </form>
 
       {# Assumes you setup the password_reset view in your URLconf #}
-
     </div>
 
   </div>
-
 </div>
-
-{% endblock %}
+{% endblock page %}
