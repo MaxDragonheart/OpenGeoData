@@ -9,13 +9,14 @@ $celadon-blue: rgba(44, 125, 160, 1);
 $blue-green: rgba(70, 143, 175, 1);
 $maximum-blue: rgba(97, 165, 194, 1);
 $dark-sky-blue: rgba(137, 194, 217, 1);
-$light-blue: rgba(169, 214, 229, 1); Usato per lo sfondo
+$light-blue: rgba(169, 214, 229, 1);
 */
 
 html, body {
   height: 100vh;
-  background-color: rgba(169, 214, 229, 1) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
   margin: 0px;
+  /* overflow: hidden; */
 }
 article {
   padding: 5px;
@@ -36,25 +37,6 @@ article>p>img {
   background-color: red;
   color: black;
   padding: 5px;
-}
-.container-full-center {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10%;
-}
-.content-center {
-  display: flex;
-  justify-content: center;
-}
-.content-center>h1, .content-center>p, {
-  /* text-align: center; */
-}
-.text-center {
-  text-align: center;
-}
-.text-deep-margin {
-  margin: 25px;
 }
 .button {
   margin: 15px;

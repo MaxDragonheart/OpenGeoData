@@ -1,54 +1,29 @@
 header, footer {
   background-color: rgba(1, 73, 124, 1);
-  /* height: 20vh; */
 }
 section{
-  /* height: 60vh; */
   min-height: 60vh;
   background-color: rgba(255, 255, 255, 1);
 }
-.site-nav, .site-footer {
-  display: flex;
-  color: rgba(255, 255, 255, 1);
+.nav-bar {
+  display: grid;
+  grid-template-columns: 10% 30% 60%;
+  /* grid-gap: 5vh; */
+  width: 100%;
+  height: 100%;
 }
-.site-logo, .site-title, .site-menu {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+.nav-bar-container {
+
+}
+.site-logo {
+  padding-top: 3.5vh;
+  padding-bottom: 3.5vh;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 .site-logo-img {
-  max-height: 10vh;
+  max-height: 12.5vh;
   padding-left: 5vh;
-}
-.site-title {
-  padding-left: 2.5vh;
-  padding-right: 2.5vh;
-}
-.site-title>h3, .site-title>p {
-  margin: 0;
-}
-.site-menu {
-  padding-left: 2.5vh;
-  padding-right: 5vh;
-  align-items: flex-end;
-}
-.site-menu>ul>li {
-  display: inline-block;
-  margin: 0;
-}
-.site-menu>ul>li {
-  padding-left: 0.5vh;
-  padding-right: 0.5vh;
-}
-.site-main {
-  
-}
-.site-main, .site-footer {
-  padding: 10px;
-}
-.address, .contact, .useful-link {
-  margin-right: 20px;
 }
 .link {
   color: rgba(255, 255, 255, 1);
@@ -57,4 +32,36 @@ section{
 .link:hover {
   color: rgba(1, 42, 74, 1);
   text-decoration: none;
+}
+.site-title {
+  color: rgba(255, 255, 255, 1);
+  margin-left: 5vh;
+}
+.site-menu {
+  float: right;
+  margin: 5vh;
+}
+.site-menu a {
+  margin-right: 20px;
+}
+.search-bar {
+  background-color: rgba(1, 58, 99, 1);
+  width: 100%;
+  height: 2.5vh;
+}
+.search-container {
+
+}
+.site-main {
+  padding: 2.5%;
+}
+.footer {
+  color: rgba(255, 255, 255, 1);
+  display: grid;
+  grid-template-columns: 15% 42.5% 42.5%;
+  height: 100%;
+  margin-left: 5vh;
+}
+.footer-conteiner {
+  max-width: 90%;
 }

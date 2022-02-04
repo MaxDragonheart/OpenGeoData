@@ -3,7 +3,7 @@ from django.contrib.flatpages.admin import FlatPageAdmin
 from django.contrib.flatpages.models import FlatPage
 
 from abstracts.admin import TagBaseAdmin
-from .models import SharedTags, SiteCustomization, FileUpload, SiteUrls
+from .models import SharedTags, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls
 from .forms import FlatPageForm
 
 
@@ -21,9 +21,17 @@ class SharedTagsAdmin(TagBaseAdmin):
 
 
 class SiteUrlsAdmin(admin.ModelAdmin):
+    list_display = ["name", "url"]
 
     class Meta:
         model = SiteUrls
+
+
+class SiteSocialUrlsAdmin(admin.ModelAdmin):
+    list_display = ["name", "url", "social_icon"]
+
+    class Meta:
+        model = SiteSocialUrls
 
 
 class SiteCustomizationAdmin(admin.ModelAdmin):
@@ -41,5 +49,6 @@ class FileUploadAdmin(admin.ModelAdmin):
 admin.site.register(SharedTags, SharedTagsAdmin)
 admin.site.register(SiteCustomization, SiteCustomizationAdmin)
 admin.site.register(SiteUrls, SiteUrlsAdmin)
+admin.site.register(SiteSocialUrls, SiteSocialUrlsAdmin)
 admin.site.register(FileUpload, FileUploadAdmin)
 #admin.site.register(FlatPage, FlatPageAdmin)

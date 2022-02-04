@@ -1,9 +1,18 @@
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.urls import reverse
 from django.contrib.sites.models import Site
 
-from abstracts.models import TagBase, TimeManager, FileUploadBase
+from abstracts.models import TagBase, TimeManager, FileUploadBase, UrlsModel
+
+
+social = {
+    "facebook": '<i class="fab fa-facebook-f"></i>',
+    "linkedin": '<i class="fab fa-linkedin-in"></i>',
+    "instagram": '<i class="fab fa-instagram"></i>',
+    "youtube": '<i class="fab fa-youtube"></i>',
+}
 
 
 class FileUpload(FileUploadBase):
@@ -39,17 +48,28 @@ class SharedTags(TagBase):
         verbose_name_plural = "Tag Condivisi"
 
 
-class SiteUrls(TimeManager):
-    name = models.CharField(max_length=70, blank=True, null=True)
-    url = models.URLField()
-
-    def __str__(self):
-        return self.name
+class SiteUrls(UrlsModel):
 
     class Meta:
         ordering = ['name']
         verbose_name = "Url"
         verbose_name_plural = "Urls"
+
+
+class SiteSocialUrls(UrlsModel):
+
+    @property
+    def social_icon(self):
+        get_social = self.name.lower()
+        if get_social in social:
+            return social[get_social]
+        else:
+            return f"{get_social} is not accepted! If it is a social add to `social` dict to see the icon."
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = "Social"
+        verbose_name_plural = "Social"
 
 
 class SiteCustomization(TimeManager):
@@ -62,6 +82,7 @@ class SiteCustomization(TimeManager):
     contact_email = models.EmailField(blank=True, null=True, default="mail@email.sito")
     contact_official_email = models.EmailField(blank=True, null=True, default="pec-mail@email.sito")
     urls = models.ManyToManyField(SiteUrls, related_name="related_siteurls")
+    #social_urls = models.ManyToManyField(SiteSocialUrls, related_name="related_sitesocialurls")
 
     def __str__(self):
         return self.site.name
