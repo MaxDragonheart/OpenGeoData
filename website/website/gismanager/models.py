@@ -1,10 +1,14 @@
+import datetime
+from pathlib import Path
+
 from django.conf import settings
 from django.contrib.gis.db import models
 from django.urls import reverse
 
 from abstracts.models import TimeManager, BaseModelPost
+from fsspec import get_fs_token_paths
 
-from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail
+from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
 
 
 class GeoServerURL(TimeManager):
@@ -43,20 +47,36 @@ class WMSLayer(BaseModelPost):
         return reverse("webgislayer_single", kwargs={"slug_post": self.slug_post})
 
     def save(self, *args, **kwargs):
+        """Override save method and add to DB thumbnail path, BBOX and centroid"""
+
+        # Create the thumbnail destination folder
+        today = datetime.datetime.now()
+        today_folder = Path(f"{today.year}/{today.month}/{today.day}")
+        output_folder = settings.MEDIA_FOLDER / WMS_THUMBNAILS
+        destination_folder = output_folder / today_folder
+        fs, fs_token, paths = get_fs_token_paths(destination_folder)
+        fs.mkdirs(path=destination_folder, exist_ok=True)
+
+        # Get thumbnail from WMS
         img_path = get_wms_thumbnail(
             wms_url=self.wms_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.wms_layer_name,
-            output_data_folder=settings.WMS_THUMBNAILS,
+            output_data_folder=destination_folder,
         )
-        print(img_path)
-        self.header_image = str(img_path)
+        self.header_image = f"{WMS_THUMBNAILS}/{today_folder}/{img_path.stem}{img_path.suffix}"
+
+        # Get WMS's BBOX
         self.wms_bbox = get_wms_bbox(
             wms_url=self.wms_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.wms_layer_name
         )
+
+        # Get BBOX's centroid
         self.wms_centroid = get_centroid_coords(self.wms_bbox)
+
+        # Save all
         super(WMSLayer, self).save(*args, **kwargs)
 
     class Meta:

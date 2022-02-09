@@ -1,6 +1,5 @@
 import datetime
 import pathlib
-import shutil
 import geopandas as gpd
 
 from pathlib import Path
@@ -10,7 +9,8 @@ from fsspec import get_fs_token_paths
 from owslib.wms import WebMapService
 from shapely.geometry import Polygon
 
-from base.utils import to_folder_today
+
+WMS_THUMBNAILS = Path('gis-data/wms-thumbnails')
 
 
 def get_centroid_coords(bbox: tuple) -> tuple:
@@ -95,14 +95,16 @@ def get_wms_thumbnail(
         transparent=True
     )
 
-    # Create the today folder
-    today = datetime.datetime.now()
-    destination_folder = Path(f"{output_data_folder}/{today.year}/{today.month}/{today.day}")
-    fs, fs_token, paths = get_fs_token_paths(destination_folder)
-    fs.mkdirs(path=destination_folder, exist_ok=True)
+    # # Create the today folder
+    # today = datetime.datetime.now()
+    # today_folder = f"{today.year}/{today.month}/{today.day}"
+    # destination_folder = Path(f"{output_data_folder}/{today_folder}")
+    # print(destination_folder)
+    # fs, fs_token, paths = get_fs_token_paths(destination_folder)
+    # fs.mkdirs(path=destination_folder, exist_ok=True)
 
     # Put thumbnail into destinantion folder
-    img_path = Path(f'{destination_folder}/{layer.title}.jpg')
+    img_path = Path(f'{output_data_folder}/{layer.title}.jpg')
     out = open(img_path, 'wb')
     out.write(img.read())
     out.close()
