@@ -160,6 +160,8 @@ STATICFILES_DIRS = [
 UPLOADED_IMAGE_FOLDER = 'images/%Y/%m/%d/'
 UPLOADED_DOCUMENT_FOLDER = 'documents/%Y/%m/%d/'
 UPLOADED_GISDATA_FOLDER = 'gis-data/%Y/%m/%d/'
+#WMS_THUMBNAILS = MEDIA_ROOT / Path('gis-data/wms-thumbnails')
+WMS_THUMBNAILS = 'gis-data/wms-thumbnails'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
