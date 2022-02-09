@@ -151,7 +151,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / '../static-folder'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / '../media-folder'
+MEDIA_FOLDER = Path('../media-folder')
+MEDIA_ROOT = BASE_DIR / MEDIA_FOLDER
 
 STATICFILES_DIRS = [
         BASE_DIR / 'static',
@@ -160,6 +161,7 @@ STATICFILES_DIRS = [
 UPLOADED_IMAGE_FOLDER = 'images/%Y/%m/%d/'
 UPLOADED_DOCUMENT_FOLDER = 'documents/%Y/%m/%d/'
 UPLOADED_GISDATA_FOLDER = 'gis-data/%Y/%m/%d/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

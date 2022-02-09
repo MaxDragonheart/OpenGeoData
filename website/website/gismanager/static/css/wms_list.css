@@ -1,0 +1,32 @@
+.wms-card {
+  border-top-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: rgba(1, 42, 74, 1);
+  padding: 5px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 15% 60% 25%;
+}
+.wms-card-title, .wms-card-description {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vh;
+}
+.wms-card-thumbnail {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  align-items: center;
+}
+.wms-thumbnail {
+  box-shadow: 2px 2px 5px grey;
+  background-color: white;
+  border-radius: 5px;
+}
+.wms-card-title {
+  border-right-style: dotted;
+  border-color: rgba(1, 42, 74, 1);
+  border-width: 1px;
+}
