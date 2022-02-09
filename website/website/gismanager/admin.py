@@ -17,7 +17,7 @@ class WMSLayerAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     prepopulated_fields = {"slug_post": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug_post", "header_image"]}),
+                (None, {"fields": ["title", "slug_post"]}),
                 (None, {"fields": ["description", "publishing_date"]}),
                 ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style"]}),
                 ("OpenLayers Parameters",

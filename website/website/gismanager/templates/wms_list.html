@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page %}
+
+<h1>WMS</h1>
+{% for item in list %}
+<div class="">
+  <div class="">
+    {{ item.title }}
+    {{ item.publishing_date }}
+  </div>
+  <div class="">
+    {{ item.wms_layer_path }}
+    {{ item.wms_layer_name }}
+    {{ item.wms_centroid }}
+  </div>
+  <div class="">
+    <img class="site-logo-img" src="{{ item.header_image.url }}" alt="{{ item.description }}">
+  </div>
+</div>
+{% endfor %}
+
+{% endblock page %}
