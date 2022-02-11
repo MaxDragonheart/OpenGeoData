@@ -21,16 +21,16 @@
     <div class="">
       <p><strong>WMS service</strong></p>
         <input class="copytoclipboard" type="text"
-        value="{{ item.wms_layer_path.complete_url_wms }}" id="copytoclipboard">
-          <button onclick="copyToClipboard()">
+        value="{{ item.wms_layer_path.complete_url_wms }}" id="wms{{ item.id }}">
+          <button onclick="copyToClipboard('wms{{ item.id }}')">
             <i class="far fa-copy"></i>
           </button>
     </div>
     <div class="">
       <p><strong>Layer name</strong></p>
         <input class="copytoclipboard" type="text"
-        value="{{ item.wms_layer_name }}" id="copytoclipboard">
-          <button onclick="copyToClipboard()">
+        value="{{ item.wms_layer_name }}" id="wmsname{{ item.id }}">
+          <button onclick="copyToClipboard('wmsname{{ item.id }}')">
             <i class="far fa-copy"></i>
           </button>
     </div>
