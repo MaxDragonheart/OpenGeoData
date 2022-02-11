@@ -44,7 +44,7 @@ class WMSLayer(BaseModelPost):
     wms_centroid = models.CharField(max_length=250, blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("webgislayer_single", kwargs={"slug_post": self.slug_post})
+        return reverse("wms-single", kwargs={"slug_post": self.slug_post})
 
     def save(self, *args, **kwargs):
         """Override save method and add to DB thumbnail path, BBOX and centroid"""

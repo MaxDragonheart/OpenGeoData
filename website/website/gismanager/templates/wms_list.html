@@ -18,10 +18,28 @@
     <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
   </div>
   <div class="wms-card-description">
-    <p><strong>WMS service:</strong> {{ item.wms_layer_path.complete_url_wms }}</p>
-    <p><strong>Layer name:</strong> {{ item.wms_layer_name }}</p>
+    <div class="">
+      <p><strong>WMS service</strong></p>
+        <input class="copytoclipboard" type="text"
+        value="{{ item.wms_layer_path.complete_url_wms }}" id="copytoclipboard">
+          <button onclick="copyToClipboard()">
+            <i class="far fa-copy"></i>
+          </button>
+    </div>
+    <div class="">
+      <p><strong>Layer name</strong></p>
+        <input class="copytoclipboard" type="text"
+        value="{{ item.wms_layer_name }}" id="copytoclipboard">
+          <button onclick="copyToClipboard()">
+            <i class="far fa-copy"></i>
+          </button>
+    </div>
     <p><strong>BBOX:</strong> {{ item.wms_bbox }}</p>
     <p><strong>Centroide:</strong> {{ item.wms_centroid }}</p>
+    <div class="button-container">
+      <a class="button-viewer" type="button"
+              name="button" href="{{ item.get_absolute_url }}">Viewer</a>
+    </div>
   </div>
   <div class="wms-card-thumbnail">
     <img class="wms-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">

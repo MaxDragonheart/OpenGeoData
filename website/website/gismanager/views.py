@@ -10,3 +10,13 @@ def wms_list(request):
     list = WMSLayer.objects.all()
     context = {"list": list}
     return render(request, "wms_list.html", context)
+
+
+def single_wms(request, slug_post):
+    object = get_object_or_404(WMSLayer, slug_post=slug_post)
+
+    context = {
+        "single_object": object,
+    }
+    template = "single_wms.html"
+    return render(request, template, context)

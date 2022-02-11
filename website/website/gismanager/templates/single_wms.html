@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block component-style %}
+  <link rel="stylesheet"
+        href="{% static 'css/wms_list.css' %}">
+  {% include './gis_lib.html' %}
+{% endblock component-style %}
+
+{% block page %}
+
+{{ single_object.title }}
+
+{% endblock page %}
