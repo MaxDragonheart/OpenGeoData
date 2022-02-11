@@ -67,14 +67,14 @@ class WMSLayer(BaseModelPost):
         self.header_image = f"{WMS_THUMBNAILS}/{today_folder}/{img_path.stem}{img_path.suffix}"
 
         # Get WMS's BBOX
-        self.wms_bbox = get_wms_bbox(
+        self.wms_bbox = list(get_wms_bbox(
             wms_url=self.wms_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.wms_layer_name
-        )
+        ))
 
         # Get BBOX's centroid
-        self.wms_centroid = get_centroid_coords(self.wms_bbox)
+        self.wms_centroid = list(get_centroid_coords(self.wms_bbox))
 
         # Save all
         super(WMSLayer, self).save(*args, **kwargs)

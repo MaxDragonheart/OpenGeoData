@@ -3,13 +3,45 @@
 {% load static %}
 
 {% block component-style %}
-  <link rel="stylesheet"
-        href="{% static 'css/wms_list.css' %}">
   {% include './gis_lib.html' %}
 {% endblock component-style %}
 
 {% block page %}
 
-{{ single_object.title }}
+<div class="map" id='map'></div>
 
 {% endblock page %}
+
+{% block page-script %}
+<script type="text/javascript">
+
+  const mapCanvas = new MapInizialized('map');
+  const scaleLine = new MapScaleLine();
+  const mapAttribution = new MapAttribution();
+
+  const mapCanvasView = new MapSetView(
+    14.239649, 40.842906,
+    0,
+    {{ single_object.set_max_zoom }}, {{ single_object.set_min_zoom }}
+  );
+
+  const basemap = new baseMapLayer();
+  const osm = basemap.createOSMStandard('OSM');
+  mapCanvas.addLayer(osm);
+
+  const wmsMainSource = new wmsLayer();
+  const leftMap = wmsMainSource.createWMSLayer(
+      '{{ single_object.title }}',
+      '{{ single_object.wms_layer_path.complete_url_wms }}',
+      '{{ single_object.wms_layer_name }}',
+      null,
+      28, 0,
+      1, 1.00
+    );
+  mapCanvas.addLayer(leftMap)
+  const boundingBox = bboxLayer({{ single_object.wms_bbox }}, '{{ single_object.title }}');
+  const layer = boundingBox.createBBox();
+  boundingBox.zoomOnLayer(10,10,10,10,50);
+
+</script>
+{% endblock page-script %}

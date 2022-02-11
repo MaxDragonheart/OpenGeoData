@@ -549,6 +549,78 @@ let vectorsLayer = function(
   };
 };
 
+let bboxLayer = function(
+  bboxCoordinates,
+  bboxName
+){
+  /*
+  This function allow to visualize vectors on
+  the map.
+  bboxCoordinates: array.
+  bboxName: string. It is the name of the vector resource.
+  */
+  this.bboxCoordinates = bboxCoordinates;
+  this.bboxName = bboxName;
+
+  let bbox;
+
+  return {
+    'createBBox': function(){
+      /*
+      This function create the vector resource.
+      */
+      // Build the vector
+      coordinates = [[
+        [bboxCoordinates[0], bboxCoordinates[1]],
+        [bboxCoordinates[0], bboxCoordinates[3]],
+        [bboxCoordinates[2], bboxCoordinates[3]],
+        [bboxCoordinates[2], bboxCoordinates[1]],
+        [bboxCoordinates[0], bboxCoordinates[1]],
+      ]];
+      polygon = new ol.Feature(
+        new ol.geom.Polygon(coordinates).transform('EPSG:4326','EPSG:3857')
+      );
+      bbox = new ol.layer.Vector({
+        title: bboxName,
+        source: new ol.source.Vector({
+            features: [polygon]
+        }),
+        opacity: 0
+      });
+      return bbox;
+    },
+    'zoomOnLayer': function(
+      paddingTop,
+      paddingLeft,
+      paddingBottom,
+      paddingRight,
+      durationMilliseconds
+    ){
+      /*
+      This function activates the zoom by clicking on the button.
+      paddingTop: integer. It is the top padding.
+      paddingLeft: integer. It is the left padding.
+      paddingBottom: integer. It is the bottom padding.
+      paddingRight: integer. It is the right padding.
+      durationMilliseconds: integer. Corresponds to how long the zoom lasts.
+      */
+      this.paddingTop = paddingTop;
+      this.paddingLeft = paddingLeft;
+      this.paddingBottom = paddingBottom;
+      this.paddingRight = paddingRight;
+      this.durationMilliseconds = durationMilliseconds;
+
+      const extent = bbox.getSource().getExtent();
+      const options = {
+        size: map.getSize(),
+        padding: [paddingTop, paddingLeft, paddingBottom, paddingRight],
+        duration: durationMilliseconds
+      }
+      map.getView().fit(extent, options);
+    },
+  };
+};
+
 let wmsLayer = function(
   // layerName,
   // wmsLayerPath
