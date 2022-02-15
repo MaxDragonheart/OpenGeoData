@@ -11,6 +11,19 @@ from fsspec import get_fs_token_paths
 from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
 
 
+class OpenLayersMapParameters(models.Model):
+    map_scaleline = models.BooleanField(default=True)
+    map_attribution = models.CharField(max_length=250, default='<a href="https://massimilianomoraca.it/" target="_blank">Massimiliano Moraca</a> has created this map using <a href="https://openlayers.org/" target="_blank">OpenLayers</a>')
+    map_center_longitude = models.DecimalField(max_digits=10, decimal_places=5, default=14.239649)
+    map_center_latitude = models.DecimalField(max_digits=10, decimal_places=5, default=40.842906)
+    set_max_zoom = models.IntegerField(default=28)
+    set_min_zoom = models.IntegerField(default=0)
+    set_zoom_level = models.IntegerField(default=0)
+
+    class Meta:
+        abstract = True
+
+
 class GeoServerURL(TimeManager):
     geoserver_domain = models.URLField(unique=True)
     geoserver_workspace = models.CharField(max_length=100)
@@ -32,14 +45,12 @@ class GeoServerURL(TimeManager):
         verbose_name_plural = "GeoServer URL"
 
 
-class WMSLayer(BaseModelPost):
+class WMSLayer(BaseModelPost, OpenLayersMapParameters):
+    set_zindex = models.IntegerField(default=1)
+    set_opacity = models.DecimalField(max_digits=3, decimal_places=2, default=1.0)
     wms_layer_path = models.ForeignKey(GeoServerURL, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
     wms_layer_name = models.CharField(max_length=100)
     wms_layer_style = models.CharField(max_length=100, blank=True, null=True)
-    set_max_zoom = models.IntegerField(default=28)
-    set_min_zoom = models.IntegerField(default=0)
-    set_zindex = models.IntegerField(default=1)
-    set_opacity = models.DecimalField(max_digits=3, decimal_places=2, default=1.0)
     wms_bbox = models.CharField(max_length=250, blank=True, null=True)
     wms_centroid = models.CharField(max_length=250, blank=True, null=True)
 

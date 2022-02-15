@@ -20,11 +20,13 @@
   const scaleLine = new MapScaleLine();
   const mapAttribution = new MapAttribution();
 
- {% if single_object.set_max_zoom %}
+ {% if single_object.set_zoom_level %}
   const mapCanvasView = new MapSetView(
-    14.239649, 40.842906,
-    0,
-    {{ single_object.set_max_zoom }}, {{ single_object.set_min_zoom }}
+    {{ single_object.map_center_longitude }},
+    {{ single_object.map_center_latitude }},
+    {{ single_object.set_zoom_level }},
+    {{ single_object.set_max_zoom }},
+    {{ single_object.set_min_zoom }}
   );
   {% else %}
   const mapCanvasView = new MapSetView(14.239649, 40.842906, 8);
