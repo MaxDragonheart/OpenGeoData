@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import WMSLayer, Basemap
+from .models import WMSLayer, Basemap, WebGISProject
 
 
 def test_map(request):
@@ -23,7 +23,7 @@ def wms_list(request):
     """
     list = WMSLayer.objects.all()
     context = {"list": list}
-    return render(request, "wms_list.html", context)
+    return render(request, "wms/wms_list.html", context)
 
 
 def single_wms(request, slug_post):
@@ -32,5 +32,24 @@ def single_wms(request, slug_post):
     context = {
         "single_object": object,
     }
-    template = "single_wms.html"
+    template = "wms/single_wms.html"
+    return render(request, template, context)
+
+
+def webgis_list(request):
+    """
+    Con questa funzione definisco la lista dei post della singola categoria
+    """
+    list = WebGISProject.objects.all()
+    context = {"list": list}
+    return render(request, "map/webgis_list.html", context)
+
+
+def single_webgis(request, slug_post):
+    object = get_object_or_404(WebGISProject, slug_post=slug_post)
+
+    context = {
+        "single_object": object,
+    }
+    template = "map/single_webgis.html"
     return render(request, template, context)
