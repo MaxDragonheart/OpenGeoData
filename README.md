@@ -1,17 +1,7 @@
 # UfficioUrbanistica
-Sito web dell'Ufficio Urbanistica del Comune di Parete
 
-Sviluppato usando [Bootstrap Italia template for Django](https://github.com/italia/design-django-theme)
 
 ## Utilità
-### Gestione requirements
-Per creare la lista dei packages:
-
-        pip3 freeze > requirements.txt
-
-Per installare i packages da requirementes.txt:
-
-        pip3 install -r requirements.txt
 
 ### Comandi git
 Mettere cartella o file in .gitignore: `echo "nome_cartella" >> .gitignore`
