@@ -1,0 +1,16 @@
+{% extends 'gis_base.html' %}
+
+{% load static %}
+
+{% block basemap-script %}
+<script type="text/javascript">
+
+  const startBasemap = new baseMapLayer();
+  const basemap = startBasemap.providerBasemap(
+    '{{ single_object.title }}',
+    '{{ single_object.url }}'
+  );
+  mapCanvas.addLayer(basemap);
+
+</script>
+{% endblock basemap-script %}

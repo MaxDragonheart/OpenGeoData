@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import GeoServerURL, WMSLayer
+from .models import GeoServerURL, WMSLayer, BasemapProvider, Basemap
 
 
 class GeoServerURLAdmin(admin.ModelAdmin):
@@ -28,5 +28,22 @@ class WMSLayerAdmin(admin.ModelAdmin):
         model = WMSLayer
 
 
+class BasemapProviderAdmin(admin.ModelAdmin):
+    list_display = ["name", "raw_url"]
+
+    class Meta:
+        model = BasemapProvider
+
+
+class BasemapAdmin(admin.ModelAdmin):
+    list_display = ["pk", "title", "provider", "url", "thumbnail"]
+    list_filter = ["provider"]
+
+    class Meta:
+        model = Basemap
+
+
 admin.site.register(GeoServerURL, GeoServerURLAdmin)
 admin.site.register(WMSLayer, WMSLayerAdmin)
+admin.site.register(BasemapProvider, BasemapProviderAdmin)
+admin.site.register(Basemap, BasemapAdmin)
