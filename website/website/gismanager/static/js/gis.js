@@ -98,7 +98,7 @@ function baseMapLayer(
   let osm;
 
   return {
-    'createEmpty': function() {
+    'empty': function() {
       /*
       Empty basemap.
       */
@@ -109,7 +109,7 @@ function baseMapLayer(
       });
       return empty;
     },
-    'createOSMStandard': function(
+    'osmStandard': function(
       baseMapName,
     ) {
       /*
@@ -124,34 +124,25 @@ function baseMapLayer(
       });
       return osm;
     },
-    'createMapBoxTileV1': function(
+    'providerBasemap': function(
       baseMapName,
-      attribution,
-      mapbox_user,
-      mapbox_tile_code,
-      mapbox_token
+      url,
     ) {
       /*
       Basemap based on MapBox Studio
       */
       this.baseMapName = baseMapName;
-      this.attribution = attribution;
-      this.mapbox_user = mapbox_user;
-      this.mapbox_tile_code = mapbox_tile_code;
-      this.mapbox_token = mapbox_token;
+      this.url = url;
 
-      let mapboxStudio = new ol.layer.Tile({
+      let basemap = new ol.layer.Tile({
         title: baseMapName,
         source: new ol.source.XYZ({
-            attributions: attribution,
-            url: 'https://api.mapbox.com/styles/v1/' + mapbox_user + '/'
-                + '' + mapbox_tile_code + '/tiles/256/{z}/{x}/{y}?'
-                + 'access_token=' + mapbox_token + ''
+            url: url
           }),
         zIndex: 0,
-        // opacity: setOpacity
+        tilePixelRatio: 2
       });
-      return mapboxStudio;
+      return basemap;
     },
   }
 

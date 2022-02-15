@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block component-style %}
+  {% include './gis_lib.html' %}
+{% endblock component-style %}
+
+{% block page %}
+
+<div class="map" id='map'></div>
+
+{% endblock page %}
+
+{% block page-script %}
+{% block map-script %}
+<script type="text/javascript">
+
+  const mapCanvas = new MapInizialized('map');
+  const scaleLine = new MapScaleLine();
+  const mapAttribution = new MapAttribution();
+
+ {% if single_object.set_max_zoom %}
+  const mapCanvasView = new MapSetView(
+    14.239649, 40.842906,
+    0,
+    {{ single_object.set_max_zoom }}, {{ single_object.set_min_zoom }}
+  );
+  {% else %}
+  const mapCanvasView = new MapSetView(14.239649, 40.842906, 8);
+  {% endif %}
+
+</script>
+{% endblock map-script %}
+
+{% block wms-script %}{% endblock wms-script %}
+{% block basemap-script %}{% endblock basemap-script %}
+{% endblock page-script %}

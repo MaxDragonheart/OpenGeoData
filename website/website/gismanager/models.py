@@ -110,6 +110,20 @@ class Basemap(TimeManager):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        """Make basemap url"""
+        raw_url = self.provider.raw_url
+        print(f"Basemap Provider: {self.provider.name}")
+        if self.provider.user:
+            user_url = raw_url.replace('USER', self.provider.user)
+        else:
+            user_url = raw_url
+
+        tilecode_url = user_url.replace('TILECODE', self.tile_code)
+        self.url = tilecode_url.replace('TOKEN', self.provider.token)
+        super(Basemap, self).save(*args, **kwargs)
+
+
     class Meta:
         ordering = ['-publishing_date']
         verbose_name = "Basemap"

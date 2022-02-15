@@ -7,8 +7,8 @@ def test_map(request):
     return render(request, "test/test_map.html")
 
 
-def test_map_single(request, pk):
-    object = get_object_or_404(WMSLayer, pk=pk)
+def test_map_single(request, id):
+    object = get_object_or_404(Basemap, id=id)
 
     context = {
         "single_object": object,

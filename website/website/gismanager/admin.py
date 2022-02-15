@@ -36,7 +36,7 @@ class BasemapProviderAdmin(admin.ModelAdmin):
 
 
 class BasemapAdmin(admin.ModelAdmin):
-    list_display = ["title", "provider", "thumbnail"]
+    list_display = ["pk", "title", "provider", "url", "thumbnail"]
     list_filter = ["provider"]
 
     class Meta:

@@ -1,32 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'gis_base.html' %}
 
 {% load static %}
 
-{% block component-style %}
-  {% include './gis_lib.html' %}
-{% endblock component-style %}
-
-{% block page %}
-
-<div class="map" id='map'></div>
-
-{% endblock page %}
-
-{% block page-script %}
+{% block wms-script %}
 <script type="text/javascript">
 
-  const mapCanvas = new MapInizialized('map');
-  const scaleLine = new MapScaleLine();
-  const mapAttribution = new MapAttribution();
-
-  const mapCanvasView = new MapSetView(
-    14.239649, 40.842906,
-    0,
-    {{ single_object.set_max_zoom }}, {{ single_object.set_min_zoom }}
-  );
-
   const basemap = new baseMapLayer();
-  const osm = basemap.createOSMStandard('OSM');
+  const osm = basemap.osmStandard('OSM');
   mapCanvas.addLayer(osm);
 
   const wmsMainSource = new wmsLayer();
@@ -44,4 +24,4 @@
   boundingBox.zoomOnLayer(10,10,10,10,50);
 
 </script>
-{% endblock page-script %}
+{% endblock wms-script %}
