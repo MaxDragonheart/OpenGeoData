@@ -83,3 +83,34 @@ class WMSLayer(BaseModelPost):
         ordering = ['-publishing_date']
         verbose_name = "WMS Layer"
         verbose_name_plural = "WMS Layers"
+
+
+class BasemapProvider(TimeManager):
+    name = models.CharField(max_length=250, unique=True)
+    user = models.CharField(max_length=250, blank=True, null=True)
+    token = models.CharField(max_length=250, blank=True, null=True)
+    raw_url = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['-publishing_date']
+        verbose_name = "Basemap Provider"
+        verbose_name_plural = "Basemap Provider"
+
+
+class Basemap(TimeManager):
+    title = models.CharField(max_length=250)
+    provider = models.ForeignKey(BasemapProvider, on_delete=models.CASCADE, related_name="releted_basemap_provider")
+    tile_code = models.CharField(max_length=250, blank=True, null=True)
+    thumbnail = models.ImageField(blank=True, null=True)
+    url = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['-publishing_date']
+        verbose_name = "Basemap"
+        verbose_name_plural = "Basemap"
