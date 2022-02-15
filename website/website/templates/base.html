@@ -7,6 +7,7 @@
   {% include './components/site_head.html' %}
   <link rel="stylesheet"
         href="{% static 'css/commons.css' %}">
+  <script src="{% static 'js/commons.js' %}"></script>
   <link rel="stylesheet"
         href="{% static 'css/base.css' %}">
   {% block component-style %}{% endblock component-style %}
@@ -19,6 +20,7 @@
     <div class="site-main">
       {% block page %}{% endblock page %}
     </div>
+    {% block page-script %}{% endblock page-script %}
   </section>
   <footer>
     {% include './components/site_footer.html' %}

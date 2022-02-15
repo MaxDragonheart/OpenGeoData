@@ -1,0 +1,102 @@
+.ol-control {
+  background-color: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  z-index: 1 !important;
+}
+.ol-zoom, .ol-zoom-in, .ol-zoom-out {
+  box-shadow: 5px 5px 8px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 0 !important;
+  width: 30px !important;
+  margin: 0 !important;
+  left: 0vw !important;
+  top: 0vh !important;
+}
+.ol-zoom-in, .ol-zoom-out {
+  /* padding: 2px !important; */
+  height: 30px !important;
+  background-color: rgba(1, 79, 134, 1) !important;
+  color: rgba(169, 214, 229, 1) !important;
+}
+.ol-zoom-in:hover, .ol-zoom-out:hover {
+  background-color: rgba(169, 214, 229, 1) !important;
+  color: rgba(1, 79, 134, 1) !important;
+}
+.ol-scale-line {
+  box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2);
+  bottom: 0 !important;
+  left: 45vw !important;
+  background-color: rgba(1, 79, 134, 1) !important;
+  border-radius: 0 !important;
+}
+.ol-scale-line-inner {
+  margin: 0 !important;
+}
+.ol-attribution button {
+  background-color: inherit !important;
+  color: rgba(169, 214, 229, 1) !important;
+}
+.ol-attribution button:hover {
+  color: rgba(1, 79, 134, 1) !important;
+}
+.ol-attribution div {}
+.ol-attribution div:hover {}
+.ol-attribution button::before {
+  /* content: "<i class="fas fa-info"></i>"; */
+}
+.ol-attribution button::after {
+  /* content: none; */
+}
+.ol-attribution, .ol-attribution div {
+  box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2);
+  bottom: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  text-align: left !important;
+  background-color: rgba(1, 79, 134, 1) !important;
+  border-radius: 0 !important;
+}
+.ol-attribution:hover, .ol-attribution div:hover {
+  background-color: rgba(169, 214, 229, 1) !important;
+}
+.ol-popup {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 600px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: rgba(255, 255, 255, 1);
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+}
