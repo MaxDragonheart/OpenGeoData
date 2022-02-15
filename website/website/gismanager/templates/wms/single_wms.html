@@ -10,7 +10,7 @@
   mapCanvas.addLayer(osm);
 
   const wmsMainSource = new wmsLayer();
-  const leftMap = wmsMainSource.createWMSLayer(
+  const layerWMS = wmsMainSource.createWMSLayer(
       '{{ single_object.title }}',
       '{{ single_object.wms_layer_path.complete_url_wms }}',
       '{{ single_object.wms_layer_name }}',
@@ -18,7 +18,7 @@
       28, 0,
       1, 1.00
     );
-  mapCanvas.addLayer(leftMap)
+  mapCanvas.addLayer(layerWMS)
   const boundingBox = bboxLayer({{ single_object.wms_bbox }}, '{{ single_object.title }}');
   const layer = boundingBox.createBBox();
   boundingBox.zoomOnLayer(10,10,10,10,50);

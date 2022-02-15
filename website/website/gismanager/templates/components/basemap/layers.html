@@ -1,0 +1,20 @@
+{% load static %}
+{% block basemap %}
+<script type="text/javascript">
+  const startBasemap = new baseMapLayer();
+  {% for layer in single_object.basemap.all %}
+  const basemap{{ layer.title|cut:"_" }} = startBasemap.providerBasemap(
+    '{{ layer.title }}',
+    '{{ layer.url }}'
+  );
+  $('#{{ layer.pk }}_{{ layer.title }}').on('change', function() {
+    let isChecked = $(this).is(':checked');
+    if (isChecked) {
+      mapCanvas.addLayer(basemap{{ layer.title|cut:"_" }});
+    } else {
+      mapCanvas.removeLayer(basemap{{ layer.title|cut:"_" }});
+    }
+  });
+  {% endfor %}
+</script>
+{% endblock basemap %}

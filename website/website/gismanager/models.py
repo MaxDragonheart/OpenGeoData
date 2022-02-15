@@ -148,9 +148,9 @@ class WebGISProjectBase(ModelPost, OpenLayersMapParameters):
 
 class WebGISProject(WebGISProjectBase):
     #tags = models.ManyToManyField(WebGISProjectTag, related_name="related_webgisprojecttag")
-    basemap_layers = models.BooleanField(default=False)
-    basemap = models.ManyToManyField(Basemap, related_name="related_basemap", blank=True)
-    map_layers = models.BooleanField(default=False)
+    #basemap_layers = models.BooleanField(default=False)
+    #basemap = models.ManyToManyField(Basemap, related_name="related_basemap", blank=True)
+    basemap = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap")
     layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
 
     def get_absolute_url(self):

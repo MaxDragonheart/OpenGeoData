@@ -1,0 +1,16 @@
+{% extends 'gis_base.html' %}
+
+{% load static %}
+
+{% block webgis-script %}
+<script type="text/javascript">
+  const startBasemap = new baseMapLayer();
+  const basemap = startBasemap.osmStandard('OSM');
+  mapCanvas.addLayer(basemap);
+</script>
+
+{#% block basemap %#}
+  {#% include '../components/basemap/layers.html' %#}
+{#% endblock basemap %#}
+
+{% endblock webgis-script %}

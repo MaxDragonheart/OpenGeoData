@@ -120,7 +120,8 @@ function baseMapLayer(
       let osm = new ol.layer.Tile({
         title: baseMapName,
         source: new ol.source.OSM(),
-        zIndex: 0
+        zIndex: 0,
+        // visible: true,
       });
       return osm;
     },

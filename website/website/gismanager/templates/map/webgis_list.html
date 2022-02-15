@@ -4,20 +4,20 @@
 
 {% block component-style %}
   <link rel="stylesheet"
-        href="{% static 'css/wms_list.css' %}">
+        href="{% static 'css/gismanager.css' %}">
 {% endblock component-style %}
 
 {% block page %}
 
 <h1>Mappe</h1>
 {% for item in list %}
-<div class="map-card">
-  <div class="map-card-title">
+<div class="webgis-card">
+  <div class="webgis-card-title">
     <h2>{{ item.title }}</h2>
     <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
     <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
   </div>
-  <div class="map-card-description">
+  <div class="webgis-card-description">
     <div class="">
       <p>{{ item.contents }}</p>
     </div>
@@ -26,8 +26,12 @@
               name="button" href="{{ item.get_absolute_url }}">Viewer</a>
     </div>
   </div>
-  <div class="map-card-thumbnail">
-    <img class="map-thumbnail" src="{#{ item.header_image.url }#}" alt="{{ item.description }}">
+  <div class="webgis-card-thumbnail">
+    {% if item.header_image %}
+    <img class="webgis-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
+    {% else %}
+    <img class="webgis-thumbnail" src="{% static 'images/tmp_image.png' %}" alt="{{ item.description }}">
+    {% endif %}
   </div>
 </div>
 {% endfor %}

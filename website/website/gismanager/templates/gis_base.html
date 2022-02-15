@@ -10,31 +10,39 @@
 
 <div class="map" id='map'></div>
 
+{% block basemap-controls %}
+    {#% include './components/basemap/controls.html' %#}
+{% endblock basemap-controls %}
+
 {% endblock page %}
 
 {% block page-script %}
-{% block map-script %}
-<script type="text/javascript">
+  {% block map-script %}
+  <script type="text/javascript">
 
-  const mapCanvas = new MapInizialized('map');
-  const scaleLine = new MapScaleLine();
-  const mapAttribution = new MapAttribution();
+    const mapCanvas = new MapInizialized('map');
+    const scaleLine = new MapScaleLine();
+    const mapAttribution = new MapAttribution();
 
- {% if single_object.set_zoom_level %}
-  const mapCanvasView = new MapSetView(
-    {{ single_object.map_center_longitude }},
-    {{ single_object.map_center_latitude }},
-    {{ single_object.set_zoom_level }},
-    {{ single_object.set_max_zoom }},
-    {{ single_object.set_min_zoom }}
-  );
-  {% else %}
-  const mapCanvasView = new MapSetView(14.239649, 40.842906, 8);
-  {% endif %}
+   {% if single_object.set_zoom_level %}
+    const mapCanvasView = new MapSetView(
+      {{ single_object.map_center_longitude }},
+      {{ single_object.map_center_latitude }},
+      {{ single_object.set_zoom_level }},
+      {{ single_object.set_max_zoom }},
+      {{ single_object.set_min_zoom }}
+    );
+    {% else %}
+    const mapCanvasView = new MapSetView(14.239649, 40.842906, 8);
+    {% endif %}
+    
+  </script>
+  {% endblock map-script %}
 
-</script>
-{% endblock map-script %}
+  {% block test-script %}{% endblock test-script %}
 
-{% block wms-script %}{% endblock wms-script %}
-{% block basemap-script %}{% endblock basemap-script %}
+  {% block wms-script %}{% endblock wms-script %}
+
+  {% block webgis-script %}{% endblock webgis-script %}
+
 {% endblock page-script %}

@@ -44,7 +44,7 @@ class BasemapAdmin(admin.ModelAdmin):
 
 
 class WebGISProjectAdmin(admin.ModelAdmin):
-    list_display = ["title", "map_layers", "publishing_date", "updating_date", "highlighted", "draft"]
+    list_display = ["title", "publishing_date", "updating_date", "highlighted", "draft"]
     list_filter = ["publishing_date"]
     search_fields = ["title"]
     prepopulated_fields = {"slug_post": ("title",)}
@@ -52,7 +52,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                 (None, {"fields": ["title", "slug_post", "header_image", "description"]}),
                 (None, {"fields": ["contents"]}),
                 (None, {"fields": ["draft", "highlighted", "publishing_date"]}),
-                ("Basemap", {"fields": ["basemap_layers", "basemap"]}),
+                #("Basemap", {"fields": ["basemap_layers", "basemap"]}),
                 ("OpenLayers Parameters",
                  {
                      "classes": ("collapse",),
@@ -62,7 +62,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                        ]
                   }
                  ),
-                ("WMS Layer",  {"fields": ["map_layers", "layers"]}),
+                ("WMS Layer",  {"fields": ["layers"]}),
             ]
 
     class Meta:

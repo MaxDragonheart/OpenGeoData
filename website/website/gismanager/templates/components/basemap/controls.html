@@ -1,0 +1,10 @@
+{% load static %}
+{% block basemap-controls %}
+  {% for layer in single_object.basemap.all %}
+    <div class="">
+      <input type="radio" class="" name="switch-basemap" id="{{ layer.pk }}_{{ layer.title }}">
+      <label class="" for="{{ layer.pk }}_{{ layer.title }}">{{ layer.title }}</label>
+      <img class="" src="{% static 'images/tmp_image.png' %}" alt="{{ layer.title }}">
+    </div>
+  {% endfor %}
+{% endblock basemap-controls %}
