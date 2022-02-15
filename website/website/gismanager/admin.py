@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import GeoServerURL, WMSLayer, BasemapProvider, Basemap
+from .models import GeoServerURL, WMSLayer, BasemapProvider, Basemap, WebGISProject
 
 
 class GeoServerURLAdmin(admin.ModelAdmin):
@@ -43,7 +43,34 @@ class BasemapAdmin(admin.ModelAdmin):
         model = Basemap
 
 
+class WebGISProjectAdmin(admin.ModelAdmin):
+    list_display = ["title", "map_layers", "publishing_date", "updating_date", "highlighted", "draft"]
+    list_filter = ["publishing_date"]
+    search_fields = ["title"]
+    prepopulated_fields = {"slug_post": ("title",)}
+    fieldsets = [
+                (None, {"fields": ["title", "slug_post", "header_image", "description"]}),
+                (None, {"fields": ["contents"]}),
+                (None, {"fields": ["draft", "highlighted", "publishing_date"]}),
+                ("Basemap", {"fields": ["basemap_layers", "basemap"]}),
+                ("OpenLayers Parameters",
+                 {
+                     "classes": ("collapse",),
+                     "fields":
+                      ["map_scaleline", "map_attribution", "map_center_longitude",
+                       "map_center_latitude", "set_max_zoom", "set_min_zoom", "set_zoom_level"
+                       ]
+                  }
+                 ),
+                ("WMS Layer",  {"fields": ["map_layers", "layers"]}),
+            ]
+
+    class Meta:
+        model = WebGISProject
+
+
 admin.site.register(GeoServerURL, GeoServerURLAdmin)
 admin.site.register(WMSLayer, WMSLayerAdmin)
 admin.site.register(BasemapProvider, BasemapProviderAdmin)
 admin.site.register(Basemap, BasemapAdmin)
+admin.site.register(WebGISProject, WebGISProjectAdmin)

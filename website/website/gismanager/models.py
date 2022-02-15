@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.gis.db import models
 from django.urls import reverse
 
-from abstracts.models import TimeManager, BaseModelPost
+from abstracts.models import TimeManager, BaseModelPost, ModelPost
 from fsspec import get_fs_token_paths
 
 from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
@@ -134,8 +134,29 @@ class Basemap(TimeManager):
         self.url = tilecode_url.replace('TOKEN', self.provider.token)
         super(Basemap, self).save(*args, **kwargs)
 
-
     class Meta:
         ordering = ['-publishing_date']
         verbose_name = "Basemap"
         verbose_name_plural = "Basemap"
+
+
+class WebGISProjectBase(ModelPost, OpenLayersMapParameters):
+
+    class Meta:
+        abstract = True
+
+
+class WebGISProject(WebGISProjectBase):
+    #tags = models.ManyToManyField(WebGISProjectTag, related_name="related_webgisprojecttag")
+    basemap_layers = models.BooleanField(default=False)
+    basemap = models.ManyToManyField(Basemap, related_name="related_basemap", blank=True)
+    map_layers = models.BooleanField(default=False)
+    layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
+
+    def get_absolute_url(self):
+        return reverse("single_webgisproject", kwargs={"slug_post": self.slug_post})
+
+    class Meta:
+        ordering = ['-publishing_date']
+        verbose_name = "WebGIS"
+        verbose_name_plural = "WebGIS"
