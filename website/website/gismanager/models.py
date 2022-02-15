@@ -154,7 +154,7 @@ class WebGISProject(WebGISProjectBase):
     layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
 
     def get_absolute_url(self):
-        return reverse("single_webgisproject", kwargs={"slug_post": self.slug_post})
+        return reverse("map-single", kwargs={"slug_post": self.slug_post})
 
     class Meta:
         ordering = ['-publishing_date']
