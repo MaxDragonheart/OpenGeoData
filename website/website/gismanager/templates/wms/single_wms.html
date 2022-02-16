@@ -5,23 +5,36 @@
 {% block wms-script %}
 <script type="text/javascript">
 
-  const basemap = new baseMapLayer();
-  const osm = basemap.osmStandard('OSM');
-  mapCanvas.addLayer(osm);
+  var osm = new ol.layer.Tile({
+    title: 'OSM',
+    source: new ol.source.OSM(),
+    zIndex: 0
+  });
+  map.addLayer(osm);
 
-  const wmsMainSource = new wmsLayer();
-  const layerWMS = wmsMainSource.createWMSLayer(
-      '{{ single_object.title }}',
-      '{{ single_object.wms_layer_path.complete_url_wms }}',
-      '{{ single_object.wms_layer_name }}',
-      null,
-      28, 0,
-      1, 1.00
-    );
-  mapCanvas.addLayer(layerWMS)
-  const boundingBox = bboxLayer({{ single_object.wms_bbox }}, '{{ single_object.title }}');
-  const layer = boundingBox.createBBox();
-  boundingBox.zoomOnLayer(10,10,10,10,50);
+  var wms = new ol.layer.Tile({
+    title: '{{ single_object.title }}',
+    source: new ol.source.TileWMS({
+      url: '{{ single_object.wms_layer_path.complete_url_wms }}',
+      params: {
+        'LAYERS': '{{ single_object.wms_layer_name }}',
+        // 'STYLES': null,
+      }
+    }),
+    minZoom: 0,
+    maxZoom: 28,
+    zIndex: 1,
+    opacity: 1.0
+  });
+  map.addLayer(wms);
+
+  var boundingBox = createBBoxLayer(
+    {{ single_object.wms_bbox }},
+    '{{ single_object.title }}'
+  );
+  map.addLayer(boundingBox);
+
+  zoomOnLayer(boundingBox,10,10,10,10,50);
 
 </script>
 {% endblock wms-script %}

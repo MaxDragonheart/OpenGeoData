@@ -5,12 +5,15 @@
 {% block test-script %}
 <script type="text/javascript">
 
-  const startBasemap = new baseMapLayer();
-  const basemap = startBasemap.providerBasemap(
-    '{{ single_object.title }}',
-    '{{ single_object.url }}'
-  );
-  mapCanvas.addLayer(basemap);
+  var basemap = new ol.layer.Tile({
+    title: '{{ single_object.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  map.addLayer(basemap);
 
 </script>
 {% endblock test-script %}

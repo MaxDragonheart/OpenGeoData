@@ -18,30 +18,34 @@
     <script type="text/javascript">
       var map = new ol.Map({
         target: 'map',
-        // layers: [
-        //   new ol.layer.Tile({
-        //     source: new ol.source.OSM()
-        //   })
-        // ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([37.41, 8.82]),
-          zoom: 4
+          center: ol.proj.fromLonLat([14.239649, 40.842906]),
+          zoom: 8
         })
       });
 
-      var key = 'ovYtBegeDGmiTDk6nnoC'
-      var basemap = new ol.layer.Tile({
-        source: new ol.source.XYZ({
-          // attributions: 'Fatto da me',
-          // url: 'https://api.maptiler.com/maps/outdoor/256/{z}/{x}/{y}@2x.png?key=' + key,
-          // url: 'https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}@2x.png?key=' + key,
-          // url: 'https://api.maptiler.com/maps/topo/256/{z}/{x}/{y}@2x.png?key=ovYtBegeDGmiTDk6nnoC'
-          url: 'https://api.maptiler.com/maps/toner/256/{z}/{x}/{y}@2x.png?key=ovYtBegeDGmiTDk6nnoC'
-,
-          tilePixelRatio: 2,
-        }),
+      var osm = new ol.layer.Tile({
+        title: 'OSM',
+        source: new ol.source.OSM(),
+        zIndex: 0
       });
-      map.addLayer(basemap);
+      map.addLayer(osm);
+
+      var wms = new ol.layer.Tile({
+        title: 'TEST',
+        source: new ol.source.TileWMS({
+          url: 'https://geoserver.massimilianomoraca.me/geoserver/MassimilianoMoraca/wms',
+          params: {
+            'LAYERS': 'RGB_Campania_20150807',
+          }
+        }),
+        minZoom: 0,
+        maxZoom: 20,
+        zIndex: 1,
+        opacity: 1.0
+      });
+      map.addLayer(wms);
+
     </script>
   </body>
 </html>
