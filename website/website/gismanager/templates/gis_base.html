@@ -8,11 +8,13 @@
 
 {% block page %}
 
-<div class="map" id='map'></div>
+<div class="map-wrapper">
 
-{% block basemap-controls %}
-    {#% include './components/basemap/controls.html' %#}
-{% endblock basemap-controls %}
+  <div class="map" id='map'></div>
+
+  {% block controls %}{% endblock controls %}
+
+</div>
 
 {% endblock page %}
 

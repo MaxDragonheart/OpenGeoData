@@ -1,0 +1,33 @@
+{% load static %}
+{% block wms %}
+<script type="text/javascript">
+  {% for wms in single_object.layers.all %}
+
+    var wms{{ wms.pk }} = new ol.layer.Tile({
+      title: '{{ wms.title }}',
+      source: new ol.source.TileWMS({
+        url: '{{ wms.wms_layer_path.complete_url_wms }}',
+        params: {
+          'LAYERS': '{{ wms.wms_layer_name }}',
+          'STYLES': {% if wms.wms_layer_style %}'{{ wms.wms_layer_style }}'{% else %}null{% endif %},
+        }
+      }),
+      minZoom: {{ wms.set_min_zoom }},
+      maxZoom: {{ wms.set_max_zoom }},
+      zIndex: {% if wms.set_index %}{{ wms.set_index }}{% else %}0{% endif %},
+      opacity: {{ wms.set_opacity }}
+    });
+    // map.addLayer(wms{{ wms.pk }});
+
+    $('#WMS{{ wms.pk }}').on('change', function() {
+      let isChecked = $(this).is(':checked');
+      if (isChecked) {
+        map.addLayer(wms{{ wms.pk }});
+      } else {
+        map.removeLayer(wms{{ wms.pk }});
+      }
+  });
+
+  {% endfor %}
+</script>
+{% endblock wms %}

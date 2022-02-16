@@ -2,6 +2,19 @@
 
 {% load static %}
 
+{% block controls %}
+
+{% block wms-controls %}
+<div class="map-controls">
+  <div class="map-controls-icon">
+    <i class="fa fa-layer-group"></i>
+  </div>
+</div>
+    {#% include '../components/wms/controls.html' %#}
+{% endblock wms-controls %}
+
+{% endblock controls %}
+
 {% block webgis-script %}
 <script type="text/javascript">
 
@@ -12,29 +25,14 @@
   });
   map.addLayer(osm);
 
-{% for wms in single_object.layers.all %}
-
-  var wms{{ wms.pk }} = new ol.layer.Tile({
-    title: '{{ wms.title }}',
-    source: new ol.source.TileWMS({
-      url: '{{ wms.wms_layer_path.complete_url_wms }}',
-      params: {
-        'LAYERS': '{{ wms.wms_layer_name }}',
-        'STYLES': {% if wms.wms_layer_style %}'{{ wms.wms_layer_style }}'{% else %}null{% endif %},
-      }
-    }),
-    minZoom: {{ wms.set_min_zoom }},
-    maxZoom: {{ wms.set_max_zoom }},
-    zIndex: {% if wms.set_index %}{{ wms.set_index }}{% else %}0{% endif %},
-    opacity: {{ wms.set_opacity }}
-  });
-  // map.addLayer(wms{{ wms.pk }});
-{% endfor %}
-
 </script>
 
 {#% block basemap %#}
   {#% include '../components/basemap/layers.html' %#}
 {#% endblock basemap %#}
+
+{% block wms %}
+  {% include '../components/wms/layers.html' %}
+{% endblock wms %}
 
 {% endblock webgis-script %}

@@ -1,0 +1,10 @@
+{% load static %}
+{% block wms-controls %}
+  {% for wms in single_object.layers.all %}
+    <div class="">
+      <input type="radio" class="" name="switch-basemap" id="WMS{{ wms.pk }}">
+      <label class="" for="WMS{{ wms.pk }}">{{ wms.title }}</label>
+      <!-- <img class="" src="{% static 'images/tmp_image.png' %}" alt="{{ wms.title }}"> -->
+    </div>
+  {% endfor %}
+{% endblock wms-controls %}
