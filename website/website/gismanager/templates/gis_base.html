@@ -8,11 +8,15 @@
 
 {% block page %}
 
-<div class="map-wrapper">
+<div class="map-container">
 
   <div class="map" id='map'></div>
 
-  {% block controls %}{% endblock controls %}
+  <div class="map-controls">
+    {% block basemap-controls %}{% endblock basemap-controls %}
+    <hr>
+    {% block wms-controls %}{% endblock wms-controls %}
+  </div>
 
 </div>
 

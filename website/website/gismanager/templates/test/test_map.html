@@ -4,17 +4,54 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.12.0/css/ol.css" type="text/css">
     <style>
-      .map {
-        height: 400px;
+      .site-main {
+        height: 50vh !important;
+        margin: 50px;
+      }
+      .map-wrapper, .map {
         width: 100%;
+        height: 100%;
+      }
+      .map-controls {
+        position: absolute;
+        z-index:1;
+        top: 6.5em;
+        right: 4em;
+        height: 30px;
+        width: 30px;
+        background-color: rgba(1, 79, 134, 1);
+        color: rgba(169, 214, 229, 1);
+        box-shadow: -5px 5px 8px 4px rgba(0, 0, 0, 0.2);
+      }
+      .map-controls:hover {
+        background-color: rgba(169, 214, 229, 1);
+        color: rgba(1, 79, 134, 1);
+      }
+      .map-controls-icon {
+        padding: 5px;
       }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.12.0/build/ol.js"></script>
     <title>OpenLayers example</title>
   </head>
   <body>
-    <h2>My Map</h2>
-    <div id="map" class="map"></div>
+
+    <div class="site-main">
+
+      <h2>My Map</h2>
+
+      <div class="map-wrapper">
+        <div id="map" class="map"></div>
+        <div class="map-controls">
+          <div class="map-controls-icon">
+            I
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
     <script type="text/javascript">
       var map = new ol.Map({
         target: 'map',
@@ -30,22 +67,6 @@
         zIndex: 0
       });
       map.addLayer(osm);
-
-      var wms = new ol.layer.Tile({
-        title: 'TEST',
-        source: new ol.source.TileWMS({
-          url: 'https://geoserver.massimilianomoraca.me/geoserver/MassimilianoMoraca/wms',
-          params: {
-            'LAYERS': 'RGB_Campania_20150807',
-          }
-        }),
-        minZoom: 0,
-        maxZoom: 20,
-        zIndex: 1,
-        opacity: 1.0
-      });
-      map.addLayer(wms);
-
     </script>
   </body>
 </html>

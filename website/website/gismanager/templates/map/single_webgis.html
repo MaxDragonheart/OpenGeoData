@@ -4,13 +4,12 @@
 
 {% block controls %}
 
+{% block basemap-controls %}
+    {% include '../components/basemap/controls.html' %}
+{% endblock basemap-controls %}
+
 {% block wms-controls %}
-<div class="map-controls">
-  <div class="map-controls-icon">
-    <i class="fa fa-layer-group"></i>
-  </div>
-</div>
-    {#% include '../components/wms/controls.html' %#}
+    {% include '../components/wms/controls.html' %}
 {% endblock wms-controls %}
 
 {% endblock controls %}
@@ -27,9 +26,9 @@
 
 </script>
 
-{#% block basemap %#}
-  {#% include '../components/basemap/layers.html' %#}
-{#% endblock basemap %#}
+{% block basemap %}
+  {% include '../components/basemap/layers.html' %}
+{% endblock basemap %}
 
 {% block wms %}
   {% include '../components/wms/layers.html' %}

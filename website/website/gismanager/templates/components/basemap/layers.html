@@ -1,20 +1,57 @@
 {% load static %}
 {% block basemap %}
 <script type="text/javascript">
-  const startBasemap = new baseMapLayer();
-  {% for layer in single_object.basemap.all %}
-  const basemap{{ layer.title|cut:"_" }} = startBasemap.providerBasemap(
-    '{{ layer.title }}',
-    '{{ layer.url }}'
-  );
-  $('#{{ layer.pk }}_{{ layer.title }}').on('change', function() {
-    let isChecked = $(this).is(':checked');
+  var basemap{{ single_object.basemap1.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap1.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap1.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  $('#BASEMAP{{ single_object.basemap1.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
     if (isChecked) {
-      mapCanvas.addLayer(basemap{{ layer.title|cut:"_" }});
+      map.addLayer(basemap{{ single_object.basemap1.pk }});
     } else {
-      mapCanvas.removeLayer(basemap{{ layer.title|cut:"_" }});
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
     }
   });
-  {% endfor %}
+{% if single_object.basemap2 %}
+  var basemap{{ single_object.basemap2.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap2.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap2.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  $('#BASEMAP{{ single_object.basemap2.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(basemap{{ single_object.basemap2.pk }});
+    } else {
+      map.removeLayer(basemap{{ single_object.basemap2.pk }});
+    }
+  });
+{% endif %}
+{% if single_object.basemap3 %}
+  var basemap{{ single_object.basemap3.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap3.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap3.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  $('#BASEMAP{{ single_object.basemap3.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(basemap{{ single_object.basemap3.pk }});
+    } else {
+      map.removeLayer(basemap{{ single_object.basemap3.pk }});
+    }
+  });
+{% endif %}
 </script>
 {% endblock basemap %}

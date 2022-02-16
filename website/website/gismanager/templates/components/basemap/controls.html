@@ -1,10 +1,19 @@
 {% load static %}
 {% block basemap-controls %}
-  {% for layer in single_object.basemap.all %}
-    <div class="">
-      <input type="radio" class="" name="switch-basemap" id="{{ layer.pk }}_{{ layer.title }}">
-      <label class="" for="{{ layer.pk }}_{{ layer.title }}">{{ layer.title }}</label>
-      <img class="" src="{% static 'images/tmp_image.png' %}" alt="{{ layer.title }}">
-    </div>
-  {% endfor %}
+<div class="">
+  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap1.pk }}" checked>
+  <label class="" for="BASEMAP{{ single_object.basemap1.pk }}">{{ single_object.basemap1.title }}</label>
+</div>
+{% if single_object.basemap2 %}
+<div class="">
+  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap2.pk }}">
+  <label class="" for="BASEMAP{{ single_object.basemap2.pk }}">{{ single_object.basemap2.title }}</label>
+</div>
+{% endif %}
+{% if single_object.basemap3 %}
+<div class="">
+  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap3.pk }}">
+  <label class="" for="BASEMAP{{ single_object.basemap3.pk }}">{{ single_object.basemap3.title }}</label>
+</div>
+{% endif %}
 {% endblock basemap-controls %}

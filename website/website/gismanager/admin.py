@@ -52,7 +52,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                 (None, {"fields": ["title", "slug_post", "header_image", "description"]}),
                 (None, {"fields": ["contents"]}),
                 (None, {"fields": ["draft", "highlighted", "publishing_date"]}),
-                #("Basemap", {"fields": ["basemap_layers", "basemap"]}),
+                ("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
                 ("OpenLayers Parameters",
                  {
                      "classes": ("collapse",),
