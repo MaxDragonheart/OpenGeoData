@@ -151,6 +151,7 @@ class WebGISProject(WebGISProjectBase):
     basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=False)
     basemap2 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap2", blank=True, null=True)
     basemap3 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap3", blank=True, null=True)
+    main_layer = models.ForeignKey(WMSLayer, on_delete=models.PROTECT, related_name="related_mainlayer")
     layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
 
     def get_absolute_url(self):

@@ -1,10 +1,18 @@
 {% load static %}
 {% block wms-controls %}
-{% for wms in single_object.layers.all %}
-  <div class="">
-    <input type="checkbox" class="" name="switch-layer" id="WMS{{ wms.pk }}">
-    <label class="" for="WMS{{ wms.pk }}">{{ wms.title }}</label>
-    <!-- <img class="" src="{% static 'images/tmp_image.png' %}" alt="{{ wms.title }}"> -->
-  </div>
-{% endfor %}
+<div class="">
+  <input type="checkbox" class="" name="switch-layer" id="WMS{{ single_object.main_layer.pk }}">
+  <label class="" for="WMS{{ single_object.main_layer.pk }}">{{ single_object.main_layer.title }}</label>
+</div>
+{% if single_object.layers %}
+  {% for wms in single_object.layers.all %}
+  {% if wms.pk != single_object.main_layer.pk %}
+    <div class="">
+      <input type="checkbox" class="" name="switch-layer" id="WMS{{ wms.pk }}">
+      <label class="" for="WMS{{ wms.pk }}">{{ wms.title }}</label>
+    </div>
+  {% endif %}
+  {% endfor %}
+{% endif %}
+
 {% endblock wms-controls %}
