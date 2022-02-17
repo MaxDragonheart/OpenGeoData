@@ -2,6 +2,16 @@
 
 {% load static %}
 
+{% block wms-controls %}
+<div class="slider-container">
+  <div class="slider">
+    <input class="slider-object" id="WMS{{ single_object.pk }}"
+            type="range" min="0" max="100" value="80" />
+  </div>
+  <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
+</div>
+{% endblock wms-controls %}
+
 {% block wms-script %}
 <script type="text/javascript">
 
@@ -35,6 +45,8 @@
   map.addLayer(boundingBox);
 
   zoomOnLayer(boundingBox,10,10,10,10,50);
+
+  layerOpacity(wms, 'WMS{{ single_object.pk }}', 'OUTPUT{{ single_object.pk }}');
 
 </script>
 {% endblock wms-script %}

@@ -1,16 +1,34 @@
 {% load static %}
 {% block wms-controls %}
-<div class="">
-  <input type="checkbox" class="" name="switch-layer" id="WMS{{ single_object.main_layer.pk }}">
-  <label class="" for="WMS{{ single_object.main_layer.pk }}">{{ single_object.main_layer.title }}</label>
+<div class="layer-control">
+  <div class="">
+    <input type="checkbox" class="" name="switch-layer" id="WMS{{ single_object.main_layer.pk }}">
+    <label class="" for="WMS{{ single_object.main_layer.pk }}">{{ single_object.main_layer.title }}</label>
+  </div>
+  <div class="slider-container">
+    <div class="slider">
+      <input class="slider-object" id="WMS{{ single_object.main_layer.pk }}"
+              type="range" min="0" max="100" value="80" />
+    </div>
+    <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
+  </div>
 </div>
 {% if single_object.layers %}
   {% for wms in single_object.layers.all %}
   {% if wms.pk != single_object.main_layer.pk %}
+  <div class="layer-control">
     <div class="">
       <input type="checkbox" class="" name="switch-layer" id="WMS{{ wms.pk }}">
       <label class="" for="WMS{{ wms.pk }}">{{ wms.title }}</label>
     </div>
+    <div class="slider-container">
+      <div class="slider">
+        <input class="slider-object" id="WMS{{ wms.pk }}"
+                type="range" min="0" max="100" value="80" />
+      </div>
+      <p class="text-control">Opacity: <span id="OUTPUT{{ wms.pk }}"></span> %</p>
+    </div>
+  </div>
   {% endif %}
   {% endfor %}
 {% endif %}

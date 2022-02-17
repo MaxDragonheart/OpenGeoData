@@ -41,3 +41,16 @@ function zoomOnLayer(
   map.getView().fit(extent, options);
 
 };
+
+function layerOpacity(layerName, elementID, outputID){
+  var control = document.getElementById(elementID);
+  var output = document.getElementById(outputID);
+  var listener = function () {
+    output.innerText = control.value;
+    layerName.setOpacity(control.value / 100);
+  };
+  control.addEventListener('input', listener);
+  control.addEventListener('change', listener);
+  output.innerText = control.value;
+  layerName.setOpacity(control.value / 100);
+};

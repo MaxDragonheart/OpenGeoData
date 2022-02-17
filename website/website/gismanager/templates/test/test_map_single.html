@@ -2,6 +2,17 @@
 
 {% load static %}
 
+{% block wms-controls %}
+<div>
+  <label>
+    Imagery opacity
+    <input id="WMS34" type="range" min="0" max="100" value="80" />
+    <span id="output"></span> %
+  </label>
+</div>
+{% endblock wms-controls %}
+
+
 {% block test-script %}
 <script type="text/javascript">
 
@@ -14,6 +25,42 @@
     tilePixelRatio: 2
   });
   map.addLayer(basemap);
+
+  var wms34 = new ol.layer.Tile({
+    title: 'Confine di Casalnuovo',
+    source: new ol.source.TileWMS({
+      url: 'https://geoserver.massimilianomoraca.me/geoserver/MassimilianoMoraca/wms',
+      params: {
+        'LAYERS': 'confinecasalnuovo',
+        'STYLES': null,
+      }
+    }),
+    minZoom: 0,
+    maxZoom: 28,
+    zIndex: 0,
+    // opacity: 1.00
+  });
+  map.addLayer(wms34);
+
+/////
+  layerOpacity(wms34, 'WMS34');
+// var control = document.getElementById('opacity');
+// var output = document.getElementById('output');
+// var listener = function () {
+//   output.innerText = control.value;
+//   wms34.setOpacity(control.value / 100);
+// };
+// control.addEventListener('input', listener);
+// control.addEventListener('change', listener);
+// output.innerText = control.value;
+// wms34.setOpacity(control.value / 100);
+////
+
+  var boundingBox = createBBoxLayer(
+    [14.329403203420204, 40.88589664423721, 14.37260398551613, 40.92303124222593],
+    'Confine di Casalnuovo'
+  );
+  zoomOnLayer(boundingBox,10,10,10,10,50);
 
 </script>
 {% endblock test-script %}

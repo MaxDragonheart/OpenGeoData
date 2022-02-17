@@ -62,7 +62,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                        ]
                   }
                  ),
-                ("WMS Layer",  {"fields": ["layers"]}),
+                ("WMS Layer",  {"fields": ["main_layer", "layers"]}),
             ]
 
     class Meta:
