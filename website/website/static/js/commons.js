@@ -13,18 +13,8 @@ function copyToClipboard(id) {
   alert("Copied the text: " + copyText.value);
 }
 
-// function showHide(objectID) {
-//   var x = document.getElementById(objectID);
-//   if (x.style.display === "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
-
 function showHide(objectID) {
   var x = document.getElementById(objectID);
-  console.log(x.style.display);
   if (x.style.display === "none") {
     x.style.display = "block";
   } else if (x.style.display != "block") {

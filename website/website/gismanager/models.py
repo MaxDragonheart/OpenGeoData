@@ -53,6 +53,7 @@ class WMSLayer(BaseModelPost, OpenLayersMapParameters):
     wms_layer_style = models.CharField(max_length=100, blank=True, null=True)
     wms_bbox = models.CharField(max_length=250, blank=True, null=True)
     wms_centroid = models.CharField(max_length=250, blank=True, null=True)
+    wms_legend = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse("wms-single", kwargs={"slug_post": self.slug_post})

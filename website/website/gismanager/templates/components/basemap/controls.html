@@ -1,19 +1,21 @@
 {% load static %}
 {% block basemap-controls %}
-<div class="">
-  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap1.pk }}" checked>
-  <label class="" for="BASEMAP{{ single_object.basemap1.pk }}">{{ single_object.basemap1.title }}</label>
+<div class="basemap-control">
+  <div class="">
+    <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap1.pk }}" checked>
+    <label class="" for="BASEMAP{{ single_object.basemap1.pk }}">{{ single_object.basemap1.title }}</label>
+  </div>
+  {% if single_object.basemap2 %}
+  <div class="">
+    <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap2.pk }}">
+    <label class="" for="BASEMAP{{ single_object.basemap2.pk }}">{{ single_object.basemap2.title }}</label>
+  </div>
+  {% endif %}
+  {% if single_object.basemap3 %}
+  <div class="">
+    <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap3.pk }}">
+    <label class="" for="BASEMAP{{ single_object.basemap3.pk }}">{{ single_object.basemap3.title }}</label>
+  </div>
+  {% endif %}
 </div>
-{% if single_object.basemap2 %}
-<div class="">
-  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap2.pk }}">
-  <label class="" for="BASEMAP{{ single_object.basemap2.pk }}">{{ single_object.basemap2.title }}</label>
-</div>
-{% endif %}
-{% if single_object.basemap3 %}
-<div class="">
-  <input type="radio" class="" name="switch-basemap" id="BASEMAP{{ single_object.basemap3.pk }}">
-  <label class="" for="BASEMAP{{ single_object.basemap3.pk }}">{{ single_object.basemap3.title }}</label>
-</div>
-{% endif %}
 {% endblock basemap-controls %}

@@ -13,7 +13,7 @@
     }),
     minZoom: {{ single_object.main_layer.set_min_zoom }},
     maxZoom: {{ single_object.main_layer.set_max_zoom }},
-    zIndex: {% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}0{% endif %},
+    zIndex: {% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}1{% endif %},
     opacity: {{ single_object.main_layer.set_opacity }}
   });
   map.addLayer(wms{{ single_object.main_layer.pk }});
@@ -46,7 +46,7 @@
       }),
       minZoom: {{ wms.set_min_zoom }},
       maxZoom: {{ wms.set_max_zoom }},
-      zIndex: {% if wms.set_index %}{{ wms.set_index }}{% else %}0{% endif %},
+      zIndex: {% if wms.set_index %}{{ wms.set_index }}{% else %}1{% endif %},
       opacity: {{ wms.set_opacity }}
     });
     layerOpacity(wms{{ wms.pk }}, 'WMS{{ wms.pk }}slider', 'OUTPUT{{ wms.pk }}');
