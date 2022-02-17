@@ -3,13 +3,35 @@
 {% load static %}
 
 {% block wms-controls %}
-<div class="slider-container">
-  <div class="slider">
-    <input class="slider-object" id="WMS{{ single_object.pk }}"
-            type="range" min="0" max="100" value="80" />
+
+<div class="layer-control">
+
+  <div class="control-box">
+    <div class="checkbox">
+      <p class="">{{ single_object.title }}</p>
+    </div>
+    <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
+      <i class="fas fa-book"></i>
+    </div>
+    <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
+      <i class="fas fa-cogs"></i>
+    </div>
   </div>
-  <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
+
+  <div class="slider-container" id="WMS{{ single_object.pk }}controls" hidden>
+    <div class="slider">
+      <input class="slider-object" id="WMS{{ single_object.pk }}slider"
+              type="range" min="0" max="100" value="100" />
+    </div>
+    <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
+  </div>
+
+  <div class="legend" id="WMS{{ single_object.pk }}legend" hidden>
+    legenda
+  </div>
+
 </div>
+
 {% endblock wms-controls %}
 
 {% block wms-script %}
@@ -46,7 +68,7 @@
 
   zoomOnLayer(boundingBox,10,10,10,10,50);
 
-  layerOpacity(wms, 'WMS{{ single_object.pk }}', 'OUTPUT{{ single_object.pk }}');
+  layerOpacity(wms, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
 
 </script>
 {% endblock wms-script %}

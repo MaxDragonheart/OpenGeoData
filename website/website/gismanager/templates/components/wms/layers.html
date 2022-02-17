@@ -16,6 +16,7 @@
     zIndex: {% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}0{% endif %},
     opacity: {{ single_object.main_layer.set_opacity }}
   });
+  map.addLayer(wms{{ single_object.main_layer.pk }});
   $('#WMS{{ single_object.main_layer.pk }}').on('change', function() {
     var isChecked = $(this).is(':checked');
     if (isChecked) {
@@ -29,7 +30,7 @@
     '{{ single_object.main_layer.title }}'
   );
   zoomOnLayer(boundingBox,10,10,10,10,50);
-  layerOpacity(wms{{ single_object.main_layer.pk }}, 'WMS{{ single_object.main_layer.pk }}', 'OUTPUT{{ single_object.main_layer.pk }}');
+  layerOpacity(wms{{ single_object.main_layer.pk }}, 'WMS{{ single_object.main_layer.pk }}slider', 'OUTPUT{{ single_object.main_layer.pk }}');
 
 {% if single_object.layers %}
   {% for wms in single_object.layers.all %}
@@ -48,8 +49,7 @@
       zIndex: {% if wms.set_index %}{{ wms.set_index }}{% else %}0{% endif %},
       opacity: {{ wms.set_opacity }}
     });
-    // map.addLayer(wms{{ wms.pk }});
-    // layerOpacity(wms{{ wms.pk }}, 'WMS{{ wms.pk }}', 'OUTPUT{{ wms.pk }}');
+    layerOpacity(wms{{ wms.pk }}, 'WMS{{ wms.pk }}slider', 'OUTPUT{{ wms.pk }}');
     $('#WMS{{ wms.pk }}').on('change', function() {
       var isChecked = $(this).is(':checked');
       if (isChecked) {

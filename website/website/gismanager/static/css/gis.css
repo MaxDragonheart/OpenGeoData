@@ -1,28 +1,6 @@
 .site-main {
   height: 50vh !important;
 }
-/* .map-wrapper, .map {
-  width: 100%;
-  height: 100%;
-}
-.map-controls {
-  position: absolute;
-  z-index: 1;
-  top: 25.5vh;
-  right: 2.5vw;
-  height: 30px;
-  width: 30px;
-  background-color: rgba(1, 79, 134, 1);
-  color: rgba(169, 214, 229, 1);
-  box-shadow: -5px 5px 8px 4px rgba(0, 0, 0, 0.2);
-}
-.map-controls:hover {
-  background-color: rgba(169, 214, 229, 1);
-  color: rgba(1, 79, 134, 1);
-}
-.map-controls-icon {
-  padding: 5px;
-} */
 .map-container {
   display: grid;
   grid-template-columns: 75% 25%;
@@ -32,13 +10,24 @@
   width: 100%;
   height: 100%;
 }
+.control-box {
+  display: grid;
+  grid-template-columns: 80% 10% 10%;
+  width: 100%;
+}
+.item-legend, .item-controls {
+  color: rgba(1, 79, 134, 1);
+}
+.item-legend:hover, .item-controls:hover {
+  color: rgba(169, 214, 229, 1);
+}
 .text-control {
   font-size: 0.5em;
   padding: 0;
   margin: 0;
 }
 .slider-container {
-  padding: 0 1vw 0 1vw; /* top right bottom left */
+  padding: 1vh 1vw 1vh 1vw; /* top right bottom left */
 }
 .slider, .slider-object {
   padding: 0;
@@ -52,7 +41,7 @@
   border-radius: 5px;
   background: rgba(169, 214, 229, 1);
   outline: none;
-  opacity: 0.7;
+  opacity: 1.0;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
