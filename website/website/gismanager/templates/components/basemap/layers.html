@@ -9,10 +9,13 @@
     zIndex: 0,
     tilePixelRatio: 2
   });
+  map.addLayer(basemap{{ single_object.basemap1.pk }});
   $('#BASEMAP{{ single_object.basemap1.pk }}').on('change', function() {
     var isChecked = $(this).is(':checked');
     if (isChecked) {
       map.addLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap2 %}map.removeLayer(basemap{{ single_object.basemap2.pk }});{% endif %}
+      {% if single_object.basemap3 %}map.removeLayer(basemap{{ single_object.basemap3.pk }});{% endif %}
     } else {
       map.removeLayer(basemap{{ single_object.basemap1.pk }});
     }
@@ -30,6 +33,8 @@
     var isChecked = $(this).is(':checked');
     if (isChecked) {
       map.addLayer(basemap{{ single_object.basemap2.pk }});
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap3 %}map.removeLayer(basemap{{ single_object.basemap3.pk }});{% endif %}
     } else {
       map.removeLayer(basemap{{ single_object.basemap2.pk }});
     }
@@ -48,6 +53,8 @@
     var isChecked = $(this).is(':checked');
     if (isChecked) {
       map.addLayer(basemap{{ single_object.basemap3.pk }});
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap2 %}map.removeLayer(basemap{{ single_object.basemap2.pk }});{% endif %}
     } else {
       map.removeLayer(basemap{{ single_object.basemap3.pk }});
     }
