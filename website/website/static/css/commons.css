@@ -27,7 +27,7 @@ article>p>img {
   height: auto !important;
   padding: 5px;
   box-shadow: 2px 2px 5px grey;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -43,4 +43,19 @@ article>p>img {
 }
 #id_password, #id_username {
   margin: 15px;
+}
+table {
+  background-color: rgba(1, 79, 134, 1);
+}
+thead, .td-head {
+  background-color: rgba(169, 214, 229, 1);
+  text-align: center;
+}
+.td-head {
+  font-style: italic;
+  padding:  1vh 1vw 1vh 1vw;
+}
+.td-body {
+  background-color: rgba(255, 255, 255, 1);
+  padding:  1vh 1vw 1vh 1vw;
 }

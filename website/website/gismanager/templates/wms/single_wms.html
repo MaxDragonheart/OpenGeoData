@@ -30,6 +30,8 @@
     legenda
   </div>
 
+<table id="onclickinfo"></table>
+
 </div>
 
 {% endblock wms-controls %}
@@ -69,6 +71,11 @@
   zoomOnLayer(boundingBox,10,10,10,10,50);
 
   layerOpacity(wms, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
+
+
+
+getElementInfo(wms, '{{ single_object.title }}');
+// getElementLegend(wms);
 
 </script>
 {% endblock wms-script %}
