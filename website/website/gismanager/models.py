@@ -14,8 +14,8 @@ from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THU
 class OpenLayersMapParameters(models.Model):
     map_scaleline = models.BooleanField(default=True)
     map_attribution = models.CharField(max_length=250, default='<a href="https://massimilianomoraca.it/" target="_blank">Massimiliano Moraca</a> has created this map using <a href="https://openlayers.org/" target="_blank">OpenLayers</a>')
-    map_center_longitude = models.DecimalField(max_digits=10, decimal_places=5, default=14.239649)
-    map_center_latitude = models.DecimalField(max_digits=10, decimal_places=5, default=40.842906)
+    map_center_longitude = models.DecimalField(max_digits=10, decimal_places=5, default=14.23964)
+    map_center_latitude = models.DecimalField(max_digits=10, decimal_places=5, default=40.84290)
     set_max_zoom = models.IntegerField(default=28)
     set_min_zoom = models.IntegerField(default=0)
     set_zoom_level = models.IntegerField(default=0)

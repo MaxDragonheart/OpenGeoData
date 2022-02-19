@@ -13,15 +13,21 @@
 .map-controls {
   margin: 0.5vh 0.5vw 0.5vh 0.5vw;
 }
+.basemap-control {
+  margin: 0.5vh 0.5vw 0.5vh 0.5vw;
+}
 .control-box {
   display: grid;
-  grid-template-columns: 80% 10% 10%;
+  grid-template-columns: 70% 10% 10% 10%;
   width: 100%;
+  padding: 1vh 0 1vh 0;
+  border-top-style: solid;
+  border-width: 1px;
 }
-.item-legend, .item-controls {
+.item-legend, .item-controls, .item-info {
   color: rgba(1, 79, 134, 1);
 }
-.item-legend:hover, .item-controls:hover {
+.item-legend:hover, .item-controls:hover, .item-info:hover {
   color: rgba(169, 214, 229, 1);
 }
 .text-control {
@@ -69,4 +75,16 @@
   border-radius: 50%;
   background: rgba(1, 79, 134, 1);
   cursor: pointer;
+}
+.legend-contents {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+}
+.legend-colormap {
+  height: 2vh;
+  margin: 0 1vw 0 1vw;
+}
+.legend-info {
+
 }

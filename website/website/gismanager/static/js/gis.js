@@ -79,7 +79,7 @@ function layerOpacity(layerName, elementID, outputID){
 // };
 
 
-function getElementInfo(layerName, layerTitle){
+function getElementInfo(elementID, layerName, layerTitle){
   map.on('singleclick', function (event) {
     var viewResolution = view.getResolution();
     var coordinates = event.coordinate;
@@ -105,23 +105,20 @@ function getElementInfo(layerName, layerTitle){
           // console.log(json);
 
           var tableHeadContents = '<thead>'
-          + '<tr><th colspan="2">' + layerTitle + '</th></tr>'
+          // + '<tr><th colspan="2">' + layerTitle + '</th></tr>'
           // + '<tr><th>#</th><th>Info</th></tr>'
           + '</thead>';
           var tableHead = $(tableHeadContents).attr("id","thead");
-          console.log(tableHeadContents);
-          $("#onclickinfo").append(tableHead);
+          $("#"+elementID).append(tableHead);
           var tableBodyContents = '<tbody></tbody>';
           var tableBody = $(tableBodyContents).attr("id","tbody");
-          console.log(tableBody);
-          $("#onclickinfo").append(tableBody);
+          $("#"+elementID).append(tableBody);
           for (items in json) {
             key = items;
             value = json[items];
             // elementData = [key, value];
             // console.log(elementData);
             tableRow = '<tr><td class="td-head">' + key + '</td><td class="td-body">' + value + '</td></tr>';
-            console.log(tableRow);
             $("tbody").append(tableRow);
           }
 
@@ -134,46 +131,54 @@ function getElementInfo(layerName, layerTitle){
   });
 };
 
-function getElementLegend(layerName) {
+function removeElementInfo(elementID){
+  $("#"+elementID).remove();
+};
+
+function getElementLegend(elementID, layerName) {
   var updateLegend = function(resolution) {
     var params = {
-        'INFO_FORMAT': 'application/json'
+        'FORMAT': 'application/json'
       };
     var url = layerName.getSource().getLegendUrl(resolution, params);
+    console.log(url);
+
     async function getFeatureProperties() {
       try {
         var response = await fetch(url);
-        console.log(response);
-        // if (!response.ok) {
-        //   throw new Error(`HTTP error!. Status: ${response.status}`);
-        // } else {
-        //   var data = await response.text();
-        //   var legendJSON = JSON.parse(data).Legend[0];
-        //   console.log(legendJSON);
-        //   // /// Lettura colormap se è presente
-        //   // var legendData = legendJSON.rules[0].symbolizers[0].Raster.colormap.entries;
-        //   // // if (legendData !== 'undefined') {
-        //   // //   /// Creazione del div che conterrà la legenda
-        //   // //   var divLegend = $("<div/>").attr("id","indexLegend");
-        //   // //   $("#legend").append(divLegend);
-        //   // //   arrayColors = [];
-        //   // //   arrayLabels = [];
-        //   // //   for (items in legendData){
-        //   // //     colors = legendData[items]["color"]
-        //   // //     arrayColors.push(colors);
-        //   // //
-        //   // //     labels = legendData[items]["label"]
-        //   // //     arrayLabels.push(labels);
-        //   // //   }
-        //   // //   var divLabelFirst = '<div class="legend-info">' + arrayLabels[0] + '</div>'
-        //   // //   var divColor = '<div class="legend-colormap" style="background-image: linear-gradient(to right, ' + arrayColors + ');"></div>'
-        //   // //   var divLabelLast = '<div class="legend-info">' + arrayLabels[arrayLabels.length - 1] + '</div>'
-        //   // //   $("#indexLegend").html('');
-        //   // //   $("#indexLegend").append('<div class="legend-contents" id="">' + divLabelFirst + divColor + divLabelLast + '</div>')
-        //   // // } else {
-        //   // //   console.error('legendData is undefined!');
-        //   // // }
-        // }
+        // console.log(response);
+        if (!response.ok) {
+          throw new Error(`HTTP error!. Status: ${response.status}`);
+        } else {
+          var data = await response.text();
+          var legendJSON = JSON.parse(data).Legend[0];
+          // console.log(legendJSON);
+          // Lettura colormap se è presente
+          var legendData = legendJSON.rules[0].symbolizers[0].Raster.colormap.entries;
+          if (legendData !== 'undefined') {
+            // Creazione del div che conterrà la legenda
+            var divLegend = $("<div/>").attr("id","indexLegend");
+            $("#"+elementID).append(divLegend);
+            arrayColors = [];
+            arrayLabels = [];
+            for (items in legendData){
+              colors = legendData[items]["color"]
+              // console.log(colors);
+              arrayColors.push(colors);
+
+              labels = legendData[items]["label"]
+              // console.log(labels);
+              arrayLabels.push(labels);
+            }
+            var divLabelFirst = '<div class="legend-info">' + arrayLabels[0] + '</div>'
+            var divColor = '<div class="legend-colormap" style="background-image: linear-gradient(to right, ' + arrayColors + ');"></div>'
+            var divLabelLast = '<div class="legend-info">' + arrayLabels[arrayLabels.length - 1] + '</div>'
+            $("#indexLegend").html('');
+            $("#indexLegend").append('<div class="legend-contents" id="">' + divLabelFirst + divColor + divLabelLast + '</div>')
+          } else {
+            console.error('legendData is undefined!');
+          }
+        }
       } catch (e) {
         console.log(e);
       }

@@ -10,13 +10,22 @@
       <label class="checkbox-label" for="WMS{{ single_object.main_layer.pk }}">
               {{ single_object.main_layer.title }}</label>
     </div>
+    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.main_layer.pk }}info')">
+      <i class="fas fa-info"></i>
+    </div> -->
     {% if single_object.main_layer.wms_legend %}
     <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
-      <i class="fas fa-book"></i>
+      <div class="tooltip">
+        <i class="fas fa-book"></i>
+        <span class="tooltiptext">Legenda</span>
+      </div>
     </div>
     {% endif %}
     <div class="item-controls" onclick="showHide('WMS{{ single_object.main_layer.pk }}controls')">
-      <i class="fas fa-cogs"></i>
+      <div class="tooltip">
+        <i class="fas fa-cogs"></i>
+        <span class="tooltiptext">Controlli</span>
+      </div>
     </div>
   </div>
 
@@ -28,11 +37,17 @@
     <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
   </div>
 
+  <div class="info" id="WMS{{ single_object.main_layer.pk }}info" hidden>
+    info
+  </div>
+
   {% if single_object.main_layer.wms_legend %}
   <div class="legend" id="WMS{{ single_object.main_layer.pk }}legend" hidden>
-    legenda {{ single_object.main_layer.title }}
+    <div id="legend{{ single_object.main_layer.pk }}"></div>
   </div>
   {% endif %}
+
+  <table id="onclickinfo{{ single_object.main_layer.pk }}"></table>
 
 </div>
 
@@ -52,11 +67,17 @@
       </div>
       {% if wms.wms_legend %}
       <div class="item-legend" onclick="showHide('WMS{{ wms.pk }}legend')">
-        <i class="fas fa-book"></i>
+        <div class="tooltip">
+          <i class="fas fa-book"></i>
+          <span class="tooltiptext">Legenda</span>
+        </div>
       </div>
       {% endif %}
       <div class="item-controls" onclick="showHide('WMS{{ wms.pk }}controls')">
-        <i class="fas fa-cogs"></i>
+        <div class="tooltip">
+          <i class="fas fa-cogs"></i>
+          <span class="tooltiptext">Controlli</span>
+        </div>
       </div>
     </div>
 
@@ -70,9 +91,10 @@
 
     {% if wms.wms_legend %}
     <div class="legend" id="WMS{{ wms.pk }}legend" hidden>
-      legenda {{ wms.title }}
+      <div id="legend{{ wms.pk }}"></div>
     </div>
     {% endif %}
+    <table id="onclickinfo{{ wms.pk }}"></table>
 
   </div>
   {% endif %}

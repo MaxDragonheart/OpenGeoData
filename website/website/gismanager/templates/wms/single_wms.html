@@ -10,11 +10,20 @@
     <div class="checkbox">
       <p class="">{{ single_object.title }}</p>
     </div>
+    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.pk }}info')">
+      <i class="fas fa-info"></i>
+    </div> -->
     <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
-      <i class="fas fa-book"></i>
+      <div class="tooltip">
+        <i class="fas fa-book"></i>
+        <span class="tooltiptext">Legenda</span>
+      </div>
     </div>
     <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
-      <i class="fas fa-cogs"></i>
+      <div class="tooltip">
+        <i class="fas fa-cogs"></i>
+        <span class="tooltiptext">Controlli</span>
+      </div>
     </div>
   </div>
 
@@ -27,10 +36,16 @@
   </div>
 
   <div class="legend" id="WMS{{ single_object.pk }}legend" hidden>
-    legenda
+    <div id="legend{{ single_object.pk }}"></div>
   </div>
 
-<table id="onclickinfo"></table>
+  <!-- <div class="info" id="WMS{{ single_object.pk }}info" hidden>
+    info
+  </div> -->
+
+  <table id="onclickinfo{{ single_object.pk }}"></table>
+
+
 
 </div>
 
@@ -74,8 +89,8 @@
 
 
 
-getElementInfo(wms, '{{ single_object.title }}');
-// getElementLegend(wms);
+// getElementInfo('onclickinfo{{ single_object.pk }}', wms, '{{ single_object.title }}');
+getElementLegend('legend{{ single_object.pk }}', wms);
 
 </script>
 {% endblock wms-script %}
