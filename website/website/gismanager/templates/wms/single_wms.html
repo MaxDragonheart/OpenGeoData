@@ -1,0 +1,96 @@
+{% extends 'gis_base.html' %}
+
+{% load static %}
+
+{% block wms-controls %}
+
+<div class="layer-control">
+
+  <div class="control-box">
+    <div class="checkbox">
+      <p class="">{{ single_object.title }}</p>
+    </div>
+    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.pk }}info')">
+      <i class="fas fa-info"></i>
+    </div> -->
+    <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
+      <div class="tooltip">
+        <i class="fas fa-book"></i>
+        <span class="tooltiptext">Legenda</span>
+      </div>
+    </div>
+    <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
+      <div class="tooltip">
+        <i class="fas fa-cogs"></i>
+        <span class="tooltiptext">Controlli</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="slider-container" id="WMS{{ single_object.pk }}controls" hidden>
+    <div class="slider">
+      <input class="slider-object" id="WMS{{ single_object.pk }}slider"
+              type="range" min="0" max="100" value="100" />
+    </div>
+    <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
+  </div>
+
+  <div class="legend" id="WMS{{ single_object.pk }}legend" hidden>
+    <div id="legend{{ single_object.pk }}"></div>
+  </div>
+
+  <!-- <div class="info" id="WMS{{ single_object.pk }}info" hidden>
+    info
+  </div> -->
+
+  <table id="onclickinfo{{ single_object.pk }}"></table>
+
+
+
+</div>
+
+{% endblock wms-controls %}
+
+{% block wms-script %}
+<script type="text/javascript">
+
+  var osm = new ol.layer.Tile({
+    title: 'OSM',
+    source: new ol.source.OSM(),
+    zIndex: 0
+  });
+  map.addLayer(osm);
+
+  var wms = new ol.layer.Tile({
+    title: '{{ single_object.title }}',
+    source: new ol.source.TileWMS({
+      url: '{{ single_object.wms_layer_path.complete_url_wms }}',
+      params: {
+        'LAYERS': '{{ single_object.wms_layer_name }}',
+        // 'STYLES': null,
+      }
+    }),
+    minZoom: 0,
+    maxZoom: 28,
+    zIndex: 1,
+    opacity: 1.0
+  });
+  map.addLayer(wms);
+
+  var boundingBox = createBBoxLayer(
+    {{ single_object.wms_bbox }},
+    '{{ single_object.title }}'
+  );
+  map.addLayer(boundingBox);
+
+  zoomOnLayer(boundingBox,10,10,10,10,50);
+
+  layerOpacity(wms, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
+
+
+
+// getElementInfo('onclickinfo{{ single_object.pk }}', wms, '{{ single_object.title }}');
+getElementLegend('legend{{ single_object.pk }}', wms);
+
+</script>
+{% endblock wms-script %}

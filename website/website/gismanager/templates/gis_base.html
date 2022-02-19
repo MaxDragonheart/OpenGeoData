@@ -8,31 +8,72 @@
 
 {% block page %}
 
-<div class="map" id='map'></div>
+<div class="map-container">
+
+  <div class="map" id='map'></div>
+
+  <div class="map-controls">
+    {% block basemap-controls %}{% endblock basemap-controls %}
+    {% block wms-controls %}{% endblock wms-controls %}
+  </div>
+
+</div>
 
 {% endblock page %}
 
 {% block page-script %}
-{% block map-script %}
-<script type="text/javascript">
+  {% block map-script %}
+  <script type="text/javascript">
 
-  const mapCanvas = new MapInizialized('map');
-  const scaleLine = new MapScaleLine();
-  const mapAttribution = new MapAttribution();
+    var map = new ol.Map({
+      target: 'map',
+      controls: ol.control.defaults({
+        attribution: false
+      }),
+    });
 
- {% if single_object.set_max_zoom %}
-  const mapCanvasView = new MapSetView(
-    14.239649, 40.842906,
-    0,
-    {{ single_object.set_max_zoom }}, {{ single_object.set_min_zoom }}
-  );
-  {% else %}
-  const mapCanvasView = new MapSetView(14.239649, 40.842906, 8);
-  {% endif %}
+    var scaleLine = new ol.control.ScaleLine({
+      className: 'ol-scale-line',
+      target: document.getElementById('scale-line')
+    });
+    map.addControl(scaleLine);
 
-</script>
-{% endblock map-script %}
+    // TODO Uncaught TypeError: t.element.setMap is not a function
+    // var fullScreen = new ol.control.FullScreen({
+    //   className: 'ol-full-screen',
+    //   tipLabel: 'Toggle full-screen'
+    // });
+    // map.addControl(fullScreen);
 
-{% block wms-script %}{% endblock wms-script %}
-{% block basemap-script %}{% endblock basemap-script %}
+    var attribution = new ol.control.Attribution({
+      className: 'ol-attribution',
+      label: 'a',
+      collapsible: true,
+      collapsed: true,
+      target: document.getElementById('map-attribution'),
+    });
+    map.addControl(attribution);
+
+    var view = new ol.View({
+{% if single_object.set_zoom_level %}
+      center: ol.proj.fromLonLat([{{ single_object.map_center_longitude }},{{ single_object.map_center_latitude }}]),
+      zoom: {{ single_object.set_zoom_level }},
+      maxZoom: {{ single_object.set_max_zoom }},
+      minZoom: {{ single_object.set_min_zoom }}
+{% else %}
+      center: ol.proj.fromLonLat([14.239649, 40.842906]),
+      zoom: 8
+{% endif %}
+    });
+    map.setView(view);
+
+  </script>
+  {% endblock map-script %}
+
+  {% block test-script %}{% endblock test-script %}
+
+  {% block wms-script %}{% endblock wms-script %}
+
+  {% block webgis-script %}{% endblock webgis-script %}
+
 {% endblock page-script %}

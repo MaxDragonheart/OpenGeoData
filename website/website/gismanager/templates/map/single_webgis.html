@@ -1,0 +1,27 @@
+{% extends 'gis_base.html' %}
+
+{% load static %}
+
+{% block controls %}
+
+  {% block basemap-controls %}
+      {% include '../components/basemap/controls.html' %}
+  {% endblock basemap-controls %}
+
+  {% block wms-controls %}
+      {% include '../components/wms/controls.html' %}
+  {% endblock wms-controls %}
+
+{% endblock controls %}
+
+{% block webgis-script %}
+
+  {% block basemap %}
+    {% include '../components/basemap/layers.html' %}
+  {% endblock basemap %}
+
+  {% block wms %}
+    {% include '../components/wms/layers.html' %}
+  {% endblock wms %}
+
+{% endblock webgis-script %}

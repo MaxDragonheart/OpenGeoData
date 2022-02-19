@@ -1,0 +1,65 @@
+{% load static %}
+{% block basemap %}
+<script type="text/javascript">
+  var basemap{{ single_object.basemap1.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap1.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap1.url }}'
+        // url: 'https://api.maptiler.com/maps/hybrid/256/{z}/{x}/{y}@2x.jpg?key=ovYtBegeDGmiTDk6nnoC'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  map.addLayer(basemap{{ single_object.basemap1.pk }});
+  $('#BASEMAP{{ single_object.basemap1.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap2 %}map.removeLayer(basemap{{ single_object.basemap2.pk }});{% endif %}
+      {% if single_object.basemap3 %}map.removeLayer(basemap{{ single_object.basemap3.pk }});{% endif %}
+    } else {
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
+    }
+  });
+{% if single_object.basemap2 %}
+  var basemap{{ single_object.basemap2.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap2.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap2.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  $('#BASEMAP{{ single_object.basemap2.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(basemap{{ single_object.basemap2.pk }});
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap3 %}map.removeLayer(basemap{{ single_object.basemap3.pk }});{% endif %}
+    } else {
+      map.removeLayer(basemap{{ single_object.basemap2.pk }});
+    }
+  });
+{% endif %}
+{% if single_object.basemap3 %}
+  var basemap{{ single_object.basemap3.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.basemap3.title }}',
+    source: new ol.source.XYZ({
+        url: '{{ single_object.basemap3.url }}'
+      }),
+    zIndex: 0,
+    tilePixelRatio: 2
+  });
+  $('#BASEMAP{{ single_object.basemap3.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(basemap{{ single_object.basemap3.pk }});
+      map.removeLayer(basemap{{ single_object.basemap1.pk }});
+      {% if single_object.basemap2 %}map.removeLayer(basemap{{ single_object.basemap2.pk }});{% endif %}
+    } else {
+      map.removeLayer(basemap{{ single_object.basemap3.pk }});
+    }
+  });
+{% endif %}
+</script>
+{% endblock basemap %}

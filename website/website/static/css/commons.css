@@ -27,7 +27,7 @@ article>p>img {
   height: auto !important;
   padding: 5px;
   box-shadow: 2px 2px 5px grey;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -43,4 +43,60 @@ article>p>img {
 }
 #id_password, #id_username {
   margin: 15px;
+}
+table {
+  background-color: rgba(1, 79, 134, 1);
+}
+thead, .td-head {
+  background-color: rgba(169, 214, 229, 1);
+  text-align: center;
+}
+.td-head {
+  font-style: italic;
+  padding:  1vh 1vw 1vh 1vw;
+}
+.td-body {
+  background-color: rgba(255, 255, 255, 1);
+  padding:  1vh 1vw 1vh 1vw;
+}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; /* If you want dots under the hoverable text */ */
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
