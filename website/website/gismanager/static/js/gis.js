@@ -55,30 +55,6 @@ function layerOpacity(layerName, elementID, outputID){
   layerName.setOpacity(control.value / 100);
 };
 
-// function getElementInfo(layerName){
-//   map.on('singleclick', function (evt) {
-//     var viewResolution = /** @type {number} */ (view.getResolution());
-//     var url = layerName.getSource().getFeatureInfoUrl(
-//       evt.coordinate,
-//       viewResolution,
-//       'EPSG:3857',
-//       {
-//         'INFO_FORMAT': 'application/json'
-//       }
-//     );
-//     if (url) {
-//       // console.log(url);
-//       fetch(url)
-//         .then((response) => response.json())
-//         .then((data) => {
-//           properties = data.features[0].properties;
-//           console.log(properties);
-//         });
-//     }
-//   });
-// };
-
-
 function getElementInfo(elementID, layerName, layerTitle){
   map.on('singleclick', function (event) {
     var viewResolution = view.getResolution();
@@ -141,7 +117,7 @@ function getElementLegend(elementID, layerName) {
         'FORMAT': 'application/json'
       };
     var url = layerName.getSource().getLegendUrl(resolution, params);
-    console.log(url);
+    // console.log(url);
 
     async function getFeatureProperties() {
       try {
@@ -151,33 +127,94 @@ function getElementLegend(elementID, layerName) {
           throw new Error(`HTTP error!. Status: ${response.status}`);
         } else {
           var data = await response.text();
-          var legendJSON = JSON.parse(data).Legend[0];
+          var legendJSON = JSON.parse(data).Legend[0].rules[0].symbolizers[0];
           // console.log(legendJSON);
-          // Lettura colormap se è presente
-          var legendData = legendJSON.rules[0].symbolizers[0].Raster.colormap.entries;
-          if (legendData !== 'undefined') {
-            // Creazione del div che conterrà la legenda
-            var divLegend = $("<div/>").attr("id","indexLegend");
-            $("#"+elementID).append(divLegend);
-            arrayColors = [];
-            arrayLabels = [];
-            for (items in legendData){
-              colors = legendData[items]["color"]
-              // console.log(colors);
-              arrayColors.push(colors);
 
-              labels = legendData[items]["label"]
-              // console.log(labels);
-              arrayLabels.push(labels);
+            if (legendJSON.Raster) {
+
+              // Legend for raster data
+              var legendData = legendJSON.Raster.colormap.entries;
+              if (legendData !== 'undefined') {
+                var divLegend = $("<div/>").attr("id","indexLegend");
+                $("#"+elementID).append(divLegend);
+                arrayColors = [];
+                arrayLabels = [];
+                for (items in legendData){
+                  colors = legendData[items]["color"]
+                  // console.log(colors);
+                  arrayColors.push(colors);
+
+                  labels = legendData[items]["label"]
+                  // console.log(labels);
+                  arrayLabels.push(labels);
+                }
+                var divLabelFirst = '<div class="legend-info">' + arrayLabels[0] + '</div>'
+                var divColor = '<div class="legend-colormap" style="background-image: linear-gradient(to right, ' + arrayColors + ');"></div>'
+                var divLabelLast = '<div class="legend-info">' + arrayLabels[arrayLabels.length - 1] + '</div>'
+                $("#indexLegend").html('');
+                $("#indexLegend").append('<div class="legend-contents" id="">' + divLabelFirst + divColor + divLabelLast + '</div>')
+              } else {
+                console.error('legendData is undefined!');
+              }
+
+            } else if (legendJSON.Line) {
+
+              // Legend for linestring data
+              var legendData = legendJSON.Line;
+              console.log(legendData);
+              if (legendData !== 'undefined') {
+                var divLegend = $("<div/>").attr("id","indexLegend");
+                $("#"+elementID).append(divLegend);
+
+                var strokeColor = legendData.stroke;
+
+                $("#indexLegend").html('');
+                $("#indexLegend").append('<div style="background-color:' + strokeColor + '; width: 2vw; height: 2vh;"></div>')
+              } else {
+                console.error('legendData is undefined!');
+              }
+
+            } else if (legendJSON.Polygon) {
+
+              // Legend for polygon data
+              var legendData = legendJSON.Polygon;
+              console.log(legendData);
+              if (legendData !== 'undefined') {
+                var divLegend = $("<div/>").attr("id","indexLegend");
+                $("#"+elementID).append(divLegend);
+
+                var fillColor = legendData.fill;
+                var strokeColor = legendData.stroke;
+                console.log(fillColor, strokeColor);
+
+                $("#indexLegend").html('');
+                $("#indexLegend").append('<div style="background-color:' + fillColor + '; width: 2vw; height: 2vh; border-color: ' + strokeColor + '; border-width: 4px;"></div>')
+              } else {
+                console.error('legendData is undefined!');
+              }
+
+            } else if (legendJSON.Point) {
+
+              // Legend for point data
+              var legendData = legendJSON.Point.graphics[0];
+              console.log(legendData);
+              if (legendData !== 'undefined') {
+                var divLegend = $("<div/>").attr("id","indexLegend");
+                $("#"+elementID).append(divLegend);
+
+                var fillColor = legendData.fill;
+
+                $("#indexLegend").html('');
+                $("#indexLegend").append('<div style="background-color:' + fillColor + '; width: 2vw; height: 2vh;"></div>')
+              } else {
+                console.error('legendData is undefined!');
+              }
+
+            } else {
+              console.log('Unrecognized geodata. It can\'t possible to print the legend.');
             }
-            var divLabelFirst = '<div class="legend-info">' + arrayLabels[0] + '</div>'
-            var divColor = '<div class="legend-colormap" style="background-image: linear-gradient(to right, ' + arrayColors + ');"></div>'
-            var divLabelLast = '<div class="legend-info">' + arrayLabels[arrayLabels.length - 1] + '</div>'
-            $("#indexLegend").html('');
-            $("#indexLegend").append('<div class="legend-contents" id="">' + divLabelFirst + divColor + divLabelLast + '</div>')
-          } else {
-            console.error('legendData is undefined!');
-          }
+
+
         }
       } catch (e) {
         console.log(e);
