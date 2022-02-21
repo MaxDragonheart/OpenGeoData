@@ -1,57 +1,7 @@
 {% load static %}
 {% block wms-controls %}
 
-<div class="layer-control">
-
-  <div class="control-box">
-    <div class="checkbox">
-      <input type="checkbox" class="" name="switch-layer"
-              id="WMS{{ single_object.main_layer.pk }}" checked>
-      <label class="checkbox-label" for="WMS{{ single_object.main_layer.pk }}">
-              {{ single_object.main_layer.title }}</label>
-    </div>
-    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.main_layer.pk }}info')">
-      <i class="fas fa-info"></i>
-    </div> -->
-    {% if single_object.main_layer.wms_legend %}
-    <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
-      <div class="tooltip">
-        <i class="fas fa-book"></i>
-        <span class="tooltiptext">Legenda</span>
-      </div>
-    </div>
-    {% endif %}
-    <div class="item-controls" onclick="showHide('WMS{{ single_object.main_layer.pk }}controls')">
-      <div class="tooltip">
-        <i class="fas fa-cogs"></i>
-        <span class="tooltiptext">Controlli</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="slider-container" id="WMS{{ single_object.main_layer.pk }}controls" hidden>
-    <div class="slider">
-      <input class="slider-object" id="WMS{{ single_object.main_layer.pk }}slider"
-              type="range" min="0" max="100" value="100" />
-    </div>
-    <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
-  </div>
-
-  <div class="info" id="WMS{{ single_object.main_layer.pk }}info" hidden>
-    info
-  </div>
-
-  {% if single_object.main_layer.wms_legend %}
-  <div class="legend" id="WMS{{ single_object.main_layer.pk }}legend" hidden>
-    <div id="legend{{ single_object.main_layer.pk }}"></div>
-  </div>
-  {% endif %}
-
-  <table id="onclickinfo{{ single_object.main_layer.pk }}"></table>
-
-</div>
-
-
+{% include './main_layer_controls.html' %}
 
 {% if single_object.layers %}
   {% for wms in single_object.layers.all %}

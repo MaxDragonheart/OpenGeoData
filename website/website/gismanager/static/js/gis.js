@@ -111,7 +111,25 @@ function removeElementInfo(elementID){
   $("#"+elementID).remove();
 };
 
+function getElementLegendImg(elementID, layerName, url, layer) {
+
+  var updateLegend = function(resolution) {
+    var divLegend = $("<div/>").attr("id","imgLegend");
+    $("#"+elementID).append(divLegend);
+    // var legendImg = "https://geoserver.massimilianomoraca.me/geoserver/MassimilianoMoraca/wms/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=edificicasalnuovo"
+    var legendImg = url + "?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&LAYER=" + layer
+    // console.log(legendImg);
+    $("#imgLegend").html('');
+    $("#imgLegend").append('<img class="legend-img" src=' + legendImg + '>')
+  };
+
+  var viewResolution = view.getResolution();
+  updateLegend(viewResolution);
+
+};
+
 function getElementLegend(elementID, layerName) {
+
   var updateLegend = function(resolution) {
     var params = {
         'FORMAT': 'application/json'
@@ -222,7 +240,7 @@ function getElementLegend(elementID, layerName) {
     }
     getFeatureProperties();
   };
-  /// Inizializzazione della legenda
+
   var viewResolution = view.getResolution();
   updateLegend(viewResolution);
   // /// Aggiornamento della legenda al variare della risoluzione
@@ -230,4 +248,5 @@ function getElementLegend(elementID, layerName) {
   //   var resolution = event.target.getResolution();
   //   updateLegend(resolution);
   // });
+
 };

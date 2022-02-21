@@ -88,7 +88,8 @@
   layerOpacity(wms, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
 
   getElementInfo('onclickinfo{{ single_object.pk }}', wms, '{{ single_object.title }}');
-  getElementLegend('legend{{ single_object.pk }}', wms);
+  getElementLegendImg('legend{{ single_object.pk }}', '{{ single_object.wms_layer_path.complete_url_wms }}', '{{ single_object.wms_layer_name }}');
+  // getElementLegend('legend{{ single_object.pk }}', wms);
 
 </script>
 {% endblock wms-script %}
