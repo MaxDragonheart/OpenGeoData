@@ -55,6 +55,17 @@ function layerOpacity(layerName, elementID, outputID){
   layerName.setOpacity(control.value / 100);
 };
 
+function layerZIndex(layerName, elementID, outputID){
+  var control = document.getElementById(elementID);
+  var output = document.getElementById(outputID);
+  var listener = function () {
+    layerName.setZIndex(control.value);
+  };
+  control.addEventListener('input', listener);
+  control.addEventListener('change', listener);
+  layerName.setZIndex(control.value);
+};
+
 function getElementInfo(elementID, layerName, layerTitle){
   map.on('singleclick', function (event) {
     var viewResolution = view.getResolution();
