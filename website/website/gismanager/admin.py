@@ -19,6 +19,7 @@ class WMSLayerAdmin(admin.ModelAdmin):
     fieldsets = [
                 (None, {"fields": ["title", "slug_post", "description"]}),
                 ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style", "wms_legend"]}),
+                #("WMS Extras", {"fields": ["header_image"]}),
                 ("OpenLayers Parameters",
                  {"fields": ["set_max_zoom", "set_min_zoom", "set_zindex", "set_opacity"]}
                  ),

@@ -1,0 +1,43 @@
+{% load static %}
+{% block wms %}
+<script type="text/javascript">
+
+  var wms{{ single_object.main_layer.pk }} = new ol.layer.Tile({
+    title: '{{ single_object.main_layer.title }}',
+    source: new ol.source.TileWMS({
+      url: '{{ single_object.main_layer.wms_layer_path.complete_url_wms }}',
+      params: {
+        'LAYERS': '{{ single_object.main_layer.wms_layer_name }}',
+        'STYLES': {% if single_object.main_layer.wms_layer_style %}'{{ single_object.main_layer.wms_layer_style }}'{% else %}null{% endif %},
+      }
+    }),
+    minZoom: {{ single_object.main_layer.set_min_zoom }},
+    maxZoom: {{ single_object.main_layer.set_max_zoom }},
+    zIndex: {% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}1{% endif %},
+    opacity: {{ single_object.main_layer.set_opacity }}
+  });
+  map.addLayer(wms{{ single_object.main_layer.pk }});
+
+  getElementInfo('onclickinfo{{ single_object.main_layer.pk }}', wms{{ single_object.main_layer.pk }}, '{{ single_object.main_layer.title }}');
+  getElementLegendImg('legend{{ single_object.main_layer.pk }}', wms{{ single_object.main_layer.pk }}, '{{ single_object.main_layer.wms_layer_path.complete_url_wms }}', '{{ single_object.main_layer.wms_layer_name }}');
+
+  $('#WMS{{ single_object.main_layer.pk }}').on('change', function() {
+    var isChecked = $(this).is(':checked');
+    if (isChecked) {
+      map.addLayer(wms{{ single_object.main_layer.pk }});
+      getElementLegendImg('legend{{ single_object.main_layer.pk }}', '{{ single_object.main_layer.wms_layer_path.complete_url_wms }}', '{{ single_object.main_layer.wms_layer_name }}');
+      getElementInfo('onclickinfo{{ single_object.main_layer.pk }}', wms{{ single_object.main_layer.pk }}, '{{ single_object.main_layer.title }}');
+    } else {
+      map.removeLayer(wms{{ single_object.main_layer.pk }});
+      removeElementInfo('onclickinfo{{ single_object.main_layer.pk }}');
+    }
+  });
+  var boundingBox = createBBoxLayer(
+    {{ single_object.main_layer.wms_bbox }},
+    '{{ single_object.main_layer.title }}'
+  );
+  zoomOnLayer(boundingBox,10,10,10,10,50);
+  layerOpacity(wms{{ single_object.main_layer.pk }},  'WMS{{ single_object.main_layer.pk }}slider', 'OUTPUT{{ single_object.main_layer.pk }}');
+
+</script>
+{% endblock wms %}
