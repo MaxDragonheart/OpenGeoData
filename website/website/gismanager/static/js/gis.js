@@ -69,10 +69,11 @@ function getElementInfo(elementID, layerName, layerTitle){
       epsg,
       params,
     );
-    console.log(url);
+    // console.log(url);
     async function getFeatureProperties() {
       try {
         var response = await fetch(url);
+
         if (!response.ok) {
           throw new Error(`HTTP error!\n Status: ${response.status}\n Type: ${response.type}\n URL: ${response.url}`);
         } else {
@@ -88,7 +89,7 @@ function getElementInfo(elementID, layerName, layerTitle){
           $("#"+elementID).html('');
           $("#"+elementID).append(tableHead);
           var tableBodyContents = '<tbody></tbody>';
-          var tableBody = $(tableBodyContents).attr("id","tbody");
+          var tableBody = $(tableBodyContents).attr("id","tbody"+elementID);
           $("#"+elementID).append(tableBody);
           for (items in json) {
             key = items;
@@ -96,7 +97,7 @@ function getElementInfo(elementID, layerName, layerTitle){
             // elementData = [key, value];
             // console.log(elementData);
             tableRow = '<tr><td class="td-head">' + key + '</td><td class="td-body">' + value + '</td></tr>';
-            $("tbody").append(tableRow);
+            $("#tbody"+elementID).append(tableRow);
           }
 
         }
