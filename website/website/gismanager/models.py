@@ -54,6 +54,7 @@ class WMSLayer(BaseModelPost, OpenLayersMapParameters):
     wms_bbox = models.CharField(max_length=250, blank=True, null=True)
     wms_centroid = models.CharField(max_length=250, blank=True, null=True)
     wms_legend = models.BooleanField(default=False)
+    wms_legend_img = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse("wms-single", kwargs={"slug_post": self.slug_post})

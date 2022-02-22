@@ -12,13 +12,14 @@ class GeoServerURLAdmin(admin.ModelAdmin):
 
 
 class WMSLayerAdmin(admin.ModelAdmin):
-    list_display = ["title", "wms_layer_name", "publishing_date", "wms_bbox", "wms_centroid", "header_image"]
+    list_display = ["title", "wms_layer_name", "publishing_date", "wms_bbox", "wms_centroid", "header_image", "wms_legend_img"]
     list_filter = ["publishing_date"]
     search_fields = ["title"]
     prepopulated_fields = {"slug_post": ("title",)}
     fieldsets = [
                 (None, {"fields": ["title", "slug_post", "description"]}),
                 ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style", "wms_legend"]}),
+                ("WMS Extras", {"fields": ["header_image", "wms_legend_img"]}),
                 ("OpenLayers Parameters",
                  {"fields": ["set_max_zoom", "set_min_zoom", "set_zindex", "set_opacity"]}
                  ),
