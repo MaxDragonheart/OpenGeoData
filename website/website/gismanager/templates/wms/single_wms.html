@@ -61,7 +61,7 @@
   });
   map.addLayer(osm);
 
-  var wms = new ol.layer.Tile({
+  var wms{{ single_object.pk }} = new ol.layer.Tile({
     title: '{{ single_object.title }}',
     source: new ol.source.TileWMS({
       url: '{{ single_object.wms_layer_path.complete_url_wms }}',
@@ -75,7 +75,7 @@
     zIndex: 1,
     opacity: 1.0
   });
-  map.addLayer(wms);
+  map.addLayer(wms{{ single_object.pk }});
 
   var boundingBox = createBBoxLayer(
     {{ single_object.wms_bbox }},
@@ -85,10 +85,10 @@
 
   zoomOnLayer(boundingBox,10,10,10,10,50);
 
-  layerOpacity(wms, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
+  layerOpacity(wms{{ single_object.pk }}, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
 
-  getElementInfo('onclickinfo{{ single_object.pk }}', wms, '{{ single_object.title }}');
-  getElementLegendImg('legend{{ single_object.pk }}', '{{ single_object.wms_layer_path.complete_url_wms }}', '{{ single_object.wms_layer_name }}');
+  getElementInfo('onclickinfo{{ single_object.pk }}', wms{{ single_object.pk }}, '{{ single_object.title }}');
+  getElementLegendImg('legend{{ single_object.pk }}', wms{{ single_object.pk }}, '{{ single_object.wms_layer_path.complete_url_wms }}', '{{ single_object.wms_layer_name }}');
   // getElementLegend('legend{{ single_object.pk }}', wms);
 
 </script>
