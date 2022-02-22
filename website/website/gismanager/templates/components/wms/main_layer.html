@@ -38,6 +38,7 @@
   );
   zoomOnLayer(boundingBox,10,10,10,10,50);
   layerOpacity(wms{{ single_object.main_layer.pk }},  'WMS{{ single_object.main_layer.pk }}slider', 'OUTPUT{{ single_object.main_layer.pk }}');
+  layerZIndex(wms{{ single_object.main_layer.pk }}, 'WMS{{ single_object.main_layer.pk }}zIndex', 'OUTPUT{{ single_object.main_layer.pk }}');
 
 </script>
 {% endblock wms %}

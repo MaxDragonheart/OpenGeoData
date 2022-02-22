@@ -24,6 +24,7 @@
     });
 
     layerOpacity(wms{{ wms.pk }}, 'WMS{{ wms.pk }}slider', 'OUTPUT{{ wms.pk }}');
+    layerZIndex(wms{{ wms.pk }}, 'WMS{{ wms.pk }}zIndex', 'OUTPUT{{ wms.pk }}');
 
     $('#WMS{{ wms.pk }}').on('change', function() {
       var isChecked = $(this).is(':checked');

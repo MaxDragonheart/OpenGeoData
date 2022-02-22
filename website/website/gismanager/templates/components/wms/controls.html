@@ -24,6 +24,7 @@
       </div>
       {% endif %}
       <div class="item-controls" onclick="showHide('WMS{{ wms.pk }}controls')">
+      <!-- <div class="item-controls"> -->
         <div class="tooltip">
           <i class="fas fa-cogs"></i>
           <span class="tooltiptext">Controlli</span>
@@ -31,12 +32,23 @@
       </div>
     </div>
 
-    <div class="slider-container" id="WMS{{ wms.pk }}controls" hidden>
-      <div class="slider">
-        <input class="slider-object" id="WMS{{ wms.pk }}slider"
-                type="range" min="0" max="100" value="80" />
+    <div class="controls-container" id="WMS{{ wms.pk }}controls" hidden>
+      <div class="slider-container">
+        <div class="slider">
+          <input class="slider-object" id="WMS{{ wms.pk }}slider"
+                  type="range" min="0" max="100" value="80" />
+        </div>
+        <p class="text-control">Opacity: <span id="OUTPUT{{ wms.pk }}"></span> %</p>
       </div>
-      <p class="text-control">Opacity: <span id="OUTPUT{{ wms.pk }}"></span> %</p>
+      <div class="counter-container">
+        <div class="counter" id="">
+          <input class="counter-object" id="WMS{{ wms.pk }}zIndex"
+                  type="number" name="zIndex" min="0" max="99" step="1"
+                  placeholder="{% if wms.set_index %}{{ wms.set_index }}{% else %}1{% endif %}"
+                  value="{% if wms.set_index %}{{ wms.set_index }}{% else %}1{% endif %}">
+        </div>
+        <p class="text-control">z-Index</p>
+      </div>
     </div>
 
     {% if wms.wms_legend %}
