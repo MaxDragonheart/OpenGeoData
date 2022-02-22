@@ -85,6 +85,7 @@ function getElementInfo(elementID, layerName, layerTitle){
           // + '<tr><th>#</th><th>Info</th></tr>'
           + '</thead>';
           var tableHead = $(tableHeadContents).attr("id","thead");
+          $("#"+elementID).html('');
           $("#"+elementID).append(tableHead);
           var tableBodyContents = '<tbody></tbody>';
           var tableBody = $(tableBodyContents).attr("id","tbody");
@@ -112,10 +113,7 @@ function removeElementInfo(elementID){
 };
 
 function getElementLegendImg(elementID, layerName, url, layer) {
-  console.log(elementID);
-  console.log(layerName);
-  console.log(url);
-  console.log(layer);
+
   var updateLegend = function(resolution) {
     var divLegend = $("<div/>").attr("id","imgLegend"+elementID);
     $("#"+elementID).append(divLegend);
