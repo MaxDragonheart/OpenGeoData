@@ -1,4 +1,5 @@
-# UfficioUrbanistica
+# OpenGeoData
+OpenSource project focused on sharing of geographics data to citizens and tecnicians
 
 ## Guide and tips
 - Variables for `.env` [here](docs/env.md)
