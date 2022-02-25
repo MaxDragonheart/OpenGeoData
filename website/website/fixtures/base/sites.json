@@ -3,8 +3,8 @@
   "model": "sites.site",
   "pk": 1,
   "fields": {
-    "domain": "example.com",
-    "name": "example.com"
+    "domain": "nullisland.null",
+    "name": "nullisland.null"
   }
 }
 ]

@@ -21,7 +21,3 @@ python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sit
 ```markdown
 python3 manage.py loaddata fixtures/**/*.json
 ```
-### Singola app
-```markdown
-
-```
