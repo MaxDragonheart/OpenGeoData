@@ -43,6 +43,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 INSTALLED_APPS = [
     'corsheaders',
+    'jazzmin',
 
     'django.contrib.admin',
     'django.contrib.auth',
