@@ -1,3 +1,13 @@
+function getMouseCoordinates(){
+  map.on('pointermove', function (event) {
+    coordinate = ol.proj.toLonLat(event.coordinate);
+    // console.log(coordinate);
+    lon = coordinate[0].toFixed(5);
+    lat = coordinate[1].toFixed(5);
+    console.log(lon);
+  });
+};
+
 function createBBoxLayer(bboxCoordinates, bboxName){
 
   // Build the vector

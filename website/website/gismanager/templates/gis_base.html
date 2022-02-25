@@ -31,10 +31,15 @@
         attribution: false
       }),
     });
-
+getMouseCoordinates();
     var scaleLine = new ol.control.ScaleLine({
       className: 'ol-scale-line',
-      target: document.getElementById('scale-line')
+      target: document.getElementById('scale-line'),
+      units: 'metric',
+      bar: true,
+      steps: 4,
+      text: true,
+      minWidth: 150,
     });
     map.addControl(scaleLine);
 

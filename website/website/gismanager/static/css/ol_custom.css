@@ -4,8 +4,11 @@
   margin: 0 !important;
   z-index: 1 !important;
 }
+.ol-unselectable {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+}
 .ol-zoom, .ol-zoom-in, .ol-zoom-out {
-  box-shadow: 5px 5px 8px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 5px 5px 8px 4px rgba(0, 0, 0, 0.2); */
   border-radius: 0 !important;
   width: 30px !important;
   margin: 0 !important;
@@ -23,14 +26,17 @@
   color: rgba(1, 79, 134, 1) !important;
 }
 .ol-scale-line {
-  box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2);
-  bottom: 0 !important;
-  left: 45vw !important;
-  background-color: rgba(1, 79, 134, 1) !important;
-  border-radius: 0 !important;
+  /* box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2); */
+  /* bottom: 0 !important; */
+  /* left: 25vw !important; */
+  /* background-color: rgba(1, 79, 134, 1) !important; */
+  /* border-radius: 0 !important; */
 }
 .ol-scale-line-inner {
-  margin: 0 !important;
+  /* margin: 0 !important; */
+}
+.ol-scale-text {
+  margin-bottom: 1vh;
 }
 .ol-attribution button {
   background-color: inherit !important;
@@ -48,10 +54,10 @@
   /* content: none; */
 }
 .ol-attribution, .ol-attribution div {
-  box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 5px -5px 8px 4px rgba(0, 0, 0, 0.2); */
   bottom: 0 !important;
-  left: 0 !important;
-  right: auto !important;
+  right: 0 !important;
+  /* right: auto !important; */
   text-align: left !important;
   background-color: rgba(1, 79, 134, 1) !important;
   border-radius: 0 !important;
