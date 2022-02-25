@@ -19,7 +19,7 @@ python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sit
 
 ### Globale
 ```markdown
-python3 manage.py loaddata fixtures/*.json
+python3 manage.py loaddata fixtures/**/*.json
 ```
 ### Singola app
 ```markdown
