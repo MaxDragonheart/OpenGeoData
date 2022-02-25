@@ -74,13 +74,13 @@ class SiteSocialUrls(UrlsModel):
 
 class SiteCustomization(TimeManager):
     site = models.ForeignKey(Site, on_delete=models.PROTECT, related_name="related_sitecustomization")
-    site_title = models.CharField(max_length=250, blank=True, null=True, default="Gestione del Territorio")
+    site_title = models.CharField(max_length=250, blank=True, null=True, default="OpenGeoData")
     site_logo = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
-    site_description = models.CharField(max_length=100, blank=True, null=True, default="Ufficio Tecnico Comunale e SIT.")
-    address = models.TextField(blank=True, null=True, default="Via della Costituzione, 1, - Città dei Sogni, 9999888")
+    site_description = models.CharField(max_length=100, blank=True, null=True, default="We share geodata")
+    address = models.TextField(blank=True, null=True, default="Geolocateme Correctly street, 1, - Null Island, 9999888")
     contact_phone = models.CharField(max_length=250, blank=True, null=True, default="+39 0987543")
-    contact_email = models.EmailField(blank=True, null=True, default="mail@email.sito")
-    contact_official_email = models.EmailField(blank=True, null=True, default="pec-mail@email.sito")
+    contact_email = models.EmailField(blank=True, null=True, default="mail@email.null")
+    contact_official_email = models.EmailField(blank=True, null=True, default="pec-mail@email.null")
     urls = models.ManyToManyField(SiteUrls, related_name="related_siteurls")
     #social_urls = models.ManyToManyField(SiteSocialUrls, related_name="related_sitesocialurls")
 

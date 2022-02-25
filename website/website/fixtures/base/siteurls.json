@@ -1,0 +1,13 @@
+[
+{
+  "model": "base.siteurls",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-02-25T18:41:21Z",
+    "updating_date": "2022-02-25T18:43:12.133Z",
+    "timestamp": "2022-02-25T18:41:39.445Z",
+    "name": "null island website",
+    "url": "http://www.nullistalnd.null"
+  }
+}
+]
