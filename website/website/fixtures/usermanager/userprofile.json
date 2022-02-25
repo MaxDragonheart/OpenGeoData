@@ -1,0 +1,22 @@
+[
+{
+  "model": "usermanager.userprofile",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$y7PzbHJCe6asCH2JvvUZnS$JpmAKnPqCBL80Fc5IojjBnkAIZeracSt9ND2oXJWKbc=",
+    "last_login": "2022-02-25T18:41:01.841Z",
+    "is_superuser": true,
+    "username": "max",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-02-25T18:40:24.475Z",
+    "name": "",
+    "surname": "",
+    "email": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

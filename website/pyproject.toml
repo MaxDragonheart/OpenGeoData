@@ -18,6 +18,7 @@ OWSLib = "^0.25.0"
 fsspec = "^2022.1.0"
 Shapely = "^1.8.0"
 geopandas = "^0.10.2"
+django-jazzmin = "^2.4.9"
 
 [tool.poetry.dev-dependencies]
 

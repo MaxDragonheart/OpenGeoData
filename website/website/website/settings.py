@@ -43,6 +43,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 INSTALLED_APPS = [
     'corsheaders',
+    'jazzmin',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -165,7 +166,6 @@ UPLOADED_IMAGE_FOLDER = 'images/%Y/%m/%d/'
 UPLOADED_DOCUMENT_FOLDER = 'documents/%Y/%m/%d/'
 UPLOADED_GISDATA_FOLDER = 'gis-data/%Y/%m/%d/'
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -173,9 +173,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Sites settinges
 SITE_ID = 1
-ADMIN_PANEL = "ufficio-tecnico"
+ADMIN_PANEL = "opengeodata-adminsite"
 LOGIN_REDIRECT_URL = f"/{ADMIN_PANEL}/"
 LOGOUT_REDIRECT_URL = "/"
+
+# Usermanager app settings
+AUTH_USER_MODEL = 'usermanager.UserProfile'
 
 # Corsheaders settings
 CORS_ORIGIN_ALLOW_ALL = True
