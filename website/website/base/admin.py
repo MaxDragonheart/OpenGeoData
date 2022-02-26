@@ -28,7 +28,7 @@ class SiteUrlsAdmin(admin.ModelAdmin):
 
 
 class SiteSocialUrlsAdmin(admin.ModelAdmin):
-    list_display = ["name", "url", "social_icon"]
+    list_display = ["name", "url", "icon"]
 
     class Meta:
         model = SiteSocialUrls

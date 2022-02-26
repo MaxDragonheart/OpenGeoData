@@ -3,9 +3,38 @@ import pathlib
 from typing import Union
 
 from pathlib import Path
-
+from django.conf import settings
 from fsspec import get_fs_token_paths
 
+
+# def create_site_logo() -> pathlib.PosixPath:
+#     """Create temporary logo path
+#
+#     :return: pathlib.PosixPath
+#     """
+#     # Get temporary logo from
+#     # static folder
+#     # TODO path doesn't existis
+#     logo = pathlib.Path('./static/images/logo.png')
+#     logo_name = logo.stem
+#     logo_extension = logo.suffix
+#     logo_name_extension = logo_name + logo_extension
+#     print(logo)
+#     print(logo.exists())
+#     print(logo_name_extension)
+#     # Create destination folder
+#     site_logo_folder = settings.MEDIA_FOLDER / pathlib.Path('default')
+#     fs, fs_token, paths = get_fs_token_paths(site_logo_folder)
+#     fs.mkdirs(path=site_logo_folder, exist_ok=True)
+#
+#     # Copy temporary logo
+#     # to destination folder
+#     destination = site_logo_folder / logo_name_extension
+#     print(destination)
+#     print(f"Copying file: {logo} ---> {destination}")
+#     fs.put_file(logo, destination)
+#
+#     return destination
 
 def to_folder_today(
         file:  Union[str, pathlib.PosixPath],
