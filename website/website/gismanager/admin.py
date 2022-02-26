@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from abstracts.admin import CategoryBaseAdmin, ModelPostBaseAdmin
 from .models import GeoServerURL, WMSLayer, BasemapProvider, Basemap, WebGISProject
 
 
@@ -50,9 +51,9 @@ class WebGISProjectAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     prepopulated_fields = {"slug_post": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug_post", "header_image", "description"]}),
-                (None, {"fields": ["contents"]}),
-                (None, {"fields": ["draft", "highlighted", "publishing_date"]}),
+                ("Header", {"fields": ["title", "slug_post", "header_image", "description"]}),
+                ("Contents", {"fields": ["contents"]}),
+                ("Options", {"fields": ["draft", "highlighted", "publishing_date"]}),
                 ("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
                 ("OpenLayers Parameters",
                  {
