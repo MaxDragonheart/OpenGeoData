@@ -31,10 +31,36 @@
         attribution: false
       }),
     });
+
 getMouseCoordinates();
+
+    var coordinates = document.createElement('div');
+    coordinates.className = 'coordinates-container';
+    coordinates.innerHTML = "<p class='text-coordinates'>"
+      + "lon: <span id='lon'>000.00000</span>, "
+      + "lat: <span id='lat'>000.00000</span>"
+      + "</p>"
+
+    var scaleLineArea = document.createElement('div');
+    scaleLineArea.className = 'scaleline-object';
+    scaleLineArea.id = 'custom-scale-line'
+
+    var scaleLineContainer = document.createElement('div');
+    scaleLineContainer.className = 'custom-scaleline-container';
+    scaleLineContainer.appendChild(scaleLineArea);
+
+    var mensura = document.createElement('div')
+    mensura.className = 'ol-control ol-unselectable mensura';
+    mensura.appendChild(coordinates);
+    mensura.appendChild(scaleLineContainer);
+    var mensuraPanel = new ol.control.Control({
+      element: mensura
+    });
+    map.addControl(mensuraPanel);
+
     var scaleLine = new ol.control.ScaleLine({
-      className: 'ol-scale-line',
-      target: document.getElementById('scale-line'),
+      className: 'scaleline-object',
+      target: document.getElementById('custom-scale-line'),
       units: 'metric',
       bar: true,
       steps: 4,

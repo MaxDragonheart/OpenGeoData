@@ -3,8 +3,9 @@ function getMouseCoordinates(){
     coordinate = ol.proj.toLonLat(event.coordinate);
     // console.log(coordinate);
     lon = coordinate[0].toFixed(5);
+    document.getElementById("lon").innerHTML = lon;
     lat = coordinate[1].toFixed(5);
-    console.log(lon);
+    document.getElementById("lat").innerHTML = lat;
   });
 };
 

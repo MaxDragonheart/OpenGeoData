@@ -35,8 +35,19 @@
 .ol-scale-line-inner {
   /* margin: 0 !important; */
 }
+.ol-scale-text, .ol-scale-step-text {
+  /* margin-bottom: 1vh; */
+  font-size: 10px !important;
+  color: rgba(169, 214, 229, 1) !important;
+  text-shadow: none !important;
+}
 .ol-scale-text {
-  margin-bottom: 1vh;
+  padding-bottom: 20px !important;
+}
+.ol-scale-step-text {
+  /* padding: 0, 0, 5px, 0 !important; */
+  padding-bottom: 5px !important;
+  bottom: -0.5px !important;
 }
 .ol-attribution button {
   background-color: inherit !important;
