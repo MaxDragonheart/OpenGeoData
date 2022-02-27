@@ -18,7 +18,7 @@ class WMSLayerAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug", "description"]}),
+                (None, {"fields": ["title", "slug", "description", "tags"]}),
                 ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style", "wms_legend"]}),
                 #("WMS Extras", {"fields": ["header_image"]}),
                 ("OpenLayers Parameters",
@@ -54,7 +54,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                 ("Header", {"fields": ["title", "slug", "header_image", "description"]}),
                 ("Contents", {"fields": ["contents"]}),
                 ("Options", {"fields": ["draft", "highlighted", "publishing_date"]}),
-                ("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
+                #("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
                 ("OpenLayers Parameters",
                  {
                      "classes": ("collapse",),
@@ -71,8 +71,8 @@ class WebGISProjectAdmin(admin.ModelAdmin):
         model = WebGISProject
 
 
-# admin.site.register(GeoServerURL, GeoServerURLAdmin)
-# admin.site.register(WMSLayer, WMSLayerAdmin)
-# admin.site.register(BasemapProvider, BasemapProviderAdmin)
+admin.site.register(GeoServerURL, GeoServerURLAdmin)
+admin.site.register(WMSLayer, WMSLayerAdmin)
+admin.site.register(BasemapProvider, BasemapProviderAdmin)
 # admin.site.register(Basemap, BasemapAdmin)
 # admin.site.register(WebGISProject, WebGISProjectAdmin)

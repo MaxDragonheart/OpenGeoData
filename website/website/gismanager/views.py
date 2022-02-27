@@ -26,8 +26,8 @@ def wms_list(request):
     return render(request, "wms/wms_list.html", context)
 
 
-def single_wms(request, slug_post):
-    object = get_object_or_404(WMSLayer, slug_post=slug_post)
+def single_wms(request, slug):
+    object = get_object_or_404(WMSLayer, slug=slug)
 
     context = {
         "single_object": object,
@@ -45,8 +45,8 @@ def webgis_list(request):
     return render(request, "map/webgis_list.html", context)
 
 
-def single_webgis(request, slug_post):
-    object = get_object_or_404(WebGISProject, slug_post=slug_post)
+def single_webgis(request, slug):
+    object = get_object_or_404(WebGISProject, slug=slug)
 
     context = {
         "single_object": object,

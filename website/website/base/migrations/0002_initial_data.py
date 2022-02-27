@@ -18,7 +18,7 @@ def set_first_url(apps, schema_editor):
     SiteUrls = apps.get_model('base', 'SiteUrls')
     SiteUrls.objects.create(
         name='null island website',
-        url='http://www.nullisland.null'
+        url='http://www.null-island.null'
     )
 
 

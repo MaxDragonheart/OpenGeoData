@@ -6,6 +6,7 @@ from django.contrib.gis.db import models
 from django.urls import reverse
 
 from abstracts.models import TimeManager, BaseModelPost, ModelPost
+from base.models import SharedTags
 from fsspec import get_fs_token_paths
 
 from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
@@ -54,9 +55,10 @@ class WMSLayer(BaseModelPost, OpenLayersMapParameters):
     wms_bbox = models.CharField(max_length=250, blank=True, null=True)
     wms_centroid = models.CharField(max_length=250, blank=True, null=True)
     wms_legend = models.BooleanField(default=False)
+    tags = models.ManyToManyField(SharedTags, related_name="related_wmstag")
 
     def get_absolute_url(self):
-        return reverse("wms-single", kwargs={"slug_post": self.slug_post})
+        return reverse("wms-single", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         """Override save method and add to DB thumbnail path, BBOX and centroid"""
@@ -148,15 +150,15 @@ class WebGISProjectBase(ModelPost, OpenLayersMapParameters):
 
 
 class WebGISProject(WebGISProjectBase):
-    #tags = models.ManyToManyField(WebGISProjectTag, related_name="related_webgisprojecttag")
-    basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=False)
+    tags = models.ManyToManyField(SharedTags, related_name="related_webgisprojecttag")
+    basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=True)
     basemap2 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap2", blank=True, null=True)
     basemap3 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap3", blank=True, null=True)
     main_layer = models.ForeignKey(WMSLayer, on_delete=models.PROTECT, related_name="related_mainlayer")
     layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
 
     def get_absolute_url(self):
-        return reverse("map-single", kwargs={"slug_post": self.slug_post})
+        return reverse("map-single", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['-publishing_date']

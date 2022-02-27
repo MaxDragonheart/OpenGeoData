@@ -26,7 +26,7 @@ tags = [
     ('Transport networks', 'transport-networks', 'default/icons/008-infrastructure.png', 'Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.'),
     ('Elevation', 'elevation', 'default/icons/009-topographic.png', 'Digital elevation models for land, ice and ocean surface. Includes terrestrial elevation, bathymetry and shoreline.'),
     ('Geology', 'geology', 'default/icons/010-geological.png', 'Geology characterised according to composition and structure. Includes bedrock, aquifers and geomorphology.'),
-    ('Land Cover', 'land-cover', 'default/icons/011-allocate.png', 'Physical and biological cover of the earth\'s surface including artificial surfaces, agricultural areas, forests, (semi-)natural areas, wetlands, water bodies.'),
+    ('Land cover', 'land-cover', 'default/icons/011-allocate.png', 'Physical and biological cover of the earth\'s surface including artificial surfaces, agricultural areas, forests, (semi-)natural areas, wetlands, water bodies.'),
     ('Orthoimagery', 'orthoimagery', 'default/icons/012-map.png', 'Geo-referenced image data of the Earth\'s surface, from either satellite or airborne sensors.'),
     ('Atmospheric conditions', 'atmospheric-conditions', 'default/icons/013-meteorology.png', 'Physical conditions in the atmosphere. Includes spatial data based on measurements, on models or on a combination thereof and includes measurement locations.'),
     ('Agricultural and acquaculture facilities', 'agricultural-and-acquaculture-facilities', 'default/icons/014-fish.png', 'Farming equipment and production facilities (including irrigation systems, greenhouses and stables).'),
