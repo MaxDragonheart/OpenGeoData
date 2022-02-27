@@ -30,7 +30,7 @@ class SharedTags(TagBase):
     Questa classe definisce le caratteristiche di
     un tag condiviso.
     """
-    description = models.CharField(max_length=255, blank=True, null=True)
+    description = models.TextField(max_length=255, blank=True, null=True)
     icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 

@@ -15,7 +15,7 @@ social_netoworks = [
 ]
 
 tags = [
-    (''),
+    ('Addresses', 'addresses', 'default/icons/001-address.png', 'Location of properties based on address identifiers, usually by road name, house number, postal code.'),
 ]
 
 
