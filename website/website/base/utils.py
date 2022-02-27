@@ -16,6 +16,14 @@ social_netoworks = [
 
 tags = [
     ('Addresses', 'addresses', 'default/icons/001-address.png', 'Location of properties based on address identifiers, usually by road name, house number, postal code.'),
+    ('Administrative units', 'administrative-units', 'default/icons/002-united-arab-emirates.png', 'Units of administration, dividing areas where Member States have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.'),
+    ('Cadastral parcels', 'cadastral-parcels', 'default/icons/002-united-arab-emirates.png', 'Areas defined by cadastral registers or equivalent.'),
+    ('Geographical grid system', 'geographical-grid-system', 'default/icons/003-world.png', 'Harmonised multi-resolution grid with a common point of origin and standardised location and size of grid cells.'),
+    ('Geographical names', 'geographical-names', 'default/icons/004-signpost.png', 'Names of areas, regions, localities, cities, suburbs, towns or settlements, or any geographical or topographical feature of public or historical interest.'),
+    ('Hydrography', 'hydrography', 'default/icons/005-river.png', 'Hydrographic elements, including marine areas and all other water bodies and items related to them, including river basins and sub-basins.'),
+    ('Protected sites', 'protected-sites', 'default/icons/006-wild-harvested-ingredients.png', 'Area designated or managed within a framework of international, Community and Member States\' legislation to achieve specific conservation objectives.'),
+    ('Coordinate reference systems', 'coordinate-reference-systems', 'default/icons/007-coordinates.png', 'Systems for uniquely referencing spatial information in space as a set of coordinates (x, y, z) and/or latitude and longitude and height, based on a geodetic horizontal and vertical datum.'),
+    ('Transport networks', 'transport-networks', 'default/icons/008-infrastructure.png', 'Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.'),
 ]
 
 

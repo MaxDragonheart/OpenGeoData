@@ -20,9 +20,9 @@
     "publishing_date": "2022-02-27T12:23:11.031Z",
     "updating_date": "2022-02-27T12:23:11.081Z",
     "timestamp": "2022-02-27T12:23:11.081Z",
-    "title": "Administrative units",
-    "slug": "administrative-units",
-    "description": "Units of administration, dividing areas where Member States have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.",
+    "title": "",
+    "slug": "",
+    "description": "",
     "icon": "default/icons/002-united-arab-emirates.png",
     "is_active": true
   }
@@ -34,9 +34,9 @@
     "publishing_date": "2022-02-27T12:24:02.360Z",
     "updating_date": "2022-02-27T12:24:02.363Z",
     "timestamp": "2022-02-27T12:24:02.363Z",
-    "title": "Cadastral parcels",
-    "slug": "cadastral-parcels",
-    "description": "Areas defined by cadastral registers or equivalent.",
+    "title": "",
+    "slug": "",
+    "description": "",
     "icon": "default/icons/002-united-arab-emirates_t1NTsxS.png",
     "is_active": true
   }
@@ -48,10 +48,10 @@
     "publishing_date": "2022-02-27T12:24:43.127Z",
     "updating_date": "2022-02-27T12:24:43.131Z",
     "timestamp": "2022-02-27T12:24:43.131Z",
-    "title": "Geographical grid system",
-    "slug": "geographical-grid-system",
-    "description": "Harmonised multi-resolution grid with a common point of origin and standardised location and size of grid cells.",
-    "icon": "default/icons/003-world.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
@@ -62,10 +62,10 @@
     "publishing_date": "2022-02-27T12:25:09.492Z",
     "updating_date": "2022-02-27T12:25:09.499Z",
     "timestamp": "2022-02-27T12:25:09.499Z",
-    "title": "Geographical names",
-    "slug": "geographical-names",
-    "description": "Names of areas, regions, localities, cities, suburbs, towns or settlements, or any geographical or topographical feature of public or historical interest.",
-    "icon": "default/icons/004-signpost.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
@@ -76,10 +76,10 @@
     "publishing_date": "2022-02-27T12:59:35.886Z",
     "updating_date": "2022-02-27T12:59:35.888Z",
     "timestamp": "2022-02-27T12:59:35.888Z",
-    "title": "Hydrography",
-    "slug": "hydrography",
-    "description": "Hydrographic elements, including marine areas and all other water bodies and items related to them, including river basins and sub-basins.",
-    "icon": "default/icons/005-river.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
@@ -90,10 +90,10 @@
     "publishing_date": "2022-02-27T13:00:04.921Z",
     "updating_date": "2022-02-27T13:00:04.923Z",
     "timestamp": "2022-02-27T13:00:04.923Z",
-    "title": "Protected sites",
-    "slug": "protected-sites",
-    "description": "Area designated or managed within a framework of international, Community and Member States' legislation to achieve specific conservation objectives.",
-    "icon": "default/icons/006-wild-harvested-ingredients.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
@@ -104,10 +104,10 @@
     "publishing_date": "2022-02-27T13:00:55.835Z",
     "updating_date": "2022-02-27T13:00:55.838Z",
     "timestamp": "2022-02-27T13:00:55.838Z",
-    "title": "Coordinate reference systems",
-    "slug": "coordinate-reference-systems",
-    "description": "Systems for uniquely referencing spatial information in space as a set of coordinates (x, y, z) and/or latitude and longitude and height, based on a geodetic horizontal and vertical datum.",
-    "icon": "default/icons/007-coordinates.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
@@ -118,10 +118,10 @@
     "publishing_date": "2022-02-27T13:01:46.195Z",
     "updating_date": "2022-02-27T13:01:46.197Z",
     "timestamp": "2022-02-27T13:01:46.197Z",
-    "title": "Transport networks",
-    "slug": "transport-networks",
-    "description": "Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.",
-    "icon": "default/icons/008-infrastructure.png",
+    "title": "",
+    "slug": "",
+    "description": "",
+    "icon": "default/icons/.png",
     "is_active": true
   }
 },
