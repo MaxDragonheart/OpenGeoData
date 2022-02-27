@@ -35,7 +35,7 @@ class SharedTags(TagBase):
     is_active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return reverse("single_sharedtag", kwargs={"slug_tag": self.slug_tag})
+        return reverse("single_sharedtag", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
