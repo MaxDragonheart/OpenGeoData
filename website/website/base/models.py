@@ -6,14 +6,6 @@ from django.contrib.sites.models import Site
 from abstracts.models import TagBase, TimeManager, FileUploadBase, UrlsModel
 
 
-social_netoworks = [
-    ('Facebook', 'www.facebook.com', '<i class="fab fa-facebook-f"></i>'),
-    ('LinkedIn', 'www.linkedin.com', '<i class="fab fa-linkedin-in"></i>'),
-    ('Instagram', 'www.instagram.com', '<i class="fab fa-instagram"></i>'),
-    ('YouTube', 'www.youtube.com', '<i class="fab fa-youtube"></i>'),
-]
-
-
 class FileUpload(FileUploadBase):
     """
     Modello per l'upload di un file

@@ -9,7 +9,7 @@ class SharedTagsAdmin(admin.ModelAdmin):
     search_fields = ["title", "description"]
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug"]}),
+                (None, {"fields": ["title", "slug", "description", "icon", "is_active"]}),
             ]
 
     class Meta:
