@@ -14,6 +14,10 @@ social_netoworks = [
     ('YouTube', 'www.youtube.com', '<i class="fab fa-youtube"></i>'),
 ]
 
+tags = [
+    (''),
+]
+
 
 # def create_site_logo() -> pathlib.PosixPath:
 #     """Create temporary logo path
