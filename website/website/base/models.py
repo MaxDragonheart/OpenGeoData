@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.urls import reverse
 from django.contrib.sites.models import Site
@@ -39,11 +38,15 @@ class SharedTags(TagBase):
     Questa classe definisce le caratteristiche di
     un tag condiviso.
     """
+    description = models.CharField(max_length=255, blank=True, null=True)
+    icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+
     def get_absolute_url(self):
         return reverse("single_sharedtag", kwargs={"slug_tag": self.slug_tag})
 
     class Meta:
-        ordering = ['tag_name']
+        ordering = ['title']
         verbose_name = "Tag Condivso"
         verbose_name_plural = "Tag Condivisi"
 

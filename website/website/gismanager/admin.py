@@ -16,9 +16,9 @@ class WMSLayerAdmin(admin.ModelAdmin):
     list_display = ["title", "wms_layer_name", "publishing_date", "wms_bbox", "wms_centroid", "header_image"]
     list_filter = ["publishing_date"]
     search_fields = ["title"]
-    prepopulated_fields = {"slug_post": ("title",)}
+    prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug_post", "description"]}),
+                (None, {"fields": ["title", "slug", "description"]}),
                 ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style", "wms_legend"]}),
                 #("WMS Extras", {"fields": ["header_image"]}),
                 ("OpenLayers Parameters",
@@ -49,9 +49,9 @@ class WebGISProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "publishing_date", "updating_date", "highlighted", "draft"]
     list_filter = ["publishing_date"]
     search_fields = ["title"]
-    prepopulated_fields = {"slug_post": ("title",)}
+    prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                ("Header", {"fields": ["title", "slug_post", "header_image", "description"]}),
+                ("Header", {"fields": ["title", "slug", "header_image", "description"]}),
                 ("Contents", {"fields": ["contents"]}),
                 ("Options", {"fields": ["draft", "highlighted", "publishing_date"]}),
                 ("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
@@ -71,8 +71,8 @@ class WebGISProjectAdmin(admin.ModelAdmin):
         model = WebGISProject
 
 
-admin.site.register(GeoServerURL, GeoServerURLAdmin)
-admin.site.register(WMSLayer, WMSLayerAdmin)
-admin.site.register(BasemapProvider, BasemapProviderAdmin)
-admin.site.register(Basemap, BasemapAdmin)
-admin.site.register(WebGISProject, WebGISProjectAdmin)
+# admin.site.register(GeoServerURL, GeoServerURLAdmin)
+# admin.site.register(WMSLayer, WMSLayerAdmin)
+# admin.site.register(BasemapProvider, BasemapProviderAdmin)
+# admin.site.register(Basemap, BasemapAdmin)
+# admin.site.register(WebGISProject, WebGISProjectAdmin)

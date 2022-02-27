@@ -1,37 +1,19 @@
 from django.contrib import admin
-from django.contrib.flatpages.admin import FlatPageAdmin
-from django.contrib.flatpages.models import FlatPage
 
-from abstracts.admin import TagBaseAdmin
 from .models import SharedTags, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls
-from .forms import FlatPageForm
 
 
-# class FlatPageAdmin(FlatPageAdmin):
-#     """
-#     Page Admin
-#     """
-#     form = FlatPageForm
-
-
-class SharedTagsAdmin(TagBaseAdmin):
+class SharedTagsAdmin(admin.ModelAdmin):
+    list_display = ["title", "description", "is_active", "publishing_date"]
+    list_filter = ["is_active"]
+    search_fields = ["title", "description"]
+    prepopulated_fields = {"slug": ("title",)}
+    fieldsets = [
+                (None, {"fields": ["title", "slug"]}),
+            ]
 
     class Meta:
         model = SharedTags
-
-
-class SiteUrlsAdmin(admin.ModelAdmin):
-    list_display = ["name", "url"]
-
-    class Meta:
-        model = SiteUrls
-
-
-class SiteSocialUrlsAdmin(admin.ModelAdmin):
-    list_display = ["name", "url", "icon"]
-
-    class Meta:
-        model = SiteSocialUrls
 
 
 class SiteCustomizationAdmin(admin.ModelAdmin):
@@ -40,7 +22,33 @@ class SiteCustomizationAdmin(admin.ModelAdmin):
         model = SiteCustomization
 
 
+class SiteUrlsAdmin(admin.ModelAdmin):
+    list_display = ["name", "url"]
+    fieldsets = [
+                (None, {"fields": ["name", "url"]}),
+            ]
+
+    class Meta:
+        model = SiteUrls
+
+
+class SiteSocialUrlsAdmin(admin.ModelAdmin):
+    list_display = ["name", "url", "icon"]
+    fieldsets = [
+                (None, {"fields": ["name", "url", "icon"]}),
+            ]
+
+    class Meta:
+        model = SiteSocialUrls
+
+
 class FileUploadAdmin(admin.ModelAdmin):
+    list_display = ["name", "description", "publishing_date"]
+    list_filter = ["publishing_date"]
+    search_fields = ["name", "description"]
+    fieldsets = [
+                (None, {"fields": ["name", "description", "file"]}),
+            ]
 
     class Meta:
         model = FileUpload
@@ -51,4 +59,3 @@ admin.site.register(SiteCustomization, SiteCustomizationAdmin)
 admin.site.register(SiteUrls, SiteUrlsAdmin)
 admin.site.register(SiteSocialUrls, SiteSocialUrlsAdmin)
 admin.site.register(FileUpload, FileUploadAdmin)
-#admin.site.register(FlatPage, FlatPageAdmin)

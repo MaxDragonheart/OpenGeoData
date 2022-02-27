@@ -8,10 +8,16 @@ def create_admin(apps, schema_editor):
     UserProfile.objects.create_superuser(
         username='admin',
         password='opengeodata',
-        # is_staff=True,
-        # is_superuser=True,
-        # is_active=True,
     )
+
+
+def create_user(apps, schema_editor):
+    UserProfile = apps.get_model('usermanager', 'UserProfile')
+    UserProfile.objects.create_user(
+        username='user',
+        password='opengeodata',
+    )
+
 
 class Migration(migrations.Migration):
 
@@ -20,5 +26,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(create_admin)
+        migrations.RunPython(create_admin),
+        migrations.RunPython(create_user),
     ]
