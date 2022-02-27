@@ -17,7 +17,7 @@
     <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
     <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
     {% for tag in item.tags.all %}
-    <a href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+    <a href="{#{ tag.get_absolute_url }#}">{{ tag }}</a>
     {% endfor %}
   </div>
   <div class="wms-card-description">

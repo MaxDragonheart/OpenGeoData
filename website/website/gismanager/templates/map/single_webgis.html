@@ -4,9 +4,9 @@
 
 {% block controls %}
 
-  {% block basemap-controls %}
+  {#% block basemap-controls %#}
       {% include '../components/basemap/controls.html' %}
-  {% endblock basemap-controls %}
+  {#% endblock basemap-controls %#}
 
   {% block wms-controls %}
       {% include '../components/wms/controls.html' %}
@@ -15,10 +15,17 @@
 {% endblock controls %}
 
 {% block webgis-script %}
-
-  {% block basemap %}
+<script type="text/javascript">
+  var osm = new ol.layer.Tile({
+    title: 'OSM',
+    source: new ol.source.OSM(),
+    zIndex: 0
+  });
+  map.addLayer(osm);
+</script>
+  {#% block basemap %#}
     {% include '../components/basemap/layers.html' %}
-  {% endblock basemap %}
+  {#% endblock basemap %#}
 
   {% block wms %}
     {% include '../components/wms/layers.html' %}

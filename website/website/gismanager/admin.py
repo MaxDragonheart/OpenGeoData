@@ -30,21 +30,6 @@ class WMSLayerAdmin(admin.ModelAdmin):
         model = WMSLayer
 
 
-class BasemapProviderAdmin(admin.ModelAdmin):
-    list_display = ["name", "raw_url"]
-
-    class Meta:
-        model = BasemapProvider
-
-
-class BasemapAdmin(admin.ModelAdmin):
-    list_display = ["pk", "title", "provider", "url", "thumbnail"]
-    list_filter = ["provider"]
-
-    class Meta:
-        model = Basemap
-
-
 class WebGISProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "publishing_date", "updating_date", "highlighted", "draft"]
     list_filter = ["publishing_date"]
@@ -71,8 +56,23 @@ class WebGISProjectAdmin(admin.ModelAdmin):
         model = WebGISProject
 
 
+class BasemapProviderAdmin(admin.ModelAdmin):
+    list_display = ["name", "raw_url"]
+
+    class Meta:
+        model = BasemapProvider
+
+
+class BasemapAdmin(admin.ModelAdmin):
+    list_display = ["pk", "title", "provider", "url", "thumbnail"]
+    list_filter = ["provider"]
+
+    class Meta:
+        model = Basemap
+
+
 admin.site.register(GeoServerURL, GeoServerURLAdmin)
 admin.site.register(WMSLayer, WMSLayerAdmin)
-admin.site.register(BasemapProvider, BasemapProviderAdmin)
+admin.site.register(WebGISProject, WebGISProjectAdmin)
+# admin.site.register(BasemapProvider, BasemapProviderAdmin)
 # admin.site.register(Basemap, BasemapAdmin)
-# admin.site.register(WebGISProject, WebGISProjectAdmin)
