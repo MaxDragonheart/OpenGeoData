@@ -24,6 +24,9 @@ section{
 .site-logo-img {
   max-height: 12.5vh;
   padding-left: 5vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .link {
   color: rgba(255, 255, 255, 1);
@@ -54,6 +57,10 @@ section{
 }
 .site-main {
   padding: 2.5%;
+  height: auto;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
 }
 .footer {
   color: rgba(255, 255, 255, 1);

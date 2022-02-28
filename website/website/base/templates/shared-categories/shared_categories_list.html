@@ -10,16 +10,21 @@
 {% block page %}
 
 {% for item in list %}
-<div class="category-card">
+{% if forloop.first %}<div class="category-container">{% endif %}
+<a class="category-link" href="{{ item.get_absolute_url }}">
+  <div class="category-card">
 
-  <div class="category-thumbnail">
-    <img class="category-img" src="{{ item.icon.url }}" alt="{{ item.description }}">
-  </div>
-  <div class="category-info">
-    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
-  </div>
+    <div class="category-thumbnail">
+      <img class="category-img" src="{{ item.icon.url }}" alt="{{ item.description }}">
+    </div>
+    <div class="category-info">
+      <p>{{ item.title }} <br><span class="badge">33</span></p>
+    </div>
 
-</div>
+  </div>
+</a>
+{% if forloop.counter|divisibleby:"2" or forloop.last %}</div>{% endif %}
+{% if forloop.counter|divisibleby:"2" and not forloop.last %}<div class="category-container">{% endif %}
 {% endfor %}
 
 
