@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block component-style %}
+  <link rel="stylesheet"
+        href="{% static 'css/app_base.css' %}">
+{% endblock component-style %}
+
+{% block page %}
+
+{% for item in list %}
+<div class="category-card">
+
+  <div class="category-thumbnail">
+    <img class="category-img" src="{{ item.icon.url }}" alt="{{ item.description }}">
+  </div>
+  <div class="category-info">
+    <a href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+  </div>
+
+</div>
+{% endfor %}
+
+
+
+{% endblock page %}

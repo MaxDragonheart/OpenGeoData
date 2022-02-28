@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block component-style %}
+  <link rel="stylesheet"
+        href="{% static 'css/app_base.css' %}">
+{% endblock component-style %}
+
+{% block page %}
+
+<h1>{{ single_object.title }}</h1>
+
+{% endblock page %}

@@ -1,0 +1,10 @@
+.category-card {
+  display: grid;
+  grid-template-columns: 15% 75%;
+}
+.category-img {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  align-items: center;
+}

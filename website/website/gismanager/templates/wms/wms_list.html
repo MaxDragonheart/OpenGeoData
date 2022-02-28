@@ -4,7 +4,7 @@
 
 {% block component-style %}
   <link rel="stylesheet"
-        href="{% static 'css/gismanager.css' %}">
+        href="{% static 'css/app_gismanager.css' %}">
 {% endblock component-style %}
 
 {% block page %}
@@ -18,7 +18,7 @@
     <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
     <div class="category-container">
       {% for category in item.categories.all %}
-      <a class="category-button" href="{#{ tag.get_absolute_url }#}">{{ category }}</a>
+      <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
       {% endfor %}
     </div>
   </div>

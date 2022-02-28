@@ -8,20 +8,20 @@ def index(request):
     return render(request, template)
 
 
-def sharedtag_list(request):
+def sharedcategories_list(request):
     """
     Con questa funzione definisco la lista dei post della singola categoria
     """
     list = SharedCategories.objects.all()
     context = {"list": list}
-    return render(request, "shared-tags/sharedtags_list.html", context)
+    return render(request, "shared-categories/shared_categories_list.html", context)
 
 
-def single_shared(request, slug):
+def single_sharedcategory(request, slug):
     object = get_object_or_404(SharedCategories, slug=slug)
 
     context = {
         "single_object": object,
     }
-    template = "shared-tags/single_sharedtags.html"
+    template = "shared-categories/single_shared_categories.html"
     return render(request, template, context)

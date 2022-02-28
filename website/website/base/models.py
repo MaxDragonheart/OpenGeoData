@@ -34,7 +34,7 @@ class SharedCategories(CategoryBase):
     is_active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return reverse("single_sharedcategory", kwargs={"slug": self.slug})
+        return reverse("single-sharedcategory", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
