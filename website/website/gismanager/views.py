@@ -48,7 +48,7 @@ def webgis_list(request):
         "name": "Maps List",
         "list": list
     }
-    return render(request, "map/webgis_list.html", context)
+    return render(request, "webgis/webgis_list.html", context)
 
 
 def single_webgis(request, slug):
@@ -57,5 +57,5 @@ def single_webgis(request, slug):
     context = {
         "single_object": object,
     }
-    template = "map/single_webgis.html"
+    template = "webgis/single_webgis.html"
     return render(request, template, context)

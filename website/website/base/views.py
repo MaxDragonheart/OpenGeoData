@@ -1,3 +1,5 @@
+from itertools import chain
+
 from django.shortcuts import render, get_object_or_404
 
 from .models import SharedCategories
@@ -25,7 +27,7 @@ def single_sharedcategory(request, slug):
 
     context = {
         "single_object": object,
-        "objects": (wms, map)
+        "objects": list(chain(wms, map))
     }
     template = "shared-categories/single_shared_categories.html"
     return render(request, template, context)
