@@ -11,12 +11,12 @@ def create_admin(apps, schema_editor):
     )
 
 
-def create_user(apps, schema_editor):
-    UserProfile = apps.get_model('usermanager', 'UserProfile')
-    UserProfile.objects.create_user(
-        username='user',
-        password='opengeodata',
-    )
+# def create_user(apps, schema_editor):
+#     UserProfile = apps.get_model('usermanager', 'UserProfile')
+#     UserProfile.objects.create_user(
+#         username='user',
+#         password='opengeodata',
+#     )
 
 
 class Migration(migrations.Migration):
@@ -27,5 +27,5 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunPython(create_admin),
-        migrations.RunPython(create_user),
+        # migrations.RunPython(create_user),
     ]

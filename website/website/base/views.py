@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import SharedTags
+from .models import SharedCategories
 
 
 def index(request):
@@ -12,13 +12,13 @@ def sharedtag_list(request):
     """
     Con questa funzione definisco la lista dei post della singola categoria
     """
-    list = SharedTags.objects.all()
+    list = SharedCategories.objects.all()
     context = {"list": list}
     return render(request, "shared-tags/sharedtags_list.html", context)
 
 
 def single_shared(request, slug):
-    object = get_object_or_404(SharedTags, slug=slug)
+    object = get_object_or_404(SharedCategories, slug=slug)
 
     context = {
         "single_object": object,

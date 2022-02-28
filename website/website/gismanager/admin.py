@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from abstracts.admin import CategoryBaseAdmin, ModelPostBaseAdmin
-from .models import GeoServerURL, WMSLayer, BasemapProvider, Basemap, WebGISProject
+from .models import GeoServerURL, OGCLayer, BasemapProvider, Basemap, WebGISProject
 
 
 class GeoServerURLAdmin(admin.ModelAdmin):
@@ -12,22 +11,24 @@ class GeoServerURLAdmin(admin.ModelAdmin):
         model = GeoServerURL
 
 
-class WMSLayerAdmin(admin.ModelAdmin):
-    list_display = ["title", "wms_layer_name", "publishing_date", "wms_bbox", "wms_centroid", "header_image"]
+class OGCLayerAdmin(admin.ModelAdmin):
+    list_display = ["title", "ogc_layer_name", "publishing_date", "ogc_bbox", "ogc_centroid", "header_image"]
     list_filter = ["publishing_date"]
     search_fields = ["title"]
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug", "description", "tags"]}),
-                ("WMS Parameters", {"fields": ["wms_layer_path", "wms_layer_name", "wms_layer_style", "wms_legend"]}),
-                #("WMS Extras", {"fields": ["header_image"]}),
+                (None, {"fields": ["title", "slug", "description", "categories"]}),
+                ("OGC Parameters", {"fields": [
+                    "ogc_layer_path", "ogc_layer_name", "ogc_layer_style", "ogc_legend", "is_vector", "is_raster",
+                ]}),
+                #("OGC Extras", {"fields": ["header_image"]}),
                 ("OpenLayers Parameters",
                  {"fields": ["set_max_zoom", "set_min_zoom", "set_zindex", "set_opacity"]}
                  ),
             ]
 
     class Meta:
-        model = WMSLayer
+        model = OGCLayer
 
 
 class WebGISProjectAdmin(admin.ModelAdmin):
@@ -37,7 +38,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
                 ("Header", {"fields": ["title", "slug", "header_image", "description"]}),
-                ("Contents", {"fields": ["contents"]}),
+                ("Contents", {"fields": ["contents", "categories"]}),
                 ("Options", {"fields": ["draft", "highlighted", "publishing_date"]}),
                 #("Basemap", {"fields": ["basemap1", "basemap2", "basemap3"]}),
                 ("OpenLayers Parameters",
@@ -49,7 +50,7 @@ class WebGISProjectAdmin(admin.ModelAdmin):
                        ]
                   }
                  ),
-                ("WMS Layer",  {"fields": ["main_layer", "layers"]}),
+                ("OGC Layer",  {"fields": ["main_layer", "layers"]}),
             ]
 
     class Meta:
@@ -72,7 +73,7 @@ class BasemapAdmin(admin.ModelAdmin):
 
 
 admin.site.register(GeoServerURL, GeoServerURLAdmin)
-admin.site.register(WMSLayer, WMSLayerAdmin)
+admin.site.register(OGCLayer, OGCLayerAdmin)
 admin.site.register(WebGISProject, WebGISProjectAdmin)
 # admin.site.register(BasemapProvider, BasemapProviderAdmin)
 # admin.site.register(Basemap, BasemapAdmin)

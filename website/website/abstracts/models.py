@@ -86,21 +86,6 @@ class FileUploadBase(TimeManager):
         abstract = True
 
 
-class CategoryBase(TimeManager):
-    """
-    definizione delle caratteristiche di una categoria
-    """
-    title = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        abstract = True
-
-
 class TagBase(TimeManager):
     """
     definizione delle caratteristiche di un tag
@@ -113,6 +98,22 @@ class TagBase(TimeManager):
 
     class Meta:
         abstract = True
+
+
+class CategoryBase(TagBase):
+    """
+    definizione delle caratteristiche di una categoria
+    """
+    description = models.TextField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        abstract = True
+
+
+
 
 
 class BaseModelPost(TimeManager):

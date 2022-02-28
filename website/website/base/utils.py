@@ -14,7 +14,7 @@ social_netoworks = [
     ('YouTube', 'www.youtube.com', '<i class="fab fa-youtube"></i>'),
 ]
 
-tags = [
+categories = [
     ('Addresses', 'addresses', 'default/icons/001-address.png', 'Location of properties based on address identifiers, usually by road name, house number, postal code.'),
     ('Administrative units', 'administrative-units', 'default/icons/002-united-arab-emirates.png', 'Units of administration, dividing areas where Member States have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.'),
     ('Cadastral parcels', 'cadastral-parcels', 'default/icons/002-united-arab-emirates.png', 'Areas defined by cadastral registers or equivalent.'),

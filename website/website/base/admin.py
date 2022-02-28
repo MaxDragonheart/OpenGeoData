@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import SharedTags, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls
+from .models import SharedCategories, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls
 
 
 class SharedTagsAdmin(admin.ModelAdmin):
@@ -13,7 +13,7 @@ class SharedTagsAdmin(admin.ModelAdmin):
             ]
 
     class Meta:
-        model = SharedTags
+        model = SharedCategories
 
 
 class SiteCustomizationAdmin(admin.ModelAdmin):
@@ -54,7 +54,7 @@ class FileUploadAdmin(admin.ModelAdmin):
         model = FileUpload
 
 
-admin.site.register(SharedTags, SharedTagsAdmin)
+admin.site.register(SharedCategories, SharedTagsAdmin)
 admin.site.register(SiteCustomization, SiteCustomizationAdmin)
 admin.site.register(SiteUrls, SiteUrlsAdmin)
 admin.site.register(SiteSocialUrls, SiteSocialUrlsAdmin)

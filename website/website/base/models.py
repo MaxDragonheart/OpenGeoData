@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.sites.models import Site
 
-from abstracts.models import TagBase, TimeManager, FileUploadBase, UrlsModel
+from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsModel
 
 
 class FileUpload(FileUploadBase):
@@ -25,22 +25,21 @@ class FileUpload(FileUploadBase):
         verbose_name_plural = "Documenti"
 
 
-class SharedTags(TagBase):
+class SharedCategories(CategoryBase):
     """
     Questa classe definisce le caratteristiche di
     un tag condiviso.
     """
-    description = models.TextField(max_length=255, blank=True, null=True)
     icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
-        return reverse("single_sharedtag", kwargs={"slug": self.slug})
+        return reverse("single_sharedcategory", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
-        verbose_name = "Tag Condivso"
-        verbose_name_plural = "Tag Condivisi"
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorie"
 
 
 class SiteUrls(UrlsModel):
