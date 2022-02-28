@@ -10,5 +10,8 @@
 {% block page %}
 
 <h1>{{ single_object.title }}</h1>
+{% for item in objects %}
+{{ item.title }}
+{% endfor %}
 
 {% endblock page %}

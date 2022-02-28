@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import SharedCategories
+from gismanager.models import OGCLayer, WebGISProject
 
 
 def index(request):
@@ -19,9 +20,12 @@ def sharedcategories_list(request):
 
 def single_sharedcategory(request, slug):
     object = get_object_or_404(SharedCategories, slug=slug)
+    wms = OGCLayer.objects.filter(categories=object)
+    map = WebGISProject.objects.filter(categories=object)
 
     context = {
         "single_object": object,
+        "objects": (wms, map)
     }
     template = "shared-categories/single_shared_categories.html"
     return render(request, template, context)
