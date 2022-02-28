@@ -16,9 +16,11 @@
     <h2>{{ item.title }}</h2>
     <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
     <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
-    {% for tag in item.tags.all %}
-    <a href="{#{ tag.get_absolute_url }#}">{{ tag }}</a>
-    {% endfor %}
+    <div class="category-container">
+      {% for category in item.categories.all %}
+      <a class="category-button" href="{#{ tag.get_absolute_url }#}">{{ category }}</a>
+      {% endfor %}
+    </div>
   </div>
   <div class="ogc-card-description">
     <div class="">

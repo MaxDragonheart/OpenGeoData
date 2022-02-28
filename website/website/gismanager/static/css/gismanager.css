@@ -45,22 +45,41 @@
   padding: 15px 32px;
   background-color: rgba(1, 42, 74, 1);
   border: none;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(169, 214, 229, 1);
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   box-shadow: 2px 2px 5px grey;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
 }
 .button-viewer:hover {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(169, 214, 229, 1);
   color: rgba(1, 42, 74, 1);
   border: 2px solid rgba(1, 42, 74, 1);
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 1);
+  box-shadow: none;
 }
 .copytoclipboard {
   background: rgba(169, 214, 229, 1);
   padding: 2px;
   width: 50%;
+}
+.category-button {
+  font-size: 10px;
+  padding: 3px;
+  margin: 2px;;
+  background-color: rgba(169, 214, 229, 1);
+  border: none;
+  color: rgba(1, 42, 74, 1);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 2px 2px 5px grey;
+  transition-duration: 0.2s;
+}
+.category-button:hover {
+  background-color: rgba(1, 42, 74, 1);
+  color: rgba(169, 214, 229, 1);
+  border: 2px solid rgba(169, 214, 229, 1);
+  box-shadow: none;
 }
