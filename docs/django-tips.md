@@ -12,6 +12,7 @@ python3 manage.py dumpdata usermanager.userprofile --indent 2 > fixtures/userman
 python3 manage.py dumpdata sites --indent 2 > fixtures/base/sites.json
 python3 manage.py dumpdata base.sitesocialurls --indent 2 > fixtures/base/sitesocialurls.json
 python3 manage.py dumpdata base.siteurls --indent 2 > fixtures/base/siteurls.json
+python3 manage.py dumpdata base.sharedtags --indent 2 > fixtures/base/sharedtags.json
 python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sitecustomization.json
 ```
 

@@ -1,0 +1,88 @@
+.ogc-card, .webgis-card {
+  border-top-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+  /* border-radius: 5px; */
+  border-color: rgba(1, 42, 74, 1);
+  padding: 5px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 15% 60% 25%;
+}
+.ogc-card-title, .ogc-card-description, .webgis-card-title, .webgis-card-description {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vh;
+}
+.ogc-card-thumbnail, .webgis-card-thumbnail {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  display: flex;
+  align-items: center;
+}
+.ogc-thumbnail, .webgis-thumbnail {
+  box-shadow: 2px 2px 5px grey;
+  background-color: white;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ogc-card-title {
+  border-right-style: dotted;
+  border-color: rgba(1, 42, 74, 1);
+  border-width: 1px;
+}
+.button-container {
+  position: relative;
+}
+.button-viewer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 5%;
+  padding: 15px 32px;
+  background-color: rgba(1, 42, 74, 1);
+  border: none;
+  color: rgba(169, 214, 229, 1);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 2px 2px 5px grey;
+  transition-duration: 0.2s;
+}
+.button-viewer:hover {
+  background-color: rgba(169, 214, 229, 1);
+  color: rgba(1, 42, 74, 1);
+  border: 2px solid rgba(1, 42, 74, 1);
+  box-shadow: none;
+}
+.copytoclipboard {
+  background: rgba(169, 214, 229, 1);
+  padding: 2px;
+  width: 50%;
+}
+.category-button {
+  font-size: 10px;
+  padding: 3px;
+  margin: 2px;;
+  background-color: rgba(169, 214, 229, 1);
+  border: none;
+  color: rgba(1, 42, 74, 1);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 2px 2px 5px grey;
+  transition-duration: 0.2s;
+}
+.category-button:hover {
+  background-color: rgba(1, 42, 74, 1);
+  color: rgba(169, 214, 229, 1);
+  border: 2px solid rgba(169, 214, 229, 1);
+  box-shadow: none;
+}

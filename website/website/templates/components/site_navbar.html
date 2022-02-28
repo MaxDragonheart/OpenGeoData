@@ -1,14 +1,14 @@
 {% load static %}
 <nav class="">
 
-  <div class="search-bar">
+  <!-- <div class="search-bar">
     <div class="search-container">
       <form action="">
         <input type="text" placeholder="Cerca.." name="search">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
-  </div>
+  </div> -->
 
   <div class="nav-bar">
     {% for item in data %}
@@ -24,10 +24,10 @@
     {% endfor %}
     <div class="nav-bar-container">
       <div class="site-menu">
-        <a class="link" href="/">Home</a>
-        <a class="link" href="/">Organigramma</a>
-        <a class="link" href="/">Aree tematiche</a>
-        <a class="link" href="/gis/">SIT</a>
+        <a class="link" href="{% url 'index' %}">Home</a>
+        <!-- <a class="link" href="/">FlatPages</a> -->
+        <a class="link" href="{% url 'wms-list' %}">WMS</a>
+        <a class="link" href="{% url 'map' %}">Maps</a>
       </div>
     </div>
   </div>

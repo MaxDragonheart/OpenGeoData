@@ -6,6 +6,7 @@ from django.contrib.gis.db import models
 from django.urls import reverse
 
 from abstracts.models import TimeManager, BaseModelPost, ModelPost
+from base.models import SharedCategories
 from fsspec import get_fs_token_paths
 
 from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
@@ -45,18 +46,21 @@ class GeoServerURL(TimeManager):
         verbose_name_plural = "GeoServer URL"
 
 
-class WMSLayer(BaseModelPost, OpenLayersMapParameters):
+class OGCLayer(BaseModelPost, OpenLayersMapParameters):
     set_zindex = models.IntegerField(default=1)
     set_opacity = models.DecimalField(max_digits=3, decimal_places=2, default=1.0)
-    wms_layer_path = models.ForeignKey(GeoServerURL, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
-    wms_layer_name = models.CharField(max_length=100)
-    wms_layer_style = models.CharField(max_length=100, blank=True, null=True)
-    wms_bbox = models.CharField(max_length=250, blank=True, null=True)
-    wms_centroid = models.CharField(max_length=250, blank=True, null=True)
-    wms_legend = models.BooleanField(default=False)
+    ogc_layer_path = models.ForeignKey(GeoServerURL, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
+    ogc_layer_name = models.CharField(max_length=100)
+    ogc_layer_style = models.CharField(max_length=100, blank=True, null=True)
+    ogc_bbox = models.CharField(max_length=250, blank=True, null=True)
+    ogc_centroid = models.CharField(max_length=250, blank=True, null=True)
+    ogc_legend = models.BooleanField(default=False)
+    is_vector = models.BooleanField()
+    is_raster = models.BooleanField()
+    categories = models.ManyToManyField(SharedCategories, related_name="related_ogc_categories")
 
     def get_absolute_url(self):
-        return reverse("wms-single", kwargs={"slug_post": self.slug_post})
+        return reverse("ogc-single", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
         """Override save method and add to DB thumbnail path, BBOX and centroid"""
@@ -71,30 +75,30 @@ class WMSLayer(BaseModelPost, OpenLayersMapParameters):
 
         # Get thumbnail from WMS
         img_path = get_wms_thumbnail(
-            wms_url=self.wms_layer_path.complete_url_wms,
+            wms_url=self.ogc_layer_path.complete_url_wms,
             service_version="1.3.0",
-            layer_name=self.wms_layer_name,
+            layer_name=self.ogc_layer_name,
             output_data_folder=destination_folder,
         )
         self.header_image = f"{WMS_THUMBNAILS}/{today_folder}/{img_path.stem}{img_path.suffix}"
 
         # Get WMS's BBOX
-        self.wms_bbox = list(get_wms_bbox(
-            wms_url=self.wms_layer_path.complete_url_wms,
+        self.ogc_bbox = list(get_wms_bbox(
+            wms_url=self.ogc_layer_path.complete_url_wms,
             service_version="1.3.0",
-            layer_name=self.wms_layer_name
+            layer_name=self.ogc_layer_name
         ))
 
         # Get BBOX's centroid
-        self.wms_centroid = list(get_centroid_coords(self.wms_bbox))
+        self.ogc_centroid = list(get_centroid_coords(self.ogc_bbox))
 
         # Save all
-        super(WMSLayer, self).save(*args, **kwargs)
+        super(OGCLayer, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-publishing_date']
-        verbose_name = "WMS Layer"
-        verbose_name_plural = "WMS Layers"
+        verbose_name = "OGC Layer"
+        verbose_name_plural = "OGC Layers"
 
 
 class BasemapProvider(TimeManager):
@@ -148,15 +152,15 @@ class WebGISProjectBase(ModelPost, OpenLayersMapParameters):
 
 
 class WebGISProject(WebGISProjectBase):
-    #tags = models.ManyToManyField(WebGISProjectTag, related_name="related_webgisprojecttag")
-    basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=False)
+    categories = models.ManyToManyField(SharedCategories, related_name="related_webgisproject_categories")
+    basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=True)
     basemap2 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap2", blank=True, null=True)
     basemap3 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap3", blank=True, null=True)
-    main_layer = models.ForeignKey(WMSLayer, on_delete=models.PROTECT, related_name="related_mainlayer")
-    layers = models.ManyToManyField(WMSLayer, related_name="related_wmslayer", blank=True)
+    main_layer = models.ForeignKey(OGCLayer, on_delete=models.PROTECT, related_name="related_main_wmslayer")
+    layers = models.ManyToManyField(OGCLayer, related_name="related_wmslayer", blank=True)
 
     def get_absolute_url(self):
-        return reverse("map-single", kwargs={"slug_post": self.slug_post})
+        return reverse("map-single", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['-publishing_date']

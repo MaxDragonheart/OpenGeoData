@@ -100,3 +100,21 @@ thead, .td-head {
   visibility: visible;
   opacity: 1;
 }
+.badge {
+  background-color: rgba(1, 42, 74, 1);
+  color: rgba(169, 214, 229, 1);
+  margin-top: 0.5vh;
+  padding: 0.5vh 0.5vw 0.5vh 0.5vw;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 2px 2px 5px grey;
+  transition-duration: 0.2s;
+}
+.badge:hover {
+  background-color: rgba(169, 214, 229, 1);
+  color: rgba(1, 42, 74, 1);
+  border: 2px solid rgba(169, 214, 229, 1);
+  box-shadow: none;
+}

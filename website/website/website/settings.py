@@ -58,7 +58,6 @@ INSTALLED_APPS = [
 
     'base',
     'usermanager',
-    'cityplanning',
     'gismanager',
 ]
 

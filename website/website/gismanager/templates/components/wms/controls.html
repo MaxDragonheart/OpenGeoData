@@ -15,7 +15,7 @@
         <label class="checkbox-label" for="WMS{{ wms.pk }}">
                 {{ wms.title }}</label>
       </div>
-      {% if wms.wms_legend %}
+      {% if wms.ogc_legend %}
       <div class="item-legend" onclick="showHide('WMS{{ wms.pk }}legend')">
         <div class="tooltip">
           <i class="fas fa-book"></i>
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    {% if wms.wms_legend %}
+    {% if wms.ogc_legend %}
     <div class="legend" id="WMS{{ wms.pk }}legend" hidden>
       <div id="legend{{ wms.pk }}"></div>
     </div>

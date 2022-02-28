@@ -136,4 +136,6 @@ poetry.lock
 .idea
 
 # Project
-media-folder
+/website/media-folder/documents/
+/website/media-folder/images/
+/website/media-folder/gis-data/

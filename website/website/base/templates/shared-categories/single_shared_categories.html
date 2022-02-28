@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block component-style %}
+  <link rel="stylesheet"
+        href="{% static 'css/app_base.css' %}">
+  <link rel="stylesheet"
+        href="{% static 'css/app_gismanager.css' %}">
+{% endblock component-style %}
+
+{% block page %}
+
+<h1>{{ single_object.title }}</h1>
+{% for item in objects %}
+<div class="ogc-card">
+  <div class="ogc-card-title">
+    <h2>{{ item.title }}</h2>
+    <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
+    <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
+  </div>
+{% if item.ogc_layer_path.complete_url_wms %}
+  {% include '../components/card/wms.html' %}
+{% endif %}
+
+{% if item.contents %}
+  {% include '../components/card/webgis.html' %}
+{% endif %}
+</div>
+{% endfor %}
+
+{% endblock page %}
