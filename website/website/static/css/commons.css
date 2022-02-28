@@ -103,7 +103,8 @@ thead, .td-head {
 .badge {
   background-color: rgba(1, 42, 74, 1);
   color: rgba(169, 214, 229, 1);
-  padding: 2px;
+  margin-top: 0.5vh;
+  padding: 0.5vh 0.5vw 0.5vh 0.5vw;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
@@ -116,5 +117,4 @@ thead, .td-head {
   color: rgba(1, 42, 74, 1);
   border: 2px solid rgba(169, 214, 229, 1);
   box-shadow: none;
-  font-size: 12px;
 }
