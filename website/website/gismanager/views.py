@@ -22,7 +22,10 @@ def wms_list(request):
     Con questa funzione definisco la lista dei post della singola categoria
     """
     list = OGCLayer.objects.all()
-    context = {"list": list}
+    context = {
+        "name": "WMS List",
+        "list": list
+    }
     return render(request, "wms/wms_list.html", context)
 
 
@@ -41,7 +44,10 @@ def webgis_list(request):
     Con questa funzione definisco la lista dei post della singola categoria
     """
     list = WebGISProject.objects.all()
-    context = {"list": list}
+    context = {
+        "name": "Maps List",
+        "list": list
+    }
     return render(request, "map/webgis_list.html", context)
 
 

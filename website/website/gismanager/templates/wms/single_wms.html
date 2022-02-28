@@ -13,12 +13,14 @@
     <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.pk }}info')">
       <i class="fas fa-info"></i>
     </div> -->
+{% if single_object.ogc_legend %}
     <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
       <div class="tooltip">
         <i class="fas fa-book"></i>
         <span class="tooltiptext">Legenda</span>
       </div>
     </div>
+{% endif %}
     <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
       <div class="tooltip">
         <i class="fas fa-cogs"></i>
@@ -35,9 +37,11 @@
     <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
   </div>
 
+{% if single_object.ogc_legend %}
   <div class="legend" id="WMS{{ single_object.pk }}legend" hidden>
     <div id="legend{{ single_object.pk }}"></div>
   </div>
+{% endif %}
 
   <!-- <div class="info" id="WMS{{ single_object.pk }}info" hidden>
     info
@@ -61,12 +65,12 @@
   });
   map.addLayer(osm);
 
-  var wms{{ single_object.pk }} = new ol.layer.Tile({
+  var ogc{{ single_object.pk }} = new ol.layer.Tile({
     title: '{{ single_object.title }}',
     source: new ol.source.TileWMS({
-      url: '{{ single_object.wms_layer_path.complete_url_wms }}',
+      url: '{{ single_object.ogc_layer_path.complete_url_wms }}',
       params: {
-        'LAYERS': '{{ single_object.wms_layer_name }}',
+        'LAYERS': '{{ single_object.ogc_layer_name }}',
         // 'STYLES': null,
       }
     }),
@@ -75,21 +79,21 @@
     zIndex: 1,
     opacity: 1.0
   });
-  map.addLayer(wms{{ single_object.pk }});
+  map.addLayer(ogc{{ single_object.pk }});
 
   var boundingBox = createBBoxLayer(
-    {{ single_object.wms_bbox }},
+    {{ single_object.ogc_bbox }},
     '{{ single_object.title }}'
   );
   map.addLayer(boundingBox);
 
   zoomOnLayer(boundingBox,10,10,10,10,50);
 
-  layerOpacity(wms{{ single_object.pk }}, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
+  layerOpacity(ogc{{ single_object.pk }}, 'WMS{{ single_object.pk }}slider', 'OUTPUT{{ single_object.pk }}');
 
-  getElementInfo('onclickinfo{{ single_object.pk }}', wms{{ single_object.pk }}, '{{ single_object.title }}');
-  getElementLegendImg('legend{{ single_object.pk }}', wms{{ single_object.pk }}, '{{ single_object.wms_layer_path.complete_url_wms }}', '{{ single_object.wms_layer_name }}');
-  // getElementLegend('legend{{ single_object.pk }}', wms);
+  getElementInfo('onclickinfo{{ single_object.pk }}', ogc{{ single_object.pk }}, '{{ single_object.title }}');
+  getElementLegendImg('legend{{ single_object.pk }}', ogc{{ single_object.pk }}, '{{ single_object.ogc_layer_path.complete_url_wms }}', '{{ single_object.ogc_layer_name }}');
+  // getElementLegend('legend{{ single_object.pk }}', ogc);
 
 </script>
 {% endblock wms-script %}
