@@ -75,7 +75,7 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
 
         # Get thumbnail from WMS
         img_path = get_wms_thumbnail(
-            ogc_url=self.ogc_layer_path.complete_url_wms,
+            wms_url=self.ogc_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.ogc_layer_name,
             output_data_folder=destination_folder,
@@ -84,7 +84,7 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
 
         # Get WMS's BBOX
         self.ogc_bbox = list(get_wms_bbox(
-            ogc_url=self.ogc_layer_path.complete_url_wms,
+            wms_url=self.ogc_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.ogc_layer_name
         ))
