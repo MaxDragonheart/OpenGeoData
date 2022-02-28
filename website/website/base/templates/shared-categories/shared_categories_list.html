@@ -5,6 +5,7 @@
 {% block component-style %}
   <link rel="stylesheet"
         href="{% static 'css/app_base.css' %}">
+  <script src="{% static 'js/app_base.js' %}"></script>
 {% endblock component-style %}
 
 {% block page %}
@@ -18,7 +19,14 @@
       <img class="category-img" src="{{ item.icon.url }}" alt="{{ item.description }}">
     </div>
     <div class="category-info">
-      <p>{{ item.title }} <br><span class="badge">33</span></p>
+      <p>{{ item.title }} <br><span class="badge" id="count{{ item.pk }}">000</span></p>
+      <script type="text/javascript">
+        function categoryCountRelated (cat1, cat2){
+          count = cat1 + cat2;
+          document.getElementById("count"+{{ item.pk }}).innerHTML = count;
+        };
+        categoryCountRelated({{ item.related_ogc_categories.count }}, {{ item.related_webgisproject_categories.count }});
+      </script>
     </div>
 
   </div>

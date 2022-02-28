@@ -23,11 +23,11 @@ def sharedcategories_list(request):
 def single_sharedcategory(request, slug):
     object = get_object_or_404(SharedCategories, slug=slug)
     wms = OGCLayer.objects.filter(categories=object)
-    map = WebGISProject.objects.filter(categories=object)
+    webgis = WebGISProject.objects.filter(categories=object)
 
     context = {
         "single_object": object,
-        "objects": list(chain(wms, map))
+        "objects": list(chain(wms, webgis)),
     }
     template = "shared-categories/single_shared_categories.html"
     return render(request, template, context)
