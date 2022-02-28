@@ -13,7 +13,7 @@
     <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.main_layer.pk }}info')">
       <i class="fas fa-info"></i>
     </div> -->
-    {% if single_object.main_layer.wms_legend %}
+    {% if single_object.main_layer.ogc_legend %}
     <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
       <div class="tooltip">
         <i class="fas fa-book"></i>
@@ -52,7 +52,7 @@
     info
   </div>
 
-  {% if single_object.main_layer.wms_legend %}
+  {% if single_object.main_layer.ogc_legend %}
   <div class="legend" id="WMS{{ single_object.main_layer.pk }}legend" hidden>
     <div id="legend{{ single_object.main_layer.pk }}"></div>
   </div>
