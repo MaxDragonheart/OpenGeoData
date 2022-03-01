@@ -103,7 +103,7 @@ celerybeat.pid
 
 # Environments
 .venv
-.env
+/website/website/website/.env
 env/
 venv/
 ENV/
