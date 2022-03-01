@@ -4,10 +4,10 @@
 touch ./logs/gunicorn.log
 touch ./logs/gunicorn-access.log
 
-cd personal_website
+cd website
 
-exec gunicorn personal_website.wsgi:application \
-    --name personal_website \
+exec gunicorn website.wsgi:application \
+    --name website \
     --bind 0.0.0.0:"${PROJECT_PORT}" \
     --workers 3 \
     --log-level=debug \
