@@ -31,11 +31,6 @@ services:
       ALLOWED_HOSTS: ${ALLOWED_HOSTS}
     container_name: dev_website
     restart: always
-#    command: sh -c "poetry run python3 personal_website/manage.py runserver 0.0.0.0:${PROJECT_PORT}"
-#    command: sh -c "poetry run python3 personal_website/manage.py migrate --noinput &&
-#                    poetry run python3 personal_website/manage.py createsuperuser --noinput &&
-#                    poetry run python3 personal_website/manage.py collectstatic --noinput &&
-#                    poetry run python3 personal_website/manage.py runserver 0.0.0.0:${PROJECT_PORT}"
     ports:
       - ${PROJECT_PORT}:${PROJECT_PORT}
 #    volumes:
