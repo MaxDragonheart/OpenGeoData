@@ -57,6 +57,7 @@ RUN mkdir -p website static-folder media-folder
 # Copy project data
 COPY website website
 COPY media-folder/default media-folder/default
+COPY initial_migrations initial_migrations
 COPY scripts/initial_data.sh ./initial_data.sh
 RUN chmod +x initial_data.sh
 
@@ -70,4 +71,4 @@ RUN mkdir logs
 COPY scripts/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh
 #CMD ["gunicorn", "website.wsgi:application", "--bind 0.0.0.0:${PROJECT_PORT}"]
-#ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
