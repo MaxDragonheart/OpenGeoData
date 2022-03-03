@@ -13,6 +13,10 @@ from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THU
 
 
 class OpenLayersMapParameters(models.Model):
+    """
+    OpenLayersMapParameters Abstract Model define the map's parameters based on
+    OpenLayers [Map object](https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html).
+    """
     map_scaleline = models.BooleanField(default=True)
     map_attribution = models.CharField(max_length=250, default='<a href="https://massimilianomoraca.it/" target="_blank">Massimiliano Moraca</a> has created this map using <a href="https://openlayers.org/" target="_blank">OpenLayers</a>')
     map_center_longitude = models.DecimalField(max_digits=10, decimal_places=5, default=14.23964)
@@ -26,6 +30,17 @@ class OpenLayersMapParameters(models.Model):
 
 
 class GeoServerURL(TimeManager):
+    """
+    GeoServerURL Model inherits TimeManager, it is useful to
+    create a Geoserver url object.
+    e.g.:
+        geoserver_domain='www.mygeoserver.me'
+        geoserver_workspace='MyWorkSpace'
+
+        Geoserver URL: 'www.mygeoserver.me/geoserver/MyWorkSpace'
+        WMS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wms'
+        WFS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wfs'
+    """
     geoserver_domain = models.URLField(unique=True)
     geoserver_workspace = models.CharField(max_length=100)
 
@@ -42,11 +57,15 @@ class GeoServerURL(TimeManager):
 
     class Meta:
         ordering = ['-publishing_date']
-        verbose_name = "GeoServer URL"
-        verbose_name_plural = "GeoServer URL"
+        verbose_name = "Geoserver url"
+        verbose_name_plural = "Geoserver urls"
 
 
 class OGCLayer(BaseModelPost, OpenLayersMapParameters):
+    """
+    OGCLayer Model inherits from BaseModelPost and OpenLayersMapParameters. This
+    model can build an OGC layer using the attributes from OpenLayers [Layer objectc](https://openlayers.org/en/latest/apidoc/module-ol_layer_Layer-Layer.html).
+    """
     set_zindex = models.IntegerField(default=1)
     set_opacity = models.DecimalField(max_digits=3, decimal_places=2, default=1.0)
     ogc_layer_path = models.ForeignKey(GeoServerURL, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
@@ -63,8 +82,12 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
         return reverse("ogc-single", kwargs={"slug": self.slug})
 
     def save(self, *args, **kwargs):
-        """Override save method and add to DB thumbnail path, BBOX and centroid"""
+        """Override save method and add to DB thumbnail path, BBOX and centroid.
 
+        :param args:
+        :param kwargs:
+        :return:
+        """
         # Create the thumbnail destination folder
         today = datetime.datetime.now()
         today_folder = Path(f"{today.year}/{today.month}/{today.day}")
@@ -102,6 +125,11 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
 
 
 class BasemapProvider(TimeManager):
+    """
+    BasemapProvider Model inherits TimeManager, it is useful to create
+    a basemap provider object.
+    There is an issue #28
+    """
     name = models.CharField(max_length=250, unique=True)
     user = models.CharField(max_length=250, blank=True, null=True)
     token = models.CharField(max_length=250, blank=True, null=True)
@@ -117,6 +145,11 @@ class BasemapProvider(TimeManager):
 
 
 class Basemap(TimeManager):
+    """
+    Basemap Model inherits TimeManager, it is useful to create
+    a basemap object related to a basemap provider.
+    There is an issue #28
+    """
     title = models.CharField(max_length=250)
     provider = models.ForeignKey(BasemapProvider, on_delete=models.CASCADE, related_name="releted_basemap_provider")
     tile_code = models.CharField(max_length=250, blank=True, null=True)
@@ -127,7 +160,8 @@ class Basemap(TimeManager):
         return self.title
 
     def save(self, *args, **kwargs):
-        """Make basemap url"""
+        """Make basemap url.
+        """
         raw_url = self.provider.raw_url
         print(f"Basemap Provider: {self.provider.name}")
         if self.provider.user:
@@ -142,16 +176,22 @@ class Basemap(TimeManager):
     class Meta:
         ordering = ['-publishing_date']
         verbose_name = "Basemap"
-        verbose_name_plural = "Basemap"
+        verbose_name_plural = "Basemaps"
 
 
 class WebGISProjectBase(ModelPost, OpenLayersMapParameters):
+    """
+    WebGISProjectBase Abstract Model collect ModelPost and OpenLayersMapParameters.
+    """
 
     class Meta:
         abstract = True
 
 
 class WebGISProject(WebGISProjectBase):
+    """
+    WebGISProject Model inherits WebGISProjectBase, it is useful to create a webgis.
+    """
     categories = models.ManyToManyField(SharedCategories, related_name="related_webgisproject_categories")
     basemap1 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap1", blank=False, null=True)
     basemap2 = models.ForeignKey(Basemap, on_delete=models.PROTECT, related_name="related_basemap2", blank=True, null=True)

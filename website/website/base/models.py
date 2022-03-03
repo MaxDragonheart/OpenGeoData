@@ -22,8 +22,8 @@ class FileUpload(FileUploadBase):
 
     class Meta:
         ordering = ['name']
-        verbose_name = "Documento"
-        verbose_name_plural = "Documenti"
+        verbose_name = "Document"
+        verbose_name_plural = "Documents"
 
 
 class SharedCategories(CategoryBase):
@@ -39,8 +39,8 @@ class SharedCategories(CategoryBase):
 
     class Meta:
         ordering = ['title']
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorie"
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
 
 class SiteUrls(UrlsModel):
@@ -64,7 +64,7 @@ class SiteSocialUrls(UrlsModel):
     class Meta:
         ordering = ['name']
         verbose_name = "Social"
-        verbose_name_plural = "Social"
+        verbose_name_plural = "Socials"
 
 
 class SiteCustomization(Site, TimeManager):
@@ -85,5 +85,5 @@ class SiteCustomization(Site, TimeManager):
         return self.site_title
 
     class Meta:
-        verbose_name = "Dettagli del sito"
-        verbose_name_plural = "Dettagli del sito"
+        verbose_name = "Customize site"
+        verbose_name_plural = "Customize site"
