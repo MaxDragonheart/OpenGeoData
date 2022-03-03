@@ -70,5 +70,4 @@ RUN mkdir logs
 # Copy and activate migrate-collectstatic.sh
 COPY scripts/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh
-#CMD ["gunicorn", "website.wsgi:application", "--bind 0.0.0.0:${PROJECT_PORT}"]
 ENTRYPOINT ["./entrypoint.sh"]
