@@ -8,7 +8,8 @@ from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsMode
 
 class FileUpload(FileUploadBase):
     """
-    Modello per l'upload di un file
+    FileUpload Model expands FileUploadBase and is used to upload
+    a document(.pdf, .xls, etc..) to the project.
     """
     file = models.FileField(upload_to=settings.UPLOADED_DOCUMENT_FOLDER, null=True, blank=True)
 
@@ -27,8 +28,8 @@ class FileUpload(FileUploadBase):
 
 class SharedCategories(CategoryBase):
     """
-    Questa classe definisce le caratteristiche di
-    un tag condiviso.
+    SharedCategories Model expands CategoryBase and is used to create
+    a category.
     """
     icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -43,7 +44,10 @@ class SharedCategories(CategoryBase):
 
 
 class SiteUrls(UrlsModel):
-
+    """
+    SiteUrls Model expands UrlsModel and is used to create
+    an url related to the SiteCustomization Model.
+    """
     class Meta:
         ordering = ['name']
         verbose_name = "Url"
@@ -51,7 +55,10 @@ class SiteUrls(UrlsModel):
 
 
 class SiteSocialUrls(UrlsModel):
-
+    """
+    SiteSocialUrls Model expands UrlsModel and is used to create
+    an url related to a Social Network.
+    """
     icon = models.CharField(max_length=250)
 
     class Meta:
@@ -61,6 +68,10 @@ class SiteSocialUrls(UrlsModel):
 
 
 class SiteCustomization(Site, TimeManager):
+    """
+    SiteCustomization Model expands Site(django.contrib.sites.models) and TimeManager for
+    create the informations useful to describe the website.
+    """
     site_title = models.CharField(max_length=250, blank=True, null=True, default="OpenGeoData")
     site_logo = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     site_description = models.CharField(max_length=100, blank=True, null=True, default="We share geodata")

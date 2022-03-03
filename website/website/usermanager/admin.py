@@ -29,4 +29,4 @@ class UserProfileAdmin(UserAdmin):
         model = UserProfile
 
 
-#admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)
