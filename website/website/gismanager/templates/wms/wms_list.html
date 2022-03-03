@@ -14,8 +14,8 @@
 <div class="ogc-card">
   <div class="ogc-card-title">
     <h2>{{ item.title }}</h2>
-    <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
-    <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
+    <p><strong>Published at:</strong> {{ item.publishing_date }}</p>
+    <p><strong>Updated at:</strong> {{ item.updating_date }}</p>
     <div class="category-container">
       {% for category in item.categories.all %}
       <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
@@ -43,7 +43,7 @@
     <p><strong>Centroide:</strong> {{ item.ogc_centroid }}</p>
     <div class="button-container">
       <a class="button-viewer" type="button"
-              name="button" href="{{ item.get_absolute_url }}">Viewer</a>
+              name="button" href="{{ item.get_absolute_url }}">Map Viewer</a>
     </div>
   </div>
   <div class="ogc-card-thumbnail">

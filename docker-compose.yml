@@ -1,0 +1,59 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgis/postgis
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    container_name: db_postgis
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  website:
+    image: maxdragonheart/${PROJECT_NAME}
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    environment:
+      PROJECT_NAME: ${PROJECT_NAME}
+      PROJECT_PORT: ${PROJECT_PORT}
+      SECRET_KEY: ${SECRET_KEY}
+      DB_ENGINE: ${DB_ENGINE}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      DB_HOST: ${DB_HOST}
+      DEBUG: 1
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      DOMAIN_NAME: ${DOMAIN_NAME}
+      DOMAIN: ${DOMAIN}
+      SITE_TITLE: ${SITE_TITLE}
+      SITE_LOGO: ${SITE_LOGO}
+      SITE_DESCRIPTION: ${SITE_DESCRIPTION}
+      ADDRESS: ${ADDRESS}
+      CONTACT_PHONE: ${CONTACT_PHONE}
+      CONTACT_EMAIL: ${CONTACT_EMAIL}
+      CONTACT_OFFICIAL_EMAIL: ${CONTACT_OFFICIAL_EMAIL}
+    container_name: website
+    restart: always
+    ports:
+      - ${PROJECT_PORT}:${PROJECT_PORT}
+    volumes:
+      - website-static-folder:/app/web/static-folder
+      - website-media-folder:/app/web/media-folder
+      - website-logs:/app/web/logs
+    depends_on:
+      - db
+
+
+volumes:
+  db-data:
+  website-static-folder:
+  website-media-folder:
+  website-logs:

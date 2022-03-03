@@ -8,7 +8,8 @@ from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsMode
 
 class FileUpload(FileUploadBase):
     """
-    Modello per l'upload di un file
+    FileUpload Model inherits FileUploadBase and is used to upload
+    a document(.pdf, .xls, etc..) to the project.
     """
     file = models.FileField(upload_to=settings.UPLOADED_DOCUMENT_FOLDER, null=True, blank=True)
 
@@ -21,14 +22,14 @@ class FileUpload(FileUploadBase):
 
     class Meta:
         ordering = ['name']
-        verbose_name = "Documento"
-        verbose_name_plural = "Documenti"
+        verbose_name = "Document"
+        verbose_name_plural = "Documents"
 
 
 class SharedCategories(CategoryBase):
     """
-    Questa classe definisce le caratteristiche di
-    un tag condiviso.
+    SharedCategories Model inherits CategoryBase and is used to create
+    a category.
     """
     icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -38,12 +39,15 @@ class SharedCategories(CategoryBase):
 
     class Meta:
         ordering = ['title']
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorie"
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
 
 
 class SiteUrls(UrlsModel):
-
+    """
+    SiteUrls Model inherits UrlsModel and is used to create
+    an url related to the SiteCustomization Model.
+    """
     class Meta:
         ordering = ['name']
         verbose_name = "Url"
@@ -51,16 +55,23 @@ class SiteUrls(UrlsModel):
 
 
 class SiteSocialUrls(UrlsModel):
-
+    """
+    SiteSocialUrls Model inherits UrlsModel and is used to create
+    an url related to a Social Network.
+    """
     icon = models.CharField(max_length=250)
 
     class Meta:
         ordering = ['name']
         verbose_name = "Social"
-        verbose_name_plural = "Social"
+        verbose_name_plural = "Socials"
 
 
 class SiteCustomization(Site, TimeManager):
+    """
+    SiteCustomization Model inherits Site(django.contrib.sites.models) and TimeManager for
+    create the informations useful to describe the website.
+    """
     site_title = models.CharField(max_length=250, blank=True, null=True, default="OpenGeoData")
     site_logo = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
     site_description = models.CharField(max_length=100, blank=True, null=True, default="We share geodata")
@@ -74,5 +85,5 @@ class SiteCustomization(Site, TimeManager):
         return self.site_title
 
     class Meta:
-        verbose_name = "Dettagli del sito"
-        verbose_name_plural = "Dettagli del sito"
+        verbose_name = "Customize site"
+        verbose_name_plural = "Customize site"

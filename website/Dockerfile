@@ -50,7 +50,18 @@ ENV SECRET_KEY=${SECRET_KEY} \
     DB_HOST=${DB_HOST} \
     DEBUG=${DEBUG} \
     ALLOWED_HOSTS=${ALLOWED_HOSTS} \
-    PROJECT_PORT=${PROJECT_PORT}
+    PROJECT_PORT=${PROJECT_PORT} \
+    ADMIN_USERNAME=${ADMIN_USERNAME} \
+    ADMIN_PASSWORD=${ADMIN_PASSWORD} \
+    DOMAIN_NAME=${DOMAIN_NAME} \
+    DOMAIN=${DOMAIN} \
+    SITE_TITLE=${SITE_TITLE} \
+    SITE_LOGO=${SITE_LOGO} \
+    SITE_DESCRIPTION=${SITE_DESCRIPTION} \
+    ADDRESS=${ADDRESS} \
+    CONTACT_PHONE=${CONTACT_PHONE} \
+    CONTACT_EMAIL=${CONTACT_EMAIL} \
+    CONTACT_OFFICIAL_EMAIL=${CONTACT_OFFICIAL_EMAIL}
 
 # Create project directories
 RUN mkdir -p website static-folder media-folder
@@ -58,8 +69,8 @@ RUN mkdir -p website static-folder media-folder
 COPY website website
 COPY media-folder/default media-folder/default
 COPY initial_migrations initial_migrations
-COPY scripts/initial_data.sh ./initial_data.sh
-RUN chmod +x initial_data.sh
+COPY scripts/* ./
+RUN chmod +x **.sh
 
 # OPENGEODATAPROJECT as Layer
 FROM opengeodataproject as gunicorn-setting-up
@@ -67,8 +78,5 @@ FROM opengeodataproject as gunicorn-setting-up
 RUN poetry add gunicorn
 # Create directory for logging files
 RUN mkdir logs
-# Copy and activate migrate-collectstatic.sh
-COPY scripts/entrypoint.sh ./entrypoint.sh
-RUN chmod +x entrypoint.sh
-#CMD ["gunicorn", "website.wsgi:application", "--bind 0.0.0.0:${PROJECT_PORT}"]
+
 ENTRYPOINT ["./entrypoint.sh"]

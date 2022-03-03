@@ -6,10 +6,12 @@ from bs4 import BeautifulSoup
 
 
 def size(field):
-    """Funzione che umanizza le dimensioni di un file caricato
+    """Make comprensible the size of an object
+    like a document(.pdf, .xls, etc..) or an
+    image(.png, .jpg, etc..).
 
-    :param field: Field name
-    :return: f"{value} {unit}"
+    :param field: Model field name
+    :return: number
     """
     x = field.size
     y = 512000
@@ -25,20 +27,24 @@ def size(field):
     return f"{value} {unit}"
 
 
-def extension(field):
-    """Funzione che estrae l'estensione di un file caricato
-
-    :param field:
-    :return:
-    """
-    # TODO sviluppare la funzione
-    extension = ""
-    return extension
+# TODO Develop this function
+# def extension(field):
+#     """Get the extension from file.
+#
+#     :param field:
+#     :return:
+#     """
+#
+#     extension = ""
+#     return extension
 
 
 class TimeManager(models.Model):
     """
-    Definizione dello standard tempo
+    TimeManager Abstract Model is useful to define when:
+    - the object is created thanks to `timestamp` field;
+    - the object is published thanks to `publishing_date` field;
+    - the object is updated thanks to `updating_date` field.
     """
     publishing_date = models.DateTimeField(default=timezone.now)
     updating_date = models.DateTimeField(auto_now=True)
@@ -46,8 +52,10 @@ class TimeManager(models.Model):
 
     @property
     def is_future(self):
-        """
-        Funzione che verifica se un post è da pubblicare nel futuro o subito
+        """Check if an object is published in the
+        future or not.
+
+        :return: boolean
         """
         if self.publishing_date > timezone.now():
             return True
@@ -59,24 +67,21 @@ class TimeManager(models.Model):
 
 class FileUploadBase(TimeManager):
     """
-    Modello generico
+    FileUploadBase Abstract Model is used to give a name
+    and a description for an uploaded object.
     """
-    name = models.CharField(
-        max_length=70,
-        )
-    description = models.TextField(
-        max_length=200,
-        blank=True,
-        null=True,
-        )
+    name = models.CharField(max_length=70)
+    description = models.TextField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     def delete(self, *args, **kwargs):
-        """
-        Funzione che consente di cancellare un file caricato eliminando
-        sia il path dal DB che il file in se dalla directory
+        """Delete related file when an object is deleted
+        from a Model for upload the object.
+
+        :param args:
+        :param kwargs:
         """
         self.file.delete()
         super().delete(*args, **kwargs)
@@ -88,7 +93,8 @@ class FileUploadBase(TimeManager):
 
 class TagBase(TimeManager):
     """
-    definizione delle caratteristiche di un tag
+    TagBase Abstract Model is used for
+    create the tag.
     """
     title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(unique=True)
@@ -102,7 +108,8 @@ class TagBase(TimeManager):
 
 class CategoryBase(TagBase):
     """
-    definizione delle caratteristiche di una categoria
+    CategoryBase Abstract Model is used for
+    create the category.
     """
     description = models.TextField(max_length=255, blank=True, null=True)
 
@@ -113,12 +120,10 @@ class CategoryBase(TagBase):
         abstract = True
 
 
-
-
-
 class BaseModelPost(TimeManager):
     """
-    Modello base per i post.
+    BaseModelPost Abstract Model is used for
+    create a generic post.
     """
     title = models.CharField(max_length=70, unique=True)
     slug = models.SlugField(max_length=70, unique=True)
@@ -134,8 +139,8 @@ class BaseModelPost(TimeManager):
 
 class ModelPost(BaseModelPost):
     """
-    Con questa classe definisco le caratteristiche
-    comuni dei post
+    ModelPost Abstract Model expand BaseModelPost
+    by adding more fields.
     """
     contents = models.TextField(blank=True, null=True)
     draft = models.BooleanField(default=False)
@@ -143,9 +148,10 @@ class ModelPost(BaseModelPost):
 
     @property
     def time_of_reading(self):
-        """
-        Funzione che definisce il tempo di lettura.
-        E' possibile leggere mediamente 200 parole al minuto.
+        """Count how much time it is necessary
+        to read the post.
+
+        :return: number
         """
         max_words = 200
         string = str(self.contents)
@@ -158,6 +164,10 @@ class ModelPost(BaseModelPost):
 
 
 class UrlsModel(TimeManager):
+    """
+    UrlsModel Abstract Model is used to give a name
+    and an url for website url object.
+    """
     name = models.CharField(max_length=70)
     url = models.URLField()
 

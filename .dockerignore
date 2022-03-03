@@ -38,4 +38,4 @@ venv
 .DS_Store
 .AppleDouble
 .LSOverride
-._*
+._*/website/website/website/.env
