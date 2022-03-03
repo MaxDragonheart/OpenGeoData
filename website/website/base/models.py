@@ -8,7 +8,7 @@ from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsMode
 
 class FileUpload(FileUploadBase):
     """
-    FileUpload Model expands FileUploadBase and is used to upload
+    FileUpload Model inherits FileUploadBase and is used to upload
     a document(.pdf, .xls, etc..) to the project.
     """
     file = models.FileField(upload_to=settings.UPLOADED_DOCUMENT_FOLDER, null=True, blank=True)
@@ -28,7 +28,7 @@ class FileUpload(FileUploadBase):
 
 class SharedCategories(CategoryBase):
     """
-    SharedCategories Model expands CategoryBase and is used to create
+    SharedCategories Model inherits CategoryBase and is used to create
     a category.
     """
     icon = models.ImageField(upload_to=settings.UPLOADED_IMAGE_FOLDER, blank=True, null=True)
@@ -45,7 +45,7 @@ class SharedCategories(CategoryBase):
 
 class SiteUrls(UrlsModel):
     """
-    SiteUrls Model expands UrlsModel and is used to create
+    SiteUrls Model inherits UrlsModel and is used to create
     an url related to the SiteCustomization Model.
     """
     class Meta:
@@ -56,7 +56,7 @@ class SiteUrls(UrlsModel):
 
 class SiteSocialUrls(UrlsModel):
     """
-    SiteSocialUrls Model expands UrlsModel and is used to create
+    SiteSocialUrls Model inherits UrlsModel and is used to create
     an url related to a Social Network.
     """
     icon = models.CharField(max_length=250)
@@ -69,7 +69,7 @@ class SiteSocialUrls(UrlsModel):
 
 class SiteCustomization(Site, TimeManager):
     """
-    SiteCustomization Model expands Site(django.contrib.sites.models) and TimeManager for
+    SiteCustomization Model inherits Site(django.contrib.sites.models) and TimeManager for
     create the informations useful to describe the website.
     """
     site_title = models.CharField(max_length=250, blank=True, null=True, default="OpenGeoData")

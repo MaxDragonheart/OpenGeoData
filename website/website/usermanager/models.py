@@ -5,8 +5,8 @@ from django.urls import reverse
 
 class UserProfile(AbstractUser):
     """
-    Modello per la creazione dell'utente
-    https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#abstractuser
+    UserProfile inherits AbstractUser, it is used to
+    create a website user.
     """
     name = models.CharField(max_length=75, blank=True)
     surname = models.CharField(max_length=75, blank=True)
