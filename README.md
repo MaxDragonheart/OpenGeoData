@@ -47,4 +47,5 @@ git clone git@github.com:MaxDragonheart/OpenGeoData.git
 - Useful git tips [here](docs/guides/git-tips.md)
 - Initial categories are directly inspired from [INSPIRE](https://inspire-geoportal.ec.europa.eu/theme_selection.html?view=qsTheme)
 
-
+## Roadmap
+You can see the roadmap [here](https://github.com/MaxDragonheart/OpenGeoData/milestones).
