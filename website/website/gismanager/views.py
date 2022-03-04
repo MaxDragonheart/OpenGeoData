@@ -21,8 +21,11 @@ def wms_list(request):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of objects from OGCLayer Model.
 
-    :param request:
-    :return: JSON
+    Args:
+        request:
+
+    Returns:
+        JSON
     """
     list = OGCLayer.objects.all()
     context = {
@@ -36,9 +39,12 @@ def single_wms(request, slug):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of contents related to a single object from OGCLayer Model.
 
-    :param request:
-    :param slug:
-    :return: JSON
+    Args:
+        request:
+        slug: String.
+
+    Returns:
+        JSON
     """
     object = get_object_or_404(OGCLayer, slug=slug)
 
@@ -53,8 +59,11 @@ def webgis_list(request):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of objects from WebGISProject Model.
 
-    :param request:
-    :return: JSON
+    Args:
+        request:
+
+    Returns:
+        JSON
     """
     list = WebGISProject.objects.all()
     context = {
@@ -68,9 +77,12 @@ def single_webgis(request, slug):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of contents related to a single object from WebGISProject Model.
 
-    :param request:
-    :param slug:
-    :return: JSON
+    Args:
+        request:
+        slug: String.
+
+    Returns:
+        JSON
     """
     object = get_object_or_404(WebGISProject, slug=slug)
 

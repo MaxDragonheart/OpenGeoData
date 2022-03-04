@@ -15,8 +15,12 @@ def sharedcategories_list(request):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of objects from SharedCategories Model.
 
-    :param request:
-    :return: JSON
+
+    Args:
+        request:
+
+    Returns:
+        JSON
     """
     list = SharedCategories.objects.all()
     context = {"list": list}
@@ -27,9 +31,12 @@ def single_sharedcategory(request, slug):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of contents related to a single object from SharedCategories Model.
 
-    :param request:
-    :param slug:
-    :return: JSON
+    Args:
+        request:
+        slug: String.
+
+    Returns:
+        JSON
     """
     object = get_object_or_404(SharedCategories, slug=slug)
     wms = OGCLayer.objects.filter(categories=object)
