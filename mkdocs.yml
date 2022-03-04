@@ -4,7 +4,10 @@ repo_url: https://github.com/MaxDragonheart/OpenGeoData
 repo_name: 'GitHub'
 site_description: OpenSource project focused on sharing of geographic data to citizens and technicians.
 site_author: Massimiliano Moraca
-theme: readthedocs
+theme:
+    name: readthedocs
+    analytics:
+        gtag: G-Q155HQG388
 nav:
     - Home: 'index.md'
     - 'User Guide':
