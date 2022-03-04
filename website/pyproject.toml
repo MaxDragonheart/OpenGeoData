@@ -19,6 +19,7 @@ fsspec = "^2022.1.0"
 Shapely = "^1.8.0"
 geopandas = "^0.10.2"
 django-jazzmin = "^2.4.9"
+mkdocs = "^1.2.3"
 
 [tool.poetry.dev-dependencies]
 
