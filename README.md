@@ -1,11 +1,11 @@
 # OpenGeoData
 OpenSource project focused on sharing of geographic data to citizens and technicians.
 
-<img src="docs/images/logo.png" alt="OpenGeoData logo" style="width:150px; height:auto;"/>
+<img src="docs/img/logo.png" alt="OpenGeoData logo" style="width:150px; height:auto;"/>
 
 ## About OpenGeoData
-OpenGeoData is a project that borns with the ambition of became a platform useful to citizens and technicians for share geographic public data.
-OpenGeoData use [Django](https://www.djangoproject.com/), borns as cloud based platform thanks to [Docker](https://www.docker.com/). 
+OpenGeoData is a project that born with the ambition of became a platform useful to citizens and technicians for share geographic public data.
+OpenGeoData use [Django](https://www.djangoproject.com/), born as cloud based platform thanks to [Docker](https://www.docker.com/). 
 
 ## Building the image
 1. Clone the repository:
@@ -41,10 +41,11 @@ git clone git@github.com:MaxDragonheart/OpenGeoData.git
 6. Share your geographic data :)
 
 ## Guide and tips
-- Variables for `.env` [here](docs/env.md)
-- Handle project with Django [here](docs/django-tips.md)
-- Handle project with Poetry [here](docs/poetry-tips.md)
-- Useful git tips [here](docs/git-tips.md)
+- Variables for `.env` [here](docs/guides/env.md)
+- Handle project with Django [here](docs/guides/django-tips.md)
+- Handle project with Poetry [here](docs/guides/poetry-tips.md)
+- Useful git tips [here](docs/guides/git-tips.md)
 - Initial categories are directly inspired from [INSPIRE](https://inspire-geoportal.ec.europa.eu/theme_selection.html?view=qsTheme)
 
-
+## Roadmap
+You can see the roadmap [here](https://github.com/MaxDragonheart/OpenGeoData/milestones).

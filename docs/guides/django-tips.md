@@ -1,4 +1,5 @@
-# Django | [site](https://docs.djangoproject.com/en/4.0/)
+# Django 
+[Site](https://docs.djangoproject.com/en/4.0/)
 
 Start project: `poetry run python3 manage.py runserver`
 

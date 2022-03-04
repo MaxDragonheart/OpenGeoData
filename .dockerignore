@@ -39,3 +39,7 @@ venv
 .AppleDouble
 .LSOverride
 ._*/website/website/website/.env
+/site/
+/docs/
+/.github/
+/mkdocs.yml

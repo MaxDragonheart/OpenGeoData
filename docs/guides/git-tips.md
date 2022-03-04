@@ -1,4 +1,5 @@
 # Git Tips
+
 ## Push on branch
 ```markdown
 git status

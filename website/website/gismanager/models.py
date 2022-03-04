@@ -84,9 +84,9 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
     def save(self, *args, **kwargs):
         """Override save method and add to DB thumbnail path, BBOX and centroid.
 
-        :param args:
-        :param kwargs:
-        :return:
+        Args:
+            *args:
+            **kwargs:
         """
         # Create the thumbnail destination folder
         today = datetime.datetime.now()
@@ -161,6 +161,10 @@ class Basemap(TimeManager):
 
     def save(self, *args, **kwargs):
         """Make basemap url.
+
+        Args:
+            *args:
+            **kwargs:
         """
         raw_url = self.provider.raw_url
         print(f"Basemap Provider: {self.provider.name}")

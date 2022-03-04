@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "TechnicalOffice"
-version = "0.0.1"
-description = "SIT - Sistema Informativo Territoriale"
+name = "OpenGeoData"
+version = "0.5.1"
+description = "OpenSource project focused on sharing of geographic data to citizens and technicians."
 authors = ["Massimiliano Moraca"]
-license = "Closed"
+license = "GPL-3.0"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -19,6 +19,7 @@ fsspec = "^2022.1.0"
 Shapely = "^1.8.0"
 geopandas = "^0.10.2"
 django-jazzmin = "^2.4.9"
+mkdocs = "^1.2.3"
 
 [tool.poetry.dev-dependencies]
 

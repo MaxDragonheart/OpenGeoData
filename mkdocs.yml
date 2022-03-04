@@ -1,0 +1,26 @@
+site_name: OpenGeoData
+site_url: https://github.com/MaxDragonheart/OpenGeoData
+repo_url: https://github.com/MaxDragonheart/OpenGeoData
+repo_name: 'GitHub'
+site_description: OpenSource project focused on sharing of geographic data to citizens and technicians.
+site_author: Massimiliano Moraca
+theme: readthedocs
+nav:
+    - Home: 'index.md'
+    - 'User Guide':
+        - 'Environment Parameters': './guides/env.md'
+        - 'Development':
+            - 'Git tips': './guides/git-tips.md'
+            - 'Poetry tips': './guides/poetry-tips.md'
+            - 'Django tips': './guides/django-tips.md'
+            - 'Docker tips': './guides/docker-tips.md'
+    - About:
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: "#"
+plugins:
+    - search:
+        indexing: 'full'

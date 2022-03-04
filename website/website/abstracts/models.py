@@ -10,8 +10,11 @@ def size(field):
     like a document(.pdf, .xls, etc..) or an
     image(.png, .jpg, etc..).
 
-    :param field: Model field name
-    :return: number
+    Args:
+        field: Model field name
+
+    Returns:
+        Number
     """
     x = field.size
     y = 512000
@@ -55,7 +58,8 @@ class TimeManager(models.Model):
         """Check if an object is published in the
         future or not.
 
-        :return: boolean
+        Returns:
+            Boolean
         """
         if self.publishing_date > timezone.now():
             return True
@@ -80,8 +84,9 @@ class FileUploadBase(TimeManager):
         """Delete related file when an object is deleted
         from a Model for upload the object.
 
-        :param args:
-        :param kwargs:
+        Args:
+            *args:
+            **kwargs:
         """
         self.file.delete()
         super().delete(*args, **kwargs)
@@ -151,7 +156,8 @@ class ModelPost(BaseModelPost):
         """Count how much time it is necessary
         to read the post.
 
-        :return: number
+        Returns:
+            Number
         """
         max_words = 200
         string = str(self.contents)

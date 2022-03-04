@@ -1,4 +1,5 @@
-# Poetry useful commands | [site](https://python-poetry.org/docs/basic-usage/)
+# Poetry useful commands
+[Site](https://python-poetry.org/docs/basic-usage/)
 
 Start project: `poetry init`
 
