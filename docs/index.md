@@ -6,6 +6,7 @@ OpenSource project focused on sharing of geographic data to citizens and technic
 ## About OpenGeoData
 OpenGeoData is a project that born with the ambition of became a platform useful to citizens and technicians for share geographic public data.
 OpenGeoData use [Django](https://www.djangoproject.com/), born as cloud based platform thanks to [Docker](https://www.docker.com/). 
+If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geoserver) dockerized version for build you project.
 
 ## Building the image
 1. Clone the repository: ```git clone git@github.com:MaxDragonheart/OpenGeoData.git```
