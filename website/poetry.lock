@@ -159,7 +159,7 @@ testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
 
 [[package]]
 name = "django-jazzmin"
-version = "2.4.9"
+version = "2.5.0"
 description = "Drop-in theme for django admin, that utilises AdminLTE 3 & Bootstrap 4 to make yo' admin look jazzy"
 category = "main"
 optional = false
@@ -602,7 +602,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "42c8ad173aacc444f878de4840503594cee5bef1da453a5520dbb2b706a2a667"
+content-hash = "3798cb8412225dfbbdbf82129cd7cbe06e69156c6ec9886a54728de3397b03fb"
 
 [metadata.files]
 asgiref = [
@@ -672,12 +672,14 @@ django-environ = [
     {file = "django_environ-0.8.1-py2.py3-none-any.whl", hash = "sha256:42593bee519a527602a467c7b682aee1a051c2597f98c45f4f4f44169ecdb6e5"},
 ]
 django-jazzmin = [
-    {file = "django-jazzmin-2.4.9.tar.gz", hash = "sha256:93c786e927f1c51d1abd3ef82b411789f3c2f498bbaec85d52a8ba21157a62fe"},
-    {file = "django_jazzmin-2.4.9-py3-none-any.whl", hash = "sha256:0620d828ee857b1fc69d0517913205b85005c66c42e3c4e15c05c3391bf65a40"},
+    {file = "django-jazzmin-2.5.0.tar.gz", hash = "sha256:2ee5ea548e9d5d6cf6495025d006b063ecae84702304eb90c9c5ef37ba99078a"},
+    {file = "django_jazzmin-2.5.0-py3-none-any.whl", hash = "sha256:6b9f9951eee41f60793a0d2f6f3d57213bd5605ddda7a106acb2bcdec4ef124e"},
 ]
 fiona = [
     {file = "Fiona-1.8.21-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:39c656421e25b4d0d73d0b6acdcbf9848e71f3d9b74f44c27d2d516d463409ae"},
     {file = "Fiona-1.8.21-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:43b1d2e45506e56cf3a9f59ba5d6f7981f3f75f4725d1e6cb9a33ba856371ebd"},
+    {file = "Fiona-1.8.21-cp36-cp36m-macosx_10_10_x86_64.whl", hash = "sha256:315e186cb880a8128e110312eb92f5956bbc54d7152af999d3483b463758d6f9"},
+    {file = "Fiona-1.8.21-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9fb2407623c4f44732a33b3f056f8c58c54152b51f0324bf8f10945e711eb549"},
     {file = "Fiona-1.8.21-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:b69054ed810eb7339d7effa88589afca48003206d7627d0b0b149715fc3fde41"},
     {file = "Fiona-1.8.21-cp37-cp37m-manylinux2014_x86_64.whl", hash = "sha256:11532ccfda1073d3f5f558e4bb78d45b268e8680fd6e14993a394c564ddbd069"},
     {file = "Fiona-1.8.21-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:3789523c811809a6e2e170cf9c437631f959f4c7a868f024081612d30afab468"},
@@ -884,6 +886,9 @@ pandas = [
     {file = "pandas-1.4.1.tar.gz", hash = "sha256:8db93ec98ac7cb5f8ac1420c10f5e3c43533153f253fe7fb6d891cf5aa2b80d2"},
 ]
 pillow = [
+    {file = "Pillow-9.0.1-1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a5d24e1d674dd9d72c66ad3ea9131322819ff86250b30dc5821cbafcfa0b96b4"},
+    {file = "Pillow-9.0.1-1-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:2632d0f846b7c7600edf53c48f8f9f1e13e62f66a6dbc15191029d950bfed976"},
+    {file = "Pillow-9.0.1-1-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:b9618823bd237c0d2575283f2939655f54d51b4527ec3972907a927acbcc5bfc"},
     {file = "Pillow-9.0.1-cp310-cp310-macosx_10_10_universal2.whl", hash = "sha256:9bfdb82cdfeccec50aad441afc332faf8606dfa5e8efd18a6692b5d6e79f00fd"},
     {file = "Pillow-9.0.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5100b45a4638e3c00e4d2320d3193bdabb2d75e79793af7c3eb139e4f569f16f"},
     {file = "Pillow-9.0.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:528a2a692c65dd5cafc130de286030af251d2ee0483a5bf50c9348aefe834e8a"},
