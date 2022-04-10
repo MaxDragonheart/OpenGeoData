@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 # Poetry
-poetry.lock
+website/poetry.lock
 
 # IDE
 .idea
