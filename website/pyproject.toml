@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "OpenGeoData"
-version = "0.5.1"
+version = "1.0.0"
 description = "OpenSource project focused on sharing of geographic data to citizens and technicians."
 authors = ["Massimiliano Moraca"]
 license = "GPL-3.0"
