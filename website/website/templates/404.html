@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}Page not found! | {{ block.super }}{% endblock %}
+
+{% block page %}
+
+<div class="container text-center">
+  <h1 class="text-danger mt-2">404 - Page Not Found!</h1>
+  <img class="img-fluid my-4" src="{% static 'images/errors/404.png' %}" alt="404 - Page Not Found!">
+</div>
+
+{% endblock page %}

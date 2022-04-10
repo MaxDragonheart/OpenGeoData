@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}Server error! | {{ block.super }}{% endblock %}
+
+{% block page %}
+
+<div class="container text-center">
+  <h1 class="text-danger mt-2">500 - Server error!</h1>
+  <img class="img-fluid my-4" src="{% static 'images/errors/500.png' %}" alt="500 - Server error!">
+</div>
+
+{% endblock page %}
