@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}HTTP Forbidden! | {{ block.super }}{% endblock %}
+
+{% block page %}
+
+<div class="container text-center">
+  <h1 class="text-danger mt-2">403 - HTTP Forbidden!</h1>
+  <img class="img-fluid my-4" src="{% static 'images/errors/403.png' %}" alt="403 - HTTP Forbidden!">
+</div>
+
+{% endblock page %}
