@@ -7,7 +7,7 @@ from django.conf import settings
 from fsspec import get_fs_token_paths
 
 
-social_netoworks = [
+social_networks = [
     ('Facebook', 'www.facebook.com', '<i class="fab fa-facebook-f"></i>'),
     ('LinkedIn', 'www.linkedin.com', '<i class="fab fa-linkedin-in"></i>'),
     ('Instagram', 'www.instagram.com', '<i class="fab fa-instagram"></i>'),
