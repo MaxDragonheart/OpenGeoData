@@ -67,7 +67,7 @@ def webgis_list(request):
     """
     list = WebGISProject.objects.all()
     context = {
-        "name": "Maps List",
+        "name": "Map List",
         "list": list
     }
     return render(request, "webgis/webgis_list.html", context)
