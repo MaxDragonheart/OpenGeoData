@@ -34,9 +34,9 @@ ARG DEBUG=on
 ARG ALLOWED_HOSTS=*
 ARG SECRET_KEY=django-insecure-#vvw^xj9ri$bioj8d1j7rr@dy!$656rxq=!$4a^6dlqlav7-(f
 ARG DB_ENGINE=django.contrib.gis.db.backends.postgis
-ARG DB_NAME=test_db
-ARG DB_USER=tester
-ARG DB_PASSWORD=imtester
+ARG DB_NAME=test_db_docker
+ARG DB_USER=postgres
+ARG DB_PASSWORD=1983
 ARG DB_PORT=5432
 ARG DB_HOST=localhost
 ARG PROJECT_PORT=1983
@@ -67,9 +67,12 @@ ENV SECRET_KEY=${SECRET_KEY} \
 RUN mkdir -p website static-folder media-folder
 # Copy project data
 COPY website website
+RUN rm -rf website/fixtures
+COPY fixtures ./website/fixtures
 COPY media-folder/default media-folder/default
-COPY initial_migrations initial_migrations
-COPY scripts/* ./
+COPY scripts/migrate-collectstic.sh ./migrate-collectstic.sh
+COPY scripts/backup-fixtures.sh ./backup-fixtures.sh
+COPY scripts/restore-fixtures.sh ./restore-fixtures.sh
 RUN chmod +x **.sh
 
 # OPENGEODATAPROJECT as Layer
@@ -78,5 +81,7 @@ FROM opengeodataproject as gunicorn-setting-up
 RUN poetry add gunicorn
 # Create directory for logging files
 RUN mkdir logs
-
+# Copy adn active entrypoint
+COPY scripts/entrypoint.sh ./entrypoint.sh
+RUN chmod +x entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
