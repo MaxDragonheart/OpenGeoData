@@ -1,0 +1,19 @@
+[
+{
+  "model": "base.sitecustomization",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-02T13:59:58.222Z",
+    "updating_date": "2022-05-02T13:59:58.223Z",
+    "timestamp": "2022-05-02T13:59:58.223Z",
+    "site_title": "OpenGeoData",
+    "site_logo": "default/logo.png",
+    "site_description": "Share GeoData to the World!",
+    "address": "Geolocateme Correctly street, 1, Null Island, 9999888",
+    "contact_phone": "+39 0987543",
+    "contact_email": "mail@email.null",
+    "contact_official_email": "pec-mail@email.null",
+    "urls": []
+  }
+}
+]

@@ -1,0 +1,50 @@
+[
+{
+  "model": "base.sitesocialurls",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-02T13:59:58.210Z",
+    "updating_date": "2022-05-02T13:59:58.210Z",
+    "timestamp": "2022-05-02T13:59:58.210Z",
+    "name": "Facebook",
+    "url": "www.facebook.com",
+    "icon": "<i class=\"fab fa-facebook-f\"></i>"
+  }
+},
+{
+  "model": "base.sitesocialurls",
+  "pk": 2,
+  "fields": {
+    "publishing_date": "2022-05-02T13:59:58.211Z",
+    "updating_date": "2022-05-02T13:59:58.211Z",
+    "timestamp": "2022-05-02T13:59:58.211Z",
+    "name": "LinkedIn",
+    "url": "www.linkedin.com",
+    "icon": "<i class=\"fab fa-linkedin-in\"></i>"
+  }
+},
+{
+  "model": "base.sitesocialurls",
+  "pk": 3,
+  "fields": {
+    "publishing_date": "2022-05-02T13:59:58.212Z",
+    "updating_date": "2022-05-02T13:59:58.212Z",
+    "timestamp": "2022-05-02T13:59:58.212Z",
+    "name": "Instagram",
+    "url": "www.instagram.com",
+    "icon": "<i class=\"fab fa-instagram\"></i>"
+  }
+},
+{
+  "model": "base.sitesocialurls",
+  "pk": 4,
+  "fields": {
+    "publishing_date": "2022-05-02T13:59:58.212Z",
+    "updating_date": "2022-05-02T13:59:58.212Z",
+    "timestamp": "2022-05-02T13:59:58.212Z",
+    "name": "YouTube",
+    "url": "www.youtube.com",
+    "icon": "<i class=\"fab fa-youtube\"></i>"
+  }
+}
+]
