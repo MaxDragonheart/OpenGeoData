@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
 
+    'core',
     'base',
     'usermanager',
     'gismanager',

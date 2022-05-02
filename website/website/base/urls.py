@@ -9,6 +9,4 @@ urlpatterns = [
         path('', views.sharedcategories_list, name='index'),
         path('category/<slug:slug>/', views.single_sharedcategory, name='single-sharedcategory'),
     ])),
-    path('', include('gismanager.urls')),
-    path('', include('usermanager.urls')),
 ]

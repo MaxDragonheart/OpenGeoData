@@ -7,7 +7,7 @@ urlpatterns = [
     path(f'{settings.ADMIN_PANEL}/', include([
         path('', admin.site.urls),
     ])),
-    path('', include('base.urls')),
+    path('', include('core.urls')),
 ]
 
 if settings.DEBUG:
