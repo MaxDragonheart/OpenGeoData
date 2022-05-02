@@ -3,9 +3,9 @@
   "model": "base.siteurls",
   "pk": 1,
   "fields": {
-    "publishing_date": "2022-05-02T13:59:58.200Z",
-    "updating_date": "2022-05-02T13:59:58.200Z",
-    "timestamp": "2022-05-02T13:59:58.200Z",
+    "publishing_date": "2022-05-02T14:52:28.023Z",
+    "updating_date": "2022-05-02T14:52:28.023Z",
+    "timestamp": "2022-05-02T14:52:28.023Z",
     "name": "null island website",
     "url": "http://www.null-island.null"
   }

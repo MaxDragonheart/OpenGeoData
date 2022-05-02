@@ -3,9 +3,9 @@
   "model": "base.sitecustomization",
   "pk": 1,
   "fields": {
-    "publishing_date": "2022-05-02T13:59:58.222Z",
-    "updating_date": "2022-05-02T13:59:58.223Z",
-    "timestamp": "2022-05-02T13:59:58.223Z",
+    "publishing_date": "2022-05-02T14:52:28.045Z",
+    "updating_date": "2022-05-02T14:52:28.046Z",
+    "timestamp": "2022-05-02T14:52:28.046Z",
     "site_title": "OpenGeoData",
     "site_logo": "default/logo.png",
     "site_description": "Share GeoData to the World!",
