@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block component-style %}
@@ -14,8 +14,8 @@
 <div class="ogc-card">
   <div class="ogc-card-title">
     <h2>{{ item.title }}</h2>
-    <p><strong>Published at:</strong> {{ item.publishing_date }}</p>
-    <p><strong>Updated at:</strong> {{ item.updating_date }}</p>
+    <p><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
+    <p><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
     <div class="category-container">
       {% for category in item.categories.all %}
       <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>

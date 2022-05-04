@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% block wms-controls %}
 
@@ -17,14 +18,14 @@
     <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
       <div class="tooltip">
         <i class="fas fa-book"></i>
-        <span class="tooltiptext">Legenda</span>
+        <span class="tooltiptext">{% translate "Legenda" %}</span>
       </div>
     </div>
     {% endif %}
     <div class="item-controls" onclick="showHide('WMS{{ single_object.main_layer.pk }}controls')">
       <div class="tooltip">
         <i class="fas fa-cogs"></i>
-        <span class="tooltiptext">Controlli</span>
+        <span class="tooltiptext">{% translate "Controlli" %}</span>
       </div>
     </div>
   </div>
@@ -35,7 +36,7 @@
         <input class="slider-object" id="WMS{{ single_object.main_layer.pk }}slider"
                 type="range" min="0" max="100" value="80" />
       </div>
-      <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
+      <p class="text-control">{% translate "Trasparenza" %}: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
     </div>
     <div class="counter-container">
       <div class="counter" id="">

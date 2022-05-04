@@ -1,5 +1,5 @@
 {% extends 'gis_base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block wms-controls %}
@@ -17,14 +17,14 @@
     <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
       <div class="tooltip">
         <i class="fas fa-book"></i>
-        <span class="tooltiptext">Legenda</span>
+        <span class="tooltiptext">{% translate "Legenda" %}</span>
       </div>
     </div>
 {% endif %}
     <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
       <div class="tooltip">
         <i class="fas fa-cogs"></i>
-        <span class="tooltiptext">Controlli</span>
+        <span class="tooltiptext">{% translate "Controlli" %}</span>
       </div>
     </div>
   </div>

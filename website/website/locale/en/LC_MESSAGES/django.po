@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-04 11:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: base/templates/shared-categories/single_shared_categories.html:19
+#: gismanager/templates/webgis/webgis_list.html:17
+#: gismanager/templates/wms/wms_list.html:17
+msgid "Pubblicato"
+msgstr "Published at"
+
+#: base/templates/shared-categories/single_shared_categories.html:20
+#: gismanager/templates/webgis/webgis_list.html:18
+#: gismanager/templates/wms/wms_list.html:18
+msgid "Aggiornato"
+msgstr ""
+
+#: base/views.py:27
+msgid "lista"
+msgstr "List"
+
+#: gismanager/templates/components/wms/controls.html:23
+#: gismanager/templates/components/wms/main_layer_controls.html:21
+#: gismanager/templates/wms/single_wms.html:20
+msgid "Legenda"
+msgstr "Legend"
+
+#: gismanager/templates/components/wms/controls.html:31
+#: gismanager/templates/components/wms/main_layer_controls.html:28
+#: gismanager/templates/wms/single_wms.html:27
+msgid "Controlli"
+msgstr "Controls"
+
+#: gismanager/templates/components/wms/controls.html:42
+#: gismanager/templates/components/wms/main_layer_controls.html:39
+msgid "Trasparenza"
+msgstr "Opacity"
+
+#: gismanager/views.py:33
+msgid "Lista dei WMS"
+msgstr "WMS List"
+
+#: gismanager/views.py:71
+msgid "Lista delle mappe"
+msgstr "Map List"
+
+#: templates/components/site_footer.html:7
+msgid "Sede"
+msgstr "Headquarters"
+
+#: templates/components/site_footer.html:14
+msgid "Contatti"
+msgstr "Contacts"
+
+#: templates/components/site_footer.html:23
+msgid "Collegamenti"
+msgstr "Links"
+
+#: templates/components/site_footer.html:30
+msgid "Pannello di amministrazione"
+msgstr "Administration panel"
+
+#: templates/components/site_footer.html:31
+msgid "Esci"
+msgstr "Log-out"
+
+#: templates/components/site_footer.html:33
+#: templates/registration/login.html:52
+msgid "Entra"
+msgstr "Log-in"
+
+#: templates/components/site_footer.html:35
+msgid "Mappa del sito"
+msgstr "Sitemap"
+
+#: templates/components/site_navbar.html:30
+msgid "WMS"
+msgstr "WMS"
+
+#: templates/components/site_navbar.html:31
+msgid "Mappe"
+msgstr "Maps"
+
+#: templates/registration/logged_out.html:14
+msgid "Sei uscito"
+msgstr "Now you are logged-out"
+
+#: templates/registration/login.html:14
+#, fuzzy
+#| msgid "Pannello di amministrazione"
+msgid "Accedi all\\'area di amminstrazione"
+msgstr "Enter to reserved zone"
+
+#: templates/registration/login.html:20
+msgid ""
+"Solo il personale autorizzato può avere accesso. Ogni violazione sarà "
+"preseguita secondo i termini di legge vigenti."
+msgstr ""
+"Only authorized personnel can access, any violation will be prosecuted "
+"according to the terms of the law."
+
+#: templates/registration/login.html:24
+msgid "Username e password non corrispondono. Riprova."
+msgstr "Your username and password didn't match. Please try again."
+
+#: templates/registration/login.html:31
+msgid ""
+"Il tuo account non ha accesso a questa pagina. Per procedere effettua l"
+"\\'accesso con un account autorizzato."
+msgstr ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+
+#: templates/registration/login.html:33
+msgid "Effettua il l\\'accesso per consultare questa pagina."
+msgstr "Please login to see this page."

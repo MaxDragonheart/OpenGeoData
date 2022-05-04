@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block component-style %}
@@ -16,8 +16,8 @@
 <div class="ogc-card">
   <div class="ogc-card-title">
     <h2>{{ item.title }}</h2>
-    <p><strong>Pubblicato:</strong> {{ item.publishing_date }}</p>
-    <p><strong>Aggiornato:</strong> {{ item.updating_date }}</p>
+    <p><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
+    <p><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
   </div>
 {% if item.ogc_layer_path.complete_url_wms %}
   {% include '../components/card/wms.html' %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import gettext as _
 
 from .models import OGCLayer, Basemap, WebGISProject
 
@@ -29,7 +30,7 @@ def wms_list(request):
     """
     list = OGCLayer.objects.all()
     context = {
-        "name": "WMS List",
+        "name": _("Lista dei WMS"),
         "list": list
     }
     return render(request, "wms/wms_list.html", context)
@@ -67,7 +68,7 @@ def webgis_list(request):
     """
     list = WebGISProject.objects.all()
     context = {
-        "name": "Map List",
+        "name": _("Lista delle mappe"),
         "list": list
     }
     return render(request, "webgis/webgis_list.html", context)

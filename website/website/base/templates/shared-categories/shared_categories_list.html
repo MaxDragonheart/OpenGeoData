@@ -9,7 +9,6 @@
 {% endblock component-style %}
 
 {% block page %}
-
 {% for item in list %}
 {% if forloop.first %}<div class="category-container">{% endif %}
 <a class="category-link" href="{{ item.get_absolute_url }}">

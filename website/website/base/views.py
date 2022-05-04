@@ -1,10 +1,10 @@
 from itertools import chain
 
 from django.shortcuts import render, get_object_or_404
+from django.utils.translation import gettext as _
 
 from .models import SharedCategories
 from gismanager.models import OGCLayer, WebGISProject
-
 
 # def index(request):
 #     template = 'home/index.html'
@@ -23,7 +23,10 @@ def sharedcategories_list(request):
         JSON
     """
     list = SharedCategories.objects.all()
-    context = {"list": list}
+    context = {
+        "name": _("lista"),
+        "list": list,
+    }
     return render(request, "shared-categories/shared_categories_list.html", context)
 
 
