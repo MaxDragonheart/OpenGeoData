@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block component-style %}
@@ -11,7 +11,7 @@
 
 <div class="login-area">
 
-  <h1>Now you are logged-out!</h1>
+  <h1>{% translate 'Sei uscito' %}</h1>
 
   <a class="" href="{% url 'login' %}">Log-in</a>
 

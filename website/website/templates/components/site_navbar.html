@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <nav class="">
 
@@ -26,8 +27,8 @@
       <div class="site-menu">
         <a class="link" href="{% url 'index' %}">Home</a>
         <!-- <a class="link" href="/">FlatPages</a> -->
-        <a class="link" href="{% url 'wms-list' %}">WMS</a>
-        <a class="link" href="{% url 'map' %}">Maps</a>
+        <a class="link" href="{% url 'wms-list' %}">{% translate 'WMS' %}</a>
+        <a class="link" href="{% url 'map' %}">{% translate 'Mappe' %}</a>
       </div>
     </div>
   </div>

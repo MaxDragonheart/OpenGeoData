@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block component-style %}
@@ -11,28 +11,26 @@
 <div class="login-container">
   <div class="login-area">
     <div class="">
-      <h1 class="">Enter to reserved zone</h1>
+      <h1 class="">{% translate "Accedi all\'area di amminstrazione" %}</h1>
     </div>
 
     <hr>
 
     <div class="">
-      <!-- <p class="">Solo il personale autorizzato può accedere, ogni violazione verrà perseguita secondo i termini di legge.</p> -->
-      <p class="">Only authorized personnel can access, any violation will be prosecuted according to the terms of the law.</p>
+      <p class="">{% translate "Solo il personale autorizzato può avere accesso. Ogni violazione sarà preseguita secondo i termini di legge vigenti." %}</p>
 
       {% if form.errors %}
       <div class="alert" role="alert">
-        <p class="text-center">Your username and password didn't match. Please try again.</p>
+        <p class="text-center">{% translate "Username e password non corrispondono. Riprova." %}</p>
         <!-- <p class="py-0"><a href="mailto:joe@example.com?subject=Lost password">Lost username and password?</a></p> -->
       </div>
       {% endif %}
 
       {% if next %}
           {% if user.is_authenticated %}
-          <p>Your account doesn't have access to this page. To proceed,
-          please login with an account that has access.</p>
+          <p>{% translate "Il tuo account non ha accesso a questa pagina. Per procedere effettua l\'accesso con un account autorizzato." %}</p>
           {% else %}
-          <p>Please login to see this page.</p>
+          <p>{% translate "Effettua il l\'accesso per consultare questa pagina." %}</p>
           {% endif %}
       {% endif %}
     </div>
@@ -51,7 +49,7 @@
           </tr>
         </table>
         <div class="">
-          <input type="submit" class="button" value="Login">
+          <input type="submit" class="button" value="{% translate "Entra" %}">
           <input type="hidden" name="next" value="{{ next }}">
         </div>
       </form>
