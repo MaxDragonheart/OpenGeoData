@@ -101,8 +101,6 @@ msgid "Sei uscito"
 msgstr "Now you are logged-out"
 
 #: templates/registration/login.html:14
-#, fuzzy
-#| msgid "Pannello di amministrazione"
 msgid "Accedi all\\'area di amminstrazione"
 msgstr "Enter to reserved zone"
 
