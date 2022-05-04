@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-04 11:41+0200\n"
+"POT-Creation-Date: 2022-05-04 11:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,11 +28,27 @@ msgstr "Published at"
 #: gismanager/templates/webgis/webgis_list.html:18
 #: gismanager/templates/wms/wms_list.html:18
 msgid "Aggiornato"
-msgstr ""
+msgstr "Updated at"
 
 #: base/views.py:27
 msgid "lista"
 msgstr "List"
+
+#: gismanager/templates/components/card/wms.html:5
+msgid "Servizio WMS"
+msgstr "WMS service"
+
+#: gismanager/templates/components/card/wms.html:13
+msgid "Layer"
+msgstr "Layer"
+
+#: gismanager/templates/components/card/wms.html:20
+msgid "BBOX"
+msgstr "BBOX"
+
+#: gismanager/templates/components/card/wms.html:21
+msgid "Centroide"
+msgstr "Centroid"
 
 #: gismanager/templates/components/wms/controls.html:23
 #: gismanager/templates/components/wms/main_layer_controls.html:21
