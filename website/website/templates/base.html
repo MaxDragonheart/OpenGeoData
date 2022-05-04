@@ -3,8 +3,31 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  {% include './commons/google_analytics.html' %}
-  {% include './components/site_head.html' %}
+    {% include './commons/google_analytics.html' %}
+    <meta name="title" content="{% block head_meta_title %}{% for item in data %}{{ item.site_title }}{% endfor %}{% endblock head_meta_title %}">
+    <meta name="description" content="{% block meta_description %}{% for item in data %}{{ item.site_description }}{% endfor %}{% endblock meta_description %}" />
+    <meta http-equiv="content-language" content="IT">
+    <meta http-equiv="Content-Type" content="text/html; iso-8859-1">
+    <meta name="robots" content="INDEX,FOLLOW">
+    <meta name="creation_Date" content="{% block meta_creation_date %}01/01/2022{% endblock meta_creation_date %}">
+    <meta name="revisit-after" content="7 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block head_title %}{% for item in data %}{{ item.site_title }}{% endfor %}{% endblock head_title %}</title>
+    <link rel="icon" href="{{ protocol }}://{% for item in data %}{{ item.site.domain }}{{ item.site_logo.url }}{% endfor %}" type="image/gif">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="{% block opengraph_title %}{% for item in data %}{{ item.site_title }}{% endfor %}{% endblock opengraph_title %}">
+    <meta name="description" property="og:description" content="{% block opengraph_description %}{% for item in data %}{{ item.site_description }}{% endfor %}{% endblock opengraph_description %}">
+    <meta property="og:type" content="{% block opengraph_type %}website{% endblock opengraph_type %}" >
+    <meta property="og:image" content="{% block opengraph_image %}{{ protocol }}://{% for item in data %}{{ item.site.domain }}{{ item.site_logo.url }}{% endfor %}{% endblock opengraph_image %}">
+    <meta property="og:url" content="{% block opengraph_url %}{% for domain in domains %}{{ domain }}{% endfor %}{% endblock opengraph_url %}">
+    <meta name="twitter:card" value="summary_large_image">
+    <meta name="twitter:title" content="{% block opengraph_title_twitter %}{% for item in data %}{{ item.site_title }}{% endfor %}{% endblock opengraph_title_twitter %}">
+    <meta name="twitter:description" content="{% block opengraph_description_twitter %}{% for item in data %}{{ item.site_description }}{% endfor %}{% endblock opengraph_description_twitter %}" />
+    <meta name="twitter:image" content="{% block opengraph_image_twitter %}{{ protocol }}://{% for item in data %}{{ item.site.domain }}{{ item.site_logo.url }}{% endfor %}{% endblock opengraph_image_twitter %}" />
+
+    {% include './commons/libraries.html' %}
   <link rel="stylesheet"
         href="{% static 'css/commons.css' %}">
   <script src="{% static 'js/commons.js' %}"></script>

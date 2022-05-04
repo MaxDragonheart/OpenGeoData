@@ -29,7 +29,7 @@ def wms_list(request):
     """
     list = OGCLayer.objects.all()
     context = {
-        "name": "WMS List",
+        "name": "Lista dei WMS",
         "list": list
     }
     return render(request, "wms/wms_list.html", context)
@@ -67,7 +67,7 @@ def webgis_list(request):
     """
     list = WebGISProject.objects.all()
     context = {
-        "name": "Map List",
+        "name": "Lista delle mappe",
         "list": list
     }
     return render(request, "webgis/webgis_list.html", context)
