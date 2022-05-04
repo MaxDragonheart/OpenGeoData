@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-04 11:09+0200\n"
+"POT-Creation-Date: 2022-05-04 11:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: base/templates/shared-categories/single_shared_categories.html:19
+#: gismanager/templates/webgis/webgis_list.html:17
+#: gismanager/templates/wms/wms_list.html:17
 msgid "Pubblicato"
 msgstr "Published at"
 
-#: base/views.py:28
+#: base/templates/shared-categories/single_shared_categories.html:20
+#: gismanager/templates/webgis/webgis_list.html:18
+#: gismanager/templates/wms/wms_list.html:18
+msgid "Aggiornato"
+msgstr ""
+
+#: base/views.py:27
 msgid "lista"
 msgstr "List"
+
+#: gismanager/templates/components/wms/controls.html:23
+#: gismanager/templates/components/wms/main_layer_controls.html:21
+#: gismanager/templates/wms/single_wms.html:20
+msgid "Legenda"
+msgstr "Legend"
+
+#: gismanager/templates/components/wms/controls.html:31
+#: gismanager/templates/components/wms/main_layer_controls.html:28
+#: gismanager/templates/wms/single_wms.html:27
+msgid "Controlli"
+msgstr "Controls"
+
+#: gismanager/templates/components/wms/controls.html:42
+#: gismanager/templates/components/wms/main_layer_controls.html:39
+msgid "Trasparenza"
+msgstr "Opacity"
 
 #: gismanager/views.py:33
 msgid "Lista dei WMS"
