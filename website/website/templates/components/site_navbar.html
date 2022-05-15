@@ -2,14 +2,14 @@
 {% load static %}
 <nav class="">
 
-  <!-- <div class="search-bar">
+  <div class="search-bar">
     <div class="search-container">
-      <form action="">
-        <input type="text" placeholder="Cerca.." name="search">
+      <form action="{% url 'search-results' %}">
+        <input name="q" type="search" placeholder="{% translate 'Cerca..' %}" >
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
-  </div> -->
+  </div>
 
   <div class="nav-bar">
     {% for item in data %}

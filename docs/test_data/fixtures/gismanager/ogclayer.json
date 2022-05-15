@@ -1,0 +1,101 @@
+[
+{
+  "model": "gismanager.ogclayer",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-03T11:23:34.101Z",
+    "updating_date": "2022-05-03T11:23:35.261Z",
+    "timestamp": "2022-05-03T11:23:35.261Z",
+    "title": "RGB_Campania_20150807",
+    "slug": "rgb_campania_20150807",
+    "header_image": "gis-data/wms-thumbnails/2022/5/3/RGB_Campania_20150807.jpg",
+    "description": "RGB_Campania_20150807",
+    "map_scaleline": true,
+    "map_attribution": "<a href=\"https://massimilianomoraca.it/\" target=\"_blank\">Massimiliano Moraca</a> has created this map using <a href=\"https://openlayers.org/\" target=\"_blank\">OpenLayers</a>",
+    "map_center_longitude": "14.23964",
+    "map_center_latitude": "40.84290",
+    "set_max_zoom": 28,
+    "set_min_zoom": 0,
+    "set_zoom_level": 0,
+    "set_zindex": 1,
+    "set_opacity": "1.00",
+    "ogc_layer_path": 1,
+    "ogc_layer_name": "RGB_Campania_20150807",
+    "ogc_layer_style": null,
+    "ogc_bbox": "[13.80055089837127, 40.55670691139257, 15.117031634388361, 41.5517990742554]",
+    "ogc_centroid": "[14.458791266379816, 41.05425299282398]",
+    "ogc_legend": false,
+    "is_vector": false,
+    "is_raster": true,
+    "categories": [
+      13
+    ]
+  }
+},
+{
+  "model": "gismanager.ogclayer",
+  "pk": 2,
+  "fields": {
+    "publishing_date": "2022-05-04T12:22:56.535Z",
+    "updating_date": "2022-05-04T12:22:58.025Z",
+    "timestamp": "2022-05-04T12:22:58.025Z",
+    "title": "NDVI Campania 2015 08 07",
+    "slug": "ndvi-campania-2015-08-07",
+    "header_image": "gis-data/wms-thumbnails/2022/5/4/NDVI_Campania_20150807.jpg",
+    "description": "NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI Campania 2015 08 07 NDVI",
+    "map_scaleline": true,
+    "map_attribution": "<a href=\"https://massimilianomoraca.it/\" target=\"_blank\">Massimiliano Moraca</a> has created this map using <a href=\"https://openlayers.org/\" target=\"_blank\">OpenLayers</a>",
+    "map_center_longitude": "14.23964",
+    "map_center_latitude": "40.84290",
+    "set_max_zoom": 28,
+    "set_min_zoom": 0,
+    "set_zoom_level": 0,
+    "set_zindex": 1,
+    "set_opacity": "1.00",
+    "ogc_layer_path": 1,
+    "ogc_layer_name": "NDVI_Campania_20150807",
+    "ogc_layer_style": null,
+    "ogc_bbox": "[13.80055089837127, 40.55670691139257, 15.117031634388361, 41.5517990742554]",
+    "ogc_centroid": "[14.458791266379816, 41.05425299282398]",
+    "ogc_legend": true,
+    "is_vector": false,
+    "is_raster": true,
+    "categories": [
+      15
+    ]
+  }
+},
+{
+  "model": "gismanager.ogclayer",
+  "pk": 3,
+  "fields": {
+    "publishing_date": "2022-05-04T12:24:44.743Z",
+    "updating_date": "2022-05-04T12:24:45.890Z",
+    "timestamp": "2022-05-04T12:24:45.890Z",
+    "title": "Città del mondo",
+    "slug": "citta-del-mondo",
+    "header_image": "gis-data/wms-thumbnails/2022/5/4/worldcities.jpg",
+    "description": "Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo Città del mondo",
+    "map_scaleline": true,
+    "map_attribution": "<a href=\"https://massimilianomoraca.it/\" target=\"_blank\">Massimiliano Moraca</a> has created this map using <a href=\"https://openlayers.org/\" target=\"_blank\">OpenLayers</a>",
+    "map_center_longitude": "14.23964",
+    "map_center_latitude": "40.84290",
+    "set_max_zoom": 28,
+    "set_min_zoom": 0,
+    "set_zoom_level": 0,
+    "set_zindex": 1,
+    "set_opacity": "1.00",
+    "ogc_layer_path": 1,
+    "ogc_layer_name": "worldcities",
+    "ogc_layer_style": null,
+    "ogc_bbox": "[-179.59, -54.9333, 179.3833, 82.4833]",
+    "ogc_centroid": "[-0.10335000000000633, 13.774999999999999]",
+    "ogc_legend": true,
+    "is_vector": true,
+    "is_raster": false,
+    "categories": [
+      5
+    ]
+  }
+}
+]

@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext as _
+from django.db.models import Q
+
+from itertools import chain
 
 from .models import OGCLayer, Basemap, WebGISProject
 
@@ -16,6 +19,30 @@ from .models import OGCLayer, Basemap, WebGISProject
 #     }
 #     template = "test/test_map_single.html"
 #     return render(request, template, context)
+
+
+def search(request):
+    template = "search_results.html"
+
+    if "q" in request.GET:
+        querystring = request.GET.get("q")
+        wms = OGCLayer.objects.filter(
+                                Q(title__icontains=querystring) |
+                                Q(description__icontains=querystring)
+                            )
+        webgis = WebGISProject.objects.filter(
+                                Q(title__icontains=querystring) |
+                                Q(description__icontains=querystring)
+                            )
+
+
+        context = {
+            "name": _("Risultati della ricerca"),
+            "objects": list(chain(wms, webgis)),
+        }
+        return render(request, template, context)
+    else:
+        return render(request, template)
 
 
 def wms_list(request):

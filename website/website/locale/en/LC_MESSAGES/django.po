@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-04 11:55+0200\n"
+"POT-Creation-Date: 2022-05-15 20:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: base/templates/shared-categories/single_shared_categories.html:19
+#: gismanager/templates/search_results.html:19
 #: gismanager/templates/webgis/webgis_list.html:17
 #: gismanager/templates/wms/wms_list.html:17
 msgid "Pubblicato"
 msgstr "Published at"
 
 #: base/templates/shared-categories/single_shared_categories.html:20
+#: gismanager/templates/search_results.html:20
 #: gismanager/templates/webgis/webgis_list.html:18
 #: gismanager/templates/wms/wms_list.html:18
 msgid "Aggiornato"
@@ -67,11 +69,15 @@ msgstr "Controls"
 msgid "Trasparenza"
 msgstr "Opacity"
 
-#: gismanager/views.py:33
+#: gismanager/views.py:40
+msgid "Risultati della ricerca"
+msgstr "Search results"
+
+#: gismanager/views.py:60
 msgid "Lista dei WMS"
 msgstr "WMS List"
 
-#: gismanager/views.py:71
+#: gismanager/views.py:98
 msgid "Lista delle mappe"
 msgstr "Map List"
 
@@ -103,6 +109,10 @@ msgstr "Log-in"
 #: templates/components/site_footer.html:35
 msgid "Mappa del sito"
 msgstr "Sitemap"
+
+#: templates/components/site_navbar.html:8
+msgid "Cerca.."
+msgstr "Search.."
 
 #: templates/components/site_navbar.html:30
 msgid "WMS"
@@ -143,3 +153,7 @@ msgstr ""
 #: templates/registration/login.html:33
 msgid "Effettua il l\\'accesso per consultare questa pagina."
 msgstr "Please login to see this page."
+
+#: website/urls.py:18
+msgid "risultati/"
+msgstr "results/"

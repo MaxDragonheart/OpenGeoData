@@ -14,7 +14,7 @@ urlpatterns = [
         path('', views.wms_list, name='wms-list'),
         path('<slug:slug>/', views.single_wms, name='ogc-single'),
     ])),
-    path('map/', include([
+    path('webgis/', include([
         path('feed/', FeedWebGISProject(), name='map-feed'),
         path('atom/', AtomWebGISProject(), name='map-atom'),
         path('', views.webgis_list, name='map'),

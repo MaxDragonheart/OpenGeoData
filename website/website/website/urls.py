@@ -2,6 +2,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext as _
+
+from gismanager import views
 
 urlpatterns = [
     path(f'{settings.ADMIN_PANEL}/', include([
@@ -9,6 +13,11 @@ urlpatterns = [
     ])),
     path('', include('core.urls')),
 ]
+
+urlpatterns += i18n_patterns(
+    path(_('risultati/'), views.search, name='search-results')
+)
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
