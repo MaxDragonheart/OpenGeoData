@@ -20,4 +20,5 @@ urlpatterns = [
         path('', views.webgis_list, name='map'),
         path('<slug:slug>/', views.single_webgis, name='map-single'),
     ])),
+    path('risultati/', views.search, name='search-results')
 ]

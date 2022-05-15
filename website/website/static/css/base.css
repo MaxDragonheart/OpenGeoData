@@ -51,6 +51,7 @@ section{
   background-color: rgba(1, 58, 99, 1);
   width: 100%;
   height: 2.5vh;
+  padding-left: 10px;
 }
 .search-container {
 
