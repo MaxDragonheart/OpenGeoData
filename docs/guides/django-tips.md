@@ -22,3 +22,6 @@ python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sit
 ```markdown
 python3 manage.py loaddata fixtures/**/*.json
 ```
+## Translation | [ref](https://docs.djangoproject.com/en/4.0/topics/i18n/translation/#localization-how-to-create-language-files)
+Make translation file: `poetry run python3 manage.py makemessages -l en`
+Translate all: `poetry run python3 manage.py compilemessages`
