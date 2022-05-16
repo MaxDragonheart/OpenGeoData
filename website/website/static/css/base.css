@@ -48,11 +48,5 @@ section{
 }
 .footer {
   color: rgba(255, 255, 255, 1);
-  display: grid;
-  grid-template-columns: 15% 42.5% 42.5%;
-  height: 100%;
-  margin-left: 5vh;
-}
-.footer-conteiner {
-  max-width: 90%;
+  padding: 0px  5px 0px 5px !important;
 }
