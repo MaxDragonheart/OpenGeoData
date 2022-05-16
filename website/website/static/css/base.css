@@ -40,11 +40,7 @@ section{
   color: rgba(255, 255, 255, 1);
 }
 .site-main {
-  padding: 2.5%;
-  height: auto;
-  width: 90%;
-  margin: 0 auto;
-  position: relative;
+  padding: 5px 5px 5px 5px;
 }
 .footer {
   color: rgba(255, 255, 255, 1);
