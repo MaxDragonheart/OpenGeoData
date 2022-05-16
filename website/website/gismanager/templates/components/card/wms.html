@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load static %}
 <div class="ogc-card-description">
+
   <div class="">
     <p><strong>{% translate 'Servizio WMS' %}</strong></p>
       <input class="copytoclipboard" type="text"
@@ -9,6 +10,7 @@
           <i class="far fa-copy"></i>
         </button>
   </div>
+
   <div class="">
     <p><strong>{% translate 'Layer' %}</strong></p>
       <input class="copytoclipboard" type="text"
@@ -17,13 +19,17 @@
           <i class="far fa-copy"></i>
         </button>
   </div>
+
   <p><strong>{% translate 'BBOX' %}:</strong> {{ item.ogc_bbox }}</p>
   <p><strong>{% translate 'Centroide' %}:</strong> {{ item.ogc_centroid }}</p>
+
   <div class="button-container">
     <a class="button-viewer" type="button"
             name="button" href="{{ item.get_absolute_url }}">Map Viewer</a>
   </div>
+
 </div>
+
 <div class="ogc-card-thumbnail">
   <img class="ogc-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
 </div>
