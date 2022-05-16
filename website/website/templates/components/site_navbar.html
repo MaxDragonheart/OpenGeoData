@@ -2,14 +2,18 @@
 {% load static %}
 <nav class="">
 
-  <div class="search-bar">
-    <div class="search-container">
-      <form action="{% url 'search-results' %}">
-        <input name="q" type="search" placeholder="{% translate 'Cerca..' %}" >
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+    <div class="search-bar p-0">
+        <form class="" action="{% url 'search-results' %}">
+            <div class="input-group input-group-search-bar">
+              <div class="form-outline-search-bar">
+                <input name="q" type="search" class="form-control form-control-search-bar" placeholder="{% translate 'Cerca..' %}" />
+              </div>
+              <button type="submit" class="btn btn-sm">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+        </form>
     </div>
-  </div>
 
   <div class="nav-bar">
     {% for item in data %}

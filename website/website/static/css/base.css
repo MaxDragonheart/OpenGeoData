@@ -50,11 +50,19 @@ section{
 .search-bar {
   background-color: rgba(1, 58, 99, 1);
   width: 100%;
-  height: 2.5vh;
-  padding-left: 10px;
+  height: 25px !important;
 }
-.search-container {
-
+.input-group-search-bar {
+  height: 25px !important;
+}
+.form-control-search-bar, .form-outline-search-bar {
+  padding: 0px  0px 0px 5px !important;
+  border: 0px !important;
+  border-radius: 0px !important;
+  height: 25px !important;
+}
+.fa-search {
+  color: rgba(255, 255, 255, 1);
 }
 .site-main {
   padding: 2.5%;
