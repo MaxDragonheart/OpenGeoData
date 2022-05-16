@@ -9,7 +9,7 @@ section{
   max-height: 100px;
 }
 .link {
-  color: rgba(255, 255, 255, 1) !important;
+  color: rgba(255, 255, 255, 1);
   text-decoration: none;
 }
 .link:hover {
