@@ -1,18 +1,19 @@
 {% load i18n %}
 {% load static %}
-<div class="webgis-card-description">
-  <div class="">
+<div class="col-sm-8 webgis-card-description">
     <p>{{ item.contents }}</p>
-  </div>
-  <div class="button-container">
-    <a class="button-viewer" type="button"
-            name="button" href="{{ item.get_absolute_url }}">Map Viewer</a>
-  </div>
 </div>
-<div class="webgis-card-thumbnail">
-  {% if item.header_image %}
-  <img class="webgis-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
-  {% else %}
-  <img class="webgis-thumbnail" src="{% static 'images/background_image.png' %}" alt="{{ item.description }}">
-  {% endif %}
+
+<div class="col-sm-2 text-center">
+    <div class="">
+        {% if item.header_image %}
+        <img class="img-fluid webgis-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
+        {% else %}
+        <img class="img-fluid webgis-thumbnail" src="{% static 'images/background_image.png' %}" alt="{{ item.description }}">
+        {% endif %}
+    </div>
+    <div class="mt-2">
+      <a class="button-viewer p-2" type="button"
+      href="{{ item.get_absolute_url }}">Map Viewer</a>
+    </div>
 </div>
