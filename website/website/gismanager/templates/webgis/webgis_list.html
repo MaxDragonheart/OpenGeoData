@@ -12,32 +12,40 @@
 
 {% for item in list %}
 <div class="webgis-card">
-  <div class="webgis-card-title">
-    <h2>{{ item.title }}</h2>
-    <p><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
-    <p><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
-    <div class="category-container">
-      {% for category in item.categories.all %}
-      <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
-      {% endfor %}
+
+    <div class="row">
+
+        <div class="col-sm-2 webgis-card-title">
+            <h3>{{ item.title }}</h3>
+            <p class="small"><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
+            <p class="small"><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
+            <div class="category-container">
+              {% for category in item.categories.all %}
+              <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
+              {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-sm-8 webgis-card-description">
+            <p>{{ item.contents }}</p>
+        </div>
+
+        <div class="col-sm-2 text-center">
+            <div class="">
+                {% if item.header_image %}
+                <img class="img-fluid webgis-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
+                {% else %}
+                <img class="img-fluid webgis-thumbnail" src="{% static 'images/background_image.png' %}" alt="{{ item.description }}">
+                {% endif %}
+            </div>
+            <div class="mt-2">
+              <a class="button-viewer p-2" type="button"
+              href="{{ item.get_absolute_url }}">Map Viewer</a>
+            </div>
+        </div>
+
     </div>
-  </div>
-  <div class="webgis-card-description">
-    <div class="">
-      <p>{{ item.contents }}</p>
-    </div>
-    <div class="button-container">
-      <a class="button-viewer" type="button"
-              name="button" href="{{ item.get_absolute_url }}">Map Viewer</a>
-    </div>
-  </div>
-  <div class="webgis-card-thumbnail">
-    {% if item.header_image %}
-    <img class="webgis-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
-    {% else %}
-    <img class="webgis-thumbnail" src="{% static 'images/background_image.png' %}" alt="{{ item.description }}">
-    {% endif %}
-  </div>
+
 </div>
 {% endfor %}
 
