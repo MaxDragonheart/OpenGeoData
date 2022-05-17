@@ -22,7 +22,7 @@ If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geose
 2. Edit the [env](.env) file with your own settings.
 3. Build the image:
 
-    -> Development ```docker-compose -f docker-compose-dev.yml up -d --build```
+    -> Staging ```docker-compose -f docker-compose-dev.yml up -d --build```
     
     -> Production ```docker-compose -f docker-compose.yml up -d --build```
 
