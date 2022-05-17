@@ -53,7 +53,7 @@ def single_sharedcategory(request, slug):
     return render(request, template, context)
 
 
-def organogram(request, slug):
+def organogram(request):
     """[Function view](https://docs.djangoproject.com/en/4.0/topics/http/views/) that deliver the list
     of contents related to a single object from Organogram Model.
 
@@ -65,10 +65,9 @@ def organogram(request, slug):
         JSON
     """
     data = Organogram.objects.filter(id=1)
-    object = get_object_or_404(data, slug=slug)
 
     context = {
-        "single_object": object,
+        "object": data,
     }
     template = "organogram.html"
     return render(request, template, context)

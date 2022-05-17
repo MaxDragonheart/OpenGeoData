@@ -97,4 +97,4 @@ class Organogram(BaseModelPost):
     contents = models.TextField()
 
     def __str__(self):
-        return self.site_title
+        return self.title
