@@ -12,7 +12,7 @@ nav:
     - Home: 'index.md'
     - 'User Guide':
         - 'Environment Parameters': './guides/env.md'
-        - 'Video Guide': './guides/env.md'
+        - 'Video Guide': './guides/video.md'
         - 'Development':
             - 'Git tips': './guides/git-tips.md'
             - 'Poetry tips': './guides/poetry-tips.md'
