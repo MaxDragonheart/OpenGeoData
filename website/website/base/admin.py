@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import SharedCategories, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls
+from .models import SharedCategories, SiteCustomization, FileUpload, SiteUrls, SiteSocialUrls, Organogram
 
 
 class SharedTagsAdmin(admin.ModelAdmin):
@@ -54,8 +54,20 @@ class FileUploadAdmin(admin.ModelAdmin):
         model = FileUpload
 
 
+class OrganogramAdmin(admin.ModelAdmin):
+    list_display = ["title"]
+    prepopulated_fields = {"slug": ("title",)}
+    fieldsets = [
+                (None, {"fields": ["title", "slug", "description", "site", "contents"]}),
+            ]
+
+    class Meta:
+        model = Organogram
+
+
 admin.site.register(SharedCategories, SharedTagsAdmin)
 admin.site.register(SiteCustomization, SiteCustomizationAdmin)
 admin.site.register(SiteUrls, SiteUrlsAdmin)
 admin.site.register(SiteSocialUrls, SiteSocialUrlsAdmin)
 admin.site.register(FileUpload, FileUploadAdmin)
+admin.site.register(Organogram, OrganogramAdmin)

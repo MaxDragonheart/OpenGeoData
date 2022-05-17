@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.sites.models import Site
 
-from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsModel
+from abstracts.models import CategoryBase, TimeManager, FileUploadBase, UrlsModel, BaseModelPost
 
 
 class FileUpload(FileUploadBase):
@@ -87,3 +87,15 @@ class SiteCustomization(Site, TimeManager):
     class Meta:
         verbose_name = "Customize site"
         verbose_name_plural = "Customize site"
+
+
+class Organogram(BaseModelPost):
+    """
+    Organogram Model inherits BaseModelPost for create the informations relative to
+    the organogram of the organization.
+    """
+    site = models.ForeignKey(SiteCustomization, on_delete=models.CASCADE, related_name="releted_sitedetails", default=1)
+    contents = models.TextField()
+
+    def __str__(self):
+        return self.site_title
