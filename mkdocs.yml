@@ -18,8 +18,8 @@ nav:
             - 'Django tips': './guides/django-tips.md'
             - 'Docker tips': './guides/docker-tips.md'
     - About:
-        - 'License': 'license.md'
-        - 'Release Notes': 'release-notes.md'
+        - 'License': 'https://github.com/MaxDragonheart/OpenGeoData/blob/main/LICENSE'
+        - 'Release Notes': 'https://github.com/MaxDragonheart/OpenGeoData/releases'
 markdown_extensions:
     - smarty
     - toc:
