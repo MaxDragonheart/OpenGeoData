@@ -1,3 +1,12 @@
+![GitHub branch checks state](https://img.shields.io/github/checks-status/MaxDragonheart/OpenGeoData/main?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub milestone](https://img.shields.io/github/milestones/progress/MaxDragonheart/OpenGeoData/1?style=for-the-badge)
+![GitHub milestones](https://img.shields.io/github/milestones/open/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub Release Date](https://img.shields.io/github/release-date/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/MaxDragonheart/OpenGeoData?label=Pre-Release%20Date&style=for-the-badge)
+
 # OpenGeoData
 OpenSource project focused on sharing of geographic data to citizens and technicians.
 

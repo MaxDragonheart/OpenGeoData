@@ -3,7 +3,7 @@
 
 Start project: `poetry run python3 manage.py runserver`
 
-## Backup
+## Backup | [ref](https://docs.djangoproject.com/en/4.0/ref/django-admin/#dumpdata)
 - Usermanager
 ```markdown
 python3 manage.py dumpdata usermanager.userprofile --indent 2 > fixtures/usermanager/userprofile.json
@@ -16,7 +16,7 @@ python3 manage.py dumpdata base.siteurls --indent 2 > fixtures/base/siteurls.jso
 python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sitecustomization.json
 ```
 
-## Restore
+## Restore | [ref](https://docs.djangoproject.com/en/4.0/ref/django-admin/#loaddata)
 
 ### Globale
 ```markdown
@@ -24,4 +24,5 @@ python3 manage.py loaddata fixtures/**/*.json
 ```
 ## Translation | [ref](https://docs.djangoproject.com/en/4.0/topics/i18n/translation/#localization-how-to-create-language-files)
 Make translation file: `poetry run python3 manage.py makemessages -l en`
+
 Translate all: `poetry run python3 manage.py compilemessages`
