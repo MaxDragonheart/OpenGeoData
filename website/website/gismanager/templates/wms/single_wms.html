@@ -6,50 +6,53 @@
 
 <div class="layer-control">
 
-  <div class="control-box">
-    <div class="checkbox">
+  <div class="row control-box">
+    <div class="col-5 checkbox">
       <p class="">{{ single_object.title }}</p>
     </div>
-    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.pk }}info')">
-      <i class="fas fa-info"></i>
-    </div> -->
-{% if single_object.ogc_legend %}
-    <div class="item-legend" onclick="showHide('WMS{{ single_object.pk }}legend')">
-      <div class="tooltip">
-        <i class="fas fa-book"></i>
-        <span class="tooltiptext">{% translate "Legenda" %}</span>
-      </div>
+    <div class="col-2 text-end">
+      <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.pk }}info')">
+        <i class="fas fa-info"></i>
+      </div> -->
     </div>
+    <div class="col-2 text-end">
+{% if single_object.ogc_legend %}
+      <a class="item-legend" data-bs-toggle="collapse" href="#WMS{{ single_object.pk }}legend"
+          role="button" aria-expanded="false" aria-controls="WMS{{ single_object.pk }}legend"
+          data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Legenda" %}">
+          <i class="fas fa-book"></i>
+      </a>
 {% endif %}
-    <div class="item-controls" onclick="showHide('WMS{{ single_object.pk }}controls')">
-      <div class="tooltip">
-        <i class="fas fa-cogs"></i>
-        <span class="tooltiptext">{% translate "Controlli" %}</span>
-      </div>
     </div>
+    <div class="col-2 text-end">
+      <a class="item-controls" data-bs-toggle="collapse" href="#WMS{{ single_object.pk }}controls"
+          role="button" aria-expanded="false" aria-controls="WMS{{ single_object.pk }}controls"
+          data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Controlli" %}">
+          <i class="fas fa-cogs"></i>
+      </a>
+    </div>
+
   </div>
 
-  <div class="slider-container" id="WMS{{ single_object.pk }}controls" hidden>
-    <div class="slider">
-      <input class="slider-object" id="WMS{{ single_object.pk }}slider"
-              type="range" min="0" max="100" value="100" />
+  <div class="collapse" id="WMS{{ single_object.pk }}controls">
+    <div class="slider-container">
+      <input type="range" class="form-range"
+              min="0" max="100" value="100" id="WMS{{ single_object.pk }}slider">
+      <label class="">{% translate "Trasparenza" %}: <span id="OUTPUT{{ single_object.pk }}"></span> %</label>
     </div>
-    <p class="text-control">Opacity: <span id="OUTPUT{{ single_object.pk }}"></span> %</p>
   </div>
 
 {% if single_object.ogc_legend %}
-  <div class="legend" id="WMS{{ single_object.pk }}legend" hidden>
+  <div class="collapse" id="WMS{{ single_object.pk }}legend">
     <div id="legend{{ single_object.pk }}"></div>
   </div>
 {% endif %}
 
-  <!-- <div class="info" id="WMS{{ single_object.pk }}info" hidden>
+  <!-- <div class="" id="WMS{{ single_object.pk }}info" >
     info
   </div> -->
 
-  <table id="onclickinfo{{ single_object.pk }}"></table>
-
-
+  <table class="table table-striped" id="onclickinfo{{ single_object.pk }}"></table>
 
 </div>
 

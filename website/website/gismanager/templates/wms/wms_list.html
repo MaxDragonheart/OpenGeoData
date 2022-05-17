@@ -12,43 +12,55 @@
 
 {% for item in list %}
 <div class="ogc-card">
-  <div class="ogc-card-title">
-    <h2>{{ item.title }}</h2>
-    <p><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
-    <p><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
-    <div class="category-container">
-      {% for category in item.categories.all %}
-      <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
-      {% endfor %}
+
+    <div class="row">
+
+        <div class="col-sm-2 ogc-card-title">
+            <h3>{{ item.title }}</h3>
+            <p class="small"><strong>{% translate "Pubblicato" %}:</strong> {{ item.publishing_date }}</p>
+            <p class="small"><strong>{% translate "Aggiornato" %}:</strong> {{ item.updating_date }}</p>
+            <div class="category-container">
+              {% for category in item.categories.all %}
+              <a class="category-button" href="{{ category.get_absolute_url }}">{{ category }}</a>
+              {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-sm-8 ogc-card-description">
+            <div class="">
+              <p><strong>WMS service</strong></p>
+                <input class="copytoclipboard" type="text"
+                value="{{ item.ogc_layer_path.complete_url_wms }}" id="ogc{{ item.id }}">
+                  <button onclick="copyToClipboard('ogc{{ item.id }}')">
+                    <i class="far fa-copy"></i>
+                  </button>
+            </div>
+            <div class="">
+              <p><strong>Layer name</strong></p>
+                <input class="copytoclipboard" type="text"
+                value="{{ item.ogc_layer_name }}" id="ogcname{{ item.id }}">
+                  <button onclick="copyToClipboard('ogcname{{ item.id }}')">
+                    <i class="far fa-copy"></i>
+                  </button>
+            </div>
+            <div class="">
+                <p><strong>BBOX:</strong> {{ item.ogc_bbox }}</p>
+                <p><strong>Centroide:</strong> {{ item.ogc_centroid }}</p>
+            </div>
+        </div>
+
+        <div class="col-sm-2 text-center">
+            <div class="">
+                <img class="img-fluid ogc-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
+            </div>
+            <div class="mt-2">
+              <a class="button-viewer p-2" type="button"
+              href="{{ item.get_absolute_url }}">Map Viewer</a>
+            </div>
+        </div>
+
     </div>
-  </div>
-  <div class="ogc-card-description">
-    <div class="">
-      <p><strong>WMS service</strong></p>
-        <input class="copytoclipboard" type="text"
-        value="{{ item.ogc_layer_path.complete_url_wms }}" id="ogc{{ item.id }}">
-          <button onclick="copyToClipboard('ogc{{ item.id }}')">
-            <i class="far fa-copy"></i>
-          </button>
-    </div>
-    <div class="">
-      <p><strong>Layer name</strong></p>
-        <input class="copytoclipboard" type="text"
-        value="{{ item.ogc_layer_name }}" id="ogcname{{ item.id }}">
-          <button onclick="copyToClipboard('ogcname{{ item.id }}')">
-            <i class="far fa-copy"></i>
-          </button>
-    </div>
-    <p><strong>BBOX:</strong> {{ item.ogc_bbox }}</p>
-    <p><strong>Centroide:</strong> {{ item.ogc_centroid }}</p>
-    <div class="button-container">
-      <a class="button-viewer" type="button"
-              name="button" href="{{ item.get_absolute_url }}">Map Viewer</a>
-    </div>
-  </div>
-  <div class="ogc-card-thumbnail">
-    <img class="ogc-thumbnail" src="{{ item.header_image.url }}" alt="{{ item.description }}">
-  </div>
+
 </div>
 {% endfor %}
 

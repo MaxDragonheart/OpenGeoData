@@ -4,39 +4,47 @@
 
 <div class="layer-control">
 
-  <div class="control-box">
-    <div class="checkbox">
-      <input type="checkbox" class="" name="switch-layer"
-              id="WMS{{ single_object.main_layer.pk }}" checked>
-      <label class="checkbox-label" for="WMS{{ single_object.main_layer.pk }}">
-              {{ single_object.main_layer.title }}</label>
-    </div>
-    <!-- <div class="item-info" onclick="showHide('WMS{{ single_object.main_layer.pk }}info')">
-      <i class="fas fa-info"></i>
-    </div> -->
-    {% if single_object.main_layer.ogc_legend %}
-    <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
-      <div class="tooltip">
-        <i class="fas fa-book"></i>
-        <span class="tooltiptext">{% translate "Legenda" %}</span>
+  <div class="row control-box">
+
+    <div class="col-7 text-end checkbox">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="WMS{{ single_object.main_layer.pk }}" checked>
+        <label class="form-check-label" for="WMS{{ single_object.main_layer.pk }}">{{ single_object.main_layer.title }}</label>
       </div>
     </div>
-    {% endif %}
-    <div class="item-controls" onclick="showHide('WMS{{ single_object.main_layer.pk }}controls')">
-      <div class="tooltip">
-        <i class="fas fa-cogs"></i>
-        <span class="tooltiptext">{% translate "Controlli" %}</span>
+
+    <div class="col-2 text-end">
+{% if single_object.main_layer.ogc_legend %}
+      <div class="item-legend" onclick="showHide('WMS{{ single_object.main_layer.pk }}legend')">
+        <div class="tooltip">
+          <i class="fas fa-book"></i>
+          <span class="tooltiptext">{% translate "Legenda" %}</span>
+        </div>
       </div>
+
+      <a class="item-legend" data-bs-toggle="collapse" href="#WMS{{ single_object.main_layer.pk }}legend"
+          role="button" aria-expanded="false" aria-controls="WMS{{ single_object.main_layer.pk }}legend"
+          data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Legenda" %}">
+          <i class="fas fa-book"></i>
+      </a>
+{% endif %}
     </div>
+
+    <div class="col-2 text-end">
+      <a class="item-controls" data-bs-toggle="collapse" href="#WMS{{ single_object.main_layer.pk }}controls"
+          role="button" aria-expanded="false" aria-controls="WMS{{ single_object.main_layer.pk }}controls"
+          data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Controlli" %}">
+          <i class="fas fa-cogs"></i>
+      </a>
+    </div>
+
   </div>
 
-  <div class="controls-container" id="WMS{{ single_object.main_layer.pk }}controls" hidden>
+  <div class="collapse" id="WMS{{ single_object.main_layer.pk }}controls">
     <div class="slider-container">
-      <div class="slider">
-        <input class="slider-object" id="WMS{{ single_object.main_layer.pk }}slider"
-                type="range" min="0" max="100" value="80" />
-      </div>
-      <p class="text-control">{% translate "Trasparenza" %}: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</p>
+      <input type="range" class="form-range"
+              min="0" max="100" value="100" id="WMS{{ single_object.main_layer.pk }}slider">
+      <label class="">{% translate "Trasparenza" %}: <span id="OUTPUT{{ single_object.main_layer.pk }}"></span> %</label>
     </div>
     <div class="counter-container">
       <div class="counter" id="">
@@ -45,7 +53,7 @@
                 placeholder="{% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}1{% endif %}"
                 value="{% if single_object.main_layer.set_index %}{{ single_object.main_layer.set_index }}{% else %}1{% endif %}">
       </div>
-      <p class="text-control">z-Index</p>
+      <label class="">z-Index</label>
     </div>
   </div>
 
@@ -54,12 +62,12 @@
   </div>
 
   {% if single_object.main_layer.ogc_legend %}
-  <div class="legend" id="WMS{{ single_object.main_layer.pk }}legend" hidden>
+  <div class="collapse" id="WMS{{ single_object.main_layer.pk }}legend">
     <div id="legend{{ single_object.main_layer.pk }}"></div>
   </div>
   {% endif %}
 
-  <table id="onclickinfo{{ single_object.main_layer.pk }}"></table>
+  <table class="table table-striped" id="onclickinfo{{ single_object.main_layer.pk }}"></table>
 
 </div>
 

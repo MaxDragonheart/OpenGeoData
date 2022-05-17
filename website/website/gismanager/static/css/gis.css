@@ -1,5 +1,5 @@
 .site-main {
-  height: 50vh !important;
+  height: 80vh;
 }
 .map-container {
   display: grid;
@@ -25,8 +25,6 @@
   margin: 0.5vh 0.5vw 0.5vh 0.5vw;
 }
 .control-box {
-  display: grid;
-  grid-template-columns: 70% 10% 10% 10%;
   width: 100%;
   padding: 1vh 0 1vh 0;
   border-top-style: solid;
@@ -49,21 +47,19 @@
   padding-bottom: 10px;
 }
 .custom-scaleline-container {
-  /* padding: 5px !important; */
-  /* margin: 5px !important; */
+
 }
 .scaleline-object {
   padding: 5px !important;
 }
 .controls-container {
-  /* display: grid;
-  grid-template-columns: 75% 25%; */
+
 }
 .checkbox-label {
-  /* margin-left: 1vw; */
+
 }
 .slider-container, .counter-container {
-  padding: 1vh 1vw 1vh 1vw; /* top right bottom left */
+  padding: 1vh 1vw 1vh 1vw; !* top right bottom left *!
 }
 .slider, .slider-object, .counter-object {
   padding: 0;

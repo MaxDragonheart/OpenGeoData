@@ -8,8 +8,8 @@
 {% endblock component-style %}
 
 {% block page %}
-<div class="login-container">
-  <div class="login-area">
+<div class="container">
+  <div class="text-center">
     <div class="">
       <h1 class="">{% translate "Accedi all\'area di amminstrazione" %}</h1>
     </div>
@@ -35,19 +35,19 @@
       {% endif %}
     </div>
 
-    <div class="">
+    <div class="d-flex justify-content-center">
       <form class="" action="{% url 'login' %}"  method="POST">
         {% csrf_token %}
-        <table class="">
-          <tr>
-            <th scope="col">{{ form.username.label_tag }}</th>
-            <th scope="col">{{ form.password.label_tag }}</th>
-          </tr>
-          <tr>
-            <td>{{ form.username }}</td>
-            <td>{{ form.password }}</td>
-          </tr>
-        </table>
+          <div class="row">
+              <div class="col-sm-6">
+                <p>{{ form.username.label_tag }}</p>
+                {{ form.username }}
+              </div>
+              <div class="col-sm-6">
+                <p>{{ form.password.label_tag }}</p>
+                {{ form.password }}
+              </div>
+          </div>
         <div class="">
           <input type="submit" class="button" value="{% translate "Entra" %}">
           <input type="hidden" name="next" value="{{ next }}">

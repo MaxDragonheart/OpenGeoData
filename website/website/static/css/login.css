@@ -1,9 +1,1 @@
-.login-container {
 
-}
-.login-area {
-  display: grid;
-  grid-template-columns: 10% 5% 25% 60%;
-  width: 100%;
-  height: 100%;
-}
