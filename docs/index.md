@@ -27,16 +27,7 @@ If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geose
     -> Production ```docker-compose -f docker-compose.yml up -d --build```
 
 4. Run project: ```docker exec -it <containerID> bash```
-5. Choice if the project runs with initial data(*a*) or not(*b*).
-
-    a. Use initial demo data: ```./initial_data.sh```
-
-    b. Start empty project:
-    ```
-    ./build_tables_and_collectstatics.sh
-    python3 website/manage.py createsuperuser
-    ```
-   
+5. Make DB's tables and collect all statis files:  ```./migrate-collectstic.sh```
 6. Share your geographic data :)
 
 ## Roadmap
