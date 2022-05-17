@@ -11,7 +11,7 @@ FROM gis-os as project-dependencies
 # Set work directory
 WORKDIR /app/web
 # Environment variables
-ARG PROJECT_NAME=personalwebsite
+ARG PROJECT_NAME=opengeodata
 ENV ENV_NAME=${PROJECT_NAME} \
     # Pip
     PIP_NO_CACHE_DIR=off \
