@@ -19,7 +19,7 @@ If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geose
 
 ## Building the image
 1. Clone the repository: ```git clone git@github.com:MaxDragonheart/OpenGeoData.git```
-2. Edit the [env](.env) file with your own settings.
+2. Edit the [env](https://github.com/MaxDragonheart/OpenGeoData/blob/main/.env) file with your own settings.
 3. Build the image:
 
     -> Staging ```docker-compose -f docker-compose-dev.yml up -d --build```
