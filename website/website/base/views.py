@@ -64,10 +64,14 @@ def organogram(request):
     Returns:
         JSON
     """
-    data = Organogram.objects.filter(id=1)
-
-    context = {
-        "object": data,
-    }
+    data = Organogram.objects.all()
+    if data:
+        context = {
+            "contents": data[0],
+        }
+    else:
+        context = {
+            "contents": _("Aggiungi contenuti"),
+        }
     template = "organogram.html"
     return render(request, template, context)

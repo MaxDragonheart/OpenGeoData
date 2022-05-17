@@ -15,10 +15,10 @@ urlpatterns = [
     path('', include('core.urls')),
 ]
 
-urlpatterns += i18n_patterns(
+urlpatterns += [
     path(_('risultati/'), search, name='search-results'),
     path(_('organigramma/'), organogram, name='organogram')
-)
+]
 
 
 if settings.DEBUG:

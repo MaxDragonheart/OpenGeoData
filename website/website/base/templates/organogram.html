@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 
 {% block page %}
-
-<h1>{{ object.title }}</h1>
-
+<div class="container">
+  <h1>{{ contents.title }}</h1>
+  <article class="">
+    {{ contents.contents|safe }}
+  </article>
+</div>
 {% endblock page %}
