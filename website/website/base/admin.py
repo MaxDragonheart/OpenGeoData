@@ -58,7 +58,7 @@ class OrganogramAdmin(admin.ModelAdmin):
     list_display = ["title"]
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = [
-                (None, {"fields": ["title", "slug", "description", "site", "contents"]}),
+                (None, {"fields": ["title", "slug", "description", "contents"]}),
             ]
 
     class Meta:

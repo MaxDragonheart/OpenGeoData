@@ -5,7 +5,8 @@ from django.urls import path, include
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext as _
 
-from gismanager import views
+from gismanager.views import search
+from base.views import organogram
 
 urlpatterns = [
     path(f'{settings.ADMIN_PANEL}/', include([
@@ -15,7 +16,8 @@ urlpatterns = [
 ]
 
 urlpatterns += i18n_patterns(
-    path(_('risultati/'), views.search, name='search-results')
+    path(_('risultati/'), search, name='search-results'),
+    path(_('organigramma/'), organogram, name='organogram')
 )
 
 

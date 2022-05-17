@@ -94,7 +94,6 @@ class Organogram(BaseModelPost):
     Organogram Model inherits BaseModelPost for create the informations relative to
     the organogram of the organization.
     """
-    site = models.ForeignKey(SiteCustomization, on_delete=models.CASCADE, related_name="releted_sitedetails", default=1)
     contents = models.TextField()
 
     def __str__(self):
