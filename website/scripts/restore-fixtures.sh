@@ -17,6 +17,7 @@ python3 ./website/manage.py loaddata ./website/fixtures/base/sharedcategories.js
 python3 ./website/manage.py loaddata ./website/fixtures/base/sitesocialurls.json
 python3 ./website/manage.py loaddata ./website/fixtures/base/siteurls.json
 python3 ./website/manage.py loaddata ./website/fixtures/base/sitecustomization.json
+python3 ./website/manage.py loaddata ./website/fixtures/base/organogram.json
 
 # GisManager
 echo "- restore data for GisManager"

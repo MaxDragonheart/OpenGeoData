@@ -4,24 +4,11 @@
 Start project: `poetry run python3 manage.py runserver`
 
 ## Backup | [ref](https://docs.djangoproject.com/en/4.0/ref/django-admin/#dumpdata)
-- Usermanager
-```markdown
-python3 manage.py dumpdata usermanager.userprofile --indent 2 > fixtures/usermanager/userprofile.json
-```
-- Base
-```markdown
-python3 manage.py dumpdata sites --indent 2 > fixtures/base/sites.json
-python3 manage.py dumpdata base.sitesocialurls --indent 2 > fixtures/base/sitesocialurls.json
-python3 manage.py dumpdata base.siteurls --indent 2 > fixtures/base/siteurls.json
-python3 manage.py dumpdata base.sitecustomization --indent 2 > fixtures/base/sitecustomization.json
-```
+Use [local_backup_fixtures.sh](https://github.com/MaxDragonheart/OpenGeoData/blob/main/website/scripts/local_backup_fixtures.sh) if you are in staging or [backup-fixtures.sh](https://github.com/MaxDragonheart/OpenGeoData/blob/main/website/scripts/backup-fixtures.sh) if you are in production.
 
 ## Restore | [ref](https://docs.djangoproject.com/en/4.0/ref/django-admin/#loaddata)
+Use [local_restore_fixtures.sh](https://github.com/MaxDragonheart/OpenGeoData/blob/main/website/scripts/local_restore_fixtures.sh) if you are in staging or [restore-fixtures.sh](https://github.com/MaxDragonheart/OpenGeoData/blob/main/website/scripts/restore-fixtures.sh) if you are in production.
 
-### Globale
-```markdown
-python3 manage.py loaddata fixtures/**/*.json
-```
 ## Translation | [ref](https://docs.djangoproject.com/en/4.0/topics/i18n/translation/#localization-how-to-create-language-files)
 Make translation file: `poetry run python3 manage.py makemessages -l en`
 

@@ -12,6 +12,7 @@ python3 ./website/manage.py dumpdata base.sharedcategories --indent 2 > ./websit
 python3 ./website/manage.py dumpdata base.sitesocialurls --indent 2 > ./website/fixtures/base/sitesocialurls.json
 python3 ./website/manage.py dumpdata base.siteurls --indent 2 > ./website/fixtures/base/siteurls.json
 python3 ./website/manage.py dumpdata base.sitecustomization --indent 2 > ./website/fixtures/base/sitecustomization.json
+python3 ./website/manage.py dumpdata base.organogram --indent 2 > ./website/fixtures/base/organogram.json
 
 # GisManager
 echo "- make fixtures for GisManager"
