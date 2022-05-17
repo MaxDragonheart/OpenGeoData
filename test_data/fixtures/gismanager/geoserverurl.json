@@ -1,0 +1,13 @@
+[
+{
+  "model": "gismanager.geoserverurl",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-03T11:18:18Z",
+    "updating_date": "2022-05-03T11:23:04.245Z",
+    "timestamp": "2022-05-03T11:19:31.743Z",
+    "geoserver_domain": "https://geoserver.massimilianomoraca.me",
+    "geoserver_workspace": "MassimilianoMoraca"
+  }
+}
+]

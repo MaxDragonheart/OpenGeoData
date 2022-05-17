@@ -1,0 +1,37 @@
+[
+{
+  "model": "gismanager.webgisproject",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-04T12:25:11Z",
+    "updating_date": "2022-05-04T12:27:15.742Z",
+    "timestamp": "2022-05-04T12:27:15.742Z",
+    "title": "RGB e NDVI Campania",
+    "slug": "rgb-e-ndvi-campania",
+    "header_image": "images/2022/05/04/background_image.png",
+    "description": "RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Campania RGB e NDVI Camp",
+    "contents": "Mappa con RGB e NDVI della Campania",
+    "draft": false,
+    "highlighted": false,
+    "map_scaleline": true,
+    "map_attribution": "<a href=\"https://massimilianomoraca.it/\" target=\"_blank\">Massimiliano Moraca</a> has created this map using <a href=\"https://openlayers.org/\" target=\"_blank\">OpenLayers</a>",
+    "map_center_longitude": "14.23964",
+    "map_center_latitude": "40.84290",
+    "set_max_zoom": 28,
+    "set_min_zoom": 0,
+    "set_zoom_level": 0,
+    "basemap1": null,
+    "basemap2": null,
+    "basemap3": null,
+    "main_layer": 1,
+    "categories": [
+      2,
+      15,
+      13
+    ],
+    "layers": [
+      2
+    ]
+  }
+}
+]

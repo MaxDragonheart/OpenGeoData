@@ -1,0 +1,478 @@
+[
+{
+  "model": "base.sharedcategories",
+  "pk": 1,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.057Z",
+    "updating_date": "2022-05-02T14:52:28.057Z",
+    "timestamp": "2022-05-02T14:52:28.057Z",
+    "title": "Addresses",
+    "slug": "addresses",
+    "description": "Location of properties based on address identifiers, usually by road name, house number, postal code.",
+    "icon": "default/icons/001-address.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 2,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.058Z",
+    "updating_date": "2022-05-02T14:52:28.058Z",
+    "timestamp": "2022-05-02T14:52:28.058Z",
+    "title": "Administrative units",
+    "slug": "administrative-units",
+    "description": "Units of administration, dividing areas where Member States have and/or exercise jurisdictional rights, for local, regional and national governance, separated by administrative boundaries.",
+    "icon": "default/icons/002-united-arab-emirates.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 3,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.058Z",
+    "updating_date": "2022-05-02T14:52:28.058Z",
+    "timestamp": "2022-05-02T14:52:28.058Z",
+    "title": "Cadastral parcels",
+    "slug": "cadastral-parcels",
+    "description": "Areas defined by cadastral registers or equivalent.",
+    "icon": "default/icons/002-united-arab-emirates.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 4,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.058Z",
+    "updating_date": "2022-05-02T14:52:28.059Z",
+    "timestamp": "2022-05-02T14:52:28.059Z",
+    "title": "Geographical grid system",
+    "slug": "geographical-grid-system",
+    "description": "Harmonised multi-resolution grid with a common point of origin and standardised location and size of grid cells.",
+    "icon": "default/icons/003-world.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 5,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.059Z",
+    "updating_date": "2022-05-02T14:52:28.059Z",
+    "timestamp": "2022-05-02T14:52:28.059Z",
+    "title": "Geographical names",
+    "slug": "geographical-names",
+    "description": "Names of areas, regions, localities, cities, suburbs, towns or settlements, or any geographical or topographical feature of public or historical interest.",
+    "icon": "default/icons/004-signpost.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 6,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.059Z",
+    "updating_date": "2022-05-02T14:52:28.059Z",
+    "timestamp": "2022-05-02T14:52:28.059Z",
+    "title": "Hydrography",
+    "slug": "hydrography",
+    "description": "Hydrographic elements, including marine areas and all other water bodies and items related to them, including river basins and sub-basins.",
+    "icon": "default/icons/005-river.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 7,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.060Z",
+    "updating_date": "2022-05-02T14:52:28.060Z",
+    "timestamp": "2022-05-02T14:52:28.060Z",
+    "title": "Protected sites",
+    "slug": "protected-sites",
+    "description": "Area designated or managed within a framework of international, Community and Member States' legislation to achieve specific conservation objectives.",
+    "icon": "default/icons/006-wild-harvested-ingredients.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 8,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.060Z",
+    "updating_date": "2022-05-02T14:52:28.060Z",
+    "timestamp": "2022-05-02T14:52:28.060Z",
+    "title": "Coordinate reference systems",
+    "slug": "coordinate-reference-systems",
+    "description": "Systems for uniquely referencing spatial information in space as a set of coordinates (x, y, z) and/or latitude and longitude and height, based on a geodetic horizontal and vertical datum.",
+    "icon": "default/icons/007-coordinates.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 9,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.061Z",
+    "updating_date": "2022-05-02T14:52:28.061Z",
+    "timestamp": "2022-05-02T14:52:28.061Z",
+    "title": "Transport networks",
+    "slug": "transport-networks",
+    "description": "Road, rail, air and water transport networks and related infrastructure. Includes links between different networks.",
+    "icon": "default/icons/008-infrastructure.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 10,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.061Z",
+    "updating_date": "2022-05-02T14:52:28.061Z",
+    "timestamp": "2022-05-02T14:52:28.061Z",
+    "title": "Elevation",
+    "slug": "elevation",
+    "description": "Digital elevation models for land, ice and ocean surface. Includes terrestrial elevation, bathymetry and shoreline.",
+    "icon": "default/icons/009-topographic.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 11,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.061Z",
+    "updating_date": "2022-05-02T14:52:28.062Z",
+    "timestamp": "2022-05-02T14:52:28.062Z",
+    "title": "Geology",
+    "slug": "geology",
+    "description": "Geology characterised according to composition and structure. Includes bedrock, aquifers and geomorphology.",
+    "icon": "default/icons/010-geological.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 12,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.062Z",
+    "updating_date": "2022-05-02T14:52:28.062Z",
+    "timestamp": "2022-05-02T14:52:28.062Z",
+    "title": "Land cover",
+    "slug": "land-cover",
+    "description": "Physical and biological cover of the earth's surface including artificial surfaces, agricultural areas, forests, (semi-)natural areas, wetlands, water bodies.",
+    "icon": "default/icons/011-allocate.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 13,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.062Z",
+    "updating_date": "2022-05-02T14:52:28.062Z",
+    "timestamp": "2022-05-02T14:52:28.062Z",
+    "title": "Orthoimagery",
+    "slug": "orthoimagery",
+    "description": "Geo-referenced image data of the Earth's surface, from either satellite or airborne sensors.",
+    "icon": "default/icons/012-map.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 14,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.062Z",
+    "updating_date": "2022-05-02T14:52:28.063Z",
+    "timestamp": "2022-05-02T14:52:28.063Z",
+    "title": "Atmospheric conditions",
+    "slug": "atmospheric-conditions",
+    "description": "Physical conditions in the atmosphere. Includes spatial data based on measurements, on models or on a combination thereof and includes measurement locations.",
+    "icon": "default/icons/013-meteorology.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 15,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.063Z",
+    "updating_date": "2022-05-02T14:52:28.063Z",
+    "timestamp": "2022-05-02T14:52:28.063Z",
+    "title": "Agricultural and acquaculture facilities",
+    "slug": "agricultural-and-acquaculture-facilities",
+    "description": "Farming equipment and production facilities (including irrigation systems, greenhouses and stables).",
+    "icon": "default/icons/014-fish.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 16,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.063Z",
+    "updating_date": "2022-05-02T14:52:28.063Z",
+    "timestamp": "2022-05-02T14:52:28.063Z",
+    "title": "Area management, restriction and regulation",
+    "slug": "area-management-restriction-and-regulation",
+    "description": "Areas managed, regulated or used for reporting at international, European, national, regional and local levels.",
+    "icon": "default/icons/015-land.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 17,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.064Z",
+    "updating_date": "2022-05-02T14:52:28.064Z",
+    "timestamp": "2022-05-02T14:52:28.064Z",
+    "title": "Bio-geographical regions",
+    "slug": "bio-geographical-regions",
+    "description": "Areas of relatively homogeneous ecological conditions with common characteristics.",
+    "icon": "default/icons/016-land-1.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 18,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.064Z",
+    "updating_date": "2022-05-02T14:52:28.064Z",
+    "timestamp": "2022-05-02T14:52:28.064Z",
+    "title": "Buildings",
+    "slug": "buildings",
+    "description": "Geographical location of buildings.",
+    "icon": "default/icons/017-buildings.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 19,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.065Z",
+    "updating_date": "2022-05-02T14:52:28.065Z",
+    "timestamp": "2022-05-02T14:52:28.065Z",
+    "title": "Environmental monitoring facilities",
+    "slug": "environmental-monitoring-facilities",
+    "description": "Location and operation of environmental monitoring facilities includes observation and measurement of emissions, of the state of environmental media and of other ecosystem parameters.",
+    "icon": "default/icons/018-system.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 20,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.065Z",
+    "updating_date": "2022-05-02T14:52:28.065Z",
+    "timestamp": "2022-05-02T14:52:28.065Z",
+    "title": "Energy resources",
+    "slug": "energy-resources",
+    "description": "Energy resources including hydrocarbons, hydropower, bio-energy, solar, wind, etc., where relevant including depth/height information on the extent of the resource.",
+    "icon": "default/icons/019-renewable-energy.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 21,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.065Z",
+    "updating_date": "2022-05-02T14:52:28.066Z",
+    "timestamp": "2022-05-02T14:52:28.066Z",
+    "title": "Habitats and biotopes",
+    "slug": "habitats-and-biotopes",
+    "description": "Geographical areas characterised by specific ecological conditions, processes, structure, and (life support) functions that physically support the organisms that live there.",
+    "icon": "default/icons/020-owl.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 22,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.066Z",
+    "updating_date": "2022-05-02T14:52:28.066Z",
+    "timestamp": "2022-05-02T14:52:28.066Z",
+    "title": "Human health and safety",
+    "slug": "human-health-and-safety",
+    "description": "Geographical distribution of dominance of pathologies (allergies, cancers, respiratory diseases, etc.), information indicating the effect on health (biomarkers, decline of fertility, epidemics) or well-being of humans.",
+    "icon": "default/icons/021-hospital-sign.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 23,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.066Z",
+    "updating_date": "2022-05-02T14:52:28.066Z",
+    "timestamp": "2022-05-02T14:52:28.066Z",
+    "title": "Land use",
+    "slug": "land-use",
+    "description": "Territory characterised according to its current and future planned functional dimension or socio-economic purpose (e.g. residential, industrial, commercial, agricultural, forestry, recreational).",
+    "icon": "default/icons/022-cityscape.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 24,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.067Z",
+    "updating_date": "2022-05-02T14:52:28.067Z",
+    "timestamp": "2022-05-02T14:52:28.067Z",
+    "title": "Meteorological geographical features",
+    "slug": "meteorological-geographical-features",
+    "description": "Weather conditions and their measurements.",
+    "icon": "default/icons/013-meteorology.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 25,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.067Z",
+    "updating_date": "2022-05-02T14:52:28.067Z",
+    "timestamp": "2022-05-02T14:52:28.067Z",
+    "title": "Mineral resources",
+    "slug": "mineral-resources",
+    "description": "Mineral resources including metal ores, industrial minerals, etc., where relevant including depth/height information on the extent of the resource.",
+    "icon": "default/icons/023-coal.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 26,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.067Z",
+    "updating_date": "2022-05-02T14:52:28.068Z",
+    "timestamp": "2022-05-02T14:52:28.068Z",
+    "title": "Natural risk zones",
+    "slug": "natural-risk-zones",
+    "description": "Vulnerable areas characterised according to natural hazards (all atmospheric, hydrologic, seismic, volcanic and wildfire phenomena that, because of their location, severity, and frequency, have the potential to seriously affect society).",
+    "icon": "default/icons/024-volcano.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 27,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.068Z",
+    "updating_date": "2022-05-02T14:52:28.068Z",
+    "timestamp": "2022-05-02T14:52:28.068Z",
+    "title": "Oceanographic geographical features",
+    "slug": "oceanographic-geographical-features",
+    "description": "Physical conditions of oceans (currents, salinity, wave heights, etc.).",
+    "icon": "default/icons/025-wave.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 28,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.068Z",
+    "updating_date": "2022-05-02T14:52:28.068Z",
+    "timestamp": "2022-05-02T14:52:28.068Z",
+    "title": "Population distribution - demography",
+    "slug": "population-distribution-demography",
+    "description": "Geographical distribution of people, including population characteristics and activity levels, aggregated by grid, region, administrative unit or other analytical unit.",
+    "icon": "default/icons/026-population.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 29,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.068Z",
+    "updating_date": "2022-05-02T14:52:28.069Z",
+    "timestamp": "2022-05-02T14:52:28.069Z",
+    "title": "Production and industrial facilities",
+    "slug": "production-and-industrial-facilities",
+    "description": "Industrial production sites, including installations covered by Council Directive 96/61/EC of 24 September 1996 concerning integrated pollution prevention and control and water abstraction facilities, mining, storage sites.",
+    "icon": "default/icons/027-factory.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 30,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.069Z",
+    "updating_date": "2022-05-02T14:52:28.069Z",
+    "timestamp": "2022-05-02T14:52:28.069Z",
+    "title": "Species distribution",
+    "slug": "species-distribution",
+    "description": "Geographical distribution of occurrence of animal and plant species aggregated by grid, region, administrative unit or other analytical unit.",
+    "icon": "default/icons/028-nature.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 31,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.069Z",
+    "updating_date": "2022-05-02T14:52:28.069Z",
+    "timestamp": "2022-05-02T14:52:28.069Z",
+    "title": "Soil",
+    "slug": "soil",
+    "description": "Soils and subsoil characterised according to depth, texture, structure and content of particles and organic material, stoniness, erosion, where appropriate mean slope and anticipated water storage capacity.",
+    "icon": "default/icons/029-soil.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 32,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.070Z",
+    "updating_date": "2022-05-02T14:52:28.070Z",
+    "timestamp": "2022-05-02T14:52:28.070Z",
+    "title": "Sea regions",
+    "slug": "sea-regions",
+    "description": "Physical conditions of seas and saline water bodies divided into regions and sub-regions with common characteristics.",
+    "icon": "default/icons/030-placeholder.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 33,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.070Z",
+    "updating_date": "2022-05-02T14:52:28.070Z",
+    "timestamp": "2022-05-02T14:52:28.070Z",
+    "title": "Statistical units",
+    "slug": "statistical-units",
+    "description": "Units for dissemination or use of statistical information.",
+    "icon": "default/icons/031-statistics.png",
+    "is_active": true
+  }
+},
+{
+  "model": "base.sharedcategories",
+  "pk": 34,
+  "fields": {
+    "publishing_date": "2022-05-02T14:52:28.070Z",
+    "updating_date": "2022-05-02T14:52:28.070Z",
+    "timestamp": "2022-05-02T14:52:28.070Z",
+    "title": "Utility and governmental services",
+    "slug": "utility-and-governmental-services",
+    "description": "Includes utility facilities such as sewage, waste management, energy supply and water supply, administrative and social governmental services such as public administrations, civil protection sites, schools and hospitals.",
+    "icon": "default/icons/032-government.png",
+    "is_active": true
+  }
+}
+]
