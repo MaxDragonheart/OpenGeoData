@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-15 20:06+0200\n"
+"POT-Creation-Date: 2022-05-17 17:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: base/templates/shared-categories/single_shared_categories.html:19
-#: gismanager/templates/search_results.html:19
-#: gismanager/templates/webgis/webgis_list.html:17
-#: gismanager/templates/wms/wms_list.html:17
+#: base/templates/shared-categories/single_shared_categories.html:22
+#: gismanager/templates/search_results.html:22
+#: gismanager/templates/webgis/webgis_list.html:20
+#: gismanager/templates/wms/wms_list.html:20
 msgid "Pubblicato"
 msgstr "Published at"
 
-#: base/templates/shared-categories/single_shared_categories.html:20
-#: gismanager/templates/search_results.html:20
-#: gismanager/templates/webgis/webgis_list.html:18
-#: gismanager/templates/wms/wms_list.html:18
+#: base/templates/shared-categories/single_shared_categories.html:23
+#: gismanager/templates/search_results.html:23
+#: gismanager/templates/webgis/webgis_list.html:21
+#: gismanager/templates/wms/wms_list.html:21
 msgid "Aggiornato"
 msgstr "Updated at"
 
@@ -36,36 +36,26 @@ msgstr "Updated at"
 msgid "lista"
 msgstr "List"
 
-#: gismanager/templates/components/card/wms.html:5
-msgid "Servizio WMS"
-msgstr "WMS service"
+#: base/views.py:76
+msgid "Aggiungi contenuti"
+msgstr "Add contents"
 
-#: gismanager/templates/components/card/wms.html:13
-msgid "Layer"
-msgstr "Layer"
-
-#: gismanager/templates/components/card/wms.html:20
-msgid "BBOX"
-msgstr "BBOX"
-
-#: gismanager/templates/components/card/wms.html:21
-msgid "Centroide"
-msgstr "Centroid"
-
-#: gismanager/templates/components/wms/controls.html:23
+#: gismanager/templates/components/wms/controls.html:25
 #: gismanager/templates/components/wms/main_layer_controls.html:21
-#: gismanager/templates/wms/single_wms.html:20
+#: gismanager/templates/components/wms/main_layer_controls.html:27
+#: gismanager/templates/wms/single_wms.html:22
 msgid "Legenda"
 msgstr "Legend"
 
-#: gismanager/templates/components/wms/controls.html:31
-#: gismanager/templates/components/wms/main_layer_controls.html:28
-#: gismanager/templates/wms/single_wms.html:27
+#: gismanager/templates/components/wms/controls.html:34
+#: gismanager/templates/components/wms/main_layer_controls.html:36
+#: gismanager/templates/wms/single_wms.html:30
 msgid "Controlli"
 msgstr "Controls"
 
-#: gismanager/templates/components/wms/controls.html:42
-#: gismanager/templates/components/wms/main_layer_controls.html:39
+#: gismanager/templates/components/wms/controls.html:45
+#: gismanager/templates/components/wms/main_layer_controls.html:47
+#: gismanager/templates/wms/single_wms.html:41
 msgid "Trasparenza"
 msgstr "Opacity"
 
@@ -81,44 +71,49 @@ msgstr "WMS List"
 msgid "Lista delle mappe"
 msgstr "Map List"
 
-#: templates/components/site_footer.html:7
+#: templates/components/site_footer.html:8
 msgid "Sede"
 msgstr "Headquarters"
 
-#: templates/components/site_footer.html:14
+#: templates/components/site_footer.html:15
 msgid "Contatti"
 msgstr "Contacts"
 
-#: templates/components/site_footer.html:23
+#: templates/components/site_footer.html:24
 msgid "Collegamenti"
 msgstr "Links"
 
-#: templates/components/site_footer.html:30
+#: templates/components/site_footer.html:31
+#: templates/components/site_navbar.html:35
+msgid "Organigramma"
+msgstr "Organogram"
+
+#: templates/components/site_footer.html:32
+msgid "Mappa del sito"
+msgstr "Sitemap"
+
+#: templates/components/site_footer.html:34
 msgid "Pannello di amministrazione"
 msgstr "Administration panel"
 
-#: templates/components/site_footer.html:31
+#: templates/components/site_footer.html:35
 msgid "Esci"
 msgstr "Log-out"
 
-#: templates/components/site_footer.html:33
+#: templates/components/site_footer.html:37
 #: templates/registration/login.html:52
 msgid "Entra"
 msgstr "Log-in"
 
-#: templates/components/site_footer.html:35
-msgid "Mappa del sito"
-msgstr "Sitemap"
-
-#: templates/components/site_navbar.html:8
+#: templates/components/site_navbar.html:9
 msgid "Cerca.."
 msgstr "Search.."
 
-#: templates/components/site_navbar.html:30
+#: templates/components/site_navbar.html:38
 msgid "WMS"
 msgstr "WMS"
 
-#: templates/components/site_navbar.html:31
+#: templates/components/site_navbar.html:41
 msgid "Mappe"
 msgstr "Maps"
 
@@ -154,6 +149,10 @@ msgstr ""
 msgid "Effettua il l\\'accesso per consultare questa pagina."
 msgstr "Please login to see this page."
 
-#: website/urls.py:18
+#: website/urls.py:19
 msgid "risultati/"
 msgstr "results/"
+
+#: website/urls.py:20
+msgid "organigramma/"
+msgstr "organogram/"

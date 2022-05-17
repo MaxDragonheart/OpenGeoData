@@ -28,6 +28,7 @@
                 <li><p><a class="link" href="{{ link.url }}" target="_blank">{{ link.name }}</a></p></li>
                 {% endfor %}
                 <li><p><a class="link" href="{% url 'index' %}">Home</a>
+                <li><p><a class="link" href="{% url 'organogram' %}">{% translate 'Organigramma' %}</a></p></li>
                 <li><p><a class="link" href="{% url 'sitemap' %}">{% translate 'Mappa del sito' %}</a></p></li>
                 {% if request.user.is_authenticated %}
                 <li><p><a class="link" href="{% url 'admin:index' %}">{% translate 'Pannello di amministrazione' %}</a></p></li>

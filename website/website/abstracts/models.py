@@ -30,18 +30,6 @@ def size(field):
     return f"{value} {unit}"
 
 
-# TODO Develop this function
-# def extension(field):
-#     """Get the extension from file.
-#
-#     :param field:
-#     :return:
-#     """
-#
-#     extension = ""
-#     return extension
-
-
 class TimeManager(models.Model):
     """
     TimeManager Abstract Model is useful to define when:

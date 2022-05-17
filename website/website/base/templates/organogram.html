@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block page %}
+<div class="container">
+  <h1>{{ contents.title }}</h1>
+  <article class="">
+    {{ contents.contents|safe }}
+  </article>
+</div>
+{% endblock page %}
