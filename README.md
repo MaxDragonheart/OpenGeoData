@@ -1,4 +1,3 @@
-![GitHub branch checks state](https://img.shields.io/github/checks-status/MaxDragonheart/OpenGeoData/main?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/MaxDragonheart/OpenGeoData?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/MaxDragonheart/OpenGeoData?style=for-the-badge)
 ![GitHub milestones](https://img.shields.io/github/milestones/open/MaxDragonheart/OpenGeoData?style=for-the-badge)
