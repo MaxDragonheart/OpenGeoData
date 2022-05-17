@@ -18,4 +18,4 @@ object_contents = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' \
                      'Etiam suscipit commodo massa id laoreet. Nullam eleifend eget elit et ' \
                      'interdum. Nulla euismod metus nec enim consectetur pharetra sit amet at metus.'
 object_published_date = '2022-05-17 12:00:00'
-
+object_url = 'https://github.com/MaxDragonheart'
