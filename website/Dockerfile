@@ -32,7 +32,7 @@ RUN poetry config virtualenvs.create false \
 FROM project-dependencies as opengeodataproject
 ARG DEBUG=on
 ARG ALLOWED_HOSTS=*
-ARG SECRET_KEY=django-insecure-#vvw^xj9ri$bioj8d1j7rr@dy!$656rxq=!$4a^6dlqlav7-(f
+ARG SECRET_KEY=test_secret_key
 ARG DB_ENGINE=django.contrib.gis.db.backends.postgis
 ARG DB_NAME=test_db_docker
 ARG DB_USER=postgres
