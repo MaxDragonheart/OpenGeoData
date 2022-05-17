@@ -1,3 +1,12 @@
+![GitHub branch checks state](https://img.shields.io/github/checks-status/MaxDragonheart/OpenGeoData/main?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub milestone](https://img.shields.io/github/milestones/progress/MaxDragonheart/OpenGeoData/1?style=for-the-badge)
+![GitHub milestones](https://img.shields.io/github/milestones/open/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub Release Date](https://img.shields.io/github/release-date/MaxDragonheart/OpenGeoData?style=for-the-badge)
+![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/MaxDragonheart/OpenGeoData?label=Pre-Release%20Date&style=for-the-badge)
+
 # OpenGeoData
 OpenSource project focused on sharing of geographic data to citizens and technicians.
 
@@ -13,21 +22,12 @@ If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geose
 2. Edit the [env](.env) file with your own settings.
 3. Build the image:
 
-    -> Development ```docker-compose -f docker-compose-dev.yml up -d --build```
+    -> Staging ```docker-compose -f docker-compose-dev.yml up -d --build```
     
     -> Production ```docker-compose -f docker-compose.yml up -d --build```
 
 4. Run project: ```docker exec -it <containerID> bash```
-5. Choice if the project runs with initial data(*a*) or not(*b*).
-
-    a. Use initial demo data: ```./initial_data.sh```
-
-    b. Start empty project:
-    ```
-    ./build_tables_and_collectstatics.sh
-    python3 website/manage.py createsuperuser
-    ```
-   
+5. Make DB's tables and collect all statis files:  ```./migrate-collectstic.sh```
 6. Share your geographic data :)
 
 ## Roadmap
