@@ -18,36 +18,16 @@ OpenGeoData use [Django](https://www.djangoproject.com/), born as cloud based pl
 If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geoserver) dockerized version for build you project.
 
 ## Building the image
-1. Clone the repository:
-```markdown
-git clone git@github.com:MaxDragonheart/OpenGeoData.git
-```
+1. Clone the repository: ```git clone git@github.com:MaxDragonheart/OpenGeoData.git```
 2. Edit the [env](.env) file with your own settings.
 3. Build the image:
 
-    Development
-    ```markdown
-    docker-compose -f docker-compose-dev.yml up -d --build
-    ```
-    Production
-    ```markdown
-    docker-compose -f docker-compose.yml up -d --build
-    ```
-4. Run project
-    ```markdown
-   docker exec -it <containerID> bash
-    ```
-5. Choice if the project runs with initial data(*a*) or not(*b*).
-    a. Use initial demo data:
-    ```markdown
-    ./initial_data.sh
-    ```
+    -> Staging ```docker-compose -f docker-compose-dev.yml up -d --build```
     
-    b. Start empty project:
-    ```markdown
-    ./build_tables_and_collectstatics.sh
-    python3 website/manage.py createsuperuser
-    ```
+    -> Production ```docker-compose -f docker-compose.yml up -d --build```
+
+4. Run project: ```docker exec -it <containerID> bash```
+5. Make DB's tables and collect all statis files:  ```./migrate-collectstic.sh```
 6. Share your geographic data :)
 
 ## Guide and tips
