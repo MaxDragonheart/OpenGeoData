@@ -9,37 +9,40 @@
   {% if wms.pk != single_object.main_layer.pk %}
   <div class="layer-control">
 
-    <div class="control-box">
-      <div class="checkbox">
-        <input type="checkbox" class="" name="switch-layer"
-                id="WMS{{ wms.pk }}">
-        <label class="checkbox-label" for="WMS{{ wms.pk }}">
-                {{ wms.title }}</label>
-      </div>
-      {% if wms.ogc_legend %}
-      <div class="item-legend" onclick="showHide('WMS{{ wms.pk }}legend')">
-        <div class="tooltip">
-          <i class="fas fa-book"></i>
-          <span class="tooltiptext">{% translate "Legenda" %}</span>
+    <div class="row control-box">
+
+      <div class="col-7 text-end checkbox">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="WMS{{ wms.pk }}">
+          <label class="form-check-label" for="WMS{{ wms.pk }}">{{ wms.title }}</label>
         </div>
       </div>
-      {% endif %}
-      <div class="item-controls" onclick="showHide('WMS{{ wms.pk }}controls')">
-      <!-- <div class="item-controls"> -->
-        <div class="tooltip">
-          <i class="fas fa-cogs"></i>
-          <span class="tooltiptext">{% translate "Controlli" %}</span>
-        </div>
+
+      <div class="col-2 text-end">
+{% if wms.ogc_legend %}
+        <a class="item-legend" data-bs-toggle="collapse" href="#WMS{{ wms.pk }}legend"
+            role="button" aria-expanded="false" aria-controls="WMS{{ wms.pk }}legend"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Legenda" %}">
+            <i class="fas fa-book"></i>
+        </a>
+{% endif %}
       </div>
+
+      <div class="col-2 text-end">
+        <a class="item-controls" data-bs-toggle="collapse" href="#WMS{{ wms.pk }}controls"
+            role="button" aria-expanded="false" aria-controls="WMS{{ wms.pk }}controls"
+            data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% translate "Controlli" %}">
+            <i class="fas fa-cogs"></i>
+        </a>
+      </div>
+
     </div>
 
-    <div class="controls-container" id="WMS{{ wms.pk }}controls" hidden>
+    <div class="collapse" id="WMS{{ wms.pk }}controls">
       <div class="slider-container">
-        <div class="slider">
-          <input class="slider-object" id="WMS{{ wms.pk }}slider"
-                  type="range" min="0" max="100" value="80" />
-        </div>
-        <p class="text-control">{% translate "Trasparenza" %}: <span id="OUTPUT{{ wms.pk }}"></span> %</p>
+        <input type="range" class="form-range"
+                min="0" max="100" value="100" id="WMS{{ wms.pk }}slider">
+        <label class="">{% translate "Trasparenza" %}: <span id="OUTPUT{{ wms.pk }}"></span> %</label>
       </div>
       <div class="counter-container">
         <div class="counter" id="">
@@ -48,17 +51,16 @@
                   placeholder="{% if wms.set_index %}{{ wms.set_index }}{% else %}1{% endif %}"
                   value="{% if wms.set_index %}{{ wms.set_index }}{% else %}1{% endif %}">
         </div>
-        <p class="text-control">z-Index</p>
+        <label class="">z-Index</label>
       </div>
     </div>
-
     {% if wms.ogc_legend %}
-    <div class="legend" id="WMS{{ wms.pk }}legend" hidden>
+    <div class="collapse" id="WMS{{ wms.pk }}legend">
       <div id="legend{{ wms.pk }}"></div>
     </div>
     {% endif %}
 
-    <table id="onclickinfo{{ wms.pk }}"></table>
+    <table class="table table-striped" id="onclickinfo{{ wms.pk }}"></table>
 
   </div>
   {% endif %}
