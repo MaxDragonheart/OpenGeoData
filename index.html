@@ -126,7 +126,14 @@ If you want, use <a href="https://github.com/MaxDragonheart/docker-geoserver">th
 <h2 id="building-the-image">Building the image<a class="headerlink" href="#building-the-image" title="Permanent link">#</a></h2>
 <ol>
 <li>Clone the repository: <code>git clone git@github.com:MaxDragonheart/OpenGeoData.git</code></li>
-<li>Edit the <a href="https://github.com/MaxDragonheart/OpenGeoData/blob/main/.env">env</a> file with your own settings.</li>
+<li>Edit the <a href="https://github.com/MaxDragonheart/OpenGeoData/blob/main/.env">env</a> file with your own settings. To generate the Secret Key you can use:</li>
+</ol>
+<pre><code class="language-markdown">python3 -c &quot;import secrets; print(secrets.token_urlsafe(40))&quot;
+</code></pre>
+<p>or</p>
+<pre><code class="language-markdown">openssl rand -base64 32
+</code></pre>
+<ol>
 <li>
 <p>Build the image:</p>
 <p>-&gt; Staging <code>docker-compose -f docker-compose-dev.yml up -d --build</code></p>
@@ -191,5 +198,5 @@ If you want, use <a href="https://github.com/MaxDragonheart/docker-geoserver">th
 
 <!--
 MkDocs version : 1.3.0
-Build Date UTC : 2022-05-17 19:09:49.794483+00:00
+Build Date UTC : 2022-05-18 14:27:23.634439+00:00
 -->
