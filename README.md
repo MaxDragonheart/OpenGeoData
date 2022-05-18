@@ -16,7 +16,14 @@ If you want, use [this Geoserver](https://github.com/MaxDragonheart/docker-geose
 
 ## Building the image
 1. Clone the repository: ```git clone git@github.com:MaxDragonheart/OpenGeoData.git```
-2. Edit the [env](.env) file with your own settings.
+2. Edit the [env](.env) file with your own settings. To generate the Secret Key you can use:
+```markdown
+python3 -c "import secrets; print(secrets.token_urlsafe(40))"
+```
+   or
+```markdown
+openssl rand -base64 32
+```
 3. Build the image:
 
     -> Staging ```docker-compose -f docker-compose-dev.yml up -d --build```
