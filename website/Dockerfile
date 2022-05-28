@@ -2,7 +2,7 @@
 ARG PROJECT_NAME=test_dev
 
 # Official Ubuntu Image as Layer
-FROM gisconsultant/ulgis as gis-os
+FROM maxdragonheart/ulgis:latest as gis-os
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 

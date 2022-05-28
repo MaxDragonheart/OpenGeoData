@@ -141,3 +141,4 @@ website/poetry.lock
 /website/media-folder/gis-data/
 /site/
 /website/website/fixtures/
+/test_data/
