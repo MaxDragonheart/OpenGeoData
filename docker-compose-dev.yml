@@ -9,13 +9,13 @@ services:
       GS_HTTP_PORT: ${GS_HTTP_PORT}
       GS_INITIAL_MEMORY: ${GS_INITIAL_MEMORY}
       GS_MAXIMUM_MEMORY: ${GS_MAXIMUM_MEMORY}
-    container_name: geoserver
+    container_name: dev_geoserver
     restart: always
     ports:
       - ${GS_HTTP_PORT}:8080
-    volumes:
-      - tomcat:/opt/tomcat
-      - geoserver:/opt/tomcat/webapps/geoserver
+#    volumes:
+#      - tomcat:/opt/tomcat
+#      - geoserver:/opt/tomcat/webapps/geoserver
 
   db:
     image: postgis/postgis
@@ -25,8 +25,8 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
     container_name: dev_db_postgis
-    volumes:
-      - db-data:/var/lib/postgresql/data
+#    volumes:
+#      - db-data:/var/lib/postgresql/data
 
   website:
     image: maxdragonheart/${PROJECT_NAME}
@@ -60,21 +60,21 @@ services:
     restart: always
     ports:
       - ${PROJECT_PORT}:${PROJECT_PORT}
-    volumes:
-      #- website-code:/app/web/website
-      - website-static-folder:/app/web/static-folder
-      - website-media-folder:/app/web/media-folder
-      - website-logs:/app/web/logs
+#    volumes:
+#      #- website-code:/app/web/website
+#      - website-static-folder:/app/web/static-folder
+#      - website-media-folder:/app/web/media-folder
+#      - website-logs:/app/web/logs
     depends_on:
       - geoserver
       - db
 
 
-volumes:
-  tomcat:
-  geoserver:
-  db-data:
-  #website-code:
-  website-static-folder:
-  website-media-folder:
-  website-logs:
+#volumes:
+#  tomcat:
+#  geoserver:
+#  db-data:
+#  #website-code:
+#  website-static-folder:
+#  website-media-folder:
+#  website-logs:
