@@ -16,6 +16,8 @@ services:
     volumes:
       - tomcat:/opt/tomcat
       - geoserver:/opt/tomcat/webapps/geoserver
+    networks:
+      - opengeodataproject
 
   db:
     image: postgis/postgis
@@ -27,6 +29,8 @@ services:
     container_name: dev_db_postgis
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - opengeodataproject
 
   website:
     image: maxdragonheart/${PROJECT_NAME}
@@ -68,7 +72,8 @@ services:
     depends_on:
       - geoserver
       - db
-
+    networks:
+      - opengeodataproject
 
 volumes:
   tomcat:
@@ -78,3 +83,7 @@ volumes:
   website-static-folder:
   website-media-folder:
   website-logs:
+
+networks:
+  opengeodataproject:
+    driver: bridge
