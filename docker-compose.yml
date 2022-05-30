@@ -1,6 +1,24 @@
 version: '3.7'
 
 services:
+  geoserver:
+    image: maxdragonheart/geoserver:latest
+    environment:
+      GS_VERSION: ${GS_VERSION}
+      GS_DEMO_DATA: ${GS_DEMO_DATA}
+      GS_HTTP_PORT: ${GS_HTTP_PORT}
+      GS_INITIAL_MEMORY: ${GS_INITIAL_MEMORY}
+      GS_MAXIMUM_MEMORY: ${GS_MAXIMUM_MEMORY}
+    container_name: dev_geoserver
+    restart: always
+    ports:
+      - ${GS_HTTP_PORT}:8080
+    volumes:
+      - tomcat:/opt/tomcat
+      - geoserver:/opt/tomcat/webapps/geoserver
+    networks:
+      - opengeodataproject
+
   db:
     image: postgis/postgis
     restart: always
@@ -11,6 +29,8 @@ services:
     container_name: db_postgis
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - opengeodataproject
 
   website:
     image: maxdragonheart/${PROJECT_NAME}
@@ -49,11 +69,17 @@ services:
       - website-media-folder:/app/web/media-folder
       - website-logs:/app/web/logs
     depends_on:
+      - geoserver
       - db
-
+    networks:
+      - opengeodataproject
 
 volumes:
   db-data:
   website-static-folder:
   website-media-folder:
   website-logs:
+
+networks:
+  opengeodataproject:
+    driver: bridge
