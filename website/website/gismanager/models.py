@@ -41,7 +41,8 @@ class GeoServerURL(TimeManager):
         WMS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wms'
         WFS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wfs'
     """
-    geoserver_domain = models.URLField(unique=True)
+    #geoserver_domain = models.URLField(unique=True)
+    geoserver_domain = models.CharField(max_length=10000, unique=True)
     geoserver_workspace = models.CharField(max_length=100)
 
     def __str__(self):
