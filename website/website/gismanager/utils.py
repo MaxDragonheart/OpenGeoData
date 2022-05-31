@@ -1,16 +1,22 @@
-import datetime
+from django.conf import settings
+
 import pathlib
 import geopandas as gpd
 
 from pathlib import Path
 from typing import Union
 
-from fsspec import get_fs_token_paths
 from owslib.wms import WebMapService
 from shapely.geometry import Polygon
 
 
 WMS_THUMBNAILS = Path('gis-data/wms-thumbnails')
+LOCAL_DOMAINS = [
+    f"127.0.0.1:{settings.GS_HTTP_PORT}",
+    f"127.0.0.1:{settings.GS_HTTP_PORT}",
+    f"localhost:{settings.GS_HTTP_PORT}",
+    f"localhost:{settings.GS_HTTP_PORT}",
+]
 
 
 def get_centroid_coords(bbox: tuple) -> tuple:
@@ -54,6 +60,23 @@ def get_wms_bbox(
     bbox = wms[layer_name].boundingBoxWGS84
 
     return bbox
+
+
+def set_geoserver_origin(input_url: str) -> str:
+    """
+    Check url of Geoserver services. If Geoserver
+    is activated from docker-compose, he must share the same
+    network of OpenGeoData. [ref](https://stackoverflow.com/questions/72434631/connection-refused-between-two-containers#comment127961219_72434631)
+    """
+    domain = input_url.split("/")[2]
+
+    if domain in LOCAL_DOMAINS:
+        domain_list = input_url.split("/")
+        url = f"{domain_list[0]}//geoserver:8080/{domain_list[3]}/{domain_list[4]}/{domain_list[5]}"
+    else:
+        url = input_url
+
+    return url
 
 
 def get_wms_thumbnail(

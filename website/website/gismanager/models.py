@@ -9,7 +9,7 @@ from abstracts.models import TimeManager, BaseModelPost, ModelPost
 from base.models import SharedCategories
 from fsspec import get_fs_token_paths
 
-from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS
+from .utils import get_wms_bbox, get_centroid_coords, get_wms_thumbnail, WMS_THUMBNAILS, set_geoserver_origin
 
 
 class OpenLayersMapParameters(models.Model):
@@ -64,7 +64,7 @@ class GeoserverWorkspace(TimeManager):
         WFS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wfs'
     """
     geoserver_domain = models.ForeignKey(GeoServerURL, related_name="related_geoserver_domain", on_delete=models.PROTECT, blank=True, null=True)
-    geoserver_workspace = models.CharField(max_length=100, unique=True)
+    geoserver_workspace = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.geoserver_domain.geoserver_domain}/geoserver/{self.geoserver_workspace}/"
@@ -118,9 +118,12 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
         fs, fs_token, paths = get_fs_token_paths(destination_folder)
         fs.mkdirs(path=destination_folder, exist_ok=True)
 
+        # Define Geoserver source
+        geoserver_domain = set_geoserver_origin(self.ogc_layer_path.complete_url_wms)
+
         # Get thumbnail from WMS
         img_path = get_wms_thumbnail(
-            wms_url=self.ogc_layer_path.complete_url_wms,
+            wms_url=geoserver_domain,
             service_version="1.3.0",
             layer_name=self.ogc_layer_name,
             output_data_folder=destination_folder,
