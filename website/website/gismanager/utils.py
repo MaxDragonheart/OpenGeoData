@@ -69,13 +69,24 @@ def set_geoserver_origin(input_url: str) -> str:
     network of OpenGeoData. [ref](https://stackoverflow.com/questions/72434631/connection-refused-between-two-containers#comment127961219_72434631)
     """
     domain = input_url.split("/")[2]
+    print("@@@@@@@@@@@@@input_url")
+    print("@@@@@@@@@@@@@input_url")
+    print("@@@@@@@@@@@@@input_url")
+    print(input_url)
+    print("#############LOCAL_DOMAINS")
+    print("#############LOCAL_DOMAINS")
+    print("#############LOCAL_DOMAINS")
+    print(LOCAL_DOMAINS)
 
     if domain in LOCAL_DOMAINS:
         domain_list = input_url.split("/")
         url = f"{domain_list[0]}//geoserver:8080/{domain_list[3]}/{domain_list[4]}/{domain_list[5]}"
     else:
         url = input_url
-
+    print("#############url")
+    print("#############url")
+    print("#############url")
+    print(url)
     return url
 
 

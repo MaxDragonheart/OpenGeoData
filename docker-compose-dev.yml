@@ -20,13 +20,15 @@ services:
       - opengeodataproject
 
   db:
-    image: postgis/postgis
+    image: postgis/postgis:14-master
     restart: always
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_DB: ${DB_NAME}
     container_name: dev_db_postgis
+    ports:
+      - ${DB_PORT_EXTERNAL}:${DB_PORT}
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
