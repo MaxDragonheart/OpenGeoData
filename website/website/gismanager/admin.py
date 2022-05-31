@@ -1,14 +1,22 @@
 from django.contrib import admin
 
-from .models import GeoServerURL, OGCLayer, BasemapProvider, Basemap, WebGISProject
+from .models import GeoServerURL, GeoserverWorkspace, OGCLayer, BasemapProvider, Basemap, WebGISProject
 
 
 class GeoServerURLAdmin(admin.ModelAdmin):
-    list_display = ["geoserver_domain", "geoserver_workspace", "publishing_date", "complete_url_wms", "complete_url_wfs"]
-    search_fields = ["geoserver_domain", "geoserver_workspace"]
+    list_display = ["geoserver_domain", "publishing_date"]
+    search_fields = ["geoserver_domain"]
 
     class Meta:
         model = GeoServerURL
+
+
+class GeoserverWorkspaceAdmin(admin.ModelAdmin):
+    list_display = ["geoserver_domain", "geoserver_workspace", "publishing_date", "complete_url_wms", "complete_url_wfs"]
+    # search_fields = ["geoserver_domain", "geoserver_workspace"]
+
+    class Meta:
+        model = GeoserverWorkspace
 
 
 class OGCLayerAdmin(admin.ModelAdmin):
@@ -73,6 +81,7 @@ class BasemapAdmin(admin.ModelAdmin):
 
 
 admin.site.register(GeoServerURL, GeoServerURLAdmin)
+admin.site.register(GeoserverWorkspace, GeoserverWorkspaceAdmin)
 admin.site.register(OGCLayer, OGCLayerAdmin)
 admin.site.register(WebGISProject, WebGISProjectAdmin)
 # admin.site.register(BasemapProvider, BasemapProviderAdmin)

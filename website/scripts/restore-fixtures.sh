@@ -22,6 +22,7 @@ python3 ./website/manage.py loaddata ./website/fixtures/base/organogram.json
 # GisManager
 echo "- restore data for GisManager"
 python3 ./website/manage.py loaddata ./website/fixtures/gismanager/geoserverurl.json
+python3 ./website/manage.py loaddata ./website/fixtures/gismanager/geoserverworkspace.json
 python3 ./website/manage.py loaddata ./website/fixtures/gismanager/ogclayer.json
 python3 ./website/manage.py loaddata ./website/fixtures/gismanager/basemapprovider.json
 python3 ./website/manage.py loaddata ./website/fixtures/gismanager/basemap.json

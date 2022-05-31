@@ -23,6 +23,7 @@ poetry run python3 ../website/manage.py loaddata ../website/fixtures/base/organo
 # GisManager
 echo "- restore data for GisManager"
 poetry run python3 ../website/manage.py loaddata ../website/fixtures/gismanager/geoserverurl.json
+poetry run python3 ../website/manage.py loaddata ../website/fixtures/gismanager/geoserverworkspace.json
 poetry run python3 ../website/manage.py loaddata ../website/fixtures/gismanager/ogclayer.json
 poetry run python3 ../website/manage.py loaddata ../website/fixtures/gismanager/basemapprovider.json
 poetry run python3 ../website/manage.py loaddata ../website/fixtures/gismanager/basemap.json

@@ -41,25 +41,46 @@ class GeoServerURL(TimeManager):
         WMS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wms'
         WFS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wfs'
     """
-    #geoserver_domain = models.URLField(unique=True)
     geoserver_domain = models.CharField(max_length=10000, unique=True)
-    geoserver_workspace = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.geoserver_domain}/geoserver/{self.geoserver_workspace}/"
+        return self.geoserver_domain
+
+    class Meta:
+        ordering = ['geoserver_domain']
+        verbose_name = "Geoserver domain"
+        verbose_name_plural = "Geoserver domains"
+
+
+class GeoserverWorkspace(TimeManager):
+    """
+    GeoserverWorkspace Model inherits TimeManager, it is useful to
+    create a Geoserver url object.
+    e.g.:
+        geoserver_workspace='MyWorkSpace'
+
+        Geoserver URL: 'www.mygeoserver.me/geoserver/MyWorkSpace'
+        WMS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wms'
+        WFS: 'www.mygeoserver.me/geoserver/MyWorkSpace/wfs'
+    """
+    geoserver_domain = models.ForeignKey(GeoServerURL, related_name="related_geoserver_domain", on_delete=models.PROTECT, blank=True, null=True)
+    geoserver_workspace = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return f"{self.geoserver_domain.geoserver_domain}/geoserver/{self.geoserver_workspace}/"
 
     @property
     def complete_url_wms(self):
-        return f"{self.geoserver_domain}/geoserver/{self.geoserver_workspace}/wms"
+        return f"{self.geoserver_domain.geoserver_domain}/geoserver/{self.geoserver_workspace}/wms"
 
     @property
     def complete_url_wfs(self):
         return f"{self.geoserver_domain}/geoserver/{self.geoserver_workspace}/wfs"
 
     class Meta:
-        ordering = ['-publishing_date']
-        verbose_name = "Geoserver url"
-        verbose_name_plural = "Geoserver urls"
+        ordering = ['geoserver_workspace']
+        verbose_name = "Geoserver workspace"
+        verbose_name_plural = "Geoserver workspaces"
 
 
 class OGCLayer(BaseModelPost, OpenLayersMapParameters):
@@ -69,7 +90,7 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
     """
     set_zindex = models.IntegerField(default=1)
     set_opacity = models.DecimalField(max_digits=3, decimal_places=2, default=1.0)
-    ogc_layer_path = models.ForeignKey(GeoServerURL, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
+    ogc_layer_path = models.ForeignKey(GeoserverWorkspace, related_name="related_geoserver_url", on_delete=models.PROTECT, blank=True, null=True)
     ogc_layer_name = models.CharField(max_length=100)
     ogc_layer_style = models.CharField(max_length=100, blank=True, null=True)
     ogc_bbox = models.CharField(max_length=250, blank=True, null=True)

@@ -17,6 +17,7 @@ python3 ./website/manage.py dumpdata base.organogram --indent 2 > ./website/fixt
 # GisManager
 echo "- make fixtures for GisManager"
 python3 ./website/manage.py dumpdata gismanager.geoserverurl --indent 2 > ./website/fixtures/gismanager/geoserverurl.json
+python3 ./website/manage.py dumpdata gismanager.geoserverworkspace --indent 2 > ./website/fixtures/gismanager/geoserverworkspace.json
 python3 ./website/manage.py dumpdata gismanager.ogclayer --indent 2 > ./website/fixtures/gismanager/ogclayer.json
 python3 ./website/manage.py dumpdata gismanager.basemapprovider --indent 2 > ./website/fixtures/gismanager/basemapprovider.json
 python3 ./website/manage.py dumpdata gismanager.basemap --indent 2 > ./website/fixtures/gismanager/basemap.json

@@ -19,6 +19,7 @@ poetry run python3 ../website/manage.py dumpdata base.organogram --indent 2 > ..
 # GisManager
 echo "- make fixtures for GisManager"
 poetry run python3 ../website/manage.py dumpdata gismanager.geoserverurl --indent 2 > ../website/fixtures/gismanager/geoserverurl.json
+poetry run python3 ../website/manage.py dumpdata gismanager.geoserverworkspace --indent 2 > ../website/fixtures/gismanager/geoserverworkspace.json
 poetry run python3 ../website/manage.py dumpdata gismanager.ogclayer --indent 2 > ../website/fixtures/gismanager/ogclayer.json
 poetry run python3 ../website/manage.py dumpdata gismanager.basemapprovider --indent 2 > ../website/fixtures/gismanager/basemapprovider.json
 poetry run python3 ../website/manage.py dumpdata gismanager.basemap --indent 2 > ../website/fixtures/gismanager/basemap.json
