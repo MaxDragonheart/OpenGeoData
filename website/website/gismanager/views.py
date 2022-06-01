@@ -74,11 +74,20 @@ def single_wms(request, slug):
     Returns:
         JSON
     """
+
+    """
+    Logica da implementare
+    if OGCLayer.ogc_layer_path == http://geoserver:8080:
+            OGCLayer.ogc_layer_path = protocol | domain (es. http:127.0.0.1)
+    """
+
     object = get_object_or_404(OGCLayer, slug=slug)
 
     context = {
         "single_object": object,
     }
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@context")
+    print(context)
     template = "wms/single_wms.html"
     return render(request, template, context)
 

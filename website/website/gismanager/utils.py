@@ -61,7 +61,7 @@ def get_wms_bbox(
 
     return bbox
 
-
+# TODO this function doesn't run inside a container
 def set_geoserver_origin(input_url: str) -> str:
     """
     Check url of Geoserver services. If Geoserver

@@ -118,12 +118,12 @@ class OGCLayer(BaseModelPost, OpenLayersMapParameters):
         fs, fs_token, paths = get_fs_token_paths(destination_folder)
         fs.mkdirs(path=destination_folder, exist_ok=True)
 
-        # Define Geoserver source
-        geoserver_domain = set_geoserver_origin(self.ogc_layer_path.complete_url_wms)
+        ## Define Geoserver source
+        # geoserver_domain = set_geoserver_origin(self.ogc_layer_path.complete_url_wms)
 
         # Get thumbnail from WMS
         img_path = get_wms_thumbnail(
-            wms_url=geoserver_domain,
+            wms_url=self.ogc_layer_path.complete_url_wms,
             service_version="1.3.0",
             layer_name=self.ogc_layer_name,
             output_data_folder=destination_folder,
