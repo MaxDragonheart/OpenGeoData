@@ -7,6 +7,8 @@
 # OpenGeoData
 OpenSource project focused on sharing of geographic data to citizens and technicians.
 
+**ARCHIVIED** in favour of [Ufficio Urbanistica](https://github.com/MaxDragonheart/UfficioUrbanistica) on 29 september 2022. 
+
 <img src="docs/img/logo.png" alt="OpenGeoData logo" style="width:150px; height:auto;"/>
 
 ## About OpenGeoData
