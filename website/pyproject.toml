@@ -8,7 +8,7 @@ license = "GPL-3.0"
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "^4.0.2"
-django-environ = "^0.8.1"
+django-environ = "^0.10.0"
 psycopg2-binary = "^2.9.3"
 django-cors-headers = "^3.11.0"
 beautifulsoup4 = "^4.10.0"
